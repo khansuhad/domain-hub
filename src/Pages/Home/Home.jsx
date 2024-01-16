@@ -8,7 +8,7 @@ import Tutorial from "./Tutorial/Tutorial";
 
 const Home = () => {
     return (
-        <div>
+        <div className="bg-white text-green-600 dark:text-yellow-500 dark:bg-red-500">
             <Banner/>
             <BestHostingPlan/>
             <FAQ/>

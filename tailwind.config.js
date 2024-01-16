@@ -7,10 +7,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        "firstColor": "#DDF2FD",
-        "secondColor": "#9BBEC8",
-        "thirdColor": "#427D9D",
-        "fourthColor": "#164863",
+        "firstColor": "#DDF2FD",  // background color
+        "secondColor": "#9BBEC8", // nav + footer color
+        "thirdColor": "#427D9D",  // button normal color
+        "fourthColor": "#164863", // button hover color
        
       }
     },

@@ -22,7 +22,7 @@ const Login = () => {
     console.log(email, password);
   };
   return (
-    <div className="flex justify-evenly items-center min-h-screen bg-[#DCF2F1] p-5 gap-5">
+    <div className="flex justify-evenly items-center min-h-screen bg-firstColor p-5 gap-5">
       <img src={img} alt="" className="hidden lg:block max-w-lg"/>
       <div className="card shrink-0 w-full max-w-lg shadow-2xl card-body rounded border-[#0F1035] border-2">
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center">

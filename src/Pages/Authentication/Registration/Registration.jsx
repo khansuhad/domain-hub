@@ -26,24 +26,23 @@ const Registration = () => {
     console.log(name, photo, email, password);
   };
   return (
-    <div className="flex justify-evenly items-center min-h-screen bg-[#DCF2F1] p-5 gap-5">
+    <div className="flex justify-evenly items-center min-h-screen bg-firstColor text-[#191919] dark:bg-[#191919] dark:text-[#F5F7F8] p-5 gap-5">
     <img src={img} alt="" className="hidden lg:block max-w-lg"/>
-      <div className="card shrink-0 w-full max-w-lg shadow-2xl border-[#0F1035] border-2 card-body rounded ">
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center">
+      <div className="card shrink-0 w-full max-w-lg shadow-2xl card-body rounded border-[#191919] dark:border-[#F5F7F8] border-2 ">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-5">
           Registration!
         </h1>
-        <SocialLogin />
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="form-control">
             <label className="label">
-              <span className="label-text text-lg">Name</span>
+              <span className="label-text text-lg text-[#191919] dark:text-[#F5F7F8]">Name</span>
             </label>
             <input
               {...register("name", {
                 required: "Name is required",
               })}
               placeholder="Name"
-              className="input input-bordered"
+              className="input input-bordered text-[#191919] bg-[#F5F7F8] dark:border-[#F5F7F8] dark:text-[#F5F7F8] dark:bg-[#191919] "
             />
             {errors.name?.message && (
               <p className="text-xs text-red-600 mt-1">
@@ -53,13 +52,13 @@ const Registration = () => {
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text text-lg">Image</span>
+              <span className="label-text text-lg text-[#191919] dark:text-[#F5F7F8]">Image</span>
             </label>
             <input
               {...register("photo", { required: "Photo is required" })}
               placeholder="Photo "
               type="file"
-              className="input input-bordered pt-2"
+              className="input input-bordered text-[#191919] bg-[#F5F7F8] dark:border-[#F5F7F8] dark:text-[#F5F7F8] dark:bg-[#191919]  pt-2"
             />
             {errors.photo?.message && (
               <p className="text-xs text-red-600 mt-1">
@@ -69,7 +68,7 @@ const Registration = () => {
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text text-lg">Email</span>
+              <span className="label-text text-lg text-[#191919] dark:text-[#F5F7F8]">Email</span>
             </label>
             <input
               {...register("email", {
@@ -80,7 +79,7 @@ const Registration = () => {
                 },
               })}
               placeholder="email"
-              className="input input-bordered"
+              className="input input-bordered text-[#191919] bg-[#F5F7F8] dark:border-[#F5F7F8] dark:text-[#F5F7F8] dark:bg-[#191919] "
             />
             {errors.email?.message && (
               <p className="text-xs text-red-600 mt-1">
@@ -90,7 +89,7 @@ const Registration = () => {
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text text-lg">Password</span>
+              <span className="label-text text-lg text-[#191919] dark:text-[#F5F7F8]">Password</span>
             </label>
             <div className="relative">
               <input
@@ -104,11 +103,11 @@ const Registration = () => {
                 })}
                 type={showPassword ? "text" : "password"}
                 placeholder="password"
-                className="input input-bordered w-full pr-10"
+                className="input input-bordered text-[#191919] bg-[#F5F7F8] dark:border-[#F5F7F8] dark:text-[#F5F7F8] dark:bg-[#191919]  w-full pr-10"
               />
               <span
                 onClick={() => isShowPassword(!showPassword)}
-                className="text-3xl text-[#0F1035] cursor-pointer absolute -ml-9 mt-[9px]"
+                className="text-3xl text-[#0F1035] dark:text-[#F5F7F8] cursor-pointer absolute -ml-9 mt-[9px]"
               >
                 {showPassword ? <AiFillEyeInvisible /> : <AiFillEye />}
               </span>
@@ -121,18 +120,19 @@ const Registration = () => {
           </div>
           <div className="form-control mt-6">
             <button
-              className="btn bg-[#0F1035] hover:bg-[#365486] text-white border-0"
+              className="btn bg-thirdColor hover:bg-fourthColor text-white border-0"
               type="submit"
             >
               Registration
             </button>
           </div>
         </form>
+        <SocialLogin />
         <p className="text-xs text-center mt-6">
           Already have account? Please{" "}
           <Link
             to={"/login"}
-            className="underline cursor-pointer font-bold text-[#0F1035]"
+            className="underline cursor-pointer font-bold text-[#191919] dark:text-[#F5F7F8]"
           >
             Login
           </Link>

@@ -14,6 +14,7 @@ const BestHostingPlan = () => {
                     <div data-aos="flip-left"
                         data-aos-easing="ease-out-cubic"
                         data-aos-duration="2000" className="relative flex w-full  md:max-w-[20rem] flex-col rounded-xl bg-gradient-to-tr from-teal-600 to-[#23668a] bg-clip-border p-8 text-white shadow-md shadow-gray-500">
+                            
                         <div className="relative pb-8 m-0 mb-8 overflow-hidden text-center text-gray-700 bg-transparent border-b rounded-none shadow-none border-white/10 bg-clip-border">
                             <p className="block font-sans text-sm antialiased font-normal leading-normal text-white uppercase">
                                 Basic DUO
@@ -23,6 +24,7 @@ const BestHostingPlan = () => {
                                 <span className="self-end text-xl">/1 month</span>
                             </h1>
                         </div>
+
                         <div className="p-0">
                             <ul className="flex flex-col gap-4">
                                 <li className="flex items-center gap-4">
@@ -153,7 +155,7 @@ const BestHostingPlan = () => {
                         data-aos-duration="2000" className="relative flex w-full md:max-w-[20rem] flex-col rounded-xl bg-gradient-to-tr from-teal-600 to-[#23668a] bg-clip-border p-8 text-white shadow-md shadow-gray-500">
                         <div className="relative pb-8 m-0 mb-8 overflow-hidden text-center text-gray-700 bg-transparent border-b rounded-none shadow-none border-white/10 bg-clip-border">
                             <p className="block font-sans text-sm antialiased font-normal leading-normal text-white uppercase">
-                                Premium Duo
+                                Comfort Duo
                             </p>
                             <h1 className="flex justify-center gap-1 mt-6 font-sans antialiased font-normal tracking-normal text-white text-7xl">
                                 <span className="mt-2 text-4xl">$</span>15
@@ -294,7 +296,7 @@ const BestHostingPlan = () => {
                         data-aos-duration="2000" className="relative flex w-full md:max-w-[20rem] flex-col rounded-xl bg-gradient-to-tr from-teal-600 to-[#23668a] bg-clip-border p-8 text-white shadow-md shadow-gray-500">
                         <div className="relative pb-8 m-0 mb-8 overflow-hidden text-center text-gray-700 bg-transparent border-b rounded-none shadow-none border-white/10 bg-clip-border">
                             <p className="block font-sans text-sm antialiased font-normal leading-normal text-white uppercase">
-                                Premium Family
+                                Premium Duo
                             </p>
                             <h1 className="flex justify-center gap-1 mt-6 font-sans antialiased font-normal tracking-normal text-white text-7xl">
                                 <span className="mt-2 text-4xl">$</span>20

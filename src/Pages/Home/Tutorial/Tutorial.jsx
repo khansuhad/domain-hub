@@ -5,9 +5,9 @@ import Container from "../../../Component/UI/Container";
 const Tutorial = () => {
   return (
     <Container>
-      <Heading>Tutorial</Heading>
+      <Heading> Appropriate Tutorial and Help</Heading>
 
-      <Description>description</Description>
+      <Description>A video will be added here when the app creation is complete. It will be explained how to buy a domain there.</Description>
     </Container>
   );
 };

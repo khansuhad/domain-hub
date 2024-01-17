@@ -9,7 +9,8 @@ import Tutorial from "./Tutorial/Tutorial";
 
 const Home = () => {
     return (
-        <div>
+        <div className="bg-firstColor dark:bg-[#191919]">
+       
             <Banner/>
             <BestHostingPlan/>
             <FAQ/>

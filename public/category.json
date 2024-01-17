@@ -1,0 +1,45 @@
+[
+    {
+      "id": 1,
+      "name": "Basic Email",
+      "category": "email",
+      "price": 5.99,
+      "discount": 0.10
+    },
+    {
+      "id": 2,
+      "name": "Pro Email",
+      "category": "email",
+      "price": 9.99,
+      "discount": 0.15
+    },
+    {
+      "id": 3,
+      "name": "Starter Domain",
+      "category": "domain",
+      "price": 12.99,
+      "discount": 0.20
+    },
+    {
+      "id": 4,
+      "name": "Premium Domain",
+      "category": "domain",
+      "price": 24.99,
+      "discount": 0.25
+    },
+    {
+      "id": 5,
+      "name": "Basic Hosting",
+      "category": "hosting",
+      "price": 29.99,
+      "discount": 0.15
+    },
+    {
+      "id": 6,
+      "name": "Pro Hosting",
+      "category": "hosting",
+      "price": 49.99,
+      "discount": 0.20
+    }
+  ]
+  

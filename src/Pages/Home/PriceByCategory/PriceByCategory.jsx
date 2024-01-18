@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import CategoryCards from "./CategoryCards";
 
 const PriceByCategory = ({ data }) => {
-    const [category, setCategory] = useState(null);
+    const [category, setCategory] = useState("domain");
     const [categoryData, setCategoryData] = useState([]);
 
     const handleTab = (selected) => {
@@ -13,7 +13,7 @@ const PriceByCategory = ({ data }) => {
     console.log("clicked category", category)
     useEffect(() => {
         // Filter data based on the selected category
-        const filteredData = data.filter((item) => item.category === category);
+        const filteredData = data?.filter((item) => item.category === category);
         setCategoryData(filteredData);
     }, [category, data]);
 
@@ -21,10 +21,11 @@ const PriceByCategory = ({ data }) => {
 
     return (
         <Container>
+           
             <Heading>Price by category</Heading>
             <div className="flex justify-center">
                 <button
-                    className={`w-[100px] p-2 text-center font-semibold rounded-l-lg ${category === "domain" ? "bg-fourthColor text-white" : "bg-firstColor text-fourthColor"
+                    className={`w-[100px] p-2 text-center font-semibold rounded-l-lg ${category === "domain" ? "bg-fourthColor text-white" : "bg-gray-300 text-fourthColor"
                         }`}
                     onClick={() => handleTab("domain")}
                 >
@@ -32,7 +33,7 @@ const PriceByCategory = ({ data }) => {
                 </button>
 
                 <button
-                    className={`w-[100px] p-2 text-center font-semibold ${category === "email" ? "bg-fourthColor text-white" : "bg-firstColor text-fourthColor"
+                    className={`w-[100px] p-2 text-center font-semibold ${category === "email" ? "bg-fourthColor text-white" : "bg-gray-300 text-fourthColor"
                         }`}
                     onClick={() => handleTab("email")}
                 >
@@ -40,18 +41,19 @@ const PriceByCategory = ({ data }) => {
                 </button>
 
                 <button
-                    className={`w-[100px] p-2 text-center font-semibold rounded-r-lg ${category === "hosting" ? "bg-fourthColor text-white" : "bg-firstColor text-fourthColor"
+                    className={`w-[100px] p-2 text-center font-semibold rounded-r-lg ${category === "hosting" ? "bg-fourthColor text-white" : "bg-gray-300 text-fourthColor"
                         }`}
                     onClick={() => handleTab("hosting")}
                 >
                     Hosting
                 </button>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 mt-10 gap-5 md:mx-10 mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-10 gap-5 md:mx-10 mx-auto">
                 {categoryData?.map((item) => (
                     <CategoryCards key={item.id} data={item}></CategoryCards>
                 ))}
             </div>
+        
         </Container>
     );
 };

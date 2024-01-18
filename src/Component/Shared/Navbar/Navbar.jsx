@@ -27,7 +27,7 @@ const Navbar = () => {
 
     return (
         <div>
-            <div className="navbar fixed z-20 bg-opacity-60 max-w-screen-xl  bg-black shadow-lg  text-white ">
+            <div className="navbar fixed z-20 bg-opacity-60  bg-black shadow-lg  text-white ">
                 <div className="navbar-start">
                     <div className="dropdown ">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden p-1">
@@ -38,8 +38,7 @@ const Navbar = () => {
                         </ul>
                     </div>
 
-                    <div  className="flex justify-between items-center gap-2 text-xl">  <img className="w-[40px] h-[40px] rounded-full" src="https://i.postimg.cc/90XySb7h/4091.jpg" alt="" /> <p>DomainHub</p></div>
-
+                    <div className="flex justify-between items-center gap-2 text-xl">  <img className="w-[40px] h-[40px] rounded-full" src="https://i.postimg.cc/90XySb7h/4091.jpg" alt="" /> <p>DomainHub</p></div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -47,23 +46,18 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-
-
-                <IoIosNotifications className="text-2xl" />
+                    {/* notification icon */}
+                    <IoIosNotifications className="text-2xl cursor-pointer" />
                     <Link to='/login'>
                         <button className="btn btn-sm  btn-ghost">Login</button>
                     </Link>
-
                     {/* sun and moon mode icon  */}
                     <div>
                         {
                             mode === "light" ? <LuMoonStar onClick={handleModeChange} size={22} className="cursor-pointer mr-2 lg:mr-0 dark:text-white" /> : <FiSun onClick={handleModeChange} size={22} className="cursor-pointer mr-2 lg:mr-0 dark:text-white" />
                         }
                     </div>
-                    
                 </div>
-
-
             </div>
 
         </div>

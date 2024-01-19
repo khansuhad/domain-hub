@@ -28,24 +28,26 @@ const WhyDomainHub = () => {
                     </div>
 
                     <div className="">
-                        <div className=" space-y-10">
-                            <p className="text-gray-600 lg:text-xl leading-relaxed mx-auto ">
+                        <div className=" space-y-10 ">
+                            <p className="text-gray-600 dark:text-white lg:text-xl leading-relaxed mx-auto ">
                                 1.Discover premium domains with ease on DomainHub.
                             </p>
-                            <p className="text-gray-600 lg:text-xl leading-relaxed mx-auto ">
+                            <p className="text-gray-600 dark:text-white lg:text-xl leading-relaxed mx-auto ">
                                 2.Our user-friendly platform simplifies the buying and selling process.
                             </p>
-                            <p className="text-gray-600 lg:text-xl leading-relaxed mx-auto ">
+                            <p className="text-gray-600 dark:text-white lg:text-xl leading-relaxed mx-auto ">
                                 3. providing a secure and transparent experience.
                             </p>
-                            <p className="text-gray-600 lg:text-xl leading-relaxed mx-auto">
+                            <p className="text-gray-600 dark:text-white lg:text-xl leading-relaxed mx-auto">
                                 4.Benefit from expert guidance, a diverse domain portfolio, and a global community.
                             </p>
 
                         </div>
                     </div>
                 </div>
-                <h1 className="text-2xl border border-yellow-500 rounded-full bg-yellow-500 w-[800px] mx-auto p-2"> Join us and unlock the potential of your online presence today.</h1>
+
+                <h1 className="lg:text-2xl text-sm border mt-10 border-yellow-500 rounded-full bg-yellow-500 lg:w-[800px]  mx-auto p-2"> Join us and unlock the potential of your online presence today.</h1>
+
             </section>
 
 

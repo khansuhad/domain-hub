@@ -4,6 +4,7 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Authentication/Login/Login";
 import Registration from "../Pages/Authentication/Registration/Registration";
+import About from "../Pages/About/About";
 
 const Router = createBrowserRouter([
   {
@@ -17,6 +18,11 @@ const Router = createBrowserRouter([
         loader: ()=> fetch("/category.json")
       },
       // other routes
+      {
+        path:"/about",
+        element:<About/>
+      }
+    
     ],
   },
   {

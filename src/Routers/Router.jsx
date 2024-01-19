@@ -4,6 +4,8 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Authentication/Login/Login";
 import Registration from "../Pages/Authentication/Registration/Registration";
+import About from "../Pages/About/About";
+import Contact from "../Pages/ContactPage/Contact";
 
 const Router = createBrowserRouter([
   {
@@ -16,7 +18,17 @@ const Router = createBrowserRouter([
         element: <Home />,
         loader: ()=> fetch("/category.json")
       },
+      {
+        path:"/contact",
+        element: <Contact></Contact>
+    
+      },
       // other routes
+      {
+        path:"/about",
+        element:<About/>
+      }
+    
     ],
   },
   {
@@ -27,6 +39,7 @@ const Router = createBrowserRouter([
     path: "/registration",
     element: <Registration />,
   },
+ 
   // dashboard Routes
 ]);
 

@@ -6,11 +6,11 @@
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- Aso animation -->
-  <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet" />
   <title>Domain-hosting</title>
 </head>
 
-<body class="bg-firstColor dark:bg-[#191919]">
+<body class="bg-firstColor dark:bg-[#191919] font-poppins">
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
   <!-- Aso animation -->
@@ -18,5 +18,15 @@
   <script>
     AOS.init();
   </script>
+  <!-- Email.js script -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+  </script>
+  <script type="text/javascript">
+    (function () {
+      emailjs.init("LTu1g8i9IIhfTU9qv");
+    })();
+  </script>
+
 </body>
 
+</html>

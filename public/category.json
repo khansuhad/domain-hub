@@ -40,6 +40,20 @@
       "category": "hosting",
       "price": 49.99,
       "discount": 0.20
+    },
+    {
+      "id": 7,
+      "name": "Starter Domain",
+      "category": "domain",
+      "price": 12.99,
+      "discount": 0.20
+    },
+    {
+      "id": 8,
+      "name": "Premium Domain",
+      "category": "domain",
+      "price": 24.99,
+      "discount": 0.25
     }
   ]
   

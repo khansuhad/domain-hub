@@ -10,10 +10,10 @@ const BestHostingPlan = () => {
                 <Heading>Chose The Best Hosting Plan</Heading>
                 <Description>Choose from our best hosting plans to unlock the full potential of your online presence. <br />Elevate your website with our premium hosting plans crafted for excellence.</Description>
 
-                <div className="p-2 mt-10 gap-2 flex flex-col md:flex-row justify-between">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-6 px-[10%]">
                     <div data-aos="flip-left"
                         data-aos-easing="ease-out-cubic"
-                        data-aos-duration="2000" className="relative flex w-full  md:max-w-[20rem] flex-col rounded-xl bg-gradient-to-tr from-teal-600 to-[#23668a] bg-clip-border p-8 text-white shadow-md shadow-gray-500">
+                        data-aos-duration="2000" className="relative flex w-full flex-col rounded-xl bg-gradient-to-tr from-teal-600 to-[#23668a] bg-clip-border p-8 text-white shadow-md shadow-gray-500">
                             
                         <div className="relative pb-8 m-0 mb-8 overflow-hidden text-center text-gray-700 bg-transparent border-b rounded-none shadow-none border-white/10 bg-clip-border">
                             <p className="block font-sans text-sm antialiased font-normal leading-normal text-white uppercase">
@@ -152,7 +152,7 @@ const BestHostingPlan = () => {
 
                     <div data-aos="flip-left"
                         data-aos-easing="ease-out-cubic"
-                        data-aos-duration="2000" className="relative flex w-full md:max-w-[20rem] flex-col rounded-xl bg-gradient-to-tr from-teal-600 to-[#23668a] bg-clip-border p-8 text-white shadow-md shadow-gray-500">
+                        data-aos-duration="2000" className="relative flex w-full flex-col rounded-xl bg-gradient-to-tr from-teal-600 to-[#23668a] bg-clip-border p-8 text-white shadow-md shadow-gray-500">
                         <div className="relative pb-8 m-0 mb-8 overflow-hidden text-center text-gray-700 bg-transparent border-b rounded-none shadow-none border-white/10 bg-clip-border">
                             <p className="block font-sans text-sm antialiased font-normal leading-normal text-white uppercase">
                                 Comfort Duo
@@ -293,7 +293,7 @@ const BestHostingPlan = () => {
 
                     <div data-aos="flip-left"
                         data-aos-easing="ease-out-cubic"
-                        data-aos-duration="2000" className="relative flex w-full md:max-w-[20rem] flex-col rounded-xl bg-gradient-to-tr from-teal-600 to-[#23668a] bg-clip-border p-8 text-white shadow-md shadow-gray-500">
+                        data-aos-duration="2000" className="relative flex w-full  flex-col rounded-xl bg-gradient-to-tr from-teal-600 to-[#23668a] bg-clip-border p-8 text-white shadow-md shadow-gray-500">
                         <div className="relative pb-8 m-0 mb-8 overflow-hidden text-center text-gray-700 bg-transparent border-b rounded-none shadow-none border-white/10 bg-clip-border">
                             <p className="block font-sans text-sm antialiased font-normal leading-normal text-white uppercase">
                                 Premium Duo

@@ -2,7 +2,7 @@
 import { GrFacebook, GrTwitter, GrLinkedin } from "react-icons/gr";
 const Footer = () => {
   return (
-    <div className="mt-10">
+    <div className="mt-10 max-w-full">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
         <path
           fill="#222222"

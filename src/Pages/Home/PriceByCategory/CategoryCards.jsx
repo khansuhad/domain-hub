@@ -14,7 +14,7 @@ const CategoryCards = ({ data }) => {
                 type="button"
                 data-ripple-dark="true"
               >
-                Buy Now
+                Add to Cart
               </button>
                 </div>
 

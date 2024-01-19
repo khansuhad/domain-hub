@@ -1,6 +1,7 @@
 
 import AboutUs from "./AboutUs/AboutUs";
 import OurMission from "./OurMission/OurMission";
+import WhyDomainHub from "./WhyDomainHub/WhyDomainHub";
 
 const About = () => {
     return (
@@ -11,10 +12,12 @@ const About = () => {
                 </div>
 
                 <div>
-                <OurMission></OurMission>
+                    <OurMission></OurMission>
+                </div>
+                <div>
+                    <WhyDomainHub></WhyDomainHub>
                 </div>
 
-                
             </div>
         </>
     );

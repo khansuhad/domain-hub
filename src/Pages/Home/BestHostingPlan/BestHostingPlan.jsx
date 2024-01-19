@@ -293,7 +293,7 @@ const BestHostingPlan = () => {
 
                     <div data-aos="flip-left"
                         data-aos-easing="ease-out-cubic"
-                        data-aos-duration="2000" className="relative flex w-full  flex-col rounded-xl bg-gradient-to-tr from-teal-600 to-[#23668a] bg-clip-border p-8 text-white shadow-md shadow-gray-500">
+                        data-aos-duration="2000" className="relative  flex w-full  flex-col rounded-xl bg-gradient-to-tr from-teal-600 to-[#23668a] bg-clip-border p-8 text-white shadow-md shadow-gray-500">
                         <div className="relative pb-8 m-0 mb-8 overflow-hidden text-center text-gray-700 bg-transparent border-b rounded-none shadow-none border-white/10 bg-clip-border">
                             <p className="block font-sans text-sm antialiased font-normal leading-normal text-white uppercase">
                                 Premium Duo

@@ -3,16 +3,29 @@ import { IoCall } from "react-icons/io5";
 import { MdEmail } from "react-icons/md";
 import emailjs from '@emailjs/browser';
 import { useRef } from "react";
+import Swal from "sweetalert2";
+// import { useSelector } from "react-redux";
 
 const Contact = () => {
+
+    // const domain= useSelector(state=>state.domain.domain)
+    // console.log('domain Info',domain)
+    
     const form = useRef();
 
     const sendEmail = (e) => {
         e.preventDefault();
 
-        emailjs.sendForm('service_y9ie19r', 'template_06scc5b', form.current, 'LTu1g8i9IIhfTU9qv')
+        emailjs.sendForm('service_lbhp22p', 'template_tkss8kk', form.current, 'ElxNmjnOSzL5ADPzH')
             .then((result) => {
                 console.log(result.text);
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Your work has been saved",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
             }, (error) => {
                 console.log(error.text);
             });
@@ -49,20 +62,20 @@ const Contact = () => {
                         <label className="label">
                             <span className="label-text font-bold text-white">Name</span>
                         </label>
-                        <input type="text" placeholder="Your name" name="from_name" className="input border input-bordered" required />
+                        <input type="text" placeholder="Your name" name="from_name" className="input border input-bordered text-black" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text font-bold text-white">Email</span>
                         </label>
-                        <input type="email" placeholder="Your email" name="from_email" className="input input-bordered" required />
+                        <input type="email" placeholder="Your email" name="from_email" className="input input-bordered text-black" required />
                     </div>
 
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text font-bold text-white">Message</span>
                         </label>
-                        <textarea className="border rounded p-5" name="message" placeholder="Write Your message"  />
+                        <textarea className="border rounded p-5 text-black" name="message" placeholder="Write Your message"  />
 
 
                         <input className="btn mt-5 uppercase font-bold text-xl text-white bg-thirdColor hover:bg-fourthColor " type="submit" value="Send" />

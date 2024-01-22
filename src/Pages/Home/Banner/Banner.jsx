@@ -1,8 +1,14 @@
 import { useForm } from "react-hook-form";
 import { FaSearch } from "react-icons/fa";
 import banner from "../../../assets/bannerImg/domain-and.jpg";
+import { useDispatch } from "react-redux";
+import { addDomain } from "../../../features/domain/domainSlice";
+import {useNavigate } from "react-router-dom";
+
 
 const Banner = () => {
+    const navigate =useNavigate();
+    const dispatch = useDispatch()
     const backgroundPhoto = {
         backgroundImage: `url(${banner})`,
         height: "80vh",
@@ -22,7 +28,11 @@ const Banner = () => {
 
     const onSubmit = (data) => {
         const domain = data.domain;
+        // data store 
+        dispatch(addDomain(domain))
         console.log("inputted domain is", domain);
+        navigate("/searchPage")
+        
     };
 
     return (
@@ -49,10 +59,12 @@ const Banner = () => {
                                     )}
                                 </div>
                                 <div>
+
                                     <button className="btn bg-thirdColor hover:bg-fourthColor dark:bg-gray-700" type="submit">
                                         <FaSearch className="text-xl text-white dark:text-[#F5F7F8]"></FaSearch>
                                         <p className="text-lg text-white dark:text-[#F5F7F8]">Search</p>
                                     </button>
+
                                 </div>
                             </div>
                         </div>
@@ -62,4 +74,4 @@ const Banner = () => {
         </div>
     );
 };
-export default Banner;
+export default Banner;

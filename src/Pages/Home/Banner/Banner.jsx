@@ -3,7 +3,7 @@ import { FaSearch } from "react-icons/fa";
 import banner from "../../../assets/bannerImg/domain-and.jpg";
 import { useDispatch } from "react-redux";
 import { addDomain } from "../../../features/domain/domainSlice";
-import { Navigate, useNavigate } from "react-router-dom";
+import {useNavigate } from "react-router-dom";
 
 
 const Banner = () => {

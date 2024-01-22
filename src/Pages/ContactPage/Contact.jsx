@@ -4,8 +4,13 @@ import { MdEmail } from "react-icons/md";
 import emailjs from '@emailjs/browser';
 import { useRef } from "react";
 import Swal from "sweetalert2";
+// import { useSelector } from "react-redux";
 
 const Contact = () => {
+
+    // const domain= useSelector(state=>state.domain.domain)
+    // console.log('domain Info',domain)
+    
     const form = useRef();
 
     const sendEmail = (e) => {

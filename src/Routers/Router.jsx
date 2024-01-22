@@ -6,6 +6,8 @@ import Login from "../Pages/Authentication/Login/Login";
 import Registration from "../Pages/Authentication/Registration/Registration";
 import About from "../Pages/About/About";
 import Contact from "../Pages/ContactPage/Contact";
+import SearchingDomain from "../Pages/SearchDomainPage/SearchingDomain";
+
 
 const Router = createBrowserRouter([
   {
@@ -27,6 +29,10 @@ const Router = createBrowserRouter([
       {
         path:"/about",
         element:<About/>
+      },
+      {
+        path:"/searchPage",
+        element:<SearchingDomain></SearchingDomain>
       }
     
     ],

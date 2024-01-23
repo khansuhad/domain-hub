@@ -10,6 +10,7 @@ const SearchingDomain = () => {
             <p className="text-2xl text-red-700"> Domain: {domain}</p>
 
 
+            
         </div>
     );
 };

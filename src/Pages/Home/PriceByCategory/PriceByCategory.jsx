@@ -3,8 +3,10 @@ import Heading from "../../../Component/UI/Heading";
 import { useEffect, useState } from "react";
 import CategoryCards from "./CategoryCards";
 import { CgMenuGridR } from "react-icons/cg";
+import useDomain from "../../../Hock/useDomain";
 
 const PriceByCategory = ({ data }) => {
+    const [domain,loading,refetch]=useDomain()
     const [category, setCategory] = useState("education");
     const [categoryData, setCategoryData] = useState([]);
     const [showCategory, setShowCategory]= useState(false)
@@ -14,9 +16,9 @@ const PriceByCategory = ({ data }) => {
     console.log("clicked category", category)
     useEffect(() => {
         // Filter data based on the selected category
-        const filteredData = data?.filter((item) => item.category === category);
+        const filteredData = domain?.filter((item) => item.category === category);
         setCategoryData(filteredData);
-    }, [category, data]);
+    }, [category, domain]);
 
     console.log("selected data", categoryData);
 const handleCategory=()=>{

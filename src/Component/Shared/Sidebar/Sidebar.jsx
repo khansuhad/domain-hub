@@ -1,9 +1,25 @@
-import { Link, NavLink, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet, useNavigate } from "react-router-dom";
 import SidebarIcon from "./SidebarIcon";
 import UserNavItem from "./UserNavItem";
 import AdminNavItem from "./AdminNavItem";
+import UseAuth from "../../../Hock/UseAuth";
+import toast from "react-hot-toast";
 
 const Sidebar = () => {
+  const { user, logoutUser } = UseAuth();
+  const logOutSuccessToast = () => toast.success("Logout successfully");
+  const logOutErrorToast = () => toast.error("Something went wrong");
+  const navigate = useNavigate();
+  const handleLogOut = () => {
+    logoutUser()
+      .then(() => {
+        logOutSuccessToast();
+        navigate("/");
+      })
+      .catch(() => {
+        logOutErrorToast();
+      });
+  };
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -42,21 +58,38 @@ const Sidebar = () => {
             <NavLink
               to="/dashboard/profile"
               className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "bg-firstColor text-fifthColor" : ""
+                isPending
+                  ? "pending"
+                  : isActive
+                  ? "bg-firstColor text-fifthColor"
+                  : ""
               }
             >
               Profile
             </NavLink>
           </li>
-          <li>
-            <Link
-              className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "active" : ""
-              }
-            >
-              Logout
-            </Link>
-          </li>
+          {user ? (
+            <li onClick={handleLogOut}>
+              <Link
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ? "active" : ""
+                }
+              >
+                Logout
+              </Link>
+            </li>
+          ) : (
+            <li>
+              <Link
+                to={"/login"}
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ? "active" : ""
+                }
+              >
+                Login
+              </Link>
+            </li>
+          )}
         </ul>
       </div>
     </div>

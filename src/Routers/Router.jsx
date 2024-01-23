@@ -7,7 +7,6 @@ import Registration from "../Pages/Authentication/Registration/Registration";
 import About from "../Pages/About/About";
 import Contact from "../Pages/ContactPage/Contact";
 import SearchingDomain from "../Pages/SearchDomainPage/SearchingDomain";
-import UpdateProfile from "../Pages/UpdateProfile/UpdateProfile";
 import DashboardLayout from "../Layout/DashboardLayout";
 import Profile from "../Pages/Dashboard/Profile/Profile";
 import MyFreeTailApplication from "../Pages/Dashboard/MyFreeTailApplication/MyFreeTailApplication";
@@ -22,6 +21,7 @@ import AllDomainRequest from "../Pages/Dashboard/AllDomainRequest/AllDomainReque
 import AllFreeTailApplication from "../Pages/Dashboard/AllFreeTailApplication/AllFreeTailApplication";
 import AllReviews from "../Pages/Dashboard/AllReviews/AllReviews";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
+import EditProfile from "../Pages/Dashboard/EditProfile/EditProfile";
 
 const Router = createBrowserRouter([
   {
@@ -47,10 +47,6 @@ const Router = createBrowserRouter([
         path: "/searchPage",
         element: <SearchingDomain></SearchingDomain>,
       },
-      {
-        path: "/updateProfile",
-        element: <UpdateProfile></UpdateProfile>,
-      },
     ],
   },
   {
@@ -70,58 +66,62 @@ const Router = createBrowserRouter([
       // user paths
       {
         path: "/dashboard/profile",
-        element: <Profile/>
+        element: <Profile />,
+      },
+      {
+        path: "/dashboard/edit-profile",
+        element: <EditProfile />,
       },
       {
         path: "/dashboard/my-free-tail-application",
-        element: <MyFreeTailApplication/>
+        element: <MyFreeTailApplication />,
       },
       {
         path: "/dashboard/my-all-domains",
-        element: <MyAllDomains/>
+        element: <MyAllDomains />,
       },
       {
         path: "/dashboard/my-all-reviews",
-        element: <MyAllReviews/>
+        element: <MyAllReviews />,
       },
       {
         path: "/dashboard/support",
-        element: <Support/>
+        element: <Support />,
       },
       // admin paths
       {
         path: "/dashboard/dashboard",
-        element: <Dashboard/>
+        element: <Dashboard />,
       },
       {
         path: "/dashboard/create-domain",
-        element: <CreateDomain/>
+        element: <CreateDomain />,
       },
       {
         path: "/dashboard/edit-domain",
-        element: <EditDomain/>
+        element: <EditDomain />,
       },
       {
         path: "/dashboard/all-domains",
-        element: <AllDomains/>
+        element: <AllDomains />,
       },
       {
         path: "/dashboard/all-domain-requests",
-        element: <AllDomainRequest/>
+        element: <AllDomainRequest />,
       },
       {
         path: "/dashboard/all-free-tail-applications",
-        element: <AllFreeTailApplication/>
+        element: <AllFreeTailApplication />,
       },
       {
         path: "/dashboard/all-Reviews",
-        element: <AllReviews/>
+        element: <AllReviews />,
       },
       {
         path: "/dashboard/all-users",
-        element: <AllUsers/>
+        element: <AllUsers />,
       },
-    ]
+    ],
   },
 ]);
 

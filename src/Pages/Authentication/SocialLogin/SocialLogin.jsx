@@ -3,17 +3,27 @@ import { FaGithub } from "react-icons/fa";
 import toast from "react-hot-toast";
 import UseAuth from "../../../Hock/UseAuth";
 import { useLocation, useNavigate } from "react-router-dom";
+import useAxiosPublic from "../../../Hock/useAxiosPublic";
 const SocialLogin = () => {
   const loginSuccessToast = () => toast.success("Login successfully");
   const loginErrorToast = () => toast.error("Something went wrong");
   const { singInWithGoogle, singInWithGithub } = UseAuth();
   const navigate = useNavigate();
   const loc = useLocation();
+  const axiosPublic = useAxiosPublic();
 
   const from = loc.state?.from?.pathname || "/";
   const handleSocialLogin = (media) => {
     media()
-      .then(() => {
+      .then((result) => {
+        const userInfo = {
+          email: result.user?.email,
+          name: result.user?.displayName,
+          role: "user",
+        };
+        axiosPublic.post("/users", userInfo).then((res) => {
+          console.log(res.data);
+        });
         navigate(from, { replace: true });
         loginSuccessToast();
       })

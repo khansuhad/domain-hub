@@ -14,6 +14,8 @@ export default {
         secondColor: "#9BBEC8", // nav + footer color
         thirdColor: "#427D9D", // button normal color
         fourthColor: "#164863", // button hover color
+        fifthColor: "#191919", // bg for dark mode and text color for light mode
+        sixthColor: "#F5F7F8", // text color for dark mode
       },
     },
   },

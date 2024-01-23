@@ -1,5 +1,4 @@
 import { Link, useNavigate } from "react-router-dom";
-import { IoIosArrowDown } from "react-icons/io";
 import { IoIosNotifications } from "react-icons/io";
 import useTheme from "../../../Hock/useTheme";
 import { FiSun } from "react-icons/fi";
@@ -40,36 +39,8 @@ const Navbar = () => {
       <li>
         <Link to="/service">Service</Link>
       </li>
-      <li className="relative group">
-        <Link to="/dashboard">
-          Dashboard <IoIosArrowDown />
-        </Link>
-        <ul className="absolute hidden bg-white border rounded-md mt-6 ml-8 space-y-2 group-hover:block">
-          <li>
-            <Link
-              to="/dashboard/item1"
-              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-            >
-              Item 1
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/dashboard/item2"
-              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-            >
-              Item 2
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/dashboard/item3"
-              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-            >
-              Item 3
-            </Link>
-          </li>
-        </ul>
+      <li>
+        <Link to="/dashboard/profile">Dashboard</Link>
       </li>
     </>
   );

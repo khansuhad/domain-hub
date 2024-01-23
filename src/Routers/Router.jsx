@@ -7,7 +7,6 @@ import Registration from "../Pages/Authentication/Registration/Registration";
 import About from "../Pages/About/About";
 import Contact from "../Pages/ContactPage/Contact";
 import SearchingDomain from "../Pages/SearchDomainPage/SearchingDomain";
-import MyProfile from "../Pages/myProfile/MyProfile";
 import UpdateProfile from "../Pages/UpdateProfile/UpdateProfile";
 import DashboardLayout from "../Layout/DashboardLayout";
 import Profile from "../Pages/Dashboard/Profile/Profile";
@@ -47,10 +46,6 @@ const Router = createBrowserRouter([
       {
         path: "/searchPage",
         element: <SearchingDomain></SearchingDomain>,
-      },
-      {
-        path: "/myProfile",
-        element: <MyProfile></MyProfile>,
       },
       {
         path: "/updateProfile",

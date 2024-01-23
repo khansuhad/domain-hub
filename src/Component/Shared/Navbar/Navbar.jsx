@@ -105,7 +105,7 @@ const Navbar = () => {
                   </li>
                   <li>
                     <div className="flex justify-center">
-                      <Link to='/myProfile'><button className="btn btn-sm btn-ghost text-black">My Profile </button></Link>
+                      <Link to='/dashboard/profile'><button className="btn btn-sm btn-ghost text-black">My Profile </button></Link>
                     </div>
 
                   </li>

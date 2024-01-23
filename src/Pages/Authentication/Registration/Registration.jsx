@@ -8,6 +8,7 @@ import UseAuth from "../../../Hock/UseAuth";
 import toast from "react-hot-toast";
 import axios from "axios";
 import { updateProfile } from "firebase/auth";
+import useAxiosPublic from "../../../Hock/useAxiosPublic";
 const Registration = () => {
   const [showPassword, isShowPassword] = useState(false);
   const loginSuccessToast = () => toast.success("Account create successfully");
@@ -16,6 +17,7 @@ const Registration = () => {
   const { createUser, setUser } = UseAuth();
 
   const loc = useLocation();
+  const axiosPublic = useAxiosPublic();
 
   const from = loc.state?.from?.pathname || "/";
   const navigate = useNavigate();
@@ -55,6 +57,14 @@ const Registration = () => {
     createUser(email, password)
       .then((result) => {
         loginSuccessToast();
+        const userInfo = {
+          email: email,
+          name: name,
+          role: "user",
+        };
+        axiosPublic.post("/users", userInfo).then((res) => {
+          console.log(res.data);
+        });
         updateProfile(result.user, {
           displayName: name,
           photoURL: photo,

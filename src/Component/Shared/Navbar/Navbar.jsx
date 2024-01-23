@@ -6,7 +6,10 @@ import { FiSun } from "react-icons/fi";
 import { LuMoonStar } from "react-icons/lu";
 import UseAuth from "../../../Hock/UseAuth";
 import toast from "react-hot-toast";
+import { useSelector } from "react-redux";
 const Navbar = () => {
+  const userInfo = useSelector((state) => state.user.currentUser)
+  // console.log(userInfo);
   const { handleModeChange, mode } = useTheme();
   const { user, logoutUser } = UseAuth();
   const logOutSuccessToast = () => toast.success("Logout successfully");
@@ -117,15 +120,36 @@ const Navbar = () => {
           <div className="navbar-end">
             {/* notification icon */}
             <IoIosNotifications className="text-2xl cursor-pointer" />
-            {user ? (
-              <button onClick={handleLogOut} className="btn btn-sm  btn-ghost">
-                Logout
-              </button>
+            {userInfo?.email ? (
+              <div className="dropdown dropdown-end">
+                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                  <div className="w-8 rounded-full">
+                    <img src={user?.photoURL} alt={user?.displayName} />
+                  </div>
+                </label>
+                <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                  <li>
+                    <button className="btn btn-sm  btn-ghost text-black">{user?.displayName} </button>
+
+                  </li>
+                  <li>
+                    <div className="flex justify-center">
+                      <Link to='/myProfile'><button className="btn btn-sm btn-ghost text-black">My Profile </button></Link>
+                    </div>
+
+                  </li>
+                  <li>
+                    <button onClick={handleLogOut} className="btn btn-sm  btn-ghost text-black">Logout</button>
+
+                  </li>
+                </ul>
+              </div>
             ) : (
               <Link to="/login">
                 <button className="btn btn-sm  btn-ghost">Login</button>
               </Link>
             )}
+
             {/* sun and moon mode icon  */}
             <div>
               {mode === "light" ? (

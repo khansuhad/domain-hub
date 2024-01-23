@@ -142,6 +142,7 @@ const SearchingDomain = () => {
                 </div>
 
 
+            
                 <div className=" hidden md:block  mt-10 border-2  border-cyan-600 rounded-lg p-2 w-[40%]">
                     <div>
                         <h2 className="text-xl flex justify-center font-semibold mb-4 ">MY Cart</h2>

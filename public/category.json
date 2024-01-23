@@ -1,59 +1,148 @@
 [
     {
       "id": 1,
-      "name": "Basic Email",
-      "category": "email",
+      "name": ".edu",
+      "category": "education",
       "price": 5.99,
-      "discount": 0.10
+      "description":"Start your institute"
     },
     {
       "id": 2,
-      "name": "Pro Email",
-      "category": "email",
+      "name": ".academy",
+      "category": "education",
       "price": 9.99,
-      "discount": 0.15
+      "description":"Start your academic journey with a domain"
     },
     {
       "id": 3,
-      "name": "Starter Domain",
-      "category": "domain",
+      "name": ".school",
+      "category": "education",
       "price": 12.99,
-      "discount": 0.20
+      "description":"Highlight your school"
     },
     {
       "id": 4,
-      "name": "Premium Domain",
-      "category": "domain",
+      "name": ".inc",
+      "category": "commerce",
       "price": 24.99,
-      "discount": 0.25
+      "description":"Start Your industry"
+     
     },
     {
       "id": 5,
-      "name": "Basic Hosting",
-      "category": "hosting",
-      "price": 29.99,
-      "discount": 0.15
+      "name": ".company",
+      "category": "commerce",
+      "price": 24.99,
+      "description":"Start Your industry"
+     
     },
     {
       "id": 6,
-      "name": "Pro Hosting",
-      "category": "hosting",
-      "price": 49.99,
-      "discount": 0.20
+      "name": ".ceo",
+      "category": "commerce",
+      "price": 24.99,
+      "description":"Start Your industry"
+     
     },
     {
       "id": 7,
-      "name": "Starter Domain",
-      "category": "domain",
-      "price": 12.99,
-      "discount": 0.20
+      "name": ".support",
+      "category": "health",
+      "price": 24.99,
+      "description":"Support your patient"
+    
     },
     {
       "id": 8,
-      "name": "Premium Domain",
-      "category": "domain",
+      "name": ".hospital",
+      "category": "health",
       "price": 24.99,
-      "discount": 0.25
+      "description":"Open the door of the hospital virtually"
+    },
+    {
+      "id": 9,
+      "name": ".clinic",
+      "category": "health",
+      "price": 29.99,
+      "description":"Virtual clinic domain"
+    },
+    {
+      "id": 10 ,
+      "name": ".mil",
+      "category": "government",
+      "price": 49.99,
+      "description":"Government services"
+    },
+    {
+      "id": 11,
+      "name": ".army",
+      "category": "government",
+      "price": 49.99,
+      "description":"Government services"
+    },
+    {
+      "id": 12,
+      "name": ".navy",
+      "category": "government",
+      "price": 49.99,
+      "description":"Government services"
+    },
+    {
+      "id": 13,
+      "name": ".builders",
+      "category": "industry",
+      "price": 49.9,
+      "description":"Grow business with a domain"
+    },
+    {
+      "id": 14,
+      "name": ".construction",
+      "category": "industry",
+      "price": 49.99,
+      "description":"Grow business with a domain"
+    },
+    {
+      "id":15 ,
+      "name": ".art",
+      "category": "media",
+      "price": 49.9,
+      "description":"Grow business with a domain"
+    },
+    {
+      "id": 16,
+      "name": ".gallery",
+      "category": "media",
+      "price": 49.99,
+      "description":"Enlarge your virtual coverage"
+    },
+    {
+      "id":17 ,
+      "name": ".team",
+      "category": "sport",
+      "price": 49.99,
+      "description":"Grow your team"
+    },
+    {
+      "id": 18,
+      "name": ".soccer",
+      "category": "sport",
+      "price": 49.99,
+      "description":"Grow your team"
+    },
+    {
+      "id": 19,
+      "name": ".app",
+      "category": "technology",
+      "price": 49.99,
+      "description":"Grow services with app domain"
+    },
+    {
+      "id": 20,
+      "name": ".blog",
+      "category": "technology",
+      "price": 49.99,
+      "description":"Share technical skill with a blog"
     }
+    
   ]
   

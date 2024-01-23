@@ -57,7 +57,7 @@ const SearchingDomain = () => {
 
     return (
         <div className=" container mx-auto dark:text-white">
-            <div className="mb-4 flex flex-col md:flex-row justify-center items-center pt-36 pb-20 ">
+            <div className="mb-4 flex flex-col md:flex-row justify-center items-center pt-36 pb-20 dark:text-black">
                 <input
                     type="text"
                     placeholder="search here"

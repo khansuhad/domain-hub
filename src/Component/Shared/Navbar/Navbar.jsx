@@ -150,10 +150,6 @@ const Navbar = () => {
               </Link>
             )}
 
-
-
-
-
             {/* sun and moon mode icon  */}
             <div>
               {mode === "light" ? (

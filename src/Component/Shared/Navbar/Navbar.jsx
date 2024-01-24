@@ -1,30 +1,15 @@
-import { Link, useNavigate } from "react-router-dom";
-import { IoIosArrowDown } from "react-icons/io";
+import { Link } from "react-router-dom";
 import { IoIosNotifications } from "react-icons/io";
 import useTheme from "../../../Hock/useTheme";
 import { FiSun } from "react-icons/fi";
 import { LuMoonStar } from "react-icons/lu";
 import UseAuth from "../../../Hock/UseAuth";
-import toast from "react-hot-toast";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 const Navbar = () => {
-  const userInfo = useSelector((state) => state.user.currentUser)
+  // const userInfo = useSelector((state) => state.user.currentUser);
   // console.log(userInfo);
   const { handleModeChange, mode } = useTheme();
-  const { user, logoutUser } = UseAuth();
-  const logOutSuccessToast = () => toast.success("Logout successfully");
-  const logOutErrorToast = () => toast.error("Something went wrong");
-  const navigate = useNavigate();
-  const handleLogOut = () => {
-    logoutUser()
-      .then(() => {
-        logOutSuccessToast();
-        navigate("/");
-      })
-      .catch(() => {
-        logOutErrorToast();
-      });
-  };
+  const { user } = UseAuth();
 
   const navLink = (
     <>
@@ -40,36 +25,8 @@ const Navbar = () => {
       <li>
         <Link to="/service">Service</Link>
       </li>
-      <li className="relative group">
-        <Link to="/dashboard">
-          Dashboard <IoIosArrowDown />
-        </Link>
-        <ul className="absolute hidden bg-white border rounded-md mt-6 ml-8 space-y-2 group-hover:block">
-          <li>
-            <Link
-              to="/dashboard/item1"
-              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-            >
-              Item 1
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/dashboard/item2"
-              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-            >
-              Item 2
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/dashboard/item3"
-              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-            >
-              Item 3
-            </Link>
-          </li>
-        </ul>
+      <li>
+        <Link to="/dashboard/profile">Dashboard</Link>
       </li>
     </>
   );
@@ -120,21 +77,21 @@ const Navbar = () => {
           <div className="navbar-end">
             {/* notification icon */}
             <IoIosNotifications className="text-2xl cursor-pointer" />
-            {userInfo?.email ? (
-              <div className="dropdown dropdown-end">
+            {user?.email ? (
+              <Link to="/dashboard/profile" className="dropdown dropdown-end">
                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                   <div className="w-8 rounded-full">
                     <img src={user?.photoURL} alt={user?.displayName} />
                   </div>
                 </label>
-                <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                {/* <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                   <li>
                     <button className="btn btn-sm  btn-ghost text-black">{user?.displayName} </button>
 
                   </li>
                   <li>
                     <div className="flex justify-center">
-                      <Link to='/myProfile'><button className="btn btn-sm btn-ghost text-black">My Profile </button></Link>
+                      <Link to='/dashboard/profile'><button className="btn btn-sm btn-ghost text-black">My Profile </button></Link>
                     </div>
 
                   </li>
@@ -142,8 +99,8 @@ const Navbar = () => {
                     <button onClick={handleLogOut} className="btn btn-sm  btn-ghost text-black">Logout</button>
 
                   </li>
-                </ul>
-              </div>
+                </ul> */}
+              </Link>
             ) : (
               <Link to="/login">
                 <button className="btn btn-sm  btn-ghost">Login</button>

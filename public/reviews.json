@@ -1,0 +1,18 @@
+[
+      {
+        "id": 1,
+        "userName": "JohnDoe",
+        "review": "Great product, met my expectations!"
+      },
+      {
+        "id": 2,
+        "userName": "AliceSmith",
+        "review": "Excellent service and fast delivery."
+      },
+      {
+        "id": 3,
+        "userName": "BobJohnson",
+        "review": "The product quality could be improved."
+      }
+]
+  

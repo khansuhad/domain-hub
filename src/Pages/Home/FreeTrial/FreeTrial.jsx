@@ -15,14 +15,14 @@ const FreeTrial = () => {
     const handleFreeTrialApplication = (e) => {
         e.preventDefault();
         const form = e.target
-        const email = form.email.value
+      
         const domainName = form.Domain.value
 
-        console.log("Email:", email);
+      
         console.log("Domain:", domainName);
 
         const FreeTrialApplyData = {
-            email,
+            email:user.email,
             domainName,
             approve: false,
 
@@ -31,7 +31,7 @@ const FreeTrial = () => {
         axios.post("http://localhost:5000/freeTrialUsers", FreeTrialApplyData)
             .then(res => {
                 console.log("Response:", res.data);
-                if (res.insertedId) {
+                if (res.data.insertedId) {
                     swal("Application Sent", "We contact with you very soon!", "success");
                 } else {
                     swal("Your Application already Sent", "We contact with you very soon!", "success");
@@ -72,10 +72,7 @@ const FreeTrial = () => {
 
 
                         <form onSubmit={handleFreeTrialApplication} className="mb-4 ">
-                            <label className=" text-gray-700 dark:text-white text-sm font-semibold mb-2 flex items-center gap-1"><MdEmail></MdEmail>Email Address</label>
-
-                            <input type="email" id="email" name="email" className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500" required />
-                            <hr className="my-5" />
+                           
 
                             <div>
                                 <select name="Domain" defaultValue="" className="select p-0 appearance-none w-full border-none outline-none text-black text-sm font-semibold">

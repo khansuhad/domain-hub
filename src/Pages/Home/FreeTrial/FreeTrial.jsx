@@ -24,12 +24,19 @@ const FreeTrial = () => {
         const FreeTrialApplyData = {
             email,
             domainName,
+            approve: false,
+
         }
 
         axios.post("http://localhost:5000/freeTrialUsers", FreeTrialApplyData)
             .then(res => {
                 console.log("Response:", res.data);
-                swal("Application Sent", "We contact with you very soon!", "success");
+                if (res.insertedId) {
+                    swal("Application Sent", "We contact with you very soon!", "success");
+                } else {
+                    swal("Your Application already Sent", "We contact with you very soon!", "success");
+                }
+
                 form.reset();
             })
             .catch(err => {

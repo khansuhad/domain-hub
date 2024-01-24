@@ -1,12 +1,23 @@
+// @ts-nocheck
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  darkMode: "class",
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        poppins: "'Poppins', sans-serif",
+        roboto: "'Roboto', sans-serif",
+      },
+      colors: {
+        firstColor: "#DDF2FD", // background color
+        secondColor: "#9BBEC8", // nav + footer color
+        thirdColor: "#427D9D", // button normal color
+        fourthColor: "#164863", // button hover color
+        fifthColor: "#191919", // bg for dark mode and text color for light mode
+        sixthColor: "#F5F7F8", // text color for dark mode
+      },
+    },
   },
   plugins: [require("daisyui")],
-}
-
+};

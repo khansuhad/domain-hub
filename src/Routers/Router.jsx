@@ -22,6 +22,7 @@ import AllFreeTailApplication from "../Pages/Dashboard/AllFreeTailApplication/Al
 import AllReviews from "../Pages/Dashboard/AllReviews/AllReviews";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 import EditProfile from "../Pages/Dashboard/EditProfile/EditProfile";
+import { Review } from "../Pages/Home/Review/Review";
 
 const Router = createBrowserRouter([
   {
@@ -43,6 +44,10 @@ const Router = createBrowserRouter([
         path: "/about",
         element: <About />,
       },
+     {
+      path: "/reviews",
+      element: <Review></Review>
+     },
       {
         path: "/searchPage",
         element: <SearchingDomain></SearchingDomain>,

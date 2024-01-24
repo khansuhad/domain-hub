@@ -1,0 +1,126 @@
+[
+    {
+      "name": ".edu",
+      "category": "education",
+      "price": 5.99,
+      "description":"Start your institute"
+    },
+    {
+      "name": ".academy",
+      "category": "education",
+      "price": 9.99,
+      "description":"Start your academic journey with a domain"
+    },
+    {
+      "name": ".school",
+      "category": "education",
+      "price": 12.99,
+      "description":"Highlight your school"
+    },
+    {
+      "name": ".inc",
+      "category": "commerce",
+      "price": 24.99,
+      "description":"Start Your industry"
+     
+    },
+    {
+      "name": ".company",
+      "category": "commerce",
+      "price": 24.99,
+      "description":"Start Your industry"
+     
+    },
+    {
+      "name": ".ceo",
+      "category": "commerce",
+      "price": 24.99,
+      "description":"Start Your industry"
+     
+    },
+    {
+      "name": ".support",
+      "category": "health",
+      "price": 24.99,
+      "description":"Support your patient"
+    
+    },
+    {
+      "name": ".hospital",
+      "category": "health",
+      "price": 24.99,
+      "description":"Open the door of the hospital virtually"
+    },
+    {
+      "name": ".clinic",
+      "category": "health",
+      "price": 29.99,
+      "description":"Virtual clinic domain"
+    },
+    {
+      "name": ".mil",
+      "category": "government",
+      "price": 49.99,
+      "description":"Government services"
+    },
+    {
+      "name": ".army",
+      "category": "government",
+      "price": 49.99,
+      "description":"Government services"
+    },
+    {
+      "name": ".navy",
+      "category": "government",
+      "price": 49.99,
+      "description":"Government services"
+    },
+    {
+      "name": ".builders",
+      "category": "industry",
+      "price": 49.9,
+      "description":"Grow business with a domain"
+    },
+    {
+      "name": ".construction",
+      "category": "industry",
+      "price": 49.99,
+      "description":"Grow business with a domain"
+    },
+    {
+      "name": ".art",
+      "category": "media",
+      "price": 49.9,
+      "description":"Grow business with a domain"
+    },
+    {
+      "name": ".gallery",
+      "category": "media",
+      "price": 49.99,
+      "description":"Enlarge your virtual coverage"
+    },
+    {
+      "name": ".team",
+      "category": "sport",
+      "price": 49.99,
+      "description":"Grow your team"
+    },
+    {
+      "name": ".soccer",
+      "category": "sport",
+      "price": 49.99,
+      "description":"Grow your team"
+    },
+    {
+      "name": ".app",
+      "category": "technology",
+      "price": 49.99,
+      "description":"Grow services with app domain"
+    },
+    {
+      "name": ".blog",
+      "category": "technology",
+      "price": 49.99,
+      "description":"Share technical skill with a blog"
+    }
+]

@@ -7,8 +7,32 @@ import { MdSell } from "react-icons/md";
 import { FaUserGroup } from "react-icons/fa6";
 import { MdOutlineReviews } from "react-icons/md";
 import CountUp from "react-countup";
+import { useEffect, useState } from "react";
 
 const SuccessShowcase = () => {
+  const [sellings, setSellings] = useState({})
+  const [reviews, setReviews] = useState({})
+  const [users, setUsers] = useState({})
+
+
+  useEffect(() =>{
+    fetch("/successShowcaseReviews.json")
+    .then(res => res.json())
+    .then(data => {
+      setReviews(data)
+    })
+    fetch("/successShowcaseUsers.json")
+    .then(res => res.json())
+    .then(data => {
+      setUsers(data)
+    })
+    fetch("/successShowcaseSellings.json")
+    .then(res => res.json())
+    .then(data => {
+      setSellings(data)
+    })
+  },[])
+
   return (
     <Container>
       <Heading>Success Showcase</Heading>
@@ -191,7 +215,7 @@ const SuccessShowcase = () => {
                   Total Sellings
                 </div>
                 <div className="stat-value">
-                  <CountUp end={40} />
+               <CountUp end={sellings.topSellings}/>
                 </div>
               </div>
               <MdSell className="mt-6 text-xl" />
@@ -206,7 +230,7 @@ const SuccessShowcase = () => {
                   Total Users
                 </div>
                 <div className="stat-value">
-                  <CountUp end={90} />
+                  <CountUp end={users.topUsers}/>
                 </div>
               </div>
               <FaUserGroup className="mt-6 text-xl" />
@@ -221,7 +245,7 @@ const SuccessShowcase = () => {
                   Total Reviews
                 </div>
                 <div className="stat-value">
-                  <CountUp end={100} />
+                  <CountUp end={reviews.topReviews} />
                 </div>
               </div>
               <MdOutlineReviews className="mt-6 text-xl" />

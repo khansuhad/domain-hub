@@ -1,11 +1,26 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import { useState } from "react";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { useForm } from "react-hook-form";
 import img from "../../../assets/Authentication/Registration.png";
+import UseAuth from "../../../Hock/UseAuth";
+import toast from "react-hot-toast";
+import axios from "axios";
+import { updateProfile } from "firebase/auth";
+import useAxiosPublic from "../../../Hock/useAxiosPublic";
 const Registration = () => {
   const [showPassword, isShowPassword] = useState(false);
+  const loginSuccessToast = () => toast.success("Account create successfully");
+
+  const [error, setError] = useState("");
+  const { createUser, setUser } = UseAuth();
+
+  const loc = useLocation();
+  const axiosPublic = useAxiosPublic();
+
+  const from = loc.state?.from?.pathname || "/";
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -18,24 +33,72 @@ const Registration = () => {
       password: "",
     },
   });
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     const name = data.name;
-    const photo = data.photo;
     const email = data.email;
     const password = data.password;
-    console.log(name, photo, email, password);
+    console.log(name, email, password);
+    // image upload to imgbb and then get an url
+    const imageFile = { image: data.photo[0] };
+    const res = await axios.post(
+      `https://api.imgbb.com/1/upload?key=${
+        import.meta.env.VITE_IMGBB_API_KEY
+      }`,
+      imageFile,
+      {
+        headers: {
+          "content-type": "multipart/form-data",
+        },
+      }
+    );
+    const photo = res.data.data.display_url;
+    setError("");
+    // create user
+    createUser(email, password)
+      .then((result) => {
+        loginSuccessToast();
+        const userInfo = {
+          email: email,
+          name: name,
+          role: "user",
+          phone: ""
+        };
+        axiosPublic.post("/users", userInfo).then((res) => {
+          console.log(res.data);
+        });
+        updateProfile(result.user, {
+          displayName: name,
+          photoURL: photo,
+        });
+        setUser({
+          displayName: name,
+          photoURL: photo,
+          email: email,
+        });
+        navigate(from, { replace: true });
+      })
+      .catch(() => {
+        setError("Email already registered");
+      });
   };
   return (
     <div className="flex justify-evenly items-center min-h-screen bg-firstColor text-[#191919] dark:bg-[#191919] dark:text-[#F5F7F8] p-5 gap-5">
-    <img src={img} alt="" className="hidden lg:block max-w-lg"/>
+      <img src={img} alt="" className="hidden lg:block max-w-lg" />
       <div className="card shrink-0 w-full max-w-lg shadow-2xl  card-body rounded border-[#191919] dark:border-[#F5F7F8] border-2 ">
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-5">
           Registration!
         </h1>
+        {error && (
+          <p className="text-sm text-red-600 text-center">
+            {error ? error : ""}
+          </p>
+        )}
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="form-control">
             <label className="label">
-              <span className="label-text text-lg text-[#191919] dark:text-[#F5F7F8]">Name</span>
+              <span className="label-text text-lg text-[#191919] dark:text-[#F5F7F8]">
+                Name
+              </span>
             </label>
             <input
               {...register("name", {
@@ -52,7 +115,9 @@ const Registration = () => {
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text text-lg text-[#191919] dark:text-[#F5F7F8]">Image</span>
+              <span className="label-text text-lg text-[#191919] dark:text-[#F5F7F8]">
+                Image
+              </span>
             </label>
             <input
               {...register("photo", { required: "Photo is required" })}
@@ -68,7 +133,9 @@ const Registration = () => {
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text text-lg text-[#191919] dark:text-[#F5F7F8]">Email</span>
+              <span className="label-text text-lg text-[#191919] dark:text-[#F5F7F8]">
+                Email
+              </span>
             </label>
             <input
               {...register("email", {
@@ -89,7 +156,9 @@ const Registration = () => {
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text text-lg text-[#191919] dark:text-[#F5F7F8]">Password</span>
+              <span className="label-text text-lg text-[#191919] dark:text-[#F5F7F8]">
+                Password
+              </span>
             </label>
             <div className="relative">
               <input
@@ -141,5 +210,4 @@ const Registration = () => {
     </div>
   );
 };
-
 export default Registration;

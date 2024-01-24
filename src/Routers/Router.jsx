@@ -23,6 +23,7 @@ import AllReviews from "../Pages/Dashboard/AllReviews/AllReviews";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 import EditProfile from "../Pages/Dashboard/EditProfile/EditProfile";
 import { Review } from "../Pages/Home/Review/Review";
+import PrivateRoute from "./PrivateRoute";
 
 const Router = createBrowserRouter([
   {
@@ -44,10 +45,10 @@ const Router = createBrowserRouter([
         path: "/about",
         element: <About />,
       },
-     {
-      path: "/reviews",
-      element: <Review></Review>
-     },
+      {
+        path: "/reviews",
+        element: <Review></Review>,
+      },
       {
         path: "/searchPage",
         element: <SearchingDomain></SearchingDomain>,
@@ -66,65 +67,125 @@ const Router = createBrowserRouter([
   // dashboard Routes
   {
     path: "/dashboard",
-    element: <DashboardLayout />,
+    element: (
+      <PrivateRoute>
+        <DashboardLayout />
+      </PrivateRoute>
+    ),
     children: [
       // user paths
       {
         path: "/dashboard/profile",
-        element: <Profile />,
+        element: (
+          <PrivateRoute>
+            <Profile />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/dashboard/edit-profile",
-        element: <EditProfile />,
+        element: (
+          <PrivateRoute>
+            <EditProfile />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/dashboard/my-free-tail-application",
-        element: <MyFreeTailApplication />,
+        element: (
+          <PrivateRoute>
+            <MyFreeTailApplication />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/dashboard/my-all-domains",
-        element: <MyAllDomains />,
+        element: (
+          <PrivateRoute>
+            <MyAllDomains />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/dashboard/my-all-reviews",
-        element: <MyAllReviews />,
+        element: (
+          <PrivateRoute>
+            <MyAllReviews />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/dashboard/support",
-        element: <Support />,
+        element: (
+          <PrivateRoute>
+            <Support />
+          </PrivateRoute>
+        ),
       },
       // admin paths
       {
         path: "/dashboard/dashboard",
-        element: <Dashboard />,
+        element: (
+          <PrivateRoute>
+            <Dashboard />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/dashboard/create-domain",
-        element: <CreateDomain />,
+        element: (
+          <PrivateRoute>
+            <CreateDomain />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/dashboard/edit-domain",
-        element: <EditDomain />,
+        element: (
+          <PrivateRoute>
+            <EditDomain />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/dashboard/all-domains",
-        element: <AllDomains />,
+        element: (
+          <PrivateRoute>
+            <AllDomains />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/dashboard/all-domain-requests",
-        element: <AllDomainRequest />,
+        element: (
+          <PrivateRoute>
+            <AllDomainRequest />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/dashboard/all-free-tail-applications",
-        element: <AllFreeTailApplication />,
+        element: (
+          <PrivateRoute>
+            <AllFreeTailApplication />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/dashboard/all-Reviews",
-        element: <AllReviews />,
+        element: (
+          <PrivateRoute>
+            <AllReviews />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/dashboard/all-users",
-        element: <AllUsers />,
+        element: (
+          <PrivateRoute>
+            <AllUsers />
+          </PrivateRoute>
+        ),
       },
     ],
   },

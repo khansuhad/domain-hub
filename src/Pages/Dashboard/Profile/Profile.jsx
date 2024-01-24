@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import useGetUser from "../../../Hock/UseGetUser";
 import UseAuth from "../../../Hock/UseAuth";
+import Loading from "../../../Component/Loading/Loading";
 
 const Profile = () => {
   const { info, isPendingInfo } = useGetUser();
@@ -8,7 +9,7 @@ const Profile = () => {
   return (
     <>
       {isPendingInfo || isLoading ? (
-        "loading"
+        <Loading/>
       ) : (
         <div className=" flex flex-col justify-center items-center h-screen p-5 md:p-10 text-center">
           <div className=" flex flex-col justify-center items-center p-5 md:p-10 border shadow-2xl  border-secondColor dark:border-sixthColor dark:text-sixthColor text-lg lg:text-xl  font-bold">

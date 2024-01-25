@@ -86,4 +86,4 @@ const DomainForm = ({addDomain}) => {
     );
 };
 
-export default DomainForm;
+export default DomainForm;

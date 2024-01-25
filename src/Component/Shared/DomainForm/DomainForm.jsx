@@ -1,19 +1,8 @@
+/* eslint-disable react/prop-types */
 
 
-const DomainForm = () => {
+const DomainForm = ({addDomain}) => {
 
-    const handleDomain = e => {
-        e.preventDefault();
-        const form = e.target;
-        const name = form.tld.value;
-        const price = form.price.value;
-        const category = form.category.value;
-        const trial = form.trial.value;
-        const description = form.description.value;
-
-        const cartItem = { name, price, category, description, trial }
-        console.log(cartItem);
-    }
 
     return (
 
@@ -23,10 +12,10 @@ const DomainForm = () => {
                 <h3 className="text-center text-xl md:text-2xl font-bold  text-white">Add New Domain</h3>
 
 
-                <form className="mt-10" onSubmit={handleDomain}>
+                <form className="mt-10" onSubmit={addDomain}>
 
-                    <div className="m-5 md:flex gap-5 justify-center">
-                        <div className="form-control md:w-1/2 ">
+                    <div className="m-5 gap-5 justify-center">
+                        <div className="form-control w-full ">
                             <label className="label">
                                 <span className="label-text font-bold">TLD Name</span>
                             </label>
@@ -36,7 +25,7 @@ const DomainForm = () => {
                             </label>
                         </div>
 
-                        <div className="form-control md:w-1/2">
+                        <div className="form-control w-full">
                             <label className="label">
                                 <span className="label-text font-bold">Price</span>
                             </label>
@@ -46,36 +35,6 @@ const DomainForm = () => {
                             </label>
                         </div>
                     </div>
-
-                    <div className="m-5 md:flex gap-5 justify-center">
-                        <div className="form-control md:w-1/2">
-                            <label className="label">
-                                <span className="label-text font-bold"> Description</span>
-                            </label>
-                            <label className="input-group">
-
-                                <input type="text" name="description" placeholder="Description" className="input input-bordered w-full" />
-                            </label>
-                        </div>
-
-                        <div className="form-control md:w-1/2">
-                            <label className="label">
-                                <span className="label-text font-bold">Free Service (Month)</span>
-                            </label>
-                            <label className="input-group">
-
-                            <select name="trial" className="select select-bordered w-full">
-
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-    
-                            {/* Add more categories as needed */}
-                        </select>
-                            </label>
-                        </div>
-                    </div>
-
                     <div className="m-5 md:flex gap-5 justify-center">
                         <div className="form-control w-full">
                             <label className="label">
@@ -84,19 +43,36 @@ const DomainForm = () => {
                             <label className="input-group">
                                 <select name="category" className="select select-bordered w-full">
 
-                                    <option value="education">health</option>
-                                    <option value="coding">commerce</option>
-                                    <option value="science">education</option>
-                                    <option value="science">government</option>
-                                    <option value="science">education</option>
-                                    <option value="science">sport</option>
-                                    <option value="science">technology</option>
+                                    <option value="health">health</option>
+                                    <option value="commerce">commerce</option>
+                                    <option value="education">education</option>
+                                    <option value="government">government</option>
+                                    <option value="education">education</option>
+                                    <option value="sport">sport</option>
+                                    <option value="technology">technology</option>
                                     {/* Add more categories as needed */}
                                 </select>
                             </label>
                         </div>
 
                     </div>
+
+
+                    <div className="m-5 md:flex gap-5 justify-center">
+                        <div className="form-control w-full">
+                            <label className="label">
+                                <span className="label-text font-bold"> Description</span>
+                            </label>
+                            <label className="input-group">
+
+                                {/* <input type="text" name="description" placeholder="Description" className="input input-bordered w-full" /> */}
+
+                                <textarea className="w-full" name="description" id="" cols="30" rows="10"></textarea>
+                            </label>
+                        </div>
+
+                    </div>
+
 
                     <div className="m-5  gap-5 justify-center mb-5">
                         <input type="submit" value="Add Domain" className="text-white btn btn-block hover:bg-thirdColor bg-fourthColor" />
@@ -110,4 +86,4 @@ const DomainForm = () => {
     );
 };
 
-export default DomainForm;
+export default DomainForm;

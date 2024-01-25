@@ -103,7 +103,7 @@ const Router = createBrowserRouter([
         element: <CreateDomain />,
       },
       {
-        path: "/dashboard/edit-domain",
+        path: "edit-domain",
         element: <EditDomain />,
       },
       {

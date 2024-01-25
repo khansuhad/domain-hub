@@ -8,10 +8,10 @@ const DomainForm = () => {
         const name = form.tld.value;
         const price = form.price.value;
         const category = form.category.value;
-        const rating = form.rating.value;
+        const trial = form.trial.value;
         const description = form.description.value;
 
-        const cartItem = { name, price, category, description, rating }
+        const cartItem = { name, price, category, description, trial }
         console.log(cartItem);
     }
 
@@ -60,11 +60,18 @@ const DomainForm = () => {
 
                         <div className="form-control md:w-1/2">
                             <label className="label">
-                                <span className="label-text font-bold">Rating</span>
+                                <span className="label-text font-bold">Free Service (Month)</span>
                             </label>
                             <label className="input-group">
 
-                                <input type="number" name="rating" placeholder="rating" className="input input-bordered w-full" />
+                            <select name="trial" className="select select-bordered w-full">
+
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+    
+                            {/* Add more categories as needed */}
+                        </select>
                             </label>
                         </div>
                     </div>

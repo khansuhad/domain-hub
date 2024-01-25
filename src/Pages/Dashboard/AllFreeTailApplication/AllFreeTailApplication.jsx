@@ -1,11 +1,13 @@
-import UseAuth from "../../../Hock/UseAuth";
+
 import useFreeTrial from "../../../Hock/useFreeTrial";
 
 
 const AllFreeTailApplication = () => {
     const [freeTrialUsers] = useFreeTrial();
     console.log(freeTrialUsers);
-    const {user}=UseAuth()
+
+    
+    
     return (
         <>
             <div
@@ -42,7 +44,7 @@ const AllFreeTailApplication = () => {
                                 <tr>
                                     <td className="p-4 border-b border-blue-gray-50">
                                         <p className="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
-                                            {user?.displayName}
+                                        {users.userName}
                                         </p>
                                     </td>
                                     <td className="p-4 border-b border-blue-gray-50">

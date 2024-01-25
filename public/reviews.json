@@ -1,16 +1,19 @@
 [
       {
         "id": 1,
+        "userPhoto": "https://i.postimg.cc/Jn10m4M2/pexels-yan-krukau-7793142.jpg",
         "userName": "JohnDoe",
         "review": "Great product, met my expectations!"
       },
       {
         "id": 2,
+        "userPhoto": "https://i.postimg.cc/Jnz2kFLy/pexels-tim-mossholder-11722954.jpg",
         "userName": "AliceSmith",
         "review": "Excellent service and fast delivery."
       },
       {
         "id": 3,
+        "userPhoto": "https://i.postimg.cc/nzVqcbtW/pexels-liza-summer-6347925.jpg",
         "userName": "BobJohnson",
         "review": "The product quality could be improved."
       }

@@ -1,9 +1,43 @@
+import Swal from "sweetalert2";
 import DomainRow from "../../../Component/Shared/DomainRow/Domainrow";
 import useDomain from "../../../Hock/useDomain";
+import useAxiosPublic from "../../../Hock/useAxiosPublic";
 
 const AllDomains = () => {
-    const [domain] = useDomain();
-    console.log(domain);
+    const [domain,loading,refetch] = useDomain();
+    const useAxios = useAxiosPublic();
+   
+
+    const handleDeleteItem = (id) => {
+        console.log(id);
+        Swal
+        .fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                console.log(id);
+                const res = await useAxios.delete(`/domain/${id}`)
+                console.log(res.data);
+                if (res.data.deletedCount > 0) {
+                    // refetch to update the ui
+                    refetch();
+
+                    Swal.fire({
+                        title: "Deleted!",
+                        text:  " Item has been deleted",
+                        icon: "success"
+                    });
+                }
+
+            }
+        });
+    }
 
 
     return (
@@ -29,6 +63,7 @@ const AllDomains = () => {
                             domain?.map((domianItem, index) => <DomainRow
                                  key={domianItem._id}
                                  domianItem={domianItem}
+                                 handleDeleteItem={handleDeleteItem}
                                  index={index}
                                  ></DomainRow>)
                         }

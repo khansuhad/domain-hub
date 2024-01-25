@@ -2,7 +2,7 @@
 import { MdDelete } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
 
-const DomainRow = ({domianItem, handleDelete, index}) => {
+const DomainRow = ({domianItem, handleDeleteItem, index}) => {
     const {name, price,category, _id} =domianItem;
 
     return (
@@ -19,7 +19,7 @@ const DomainRow = ({domianItem, handleDelete, index}) => {
             <FaEdit className="md:ml-5 cursor-pointer" />
             </th>
             <th>
-            <MdDelete className="text-2xl md:ml-5 text-red-500  cursor-pointer" />
+            <MdDelete  onClick={() => handleDeleteItem(_id)} className="text-2xl md:ml-5 text-red-500  cursor-pointer" />
             </th>
         </tr>
 

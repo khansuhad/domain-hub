@@ -25,8 +25,8 @@ const DomainForm = () => {
 
                 <form className="mt-10" onSubmit={handleDomain}>
 
-                    <div className="m-5 md:flex gap-5 justify-center">
-                        <div className="form-control md:w-1/2 ">
+                    <div className="m-5 gap-5 justify-center">
+                        <div className="form-control w-full ">
                             <label className="label">
                                 <span className="label-text font-bold">TLD Name</span>
                             </label>
@@ -36,7 +36,7 @@ const DomainForm = () => {
                             </label>
                         </div>
 
-                        <div className="form-control md:w-1/2">
+                        <div className="form-control w-full">
                             <label className="label">
                                 <span className="label-text font-bold">Price</span>
                             </label>
@@ -46,29 +46,6 @@ const DomainForm = () => {
                             </label>
                         </div>
                     </div>
-
-                    <div className="m-5 md:flex gap-5 justify-center">
-                        <div className="form-control md:w-1/2">
-                            <label className="label">
-                                <span className="label-text font-bold"> Description</span>
-                            </label>
-                            <label className="input-group">
-
-                                <input type="text" name="description" placeholder="Description" className="input input-bordered w-full" />
-                            </label>
-                        </div>
-
-                        <div className="form-control md:w-1/2">
-                            <label className="label">
-                                <span className="label-text font-bold">Rating</span>
-                            </label>
-                            <label className="input-group">
-
-                                <input type="number" name="rating" placeholder="rating" className="input input-bordered w-full" />
-                            </label>
-                        </div>
-                    </div>
-
                     <div className="m-5 md:flex gap-5 justify-center">
                         <div className="form-control w-full">
                             <label className="label">
@@ -90,6 +67,23 @@ const DomainForm = () => {
                         </div>
 
                     </div>
+
+
+                    <div className="m-5 md:flex gap-5 justify-center">
+                        <div className="form-control w-full">
+                            <label className="label">
+                                <span className="label-text font-bold"> Description</span>
+                            </label>
+                            <label className="input-group">
+
+                                {/* <input type="text" name="description" placeholder="Description" className="input input-bordered w-full" /> */}
+
+                                <textarea className="w-full" name="description" id="" cols="30" rows="10"></textarea>
+                            </label>
+                        </div>
+
+                    </div>
+
 
                     <div className="m-5  gap-5 justify-center mb-5">
                         <input type="submit" value="Add Domain" className="text-white btn btn-block hover:bg-thirdColor bg-fourthColor" />

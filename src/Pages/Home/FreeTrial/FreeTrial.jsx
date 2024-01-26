@@ -2,15 +2,18 @@ import Container from "../../../Component/UI/Container";
 import Heading from "../../../Component/UI/Heading";
 import Description from "../../../Component/UI/Description";
 import image from "../../../assets/FreeTrialSectionImages/Domain-free-trial.png"
-import { MdEmail } from "react-icons/md";
 import UseAuth from "../../../Hock/UseAuth";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import swal from "sweetalert";
+import useDomain from "../../../Hock/useDomain";
 
 const FreeTrial = () => {
     const { user } = UseAuth();
     console.log("FreeTrial", user);
+
+    const [domain]=useDomain();
+    console.log(domain);
 
     const handleFreeTrialApplication = (e) => {
         e.preventDefault();
@@ -23,6 +26,7 @@ const FreeTrial = () => {
 
         const FreeTrialApplyData = {
             email:user.email,
+            userName:user.displayName,
             domainName,
             approve: false,
 
@@ -34,7 +38,7 @@ const FreeTrial = () => {
                 if (res.data.insertedId) {
                     swal("Application Sent", "We contact with you very soon!", "success");
                 } else {
-                    swal("Your Application already Sent", "We contact with you very soon!", "success");
+                    swal("Your already Sent", "We contact with you very soon!", "warning");
                 }
 
                 form.reset();
@@ -77,9 +81,12 @@ const FreeTrial = () => {
                             <div>
                                 <select name="Domain" defaultValue="" className="select p-0 appearance-none w-full border-none outline-none text-black text-sm font-semibold">
                                     <option disabled value="">Select Domain</option>
-                                    <option value="com">com</option>
-                                    <option value="info">info</option>
-                                    <option value="net">net</option>
+                                    {
+                                        domain.map(dom=> <option key={dom._id} value={dom.name}>{dom.name}</option> )
+                                    }
+                                    <option disabled value="">Select Domain</option>
+                                   
+                                                                      
                                 </select>
                             </div>
 

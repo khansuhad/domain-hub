@@ -32,7 +32,7 @@ const FreeTrial = () => {
 
         }
 
-        axios.post("http://localhost:5000/freeTrialUsers", FreeTrialApplyData)
+        axios.post("https://domain-hub-server-side.vercel.app/freeTrialUsers", FreeTrialApplyData)
             .then(res => {
                 console.log("Response:", res.data);
                 if (res.data.insertedId) {

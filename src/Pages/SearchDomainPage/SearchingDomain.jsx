@@ -29,6 +29,7 @@ const SearchingDomain = () => {
         const isDomainInCart = carts.some((cartItem) => cartItem._id === domainItem._id);
         const domainName = searchTerm +  domainItem?.name
         // console.log(domain);
+        // jhdcbjhd
         if (!isDomainInCart) {
             const cartItem = {
                 name: domainName,
@@ -47,9 +48,6 @@ const SearchingDomain = () => {
                 refetch()
 
             }
-
-
-
 
         }
     };

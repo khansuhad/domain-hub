@@ -1,11 +1,42 @@
-import UseAuth from "../../../Hock/UseAuth";
+
+import axios from "axios";
 import useFreeTrial from "../../../Hock/useFreeTrial";
+import swal from "sweetalert";
+
 
 
 const AllFreeTailApplication = () => {
-    const [freeTrialUsers] = useFreeTrial();
+    const [freeTrialUsers,,refetch] = useFreeTrial();
     console.log(freeTrialUsers);
-    const {user}=UseAuth()
+    
+
+    const handleApprove =(email)=>{
+      axios.put(`https://domain-hub-server-side.vercel.app/freeTrialUsers?email=${email}`)
+      .then(res=>{
+        console.log(res.data);
+        if(res.data.modifiedCount>0){
+            swal("Application approve", "sent", "success");
+            refetch()
+        }
+      })
+      .catch(err=>{
+        console.log(err);
+      })
+    }
+    const handleDismiss =(email)=>{
+      axios.patch(`https://domain-hub-server-side.vercel.app/freeTrialUsers?email=${email}`)
+      .then(res=>{
+        console.log(res.data);
+        if(res.data.modifiedCount>0){
+            swal("Application dismiss", "sent", "success");
+            refetch()
+        }
+      })
+      .catch(err=>{
+        console.log(err);
+      })
+    }
+    
     return (
         <>
             <div
@@ -42,7 +73,7 @@ const AllFreeTailApplication = () => {
                                 <tr>
                                     <td className="p-4 border-b border-blue-gray-50">
                                         <p className="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
-                                            {user?.displayName}
+                                        {users.userName}
                                         </p>
                                     </td>
                                     <td className="p-4 border-b border-blue-gray-50">
@@ -56,10 +87,12 @@ const AllFreeTailApplication = () => {
                                         </p>
                                     </td>
                                     <td className="p-4 border-b border-blue-gray-50 flex gap-3">
-                                        <p className="block cursor-pointer bg-red-400 p-2 rounded-md font-sans text-sm antialiased font-semibold leading-normal text-blue-gray-900">
+                                        {users.approve? <p onClick={()=>{handleApprove(users.email)}} className="block cursor-pointer bg-red-400 p-2 rounded-md font-sans text-sm antialiased font-semibold leading-normal text-blue-gray-900">
+                                            Approved
+                                        </p>:  <p onClick={()=>{handleApprove(users.email)}} className="block cursor-pointer bg-red-400 p-2 rounded-md font-sans text-sm antialiased font-semibold leading-normal text-blue-gray-900">
                                             Approve
-                                        </p>                                                                            
-                                        <p className="block cursor-pointer bg-yellow-400 p-2 rounded-md  font-sans text-sm antialiased font-semibold leading-normal text-blue-gray-900">
+                                        </p>}                                                                           
+                                        <p onClick={()=>{handleDismiss(users.email)}} className="block cursor-pointer bg-yellow-400 p-2 rounded-md  font-sans text-sm antialiased font-semibold leading-normal text-blue-gray-900">
                                             Dismiss
                                         </p>                                                                            
                                        

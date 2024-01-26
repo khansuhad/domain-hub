@@ -36,7 +36,7 @@ const Modal = ({ item }) => {
       {/* Open the modal using document.getElementById('ID').showModal() method */}
 
       <button
-        onClick={() => document.getElementById("my_modal_1").showModal()}
+        onClick={() => document.getElementById(`my_modal_${item._id}`).showModal()}
         className={
           item?.role !== "user"
             ? ` bg-thirdColor hover:bg-fourthColor text-white  border-2 btn-sm rounded-sm`
@@ -46,7 +46,7 @@ const Modal = ({ item }) => {
         {item?.role}
       </button>
 
-      <dialog id="my_modal_1" className="modal">
+      <dialog id={`my_modal_${item._id}`} className="modal">
         <div className="modal-box">
           <h1 className="text-xl sm:text-2xl lg:text-3xl text-center mt-10 font-bold">
             Change Role

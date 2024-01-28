@@ -1,8 +1,18 @@
 import { NavLink } from "react-router-dom";
-
+import { FaCartArrowDown } from "react-icons/fa";
 const UserNavItem = () => {
   return (
     <>
+      <li>
+        <NavLink
+          to="/dashboard/myCart"
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "bg-firstColor text-fifthColor" : ""
+          }
+        >
+          <FaCartArrowDown />My Cart
+        </NavLink>
+      </li>
       <li>
         <NavLink
           to="/dashboard/my-free-tail-application"
@@ -13,6 +23,7 @@ const UserNavItem = () => {
           My Free Tail Application
         </NavLink>
       </li>
+
       <li>
         <NavLink
           to="/dashboard/my-all-domains"

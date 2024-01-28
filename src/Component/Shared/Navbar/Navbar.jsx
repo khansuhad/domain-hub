@@ -6,8 +6,6 @@ import { LuMoonStar } from "react-icons/lu";
 import UseAuth from "../../../Hock/UseAuth";
 // import { useSelector } from "react-redux";
 const Navbar = () => {
-  // const userInfo = useSelector((state) => state.user.currentUser);
-  // console.log(userInfo);
   const { handleModeChange, mode } = useTheme();
   const { user } = UseAuth();
 

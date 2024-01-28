@@ -5,7 +5,7 @@ import useDomain from "../../Hock/useDomain";
 import useCart from "../../Hock/useCart";
 import useAxiosPublic from "../../Hock/useAxiosPublic";
 import Swal from "sweetalert2";
-import { MdDelete } from "react-icons/md";
+
 
 const SearchingDomain = () => {
     const searchValue = useSelector((state) => state.domain.domain)
@@ -14,7 +14,7 @@ const SearchingDomain = () => {
     const [domain,] = useDomain();
     const [carts, loading, refetch] = useCart();
     const useAxios = useAxiosPublic();
-    // console.log(domain);
+    console.log(domain);
     // console.log(carts);
 
     const [searchTerm, setSearchTerm] = useState(searchValue);
@@ -28,17 +28,17 @@ const SearchingDomain = () => {
 
     const addToCart = async (domainItem) => {
         // Check if the domain is already in the cart
-        const isDomainInCart = carts.some((cartItem) => cartItem._id === domainItem._id);
+        const isDomainInCart = carts?.some((cartItem) => cartItem._id === domainItem._id);
         const domainName = searchTerm + domainItem?.name
         // console.log(domain);
         // jhdcbjhd
         if (!isDomainInCart) {
             const cartItem = {
                 name: domainName,
-                category: domainItem.category,
-                price: domainItem.price,
-                description: domainItem.description,
-                email: userInfo.email,
+                category: domainItem?.category,
+                price: domainItem?.price,
+                description: domainItem?.description,
+                email: userInfo?.email,
                 review: "false",
                 payment:"false"
              
@@ -57,37 +57,7 @@ const SearchingDomain = () => {
 
         }
     };
-
-
-    const handleDeleteItem = (cartItem) => {
-        console.log(cartItem);
-        Swal.fire({
-            title: "Are you sure?",
-            text: "You won't be able to revert this!",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!"
-        }).then(async (result) => {
-            if (result.isConfirmed) {
-                console.log(cartItem._id);
-                const res = await useAxios.delete(`/carts/${cartItem._id}`)
-                console.log(res.data);
-                if (res.data.deletedCount > 0) {
-                    // refetch to update the ui
-                    refetch();
-
-                    Swal.fire({
-                        title: "Deleted!",
-                        text: " Item has been deleted",
-                        icon: "success"
-                    });
-                }
-
-            }
-        });
-    }
+    
 
     return (
         <div className=" container mx-auto dark:text-white">
@@ -116,7 +86,6 @@ const SearchingDomain = () => {
                     {/* Add more categories as needed */}
                 </select>
             </div>
-
             <div className="flex gap-5">
                 <div className="flex flex-col gap-4 w-full p-2">
                     {filteredDomains.length > 0 ? (
@@ -127,9 +96,9 @@ const SearchingDomain = () => {
                         <p className="text-2xl md:text-3x font-bold text-center">Not available This Domain</p>
                     )}
                     {filteredDomains.map((domainItem) => (
-                        <div key={domainItem.id} className="relative flex justify-center w-full flex-col rounded-xl bg-gradient-to-tr from-teal-600 to-[#04080b] bg-clip-border p-2 text-white shadow-md shadow-gray-500">
+                        <div key={domainItem?.id} className="relative flex justify-center w-full flex-col rounded-xl bg-gradient-to-tr from-teal-600 to-[#04080b] bg-clip-border p-2 text-white shadow-md shadow-gray-500">
                             <div className="flex justify-between">
-                                <h3 className="text-lg font-semibold">{searchTerm} {domainItem.name}</h3>
+                                <h3 className="text-lg font-semibold">{searchTerm} {domainItem?.name}</h3>
                                 {/* <p className="text-gray-100">{domain.category}</p> */}
                                 <div className="flex justify-center items-center gap-5">
                                     <p className="text-gray-100">price: 10$</p>

@@ -143,16 +143,16 @@ const MyCart = () => {
                     <div className="bg-white w-full p-2 leading-10 ">
                         <div className="flex justify-between">
                             <p className="font-bold"> Total Price: </p>
-                            <p> {totalPrice.toFixed(2)} $</p>
+                            <p> {parseFloat(totalPrice).toFixed(2)} $</p>
 
                         </div>
                         <div className="flex justify-between">
                             <p className="font-bold"> Discount: </p>
-                            <p> -{(totalPrice * (discountPercentage / 100)).toFixed(2)} $</p>
+                            <p> -{(parseFloat(totalPrice) * (discountPercentage / 100)).toFixed(2)} $</p>
                         </div>
                         <div className="flex justify-between">
                             <p className="font-bold"> Total: </p>
-                            <p className="font-bold">{(totalPrice - (totalPrice * (discountPercentage / 100))).toFixed(2)} $</p>
+                            <p className="font-bold">{(parseFloat(totalPrice) - (totalPrice * (discountPercentage / 100))).toFixed(2)} $</p>
                         </div>
                         <button className="btn btn-block bg-thirdColor hover:bg-fourthColor text-white text-xl mr-5 mt-2">
                             make purchase

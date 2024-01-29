@@ -7,14 +7,18 @@ import Heading from "../../../Component/UI/Heading";
 import useCart from "../../../Hock/useCart";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import { useSelector } from "react-redux";
 
 const CheckoutForm = () => {
+  const TotalBill = useSelector((state) => state.payment.TotalBill)
+  console.log(TotalBill);
+
   const paymentSuccessToast = () => toast.success("Payment successfully");
   const paymentErrorToast = () => toast.error("Something went wrong");
   const [error, setError] = useState("");
   const [clientSecret, setClientSecret] = useState("");
   const [transactionId, setTransactionId] = useState("");
-  const [totalPrice, setTotalPrice] = useState(500);
+  const [totalPrice, setTotalPrice] = useState();
   const stripe = useStripe();
   const elements = useElements();
   const axiosSecure = useAxiosSecure();

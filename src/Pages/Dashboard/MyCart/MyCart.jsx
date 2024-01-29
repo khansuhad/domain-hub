@@ -4,14 +4,20 @@ import Swal from "sweetalert2";
 import useAxiosPublic from "../../../Hock/useAxiosPublic";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addPayment } from "../../../features/PaymentPrice/PaymentPrice";
 
 const MyCart = () => {
+  const dispatch = useDispatch()
   const [carts, loading, refetch] = useCart();
   const useAxios = useAxiosPublic();
   console.log(carts);
   const [couponCode, setCouponCode] = useState("");
   const [totalPrice, setTotalPrice] = useState(0);
   const [discountPercentage, setDiscountPercentage] = useState(0);
+  
+  const paymentPrice =(parseFloat(totalPrice) - totalPrice * (discountPercentage / 100)).toFixed(2)
+  dispatch(addPayment(paymentPrice))
 
   // Calculate total price when carts or discountPercentage change
   useEffect(() => {

@@ -10,15 +10,13 @@ import toast from "react-hot-toast";
 import { useSelector } from "react-redux";
 
 const CheckoutForm = () => {
-  const TotalBill = useSelector((state) => state.payment.TotalBill)
-  console.log(TotalBill);
+  const totalPrice = useSelector((state) => state.payment.TotalBill);
 
   const paymentSuccessToast = () => toast.success("Payment successfully");
   const paymentErrorToast = () => toast.error("Something went wrong");
   const [error, setError] = useState("");
   const [clientSecret, setClientSecret] = useState("");
   const [transactionId, setTransactionId] = useState("");
-  const [totalPrice, setTotalPrice] = useState();
   const stripe = useStripe();
   const elements = useElements();
   const axiosSecure = useAxiosSecure();
@@ -29,17 +27,15 @@ const CheckoutForm = () => {
   console.log("Crat", carts);
 
   useEffect(() => {
-    const calculateTotalPrice = () => {
+    if (totalPrice > 0) {
       axiosSecure
         .post("/create-payment-intent", { price: totalPrice })
         .then((res) => {
           console.log("useEffect", res.data.clientSecret);
           setClientSecret(res.data.clientSecret);
         });
-    };
-
-    calculateTotalPrice();
-  }, [axiosSecure,totalPrice]);
+    }
+  }, [axiosSecure, totalPrice]);
 
   console.log("clientSecret", clientSecret);
   console.log("stripe", stripe);
@@ -80,7 +76,7 @@ const CheckoutForm = () => {
 
     if (confirmError) {
       console.log("confirm error");
-      paymentErrorToast()
+      paymentErrorToast();
     } else {
       console.log("payment intent", paymentIntent);
       if (paymentIntent.status === "succeeded") {
@@ -92,7 +88,7 @@ const CheckoutForm = () => {
         axiosSecure.put("/carts", carts).then((res) => {
           console.log("cart", res.data);
           navigate("/dashboard/my-all-domains");
-          paymentSuccessToast()
+          paymentSuccessToast();
         });
       }
     }

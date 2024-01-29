@@ -11,7 +11,7 @@ const AllFreeTailApplication = () => {
     
 
     const handleApprove =(email)=>{
-      axios.put(`https://domain-hub-server-side.vercel.app/freeTrialUsers?email=${email}`)
+      axios.put(`http://localhost:5000/freeTrialUsers?email=${email}`)
       .then(res=>{
         console.log(res.data);
         if(res.data.modifiedCount>0){
@@ -24,7 +24,7 @@ const AllFreeTailApplication = () => {
       })
     }
     const handleDismiss =(email)=>{
-      axios.patch(`https://domain-hub-server-side.vercel.app/freeTrialUsers?email=${email}`)
+      axios.patch(`http://localhost:5000/freeTrialUsers?email=${email}`)
       .then(res=>{
         console.log(res.data);
         if(res.data.modifiedCount>0){

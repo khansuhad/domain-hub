@@ -9,10 +9,14 @@ const useCart =()=>{
     console.log(userInfo.email);
     const axiosPublic =useAxiosPublic();
     const {data: carts = [],isPending: loading,refetch} = useQuery({
-        queryKey: ['carts'],
+        queryKey: ['carts',userInfo.email],
         queryFn: async() =>{
-            const res =await axiosPublic.get('/carts');
-            const filteredData = res.data.filter(item => item.email === userInfo.email);
+            // const res =await axiosPublic.get('/carts');
+            // const filteredData = res.data.filter(item => item.email === userInfo.email);
+            // return filteredData;
+
+            const res =await axiosPublic.get(`/carts?email=${userInfo.email}`);
+            const filteredData = res.data;
             return filteredData;
 
         }

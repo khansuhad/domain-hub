@@ -8,16 +8,19 @@ import { useDispatch } from "react-redux";
 import { addPayment } from "../../../features/PaymentPrice/PaymentPrice";
 
 const MyCart = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const [carts, loading, refetch] = useCart();
   const useAxios = useAxiosPublic();
   console.log(carts);
   const [couponCode, setCouponCode] = useState("");
   const [totalPrice, setTotalPrice] = useState(0);
   const [discountPercentage, setDiscountPercentage] = useState(0);
-  
-  const paymentPrice =(parseFloat(totalPrice) - totalPrice * (discountPercentage / 100)).toFixed(2)
-  dispatch(addPayment(paymentPrice))
+
+  const paymentPrice = (
+    parseFloat(totalPrice) -
+    totalPrice * (discountPercentage / 100)
+  ).toFixed(2);
+  dispatch(addPayment(paymentPrice));
 
   // Calculate total price when carts or discountPercentage change
   useEffect(() => {
@@ -164,12 +167,26 @@ const MyCart = () => {
               </p>
             </div>
 
-            <Link
-              to={"/dashboard/checkout"}
-              className="btn btn-block bg-thirdColor hover:bg-fourthColor text-white text-xl mr-5 mt-2"
-            >
-              make purchase
-            </Link>
+            {totalPrice < 100 ? (
+              <>
+                <h1 className="text-sm text-red-500">
+                  please buy minimum 100$ product
+                </h1>
+                <button
+                  disabled
+                  className="btn btn-block bg-thirdColor hover:bg-fourthColor text-white text-xl mr-5 mt-2"
+                >
+                  make purchase
+                </button>
+              </>
+            ) : (
+              <Link
+                to={"/dashboard/checkout"}
+                className="btn btn-block bg-thirdColor hover:bg-fourthColor text-white text-xl mr-5 mt-2"
+              >
+                make purchase
+              </Link>
+            )}
           </div>
         </div>
       </div>

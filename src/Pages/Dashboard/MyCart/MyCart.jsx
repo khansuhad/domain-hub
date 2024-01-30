@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addPayment } from "../../../features/PaymentPrice/PaymentPrice";
+import { PiCurrencyDollarFill } from "react-icons/pi";
 
 const MyCart = () => {
   const dispatch = useDispatch();
@@ -169,9 +170,9 @@ const MyCart = () => {
 
             {totalPrice < 100 ? (
               <>
-                <h1 className="text-sm text-red-500">
-                  please buy minimum 100$ product
-                </h1>
+                <div className="flex items-center gap-2">
+                  <p className=" text-red-500">Please Buy Minimum 100   </p><PiCurrencyDollarFill className="text-xl text-red-600"/>
+                </div>
                 <button
                   disabled
                   className="btn btn-block bg-thirdColor hover:bg-fourthColor text-white text-xl mr-5 mt-2"

@@ -18,7 +18,8 @@
 ### IMGBB Api key
 - VITE_IMGBB_API_KEY = xxx
 
-
+### Stripe Publishable key
+- VITE_Payment_Gateway_PK = xxx
 
 
 ## Project setup

@@ -4,10 +4,11 @@ import useTheme from "../../../Hock/useTheme";
 import { FiSun } from "react-icons/fi";
 import { LuMoonStar } from "react-icons/lu";
 import UseAuth from "../../../Hock/UseAuth";
+import { FaShoppingCart } from "react-icons/fa";
+import useCart from "../../../Hock/useCart";
 // import { useSelector } from "react-redux";
 const Navbar = () => {
-  // const userInfo = useSelector((state) => state.user.currentUser);
-  // console.log(userInfo);
+  const [carts, loading, refetch] = useCart();
   const { handleModeChange, mode } = useTheme();
   const { user } = UseAuth();
 
@@ -27,6 +28,12 @@ const Navbar = () => {
       </li>
       <li>
         <Link to="/dashboard/profile">Dashboard</Link>
+      </li>
+      <li>
+        <Link to="/dashboard/myCart"><button className="flex justify-center items-center">
+          <FaShoppingCart className="mr-2"></FaShoppingCart>
+          <div className="badge badge-primary">+{carts.length} </div>
+        </button></Link>
       </li>
     </>
   );

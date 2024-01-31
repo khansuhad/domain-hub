@@ -3,36 +3,37 @@ import Heading from "../../../Component/UI/Heading";
 import Description from "../../../Component/UI/Description";
 import image from "../../../assets/FreeTrialSectionImages/Domain-free-trial.png"
 import UseAuth from "../../../Hock/UseAuth";
-import axios from "axios";
+
 import { Link } from "react-router-dom";
 import swal from "sweetalert";
 import useDomain from "../../../Hock/useDomain";
+import useAxiosPublic from "../../../Hock/useAxiosPublic";
 
 const FreeTrial = () => {
     const { user } = UseAuth();
     console.log("FreeTrial", user);
 
-    const [domain]=useDomain();
+    const [domain] = useDomain();
     console.log(domain);
-
+    const axiosPublic = useAxiosPublic();
     const handleFreeTrialApplication = (e) => {
         e.preventDefault();
         const form = e.target
-      
+
         const domainName = form.Domain.value
 
-      
+
         console.log("Domain:", domainName);
 
         const FreeTrialApplyData = {
-            email:user.email,
-            userName:user.displayName,
+            email: user.email,
+            userName: user.displayName,
             domainName,
-            approve: false,
+            approve: "Pending",
 
         }
 
-        axios.post("https://domain-hub-server-side.vercel.app/freeTrialUsers", FreeTrialApplyData)
+        axiosPublic.post("/freeTrialUsers", FreeTrialApplyData)
             .then(res => {
                 console.log("Response:", res.data);
                 if (res.data.insertedId) {
@@ -76,17 +77,17 @@ const FreeTrial = () => {
 
 
                         <form onSubmit={handleFreeTrialApplication} className="mb-4 ">
-                           
+
 
                             <div>
-                                <select name="Domain" defaultValue="" className="select p-0 appearance-none w-full border-none outline-none text-black text-sm font-semibold">
+                                <select required name="Domain" defaultValue="" className="select p-0 appearance-none w-full border-none outline-none text-black text-sm font-semibold">
                                     <option disabled value="">Select Domain</option>
                                     {
-                                        domain.map(dom=> <option key={dom._id} value={dom.name}>{dom.name}</option> )
+                                        domain?.map(dom => <option key={dom._id} value={dom.name}>{dom.name}</option>)
                                     }
                                     <option disabled value="">Select Domain</option>
-                                   
-                                                                      
+
+
                                 </select>
                             </div>
 

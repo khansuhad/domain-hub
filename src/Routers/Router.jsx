@@ -24,6 +24,8 @@ import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 import EditProfile from "../Pages/Dashboard/EditProfile/EditProfile";
 import { Review } from "../Pages/Home/Review/Review";
 import PrivateRoute from "./PrivateRoute";
+import MyCart from "../Pages/Dashboard/MyCart/MyCart";
+import Checkout from "../Pages/Dashboard/Checkout/Checkout";
 
 const Router = createBrowserRouter([
   {
@@ -119,6 +121,22 @@ const Router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <Support />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/dashboard/myCart",
+        element: (
+          <PrivateRoute>
+            <MyCart/>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/dashboard/checkout",
+        element: (
+          <PrivateRoute>
+            <Checkout/>
           </PrivateRoute>
         ),
       },

@@ -35,7 +35,7 @@ const FAQ = () => {
         <Container>
             <div className="bg-firstColor p-2 dark:bg-[#191919] dark:text-white px-[10%]">
                 {/* section Heading */}
-                <p className="text-xl md:text-3xl lg:text-5xl font-bold text-center py-5"><span className="text-blue-500">F</span>requently <span className="text-blue-500">A</span>sked <span className="text-blue-500">Q</span>uestions </p>
+                <p className="text-xl md:text-3xl lg:text-5xl font-bold text-center py-5"><span className="text-cyan-500">F</span>requently <span className="text-cyan-500">A</span>sked <span className="text-cyan-500">Q</span>uestions </p>
 
                 {/* section subHeading */}
                 <Description>Find answers to common questions about choosing, registering, and managing your domain.</Description>

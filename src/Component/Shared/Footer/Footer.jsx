@@ -93,7 +93,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="divider"></div>
-          <p className="mt-6 pb-7 mb-10 text-center">
+          <p className="mt-6 pb-7 text-center">
             Copyright © 2023 DomainHub. | Powered by Devengers.
           </p>
         </div>

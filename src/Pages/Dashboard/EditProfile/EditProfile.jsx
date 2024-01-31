@@ -55,6 +55,7 @@ const EditProfile = () => {
         phone: phoneNumber,
         email: user?.email,
       };
+      console.log(updateIfo);
       axiosSecure.put(`/users?${user?.email}`, updateIfo).then((res) => {
         console.log("update n database", res);
         if (res.status === 200) {
@@ -69,7 +70,7 @@ const EditProfile = () => {
   return (
     <>
       {isPendingInfo || isLoading ? (
-        <Loading/>
+        <Loading />
       ) : (
         <div className=" flex flex-col justify-center items-center h-screen p-5 md:p-10 text-center">
           <div className=" flex flex-col justify-center items-center p-5 md:p-10 border shadow-2xl  border-secondColor dark:border-sixthColor dark:text-sixthColor text-lg lg:text-xl  font-bold">

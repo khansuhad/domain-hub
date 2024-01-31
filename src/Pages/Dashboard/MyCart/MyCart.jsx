@@ -76,19 +76,19 @@ const MyCart = () => {
   };
   return (
     <div className="  p-6 rounded-lg">
-      <h2 className="text-2xl font-bold text-center my-10">My Cart</h2>
+      <h2 className="text-2xl font-bold text-center dark:text-white my-10">My Cart</h2>
 
-      <div className="flex flex-col md:flex-row">
-        <div className="md:overflow-x-auto p-5 md:m-10 md:w-[60%]">
+      <div className="flex flex-col md:flex-row " >
+        <div className="md:overflow-x-auto p-5 md:m-10 md:w-[60%] dark:text-white">
           <table className="table w-full border-2">
             {/* head */}
             <thead>
               <tr>
-                <th className="text-xl font-bold">#</th>
+                <th className="text-xl font-bold dark:text-white">#</th>
 
-                <th className="text-xl font-bold">Name</th>
-                <th className="text-xl font-bold">Price</th>
-                <th className="text-xl font-bold">Action</th>
+                <th className="text-xl font-bold dark:text-white">Name</th>
+                <th className="text-xl font-bold dark:text-white">Price</th>
+                <th className="text-xl font-bold dark:text-white">Action</th>
               </tr>
             </thead>
             {carts.length === 0 ? (

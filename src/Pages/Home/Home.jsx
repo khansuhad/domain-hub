@@ -7,6 +7,7 @@ import OffersAndDiscounts from "./OffersAndDiscounts/OffersAndDiscounts";
 import PriceByCategory from "./PriceByCategory/PriceByCategory";
 import SuccessShowcase from "./SuccessShowcase/SuccessShowcase";
 import Tutorial from "./Tutorial/Tutorial";
+import DomainTld from "../../Component/Shared/DomainTld/DomainTld";
 
 const Home = () => {
     const data= useLoaderData()
@@ -14,6 +15,7 @@ const Home = () => {
         <div className="bg-firstColor dark:bg-[#191919]">
        
             <Banner/>
+            <DomainTld></DomainTld>
             <BestHostingPlan/>
             <FAQ/>
             <SuccessShowcase/>

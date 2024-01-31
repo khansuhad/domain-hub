@@ -101,7 +101,7 @@ const SearchingDomain = () => {
                                 <h3 className="text-lg font-semibold">{searchTerm} {domainItem?.name}</h3>
                                 {/* <p className="text-gray-100">{domain.category}</p> */}
                                 <div className="flex justify-center items-center gap-5">
-                                    <p className="text-gray-100">price: 10$</p>
+                                    <p className="text-gray-100">price: {domainItem.price}</p>
                                     <div className="border-2 p-2 rounded-lg">
                                         {/* Cart icon */}
                                         <MdAddShoppingCart className="  text-2xl cursor-pointer" onClick={() => addToCart(domainItem)} />

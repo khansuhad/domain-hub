@@ -1,13 +1,11 @@
 
 
+
 import useFreeTrial from "../../../Hock/useFreeTrial";
 import swal from "sweetalert";
 import { MdDelete } from "react-icons/md";
-
 import useAxiosPublic from "../../../Hock/useAxiosPublic";
 import Swal from "sweetalert2";
-
-
 
 const AllFreeTailApplication = () => {
     const [freeTrialUsers, , refetch] = useFreeTrial();

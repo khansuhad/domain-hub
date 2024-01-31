@@ -75,20 +75,35 @@ const MyCart = () => {
     });
   };
   return (
-    <div className="  p-6 rounded-lg">
-      <h2 className="text-2xl font-bold text-center my-10">My Cart</h2>
+    <div className="rounded-lg ">
+      <div className="flex justify-between bg-gradient-to-tr from-[#13104e] to-[#0193e1]">
+        <div className="flex flex-col justify-center w-3/4 items-center">
+          <p className="text-2xl w-full font-bold text-center text-white dark:text-white my-10">My Cart</p>
+          <div className="flex gap-2">
+            <Link to="/"><button className="btn text-black font-bold uppercase bg-cyan-500">Home</button></Link>
+            <Link to="/searchPage">
+              <button className="btn text-black font-bold  uppercase bg-cyan-500">Search Domain</button>
+            </Link>
+          </div>
 
-      <div className="flex flex-col md:flex-row">
-        <div className="md:overflow-x-auto p-5 md:m-10 md:w-[60%]">
-          <table className="table w-full border-2">
+
+        </div>
+        <div>
+          <img className="pr-5 lg:h-[400px]" src="https://templates.hibootstrap.com/blim/default/assets/images/vps-header-shape.png" alt="" />
+        </div>
+      </div>
+
+      <div className="flex flex-col md:flex-row " >
+        <div className="md:overflow-x-auto p-5 md:m-10 md:w-[60%] dark:text-white">
+          <table className="table w-full border-2 min-h-[]">
             {/* head */}
             <thead>
               <tr>
-                <th className="text-xl font-bold">#</th>
+                <th className="text-xl font-bold dark:text-white">#</th>
 
-                <th className="text-xl font-bold">Name</th>
-                <th className="text-xl font-bold">Price</th>
-                <th className="text-xl font-bold">Action</th>
+                <th className="text-xl font-bold dark:text-white">Name</th>
+                <th className="text-xl font-bold dark:text-white">Price</th>
+                <th className="text-xl font-bold dark:text-white">Action</th>
               </tr>
             </thead>
             {carts.length === 0 ? (
@@ -171,7 +186,7 @@ const MyCart = () => {
             {totalPrice < 100 ? (
               <>
                 <div className="flex items-center gap-2">
-                  <p className=" text-red-500">Please Buy Minimum 100   </p><PiCurrencyDollarFill className="text-xl text-red-600"/>
+                  <p className=" text-red-500">Please Buy Minimum 100   </p><PiCurrencyDollarFill className="text-xl text-red-600" />
                 </div>
                 <button
                   disabled

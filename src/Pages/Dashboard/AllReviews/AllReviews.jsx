@@ -1,9 +1,19 @@
 import Heading from "../../../Component/UI/Heading";
+import useReview from "../../../Hock/useReview";
+import AllReviewCard from "./AllReviewCard";
 
 const AllReviews = () => {
+  const [reviews] = useReview();
   return (
     <div className="flex justify-center items-center h-screen">
-      <Heading>No Review available</Heading>
+      <div>
+        <Heading>All Reviews</Heading>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-7xl mx-auto mt-20">
+          {reviews?.map((review) => (
+            <AllReviewCard key={review._id} review={review}></AllReviewCard>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

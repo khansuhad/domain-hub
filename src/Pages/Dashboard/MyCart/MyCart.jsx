@@ -80,14 +80,16 @@ const MyCart = () => {
         <div className="flex flex-col justify-center w-3/4 items-center">
           <p className="text-2xl w-full font-bold text-center text-white dark:text-white my-10">My Cart</p>
           <div className="flex gap-2">
-            <button className="btn text-black font-bold uppercase bg-cyan-500">Home</button>
-            <button className="btn text-black font-bold  uppercase bg-cyan-500">Search</button>
+            <Link to="/"><button className="btn text-black font-bold uppercase bg-cyan-500">Home</button></Link>
+            <Link to="/searchPage">
+              <button className="btn text-black font-bold  uppercase bg-cyan-500">Search Domain</button>
+            </Link>
           </div>
 
 
         </div>
         <div>
-          <img className="p-2" src="https://templates.hibootstrap.com/blim/default/assets/images/vps-header-shape.png" alt="" />
+          <img className="pr-5 lg:h-[400px]" src="https://templates.hibootstrap.com/blim/default/assets/images/vps-header-shape.png" alt="" />
         </div>
       </div>
 

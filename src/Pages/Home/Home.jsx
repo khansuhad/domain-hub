@@ -21,7 +21,7 @@ const Home = () => {
             <SuccessShowcase/>
             <FreeTrial/>
             <PriceByCategory data={data}/>
-            <Tutorial/>
+            {/* <Tutorial/> */}
             <OffersAndDiscounts/>
         </div>
     );

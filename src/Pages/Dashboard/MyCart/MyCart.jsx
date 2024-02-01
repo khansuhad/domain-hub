@@ -132,12 +132,9 @@ const MyCart = () => {
         </div>
 
         <div className=" md:w-[40%] p-5 md:m-10">
-          <div className="bg-white mb-5 p-2 ">
+          <div className="bg-white mb-5 p-2 rounded-lg">
             {/* Coupon input form*/}
             <form onSubmit={handleSubmit} className="flex items-center">
-              <label htmlFor="coupon-code" className="sr-only">
-                Coupon code
-              </label>
               <input
                 type="text"
                 id="coupon-code"
@@ -145,18 +142,18 @@ const MyCart = () => {
                 placeholder="Coupon"
                 value={couponCode}
                 onChange={(event) => setCouponCode(event.target.value)}
-                className="border border-gray-300 rounded-l-md py-2 px-4 w-32 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="border border-gray-300 rounded-l-md py-2 px-4 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
               <button
                 type="submit"
-                className=" bg-thirdColor hover:bg-fourthColor text-white font-bold py-2 px-4 rounded-r-md"
+                className="text-base bg-cyan-400 hover:bg-cyan-500 text-Black font-bold py-2 px-4 rounded-r-md"
               >
                 Apply
               </button>
             </form>
           </div>
 
-          <div className="bg-white w-full p-2 leading-10 ">
+          <div className="bg-white w-full p-2 leading-10 rounded-lg">
             <div className="flex justify-between">
               <p className="font-bold"> Total Price: </p>
               <p> {parseFloat(totalPrice).toFixed(2)} $</p>
@@ -190,7 +187,7 @@ const MyCart = () => {
                 </div>
                 <button
                   disabled
-                  className="btn btn-block bg-thirdColor hover:bg-fourthColor text-white text-xl mr-5 mt-2"
+                  className="btn btn-block bg-cyan-400 hover:bg-cyan-500  text-white text-xl mr-5 mt-2"
                 >
                   make purchase
                 </button>
@@ -198,7 +195,7 @@ const MyCart = () => {
             ) : (
               <Link
                 to={"/dashboard/checkout"}
-                className="btn btn-block bg-thirdColor hover:bg-fourthColor text-white text-xl mr-5 mt-2"
+                className="btn btn-block bg-cyan-400 hover:bg-cyan-500 text-black text-xl mr-5 mt-2"
               >
                 make purchase
               </Link>

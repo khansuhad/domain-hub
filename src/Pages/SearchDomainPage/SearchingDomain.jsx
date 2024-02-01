@@ -60,18 +60,18 @@ const SearchingDomain = () => {
     
 
     return (
-        <div className=" container mx-auto dark:text-white">
-            <div className="mb-4 flex flex-col md:flex-row justify-center items-center pt-36 pb-20 dark:text-black">
+        <div  className=" container mx-auto dark:text-white">
+            <div className="mb-4  flex flex-col md:flex-row justify-center items-center pt-36 pb-20 dark:text-black">
                 <input
                     type="text"
                     placeholder="search here"
-                    className=" border md:w-full border-gray-300 rounded-lg mr-1 p-2 "
+                    className=" border md:w-full m-2 border-gray-300 rounded-lg mr-1 p-2 "
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                 />
 
                 <select
-                    className="md:p-2 border border-gray-300 rounded-lg"
+                    className="md:p-2 mr-2 border border-gray-300 rounded-lg"
                     value={selectedCategory}
                     onChange={(e) => setSelectedCategory(e.target.value)}
                 >

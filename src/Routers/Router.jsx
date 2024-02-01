@@ -26,6 +26,7 @@ import { Review } from "../Pages/Home/Review/Review";
 import PrivateRoute from "./PrivateRoute";
 import MyCart from "../Pages/Dashboard/MyCart/MyCart";
 import Checkout from "../Pages/Dashboard/Checkout/Checkout";
+import CategoryDetails from "../Pages/Home/PriceByCategory/CategoryDetails";
 
 const Router = createBrowserRouter([
   {
@@ -54,6 +55,10 @@ const Router = createBrowserRouter([
       {
         path: "/searchPage",
         element: <SearchingDomain></SearchingDomain>,
+      },
+      {
+        path: "/domainDetails",
+        element: <CategoryDetails></CategoryDetails>
       },
     ],
   },

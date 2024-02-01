@@ -20,19 +20,21 @@ const CategoryDetails = () => {
         e.preventDefault()
         const form = e.target
         const searchData = form.domain.value
-        const searchedDomain = searchData.concat(domainDetails?.name)
-        const findDomain = bookedDomains.filter(item => item.name === searchedDomain)
+        const domainSearched = searchData.concat(domainDetails?.name)
+        const domain= domainSearched.toLowerCase()
+        console.log("lowercase domain",domain);
+        const findDomain = bookedDomains.filter(item => item.name === domain)
         console.log("test status", findDomain?.length);
         if (findDomain?.length > 0) {
             setNotAvailable("Sorry! this domain is already taken.")
             setSearchedDomain("")
         }
         else {
-            setSearchedDomain(searchedDomain)
+            setSearchedDomain(domain)
             setNotAvailable("")
         }
     }
-    console.log("searched", searchedDomain);
+    console.log("domain searched",searchedDomain);
     const cartItem = {
         name: searchedDomain,
         category: domainDetails?.category,
@@ -41,10 +43,8 @@ const CategoryDetails = () => {
         email: userInfo?.email,
         review: "false",
         payment:"false"
-     
     }
     const handleCart = () => {
-
         axiosSecure.post("/domainAddToCart", cartItem)
             .then(res => {
                 if (res.data.insertedId) {
@@ -53,8 +53,6 @@ const CategoryDetails = () => {
                     navigate("/")
                 }
             }
-
-
             )
     }
     return (
@@ -96,10 +94,7 @@ const CategoryDetails = () => {
                             </div>}
                     </div>
                 </div>
-
             </div>
-
-
         </div>
     );
 };

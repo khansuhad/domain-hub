@@ -25,14 +25,13 @@ const Banner = () => {
             domain: "",
         },
     });
-
     const onSubmit = (data) => {
         const domain = data.domain;
+        const domainSearched= domain.toLowerCase()
         // data store 
-        dispatch(addDomain(domain))
+        dispatch(addDomain(domainSearched))
         console.log("inputted domain is", domain);
         navigate("/searchPage")
-        
     };
 
     return (
@@ -59,12 +58,10 @@ const Banner = () => {
                                     )}
                                 </div>
                                 <div>
-
                                     <button className="btn bg-thirdColor hover:bg-fourthColor dark:bg-gray-700" type="submit">
                                         <FaSearch className="text-xl text-white dark:text-[#F5F7F8]"></FaSearch>
                                         <p className="text-lg text-white dark:text-[#F5F7F8]">Search</p>
                                     </button>
-
                                 </div>
                             </div>
                         </div>
@@ -73,5 +70,5 @@ const Banner = () => {
             </div>
         </div>
     );
-};
+}
 export default Banner;

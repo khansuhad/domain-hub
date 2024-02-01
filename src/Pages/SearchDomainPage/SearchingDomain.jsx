@@ -29,7 +29,7 @@ const SearchingDomain = () => {
     const addToCart = async (domainItem) => {
         // Check if the domain is already in the cart
         const isDomainInCart = carts?.some((cartItem) => cartItem._id === domainItem._id);
-        const domainName = searchTerm + domainItem?.name
+        const domainName = searchTerm.concat(domainItem?.name)
         // console.log(domain);
         // jhdcbjhd
         if (!isDomainInCart) {

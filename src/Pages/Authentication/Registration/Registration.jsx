@@ -82,9 +82,9 @@ const Registration = () => {
       });
   };
   return (
-    <div className="flex justify-evenly items-center min-h-screen bg-firstColor text-[#191919] dark:bg-[#191919] dark:text-[#F5F7F8] p-5 gap-5">
+    <div className="flex justify-evenly text-white items-center min-h-screen bg-firstColor  dark:bg-[#191919] dark:text-[#F5F7F8] p-5 gap-5">
       <img src={img} alt="" className="hidden lg:block max-w-lg" />
-      <div className="card shrink-0 w-full max-w-lg shadow-2xl  card-body rounded border-[#191919] dark:border-[#F5F7F8] border-2 ">
+      <div className="card shrink-0 w-full max-w-lg shadow-2xl  card-body rounded bg-fourthColor border-[#191919] dark:border-[#F5F7F8] border-2 ">
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-5">
           Registration!
         </h1>
@@ -96,7 +96,7 @@ const Registration = () => {
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="form-control">
             <label className="label">
-              <span className="label-text text-lg text-[#191919] dark:text-[#F5F7F8]">
+              <span className="label-text text-lg text-white dark:text-[#F5F7F8]">
                 Name
               </span>
             </label>
@@ -115,7 +115,7 @@ const Registration = () => {
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text text-lg text-[#191919] dark:text-[#F5F7F8]">
+              <span className="label-text text-lg text-white dark:text-[#F5F7F8]">
                 Image
               </span>
             </label>
@@ -133,7 +133,7 @@ const Registration = () => {
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text text-lg text-[#191919] dark:text-[#F5F7F8]">
+              <span className="label-text text-lg text-white dark:text-[#F5F7F8]">
                 Email
               </span>
             </label>
@@ -156,7 +156,7 @@ const Registration = () => {
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text text-lg text-[#191919] dark:text-[#F5F7F8]">
+              <span className="label-text text-lg text-white dark:text-[#F5F7F8]">
                 Password
               </span>
             </label>
@@ -189,7 +189,7 @@ const Registration = () => {
           </div>
           <div className="form-control mt-6">
             <button
-              className="btn bg-thirdColor hover:bg-fourthColor text-white border-0"
+              className="btn bg-secondColor hover:bg-thirdColor text-white border-0"
               type="submit"
             >
               Registration
@@ -201,7 +201,7 @@ const Registration = () => {
           Already have account? Please{" "}
           <Link
             to={"/login"}
-            className="underline cursor-pointer font-bold text-[#191919] dark:text-[#F5F7F8]"
+            className="underline cursor-pointer font-bold text-white dark:text-[#F5F7F8]"
           >
             Login
           </Link>

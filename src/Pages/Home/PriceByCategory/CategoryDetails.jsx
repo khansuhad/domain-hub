@@ -45,7 +45,7 @@ const CategoryDetails = () => {
         payment:"false"
     }
     const handleCart = () => {
-        axiosSecure.post("/domainAddToCart", cartItem)
+        axiosSecure.post("/carts", cartItem)
             .then(res => {
                 if (res.data.insertedId) {
                     console.log(res.data);

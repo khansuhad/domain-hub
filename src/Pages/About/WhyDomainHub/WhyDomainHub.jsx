@@ -6,7 +6,7 @@ import image from "../../../assets/WhyDomainHub/output-onlinegiftools.gif"
 const WhyDomainHub = () => {
     return (
         <>
-            <section className="bg-firstColor dark:bg-[#191919] pt-10">
+            <section className="bg-firstColor dark:bg-[#191919] pt-10 ">
 
                 <div>
                     <Container>
@@ -22,7 +22,7 @@ const WhyDomainHub = () => {
                     </Container>
                 </div>
 
-                <div className="flex lg:flex-row flex-col items-center justify-center">
+                <div className="flex lg:flex-row flex-col items-center justify-center w-[95%] mx-auto">
                     <div>
                         <img src={image} alt="DomainHub.gif" />
                     </div>
@@ -46,7 +46,7 @@ const WhyDomainHub = () => {
                     </div>
                 </div>
 
-                <h1 className="lg:text-2xl text-sm border mt-10 border-yellow-500 rounded-full bg-yellow-500 lg:w-[800px]  mx-auto p-2"> Join us and unlock the potential of your online presence today.</h1>
+                <h1 className="lg:text-2xl w-[95%] mx-auto text-sm border mt-10 border-yellow-500 rounded-full bg-yellow-500 lg:w-[700px]  p-2"> Join us and unlock the potential of your online presence today.</h1>
 
             </section>
 

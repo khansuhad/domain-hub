@@ -22,7 +22,7 @@ const AboutUs = () => {
                   
                 </div>
 
-                <div className='lg:w-9/12 mx-auto lg:border-2 lg:border-white bg-fourthColor text-white rounded-full lg:p-8 dark:text-white dark:border-white'>
+                <div className='lg:w-9/12 mx-auto lg:border-2 lg:border-white bg-fourthColor text-white rounded-full lg:p-8 dark:bg-[#191919] dark:text-white dark:border-white'>
                     <h1 className='lg:text-2xl text-sm px-2 font-normal'>
                         Welcome to DomainHub – Your Premier Destination for Domain Buying and Selling!At DomainHub, we are passionate about connecting individuals, businesses, and visionaries with the perfect domain names to elevate their online presence. As a leading domain selling platform, we offer a seamless and secure marketplace where buyers and sellers come together to explore a world of possibilities.
                     </h1>

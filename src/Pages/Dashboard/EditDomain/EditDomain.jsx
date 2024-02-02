@@ -29,7 +29,7 @@ const EditDomain = () => {
 
     return (
 
-        <div className="  p-10 bg-fourthColor lg:h-[900px]  ">
+        <div className="  p-10 bg-fourthColor dark:bg-slate-700 lg:h-[900px]  ">
 
             <div>
                 <h3 className="text-center text-xl md:text-2xl font-bold  text-white">Update Domain</h3>

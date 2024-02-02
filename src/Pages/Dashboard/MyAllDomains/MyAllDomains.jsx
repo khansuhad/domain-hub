@@ -8,7 +8,7 @@ const MyAllDomains = () => {
   const [trueCarts, refetch] = useTruePayment();
 
   return (
-    <div className="bg-firstColor rounded min-h-screen py-10 ">
+    <div className="bg-firstColor dark:bg-slate-700 rounded min-h-screen py-10 ">
       <div className="text-2xl md:text-3xl lg:text-5xl font-bold text-center mb-10 text-white dark:text-[#F5F7F8] font-roboto ">
         My All Domains
       </div>

@@ -13,7 +13,7 @@ const OurTeam = () => {
     return (
         <>
             {/* our team section start */}
-            <section className="bg-firstColor py-10 text-white">
+            <section className="bg-firstColor dark:bg-[#191919] py-10 text-white">
 
                 <div>
                     <Container>

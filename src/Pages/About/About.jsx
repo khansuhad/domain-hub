@@ -7,7 +7,7 @@ import WhyDomainHub from "./WhyDomainHub/WhyDomainHub";
 const About = () => {
     return (
         <>
-            <div>
+            <div className="dark:bg-[#191919]">
                 
                     <AboutUs></AboutUs>
                 

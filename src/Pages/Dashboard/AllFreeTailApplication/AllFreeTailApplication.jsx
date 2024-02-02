@@ -73,11 +73,11 @@ const AllFreeTailApplication = () => {
     return (
         <>
             <div
-                className="overflow-x-auto p-5 text-white">
+                className="overflow-x-auto p-5 text-white ">
                     <h2 className="text-2xl font-bold text-center my-10 ">Manage Free Trial Application</h2>
                 <table className="w-full text-left table-auto min-w-max border-2 ">
                     
-                    <thead className="bg-fourthColor border-2">
+                    <thead className="bg-fourthColor   border-2">
                         <tr>
                             <th className="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
                                 <p className="block font-sans text-sm lg:text-xl font-bold antialiased  leading-none text-blue-gray-900 opacity-70">

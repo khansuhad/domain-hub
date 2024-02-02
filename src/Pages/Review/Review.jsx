@@ -6,7 +6,7 @@ export const Review = () => {
   const [reviews] = useReview();
 
   return (
-    <div className="py-40 bg-firstColor">
+    <div className="py-40 bg-firstColor dark:bg-[#191919]">
       <Heading>What People Say About Us</Heading>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-7xl mx-auto mt-20">
         {reviews?.map((review) => (

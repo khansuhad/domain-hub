@@ -38,7 +38,7 @@ const Dashboard = () => {
   ];
   return (
     <div>
-      <div className="px-[5%] bg-firstColor py-10">
+      <div className="px-[5%] bg-firstColor  dark:bg-slate-700 py-10">
         <Heading>Welcome to dashboard {user?.displayName}</Heading>
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 lg:mt-10 text-white dark:text-sixthColor font-bold">
           <div className="border border-fourthColor dark:border-sixthColor rounded text-center p-5 md:p-10">

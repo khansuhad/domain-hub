@@ -6,7 +6,7 @@ import image from "../../../assets/WhyDomainHub/output-onlinegiftools.gif"
 const WhyDomainHub = () => {
     return (
         <>
-            <section className="bg-firstColor pt-10">
+            <section className="bg-firstColor dark:bg-[#191919] pt-10">
 
                 <div>
                     <Container>

@@ -12,7 +12,7 @@ const AllUsers = () => {
         <Loading/>
       ) : (
         <div>
-          <div className="px-[5%] dark:text-sixthColor bg-firstColor py-5">
+          <div className="px-[5%] dark:text-sixthColor bg-firstColor dark:bg-slate-700 py-5">
             <Heading>Manage all Users</Heading>
             <div className="overflow-x-auto lg:mt-10">
               <table className="table">

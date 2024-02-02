@@ -75,7 +75,7 @@ const MyCart = () => {
     });
   };
   return (
-    <div className="rounded-lg text-white bg-firstColor">
+    <div className="rounded-lg text-white dark:bg-[#191919] bg-firstColor">
       <div className="flex justify-between bg-gradient-to-tr from-[#13104e] to-[#0193e1] ">
         <div className="flex flex-col justify-center w-3/4 items-center">
           <p className="text-2xl w-full font-bold text-center text-white dark:text-white my-10">My Cart</p>
@@ -135,9 +135,6 @@ const MyCart = () => {
           <div className="bg-fourthColor mb-5 p-2 ">
             {/* Coupon input form*/}
             <form onSubmit={handleSubmit} className="flex items-center">
-              <label htmlFor="coupon-code" className="sr-only">
-                Coupon code
-              </label>
               <input
                 type="text"
                 id="coupon-code"

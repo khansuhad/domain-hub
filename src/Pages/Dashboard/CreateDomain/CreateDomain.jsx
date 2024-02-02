@@ -32,7 +32,7 @@ const CreateDomain = () => {
     }
 
     return (
-        <div className="md:py-40 md:px-0 lg:px-[5%] bg-firstColor ">
+        <div className="md:py-40 md:px-0 lg:px-[5%] bg-firstColor dark:bg-slate-700 ">
            <DomainForm addDomain={addDomain}></DomainForm>
         </div>
     );

@@ -12,7 +12,7 @@ const OurMission = () => {
     return (
         <>
             {/* Our Mission start */}
-            <section className="bg-firstColor dark:[#191919] text-white">
+            <section className="bg-firstColor dark:bg-[#191919] text-white">
 
                 <div>
                     <Container>

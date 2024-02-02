@@ -73,7 +73,7 @@ const EditProfile = () => {
         <Loading />
       ) : (
         <div className=" flex flex-col justify-center items-center h-screen p-5 md:p-10 text-center">
-          <div className=" flex flex-col justify-center items-center p-5 md:p-10 border shadow-2xl bg-fourthColor text-white  border-secondColor dark:border-sixthColor dark:text-sixthColor text-lg lg:text-xl  font-bold">
+          <div className=" flex flex-col justify-center items-center p-5 md:p-10 border shadow-2xl dark:bg-slate-700 bg-fourthColor text-white  border-secondColor dark:border-sixthColor dark:text-sixthColor text-lg lg:text-xl  font-bold">
             <form onSubmit={handleSubmit(onSubmit)}>
               <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-5">
                 Update Profile

@@ -7,7 +7,7 @@ const AllDomainRequest = () => {
 
 
     return (
-        <div className="bg-firstColor rounded min-h-screen py-10 ">
+        <div className="bg-firstColor dark:bg-slate-700 rounded min-h-screen py-10 ">
         <div className="text-2xl md:text-3xl lg:text-5xl font-bold text-center mb-10 text-white dark:text-[#F5F7F8] font-roboto ">All Domain Request</div>
           <div className="w-[90%] mx-auto">
             <div className="overflow-x-auto">
@@ -25,7 +25,7 @@ const AllDomainRequest = () => {
       {/* row 1 */}
     {
     //  mapping condition
-        <tr className="text-xl font-medium text-white"  >
+        <tr className="text-xl font-medium text-white "  >
         <td>
           <div className="flex items-center space-x-3">
             <div>

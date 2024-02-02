@@ -38,7 +38,7 @@ const DomainTld = () => {
                     modules={[Pagination]}
                     className="mySwiper"
                 >
-                    <SwiperSlide><img className='img' src="https://i.postimg.cc/9QRS434k/Dotedu.jpg" alt="" /></SwiperSlide>
+                    <SwiperSlide className='rounded-lg'><img className='img' src="https://i.postimg.cc/9QRS434k/Dotedu.jpg" alt="" /></SwiperSlide>
 
                     <SwiperSlide><img src="https://i.postimg.cc/85Vs2HSK/depositphotos46718565-stock-photo-info-icon.jpg" alt="" /></SwiperSlide>
 

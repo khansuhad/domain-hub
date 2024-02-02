@@ -1,74 +1,62 @@
 import { NavLink } from "react-router-dom";
+import "./active.css";
 
 const AdminNavItem = () => {
   return (
     <>
-      <li>
+      <li className="dashboard">
         <NavLink
           to="/dashboard/dashboard"
-          className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "bg-firstColor text-fifthColor" : ""
-          }
+          className= "text-white"
+          
         >
           Dashboard
         </NavLink>
-      </li>
-      <li>
+    
         <NavLink
           to="/dashboard/create-domain"
-          className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "bg-firstColor text-fifthColor" : ""
-          }
+          className= "text-white"
+          
         >
           Create Domain
         </NavLink>
-      </li>
-      <li>
+      
         <NavLink
           to="/dashboard/all-domains"
-          className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "bg-firstColor text-fifthColor" : ""
-          }
+          className= "text-white"
+          
         >
           All Domains
         </NavLink>
-      </li>
-      <li>
+      
         <NavLink
           to="/dashboard/all-domain-requests"
-          className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "bg-firstColor text-fifthColor" : ""
-          }
+          className="text-white"
+          
         >
           All Domain Request
         </NavLink>
-      </li>
-      <li>
+     
         <NavLink
           to="/dashboard/all-free-tail-applications"
-          className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "bg-firstColor text-fifthColor" : ""
-          }
+          className= "text-white"
+          
         >
           All Free Tail Applications
         </NavLink>
-      </li>
-      <li>
+     
         <NavLink
           to="/dashboard/all-Reviews"
-          className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "bg-firstColor text-fifthColor" : ""
-          }
+          className="text-white"
+          
         >
           All Reviews
         </NavLink>
-      </li>
-      <li>
+
         <NavLink
           to="/dashboard/all-users"
-          className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "bg-firstColor text-fifthColor" : ""
-          }
+          className="text-white"
+         
         >
           All Users
         </NavLink>

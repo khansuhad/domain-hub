@@ -8,19 +8,15 @@ const About = () => {
     return (
         <>
             <div>
-                <div>
+                
                     <AboutUs></AboutUs>
-                </div>
-
-                <div>
+                
                     <OurMission></OurMission>
-                </div>
-                <div>
+             
                     <WhyDomainHub></WhyDomainHub>
-                </div>
-                <div>
+               
                     <OurTeam></OurTeam>
-                </div>
+               
             </div>
         </>
     );

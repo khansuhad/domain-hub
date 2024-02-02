@@ -29,7 +29,7 @@ const EditDomain = () => {
 
     return (
 
-        <div className="p-28 border m-10 bg-[#68809c] lg:h-[900px] rounded-lg ">
+        <div className="  p-10 bg-fourthColor lg:h-[900px]  ">
 
             <div>
                 <h3 className="text-center text-xl md:text-2xl font-bold  text-white">Update Domain</h3>
@@ -40,7 +40,7 @@ const EditDomain = () => {
                     <div className="m-5 gap-5 justify-center">
                         <div className="form-control w-full ">
                             <label className="label">
-                                <span className="label-text font-bold">TLD Name</span>
+                                <span className="label-text font-bold text-white">TLD Name</span>
                             </label>
                             <label className="input-group">
 
@@ -50,7 +50,7 @@ const EditDomain = () => {
 
                         <div className="form-control w-full">
                             <label className="label">
-                                <span className="label-text font-bold">Price</span>
+                                <span className="label-text font-bold text-white">Price</span>
                             </label>
                             <label className="input-group">
 
@@ -61,7 +61,7 @@ const EditDomain = () => {
                     <div className="m-5 md:flex gap-5 justify-center">
                         <div className="form-control w-full">
                             <label className="label">
-                                <span className="label-text font-bold">Category type</span>
+                                <span className="label-text font-bold text-white">Category type</span>
                             </label>
                             <label className="input-group">
                                 <select name="category" className="select select-bordered w-full" defaultValue={updateDomain.category}>
@@ -80,18 +80,18 @@ const EditDomain = () => {
                     <div className="m-5 md:flex gap-5 justify-center">
                         <div className="form-control w-full">
                             <label className="label">
-                                <span className="label-text font-bold"> Description</span>
+                                <span className="label-text font-bold text-white"> Description</span>
                             </label>
                             <label className="input-group">
 
                                 {/* <input type="text" name="description" placeholder="Description" className="input input-bordered w-full" /> */}
 
-                                <textarea className="w-full" defaultValue={updateDomain.description} name="description" id="" cols="30" rows="10"></textarea>
+                                <textarea className="w-full pl-2 pt-2" defaultValue={updateDomain.description} name="description" id="" cols="30" rows="10"></textarea>
                             </label>
                         </div>
                     </div>
                     <div className="m-5  gap-5 justify-center mb-5">
-                        <input type="submit" value="Update Domain" className="text-white btn btn-block hover:bg-thirdColor bg-fourthColor" />
+                        <input type="submit" value="Update Domain" className="text-white btn btn-block hover:bg-thirdColor bg-secondColor" />
                     </div>
                 </form>
             </div>

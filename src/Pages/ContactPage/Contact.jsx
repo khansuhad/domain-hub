@@ -4,6 +4,8 @@ import { MdEmail } from "react-icons/md";
 import emailjs from '@emailjs/browser';
 import { useRef } from "react";
 import Swal from "sweetalert2";
+import Container from "../../Component/UI/Container";
+import Heading from "../../Component/UI/Heading";
 // import { useSelector } from "react-redux";
 
 const Contact = () => {
@@ -32,8 +34,8 @@ const Contact = () => {
     };
 
     return (
-        <div id="contact" className="card  px-[10%] dark:bg-[#191919] dark:text-white ">
-            <h2 className="text-2xl md:text-3xl font-bold text-center my-20">Contact me</h2>
+        <div id="contact" className="  px-[10%] bg-firstColor dark:bg-[#191919] dark:text-white text-white py-10">
+            <h2 className="text-2xl md:text-3xl font-bold text-center my-20"><Heading>Contact me</Heading></h2>
             <div className="flex flex-col md:flex-row justify-center gap-10">
                 <div className=" text-center">
                     <div className="text-3xl text-sky-500 flex justify-center"><IoCall /></div>
@@ -56,7 +58,7 @@ const Contact = () => {
                 </div>
             </div>
 
-            <div className="border border-fuchsia-500  p-5 m-8 rounded-xl bg-gradient-to-tr from-teal-600 to-[#23668a] bg-clip-border p-8 text-white shadow-md shadow-gray-500">
+            <div className="border border-secondColor  py-5 m-8 rounded-xl bg-fourthColor bg-clip-border p-8 text-white shadow-md shadow-black">
                 <form ref={form} className="card-body" onSubmit={sendEmail}>
                     <div className="form-control">
                         <label className="label">
@@ -78,7 +80,7 @@ const Contact = () => {
                         <textarea className="border rounded p-5 text-black" name="message" placeholder="Write Your message"  />
 
 
-                        <input className="btn mt-5 uppercase font-bold text-xl text-white bg-thirdColor hover:bg-fourthColor " type="submit" value="Send" />
+                        <input className="btn mt-5 uppercase font-bold text-xl text-white bg-secondColor hover:bg-thirdColor " type="submit" value="Send" />
                     </div>
 
                     {/* <label>Name</label> 

@@ -75,8 +75,8 @@ const MyCart = () => {
     });
   };
   return (
-    <div className="rounded-lg ">
-      <div className="flex justify-between bg-gradient-to-tr from-[#13104e] to-[#0193e1]">
+    <div className="rounded-lg text-white bg-firstColor">
+      <div className="flex justify-between bg-gradient-to-tr from-[#13104e] to-[#0193e1] ">
         <div className="flex flex-col justify-center w-3/4 items-center">
           <p className="text-2xl w-full font-bold text-center text-white dark:text-white my-10">My Cart</p>
           <div className="flex gap-2">
@@ -99,15 +99,15 @@ const MyCart = () => {
             {/* head */}
             <thead>
               <tr>
-                <th className="text-xl font-bold dark:text-white">#</th>
+                <th className="text-xl font-bold text-white dark:text-white">#</th>
 
-                <th className="text-xl font-bold dark:text-white">Name</th>
-                <th className="text-xl font-bold dark:text-white">Price</th>
-                <th className="text-xl font-bold dark:text-white">Action</th>
+                <th className="text-xl font-bold text-white dark:text-white">Name</th>
+                <th className="text-xl font-bold text-white dark:text-white">Price</th>
+                <th className="text-xl font-bold text-white dark:text-white">Action</th>
               </tr>
             </thead>
             {carts.length === 0 ? (
-              <p className="text-xl font-bold my-5">Your cart is empty.</p>
+              <p className="text-xl font-bold my-5 pl-3">  Your cart is empty.</p>
             ) : (
               <tbody>
                 {carts?.map((cartItem, index) => (
@@ -132,7 +132,7 @@ const MyCart = () => {
         </div>
 
         <div className=" md:w-[40%] p-5 md:m-10">
-          <div className="bg-white mb-5 p-2 ">
+          <div className="bg-fourthColor mb-5 p-2 ">
             {/* Coupon input form*/}
             <form onSubmit={handleSubmit} className="flex items-center">
               <label htmlFor="coupon-code" className="sr-only">
@@ -145,18 +145,18 @@ const MyCart = () => {
                 placeholder="Coupon"
                 value={couponCode}
                 onChange={(event) => setCouponCode(event.target.value)}
-                className="border border-gray-300 rounded-l-md py-2 px-4 w-32 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="border text-black border-gray-300 rounded-l-md py-2 px-4 w-32 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
               <button
                 type="submit"
-                className=" bg-thirdColor hover:bg-fourthColor text-white font-bold py-2 px-4 rounded-r-md"
+                className=" bg-secondColor hover:bg-thirdColor text-white font-bold py-2 px-4 rounded-r-md"
               >
                 Apply
               </button>
             </form>
           </div>
 
-          <div className="bg-white w-full p-2 leading-10 ">
+          <div className="bg-fourthColor w-full p-2 leading-10 rounded">
             <div className="flex justify-between">
               <p className="font-bold"> Total Price: </p>
               <p> {parseFloat(totalPrice).toFixed(2)} $</p>
@@ -190,7 +190,7 @@ const MyCart = () => {
                 </div>
                 <button
                   disabled
-                  className="btn btn-block bg-thirdColor hover:bg-fourthColor text-white text-xl mr-5 mt-2"
+                  className="btn btn-block bg-secondColor hover:bg-thirdColor text-white text-xl mr-5 mt-2"
                 >
                   make purchase
                 </button>
@@ -198,7 +198,7 @@ const MyCart = () => {
             ) : (
               <Link
                 to={"/dashboard/checkout"}
-                className="btn btn-block bg-thirdColor hover:bg-fourthColor text-white text-xl mr-5 mt-2"
+                className="btn btn-block bg-secondColor hover:bg-thirdColor text-white text-xl mr-5 mt-2"
               >
                 make purchase
               </Link>

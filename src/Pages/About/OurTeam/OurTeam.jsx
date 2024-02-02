@@ -13,7 +13,7 @@ const OurTeam = () => {
     return (
         <>
             {/* our team section start */}
-            <section>
+            <section className="bg-firstColor py-10 text-white">
 
                 <div>
                     <Container>
@@ -26,7 +26,7 @@ const OurTeam = () => {
                             Explore Our Team
                         </Description>
 
-                        <div className="grid h-fit dark:text-white grid-cols-2 md:grid-cols-3 text-center lg:grid-cols-6 w-9/12 mx-auto mt-10">
+                        <div className="grid h-fit dark:text-white grid-cols-2 md:grid-cols-3 text-center lg:grid-cols-6 w-9/12 mx-auto pt-10">
 
                             <div className="flex justify-center  flex-col gap-5">
                                 <img className="rounded-full p-5" src={shariful} alt="" />

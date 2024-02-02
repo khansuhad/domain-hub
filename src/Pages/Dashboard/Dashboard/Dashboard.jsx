@@ -37,10 +37,10 @@ const Dashboard = () => {
     { name: "Total users", value: 5 },
   ];
   return (
-    <Container>
-      <div className="px-[5%]">
+    <div>
+      <div className="px-[5%] bg-firstColor py-10">
         <Heading>Welcome to dashboard {user?.displayName}</Heading>
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 lg:mt-10 text-fifthColor dark:text-sixthColor font-bold">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 lg:mt-10 text-white dark:text-sixthColor font-bold">
           <div className="border border-fourthColor dark:border-sixthColor rounded text-center p-5 md:p-10">
             <h1 className="text-6xl">5</h1>
             <h1 className="text-xl">Total domains</h1>
@@ -67,7 +67,7 @@ const Dashboard = () => {
           <BarCh barData={barData} />
         </div>
       </div>
-    </Container>
+    </div>
   );
 };
 

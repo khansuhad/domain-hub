@@ -11,14 +11,14 @@ const CategoryCards = ({ data }) => {
     navigate("/domainDetails")
   }
   return (
-    <div className="card w-60 h-56 bg-thirdColor text-primary-content" data-aos="fade-down">
+    <div className="card w-60 h-56 bg-fourthColor text-primary-content" data-aos="fade-down">
       <div className="card-body relative">
         <h2 className="text-2xl font-bold">{data?.name}</h2>
         <p className='text-xl font-semibold'>$Price</p>
         <p className="text-4xl font-semibold flex justify-center items-center" >{data?.price}/<span className='text-lg'>yearly</span></p>
         <div className="card-actions justify-center">
           <button
-            className="block select-none rounded-lg bg-blue-500 hover:bg-fourthColor border-b-2 p-2 text-center align-middle font-sans text-sm font-semibold uppercase text-white shadow-md shadow-blue-gray-500/10 transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-blue-gray-500/20 focus:scale-[1.02] focus:opacity-[0.85] focus:shadow-none active:scale-100 active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+            className="block select-none rounded-lg bg-secondColor hover:bg-thirdColor border-b-2 p-2 text-center align-middle font-sans text-sm font-semibold uppercase text-white shadow-md shadow-blue-gray-500/10 transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-blue-gray-500/20 focus:scale-[1.02] focus:opacity-[0.85] focus:shadow-none active:scale-100 active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
             type="button"
             data-ripple-dark="true"
             onClick={handleDetails}

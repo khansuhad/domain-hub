@@ -30,7 +30,7 @@ const handleCategory=()=>{
             <div className="flex mx-10 flex-col md:flex-row ">
                 <div className="md:grid w-1/6 h-fit hidden">
                     <button
-                        className={` p-2 text-center font-semibold ${category === "education" ? "bg-fourthColor text-white" : "bg-gray-300 text-fourthColor"
+                        className={` p-2 text-center font-semibold ${category === "education" ? "bg-fourthColor text-white" : "bg-[#010B3C] text-white"
                             }`}
                         onClick={() => handleTab("education")}
                     >
@@ -38,7 +38,7 @@ const handleCategory=()=>{
                     </button>
 
                     <button
-                        className={` p-2 text-center font-semibold ${category === "commerce" ? "bg-fourthColor text-white" : "bg-gray-300 text-fourthColor"
+                        className={` p-2 text-center font-semibold ${category === "commerce" ? "bg-fourthColor text-white" : "bg-[#010B3C] text-white"
                             }`}
                         onClick={() => handleTab("commerce")}
                     >
@@ -46,42 +46,42 @@ const handleCategory=()=>{
                     </button>
 
                     <button
-                        className={` p-2 text-center font-semibold  ${category === "health" ? "bg-fourthColor text-white" : "bg-gray-300 text-fourthColor"
+                        className={` p-2 text-center font-semibold  ${category === "health" ? "bg-fourthColor text-white" : "bg-[#010B3C] text-white"
                             }`}
                         onClick={() => handleTab("health")}
                     >
                         Health
                     </button>
                     <button
-                        className={` p-2 text-center font-semibold  ${category === "government" ? "bg-fourthColor text-white" : "bg-gray-300 text-fourthColor"
+                        className={` p-2 text-center font-semibold  ${category === "government" ? "bg-fourthColor text-white" : "bg-[#010B3C] text-white"
                             }`}
                         onClick={() => handleTab("government")}
                     >
                         Government
                     </button>
                     <button
-                        className={` p-2 text-center font-semibold  ${category === "industry" ? "bg-fourthColor text-white" : "bg-gray-300 text-fourthColor"
+                        className={` p-2 text-center font-semibold  ${category === "industry" ? "bg-fourthColor text-white" : "bg-[#010B3C] text-white"
                             }`}
                         onClick={() => handleTab("industry")}
                     >
                         Industry
                     </button>
                     <button
-                        className={` p-2 text-center font-semibold  ${category === "media" ? "bg-fourthColor text-white" : "bg-gray-300 text-fourthColor"
+                        className={` p-2 text-center font-semibold  ${category === "media" ? "bg-fourthColor text-white" : "bg-[#010B3C] text-white"
                             }`}
                         onClick={() => handleTab("media")}
                     >
                         Media
                     </button>
                     <button
-                        className={` p-2 text-center font-semibold  ${category === "sport" ? "bg-fourthColor text-white" : "bg-gray-300 text-fourthColor"
+                        className={` p-2 text-center font-semibold  ${category === "sport" ? "bg-fourthColor text-white" : "bg-[#010B3C] text-white"
                             }`}
                         onClick={() => handleTab("sport")}
                     >
                         Sport
                     </button>
                     <button
-                        className={` p-2 text-center font-semibold ${category === "technology" ? "bg-fourthColor text-white" : "bg-gray-300 text-fourthColor"
+                        className={` p-2 text-center font-semibold ${category === "technology" ? "bg-fourthColor text-white" : "bg-[#010B3C] text-white"
                             }`}
                         onClick={() => handleTab("technology")}
                     >
@@ -95,7 +95,7 @@ const handleCategory=()=>{
                        {showCategory?
                         <div className="grid w-full h-fit md:hidden z-10 absolute mt-2 " data-aos="fade-right">
                         <button
-                            className={` p-2 text-center font-semibold ${category === "education" ? "bg-fourthColor text-white" : "bg-gray-300 text-fourthColor"
+                            className={` p-2 text-center font-semibold ${category === "education" ? "bg-fourthColor text-white" : "bg-[#010B3C] text-white"
                                 }`}
                             onClick={() => handleTab("education")}
                         >
@@ -103,7 +103,7 @@ const handleCategory=()=>{
                         </button>
     
                         <button
-                            className={` p-2 text-center font-semibold ${category === "commerce" ? "bg-fourthColor text-white" : "bg-gray-300 text-fourthColor"
+                            className={` p-2 text-center font-semibold ${category === "commerce" ? "bg-fourthColor text-white" : "bg-[#010B3C] text-white"
                                 }`}
                             onClick={() => handleTab("commerce")}
                         >
@@ -111,42 +111,42 @@ const handleCategory=()=>{
                         </button>
     
                         <button
-                            className={` p-2 text-center font-semibold  ${category === "health" ? "bg-fourthColor text-white" : "bg-gray-300 text-fourthColor"
+                            className={` p-2 text-center font-semibold  ${category === "health" ? "bg-fourthColor text-white" : "bg-[#010B3C] text-white"
                                 }`}
                             onClick={() => handleTab("health")}
                         >
                             Health
                         </button>
                         <button
-                            className={` p-2 text-center font-semibold  ${category === "government" ? "bg-fourthColor text-white" : "bg-gray-300 text-fourthColor"
+                            className={` p-2 text-center font-semibold  ${category === "government" ? "bg-fourthColor text-white" : "bg-[#010B3C] text-white"
                                 }`}
                             onClick={() => handleTab("government")}
                         >
                             Government
                         </button>
                         <button
-                            className={` p-2 text-center font-semibold  ${category === "industry" ? "bg-fourthColor text-white" : "bg-gray-300 text-fourthColor"
+                            className={` p-2 text-center font-semibold  ${category === "industry" ? "bg-fourthColor text-white" : "bg-[#010B3C] text-white"
                                 }`}
                             onClick={() => handleTab("industry")}
                         >
                             Industry
                         </button>
                         <button
-                            className={` p-2 text-center font-semibold  ${category === "media" ? "bg-fourthColor text-white" : "bg-gray-300 text-fourthColor"
+                            className={` p-2 text-center font-semibold  ${category === "media" ? "bg-fourthColor text-white" : "bg-[#010B3C] text-white"
                                 }`}
                             onClick={() => handleTab("media")}
                         >
                             Media
                         </button>
                         <button
-                            className={` p-2 text-center font-semibold  ${category === "sport" ? "bg-fourthColor text-white" : "bg-gray-300 text-fourthColor"
+                            className={` p-2 text-center font-semibold  ${category === "sport" ? "bg-fourthColor text-white" : "bg-[#010B3C] text-white"
                                 }`}
                             onClick={() => handleTab("sport")}
                         >
                             Sport
                         </button>
                         <button
-                            className={` p-2 text-center font-semibold ${category === "technology" ? "bg-fourthColor text-white" : "bg-gray-300 text-fourthColor"
+                            className={` p-2 text-center font-semibold ${category === "technology" ? "bg-fourthColor text-white" : "bg-[#010B3C] text-white"
                                 }`}
                             onClick={() => handleTab("technology")}
                         >

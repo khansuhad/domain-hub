@@ -3,7 +3,7 @@ import Modal from "./Modal";
 
 const AllUsersRow = ({ item }) => {
   return (
-    <tr>
+    <tr className="text-white">
       <th>
         <label>
           <input type="checkbox" className="checkbox" />

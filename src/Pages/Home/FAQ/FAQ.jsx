@@ -2,6 +2,7 @@ import { useState } from "react";
 import Container from "../../../Component/UI/Container";
 import Description from "../../../Component/UI/Description";
 import { IoIosArrowDown,IoIosArrowUp  } from "react-icons/io";
+import Heading from "../../../Component/UI/Heading";
 // import React, { useState } from 'react';
 
 const FAQ = () => {
@@ -35,7 +36,7 @@ const FAQ = () => {
         <Container>
             <div className="bg-firstColor p-2 dark:bg-[#191919] dark:text-white px-[10%]">
                 {/* section Heading */}
-                <p className="text-xl md:text-3xl lg:text-5xl font-bold text-center py-5"><span className="text-blue-500">F</span>requently <span className="text-blue-500">A</span>sked <span className="text-blue-500">Q</span>uestions </p>
+               <Heading>Frequently Asked Questions</Heading>
 
                 {/* section subHeading */}
                 <Description>Find answers to common questions about choosing, registering, and managing your domain.</Description>
@@ -51,9 +52,9 @@ const FAQ = () => {
 
                             <div className="grid gap-4">
                                 {faqData.map((item, index) => (
-                                    <div key={index} className="bg-white rounded-md overflow-hidden shadow-md">
+                                    <div key={index} className="bg-white text-white rounded-md overflow-hidden shadow-md ">
                                         <div
-                                            className={`p-6 cursor-pointer flex justify-between items-center ${activeIndex === index ? 'bg-gradient-to-tr from-teal-600 to-[#23668a] bg-clip-border p-8 text-white shadow-md shadow-gray-500' : 'border-b border-gray-200'
+                                            className={`p-6 cursor-pointer flex justify-between items-center  bg-gradient-to-tr from-[#ac50ef] via-[#7059fb] to-[#23668a]  ${activeIndex === index ? 'bg-clip-border p-8  shadow-md' : 'border-b border-black'
                                                 }`}
                                             onClick={() => toggleAccordion(index)}
                                         >

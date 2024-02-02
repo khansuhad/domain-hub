@@ -32,21 +32,21 @@ const Modal = ({ item }) => {
     });
   };
   return (
-    <div>
+    <div className="text-white ">
       {/* Open the modal using document.getElementById('ID').showModal() method */}
 
       <button
         onClick={() => document.getElementById(`my_modal_${item._id}`).showModal()}
         className={
           item?.role !== "user"
-            ? ` bg-thirdColor hover:bg-fourthColor text-white  border-2 btn-sm rounded-sm`
-            : ` border-fourthColor bg-firstColor hover:bg-fourthColor hover:text-firstColor  dark:text-fifthColor hover:dark:text-firstColor  outline-none border-2 btn-sm rounded-sm`
+            ? ` bg-thirdColor w-fit hover:bg-fourthColor text-white  border-2 btn-sm rounded-sm`
+            : `   w-fit bg-fourthColor hover:bg-thirdColor hover:text-firstColor  dark:text-fifthColor hover:dark:text-firstColor   btn-sm rounded-sm`
         }
       >
         {item?.role}
       </button>
 
-      <dialog id={`my_modal_${item._id}`} className="modal">
+      <dialog id={`my_modal_${item._id}`} className="modal text-black">
         <div className="modal-box">
           <h1 className="text-xl sm:text-2xl lg:text-3xl text-center mt-10 font-bold">
             Change Role
@@ -72,13 +72,13 @@ const Modal = ({ item }) => {
             </div>
             <div className="form-control mt-6 grid grid-cols-2 gap-2 px-[5%] md:px-[25%]">
               <button
-                className="border-fourthColor bg-firstColor hover:bg-fourthColor hover:text-firstColor  outline-none border-2 btn-sm rounded-sm"
+                className="bg-thirdColor border-fourthColor hover:bg-fourthColor text-white  btn-sm rounded-sm w-full"
                 type="submit"
               >
                 Change
               </button>
               <form method="dialog">
-                <button className="bg-thirdColor border-fourthColor hover:bg-fourthColor text-white border-2 btn-sm rounded-sm w-full">
+                <button className="bg-thirdColor border-fourthColor hover:bg-fourthColor text-white  btn-sm rounded-sm w-full">
                   Close
                 </button>
               </form>

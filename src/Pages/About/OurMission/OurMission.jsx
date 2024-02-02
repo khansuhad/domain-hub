@@ -12,7 +12,7 @@ const OurMission = () => {
     return (
         <>
             {/* Our Mission start */}
-            <section>
+            <section className="bg-firstColor dark:bg-[#191919] text-white">
 
                 <div>
                     <Container>
@@ -28,7 +28,7 @@ const OurMission = () => {
                     </Container>
                 </div>
 
-                <div className="flex ml-6 justify-center gap-5 lg:gap-40 dark:text-white">
+                <div className="flex ml-6 justify-center gap-5 lg:gap-40 dark:text-white  w-[95%] mx-auto">
 
                     <div className="lg:text-3xl text-sm lg:space-y-10 space-y-5">
                         <div className="flex items-center gap-3 hover:text-black hover:bg-yellow-50 hover:rounded-full hover:p-1 cursor-pointer">

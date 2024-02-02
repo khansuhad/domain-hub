@@ -22,8 +22,11 @@ import AllFreeTailApplication from "../Pages/Dashboard/AllFreeTailApplication/Al
 import AllReviews from "../Pages/Dashboard/AllReviews/AllReviews";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 import EditProfile from "../Pages/Dashboard/EditProfile/EditProfile";
-import { Review } from "../Pages/Home/Review/Review";
+import { Review } from "../Pages/Review/Review";
 import PrivateRoute from "./PrivateRoute";
+import MyCart from "../Pages/Dashboard/MyCart/MyCart";
+import Checkout from "../Pages/Dashboard/Checkout/Checkout";
+import CategoryDetails from "../Pages/Home/PriceByCategory/CategoryDetails";
 
 const Router = createBrowserRouter([
   {
@@ -52,6 +55,10 @@ const Router = createBrowserRouter([
       {
         path: "/searchPage",
         element: <SearchingDomain></SearchingDomain>,
+      },
+      {
+        path: "/domainDetails",
+        element: <CategoryDetails></CategoryDetails>
       },
     ],
   },
@@ -119,6 +126,22 @@ const Router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <Support />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/dashboard/myCart",
+        element: (
+          <PrivateRoute>
+            <MyCart/>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/dashboard/checkout",
+        element: (
+          <PrivateRoute>
+            <Checkout/>
           </PrivateRoute>
         ),
       },

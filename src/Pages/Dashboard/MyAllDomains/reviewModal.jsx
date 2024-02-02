@@ -5,6 +5,7 @@ import useAxiosPublic from "../../../Hock/useAxiosPublic";
 
 const ReviewModal = ({ trueCart, index, refetch }) => {
   const { user } = UseAuth();
+  console.log(user);
   const axiosPublic = useAxiosPublic();
   const handleReview = (event) => {
     event.preventDefault();
@@ -35,7 +36,6 @@ const ReviewModal = ({ trueCart, index, refetch }) => {
     });
     axiosPublic.put(`/cart/${cartId}`).then((res) => {
       if (res.data.modifiedCount) {
-        alert("update status");
         refetch();
       }
     });
@@ -43,7 +43,7 @@ const ReviewModal = ({ trueCart, index, refetch }) => {
   return (
     <>
       <input type="checkbox" id={index + 1} className="modal-toggle" />
-      <div className="modal">
+      <div className="modal text-black">
         <div className="modal-box w-96 relative">
           <label
             htmlFor={index + 1}

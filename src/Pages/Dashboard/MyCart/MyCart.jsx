@@ -16,6 +16,7 @@ const MyCart = () => {
   const [couponCode, setCouponCode] = useState("");
   const [totalPrice, setTotalPrice] = useState(0);
   const [discountPercentage, setDiscountPercentage] = useState(0);
+  console.log(typeof totalPrice , totalPrice);
 
   const paymentPrice = (
     parseFloat(totalPrice) -
@@ -27,10 +28,11 @@ const MyCart = () => {
   useEffect(() => {
     const calculateTotalPrice = () => {
       const totalPrice = carts.reduce(
-        (acc, cartItem) => acc + cartItem.price,
+        (acc, cartItem) => acc + parseFloat(cartItem.price),
         0
       );
-      setTotalPrice(totalPrice);
+      console.log(totalPrice);
+      setTotalPrice(parseFloat(totalPrice).toFixed(2));
     };
 
     calculateTotalPrice();

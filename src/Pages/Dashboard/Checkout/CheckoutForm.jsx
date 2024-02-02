@@ -99,12 +99,12 @@ const CheckoutForm = () => {
       <div className="p-5">
         <div className="max-w-6xl mx-auto border-2 rounded border-thirdColor px-5 sm:px-10 py-10">
           <Heading>Payment</Heading>
-          <h1 className="text-lg md:text-xl lg:text-3xl my-5 font-bold text-[#191919] dark:text-[#F5F7F8] ">
+          <h1 className="text-lg md:text-xl lg:text-3xl my-5 font-bold text-white dark:text-[#F5F7F8] ">
             Total Price {totalPrice}
           </h1>
           <form onSubmit={handleSubmit}>
             <label htmlFor="Payment">
-              Payment
+              <p className="text-white">Payment</p>
               <CardElement
                 placeholder="Payment"
                 className="py-3 px-4 block w-full border border-thirdColor rounded-md text-sm focus:border-fourthColor focus:ring-fourthColor outline-none mt-2"
@@ -112,7 +112,7 @@ const CheckoutForm = () => {
                   style: {
                     base: {
                       fontSize: "16px",
-                      color: "#000000",
+                      color: "#ffffff",
                       "::placeholder": {
                         color: "#808080",
                       },

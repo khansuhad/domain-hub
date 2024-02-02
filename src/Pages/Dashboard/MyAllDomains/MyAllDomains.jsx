@@ -42,11 +42,11 @@ const MyAllDomains = () => {
                   <th>
                     <h1>{trueCart?.price}</h1>
                   </th>
-                  <th>
+                {  trueCart?.review == "true" ? <p className=
+                "ml-6 mt-2">Done</p> : <th>
                     <label
                       htmlFor={index + 1}
-                      disabled={trueCart?.review == "true"}
-                      className="btn btn-outline btn-sm"
+                      className="btn btn-outline btn-sm text-white bg-secondColor "
                     >
                       Review
                     </label>
@@ -55,7 +55,9 @@ const MyAllDomains = () => {
                       index={index}
                       refetch={refetch}
                     ></ReviewModal>
-                  </th>
+                  </th> 
+            }
+                
                 </tr>
               ))}
             </tbody>

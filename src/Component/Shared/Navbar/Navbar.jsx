@@ -71,8 +71,8 @@ const Navbar = () => {
             <div className="flex justify-between items-center gap-2 text-xl">
               {" "}
               <img
-                className="w-[40px] h-[40px] rounded-full"
-                src="https://i.postimg.cc/90XySb7h/4091.jpg"
+                className="w-20 h-10 rounded-full"
+                src="https://i.postimg.cc/3RxTkQ63/Whats-App-Image-2024-02-02-at-5-41-26-PM-removebg-preview.png"
                 alt=""
               />{" "}
               <p>DomainHub</p>

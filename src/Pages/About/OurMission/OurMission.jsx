@@ -52,7 +52,7 @@ const OurMission = () => {
 
 
 
-                    <div className="lg:text-3xl text-sm lg:space-y-10 space-y-5">
+                    <div className="lg:text-3xl text-sm lg:space-y-10 space-y-5 ">
 
                         <div className="flex items-center gap-3 hover:text-black hover:bg-yellow-50 hover:rounded-full hover:p-1 cursor-pointer">
                             <TbArrowGuide></TbArrowGuide>

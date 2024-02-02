@@ -4,6 +4,7 @@ import AllReviewCard from "./AllReviewCard";
 
 const AllReviews = () => {
   const [reviews] = useReview();
+  console.log(reviews);
   return (
     <div className="flex justify-center py-10 bg-firstColor items-center min-h-screen dark:bg-slate-700">
       <div>

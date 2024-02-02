@@ -112,7 +112,7 @@ const MyFreeTailApplication = () => {
                                             Accepted
                                         </p>}
 
-                                        {users?.approve == "Pending" && <p className="block  font-sans text-sm text-center lg:text-xl lg:font-semibold bg-red-200 p-2 rounded-md antialiased font-normal leading-normal text-blue-gray-900">
+                                        {users?.approve == "Pending" && <p className="block  font-sans text-sm text-center text-black lg:text-xl lg:font-semibold bg-yellow-300 p-2 rounded-md antialiased font-normal leading-normal text-blue-gray-900">
                                             Pending
                                         </p>
                                         }

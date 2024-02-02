@@ -4,10 +4,12 @@ import "./active.css";
 const AdminNavItem = () => {
   return (
     <>
-      <li className="dashboard">
+      <li>
         <NavLink
           to="/dashboard/dashboard"
-          className= "text-white"
+          className={({ isActive, isPending }) =>
+          isPending ? "pending" : isActive ? "abc" : "text-white"
+        }
           
         >
           Dashboard
@@ -15,7 +17,9 @@ const AdminNavItem = () => {
     
         <NavLink
           to="/dashboard/create-domain"
-          className= "text-white"
+          className={({ isActive, isPending }) =>
+          isPending ? "pending" : isActive ? "abc" : "text-white"
+        }
           
         >
           Create Domain
@@ -23,7 +27,9 @@ const AdminNavItem = () => {
       
         <NavLink
           to="/dashboard/all-domains"
-          className= "text-white"
+          className={({ isActive, isPending }) =>
+          isPending ? "pending" : isActive ? "abc" : "text-white"
+        }
           
         >
           All Domains
@@ -31,7 +37,9 @@ const AdminNavItem = () => {
       
         <NavLink
           to="/dashboard/all-domain-requests"
-          className="text-white"
+          className={({ isActive, isPending }) =>
+          isPending ? "pending" : isActive ? "abc" : "text-white"
+        }
           
         >
           All Domain Request
@@ -39,7 +47,9 @@ const AdminNavItem = () => {
      
         <NavLink
           to="/dashboard/all-free-tail-applications"
-          className= "text-white"
+          className={({ isActive, isPending }) =>
+          isPending ? "pending" : isActive ? "abc" : "text-white"
+        }
           
         >
           All Free Tail Applications
@@ -47,7 +57,9 @@ const AdminNavItem = () => {
      
         <NavLink
           to="/dashboard/all-Reviews"
-          className="text-white"
+          className={({ isActive, isPending }) =>
+          isPending ? "pending" : isActive ? "abc" : "text-white"
+        }
           
         >
           All Reviews
@@ -55,7 +67,9 @@ const AdminNavItem = () => {
 
         <NavLink
           to="/dashboard/all-users"
-          className="text-white"
+          className={({ isActive, isPending }) =>
+          isPending ? "pending" : isActive ? "abc" : "text-white"
+        }
          
         >
           All Users

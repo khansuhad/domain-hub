@@ -1,11 +1,11 @@
 const OffersAndDiscountsCard = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-6 px-[10%]">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-6 py-10 px-[10%]">
       <div
         data-aos="flip-left"
         data-aos-easing="ease-out-cubic"
         data-aos-duration="2000"
-        className="relative flex w-full flex-col rounded-xl bg-gradient-to-tr from-teal-600 to-[#23668a] bg-clip-border p-8 text-white shadow-md shadow-gray-500"
+        className="relative flex w-full flex-col rounded-xl bg-fourthColor bg-clip-border p-8 text-white shadow-md shadow-gray-500"
       >
         <div className="relative pb-8 m-0 mb-8 overflow-hidden text-center text-gray-700 bg-transparent border-b rounded-none shadow-none border-white/10 bg-clip-border">
           <p className="block font-sans text-sm antialiased font-normal leading-normal text-white uppercase">
@@ -16,7 +16,7 @@ const OffersAndDiscountsCard = () => {
             <span className="mt-2 text-4xl">$</span>90
             <span className="self-end text-xl">/1 year</span>
           </h1>
-          <p className="font-sans text-base font-semibold text-[#191919]  underline bg-firstColor w-fit mx-auto px-1 py-px">
+          <p className="font-sans text-base font-semibold text-white  underline bg-firstColor w-fit mx-auto px-1 py-px">
             Save 25% with 1 year plan
           </p>
         </div>
@@ -137,7 +137,7 @@ const OffersAndDiscountsCard = () => {
         </div>
         <div className="p-0 mt-12">
           <button
-            className="block w-full select-none rounded-lg bg-thirdColor hover:bg-fourthColor border-b-2 py-3.5 px-7 text-center align-middle font-sans text-sm font-bold uppercase text-white shadow-md shadow-blue-gray-500/10 transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-blue-gray-500/20 focus:scale-[1.02] focus:opacity-[0.85] focus:shadow-none active:scale-100 active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+            className="block w-full select-none rounded-lg bg-secondColor hover:bg-thirdColor border-b-2 py-3.5 px-7 text-center align-middle font-sans text-sm font-bold uppercase text-white shadow-md shadow-blue-gray-500/10 transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-blue-gray-500/20 focus:scale-[1.02] focus:opacity-[0.85] focus:shadow-none active:scale-100 active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
             type="button"
             data-ripple-dark="true"
           >
@@ -149,7 +149,7 @@ const OffersAndDiscountsCard = () => {
         data-aos="flip-left"
         data-aos-easing="ease-out-cubic"
         data-aos-duration="2000"
-        className="relative flex w-full flex-col rounded-xl bg-gradient-to-tr from-teal-600 to-[#23668a] bg-clip-border p-8 text-white shadow-md shadow-gray-500"
+        className="relative flex w-full flex-col rounded-xl bg-fourthColor bg-clip-border p-8 text-white shadow-md shadow-gray-500"
       >
         <div className="relative pb-8 m-0 mb-8 overflow-hidden text-center text-gray-700 bg-transparent border-b rounded-none shadow-none border-white/10 bg-clip-border">
           <p className="block font-sans text-sm antialiased font-normal leading-normal text-white uppercase">
@@ -160,7 +160,7 @@ const OffersAndDiscountsCard = () => {
             <span className="mt-2 text-4xl">$</span>135
             <span className="self-end text-xl">/1 Year</span>
           </h1>
-          <p className="font-sans text-base font-semibold text-[#191919]  underline bg-firstColor w-fit mx-auto px-1 py-px">
+          <p className="font-sans text-base font-semibold text-white  underline bg-firstColor w-fit mx-auto px-1 py-px">
             Save 25% with 1 year plan
           </p>
         </div>
@@ -281,7 +281,7 @@ const OffersAndDiscountsCard = () => {
         </div>
         <div className="p-0 mt-12">
           <button
-            className="block w-full select-none rounded-lg bg-thirdColor hover:bg-fourthColor border-b-2 py-3.5 px-7 text-center align-middle font-sans text-sm font-bold uppercase text-white shadow-md shadow-blue-gray-500/10 transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-blue-gray-500/20 focus:scale-[1.02] focus:opacity-[0.85] focus:shadow-none active:scale-100 active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+            className="block w-full select-none rounded-lg bg-secondColor hover:bg-thirdColor border-b-2 py-3.5 px-7 text-center align-middle font-sans text-sm font-bold uppercase text-white shadow-md shadow-blue-gray-500/10 transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-blue-gray-500/20 focus:scale-[1.02] focus:opacity-[0.85] focus:shadow-none active:scale-100 active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
             type="button"
             data-ripple-dark="true"
           >
@@ -293,7 +293,7 @@ const OffersAndDiscountsCard = () => {
         data-aos="flip-left"
         data-aos-easing="ease-out-cubic"
         data-aos-duration="2000"
-        className="relative flex w-full flex-col rounded-xl bg-gradient-to-tr from-teal-600 to-[#23668a] bg-clip-border p-8 text-white shadow-md shadow-gray-500"
+        className="relative flex w-full flex-col rounded-xl bg-fourthColor bg-clip-border p-8 text-white shadow-md shadow-gray-500"
       >
         <div className="relative pb-8 m-0 mb-8 overflow-hidden text-center text-gray-700 bg-transparent border-b rounded-none shadow-none border-white/10 bg-clip-border">
           <p className="block font-sans text-sm antialiased font-normal leading-normal text-white uppercase">
@@ -304,7 +304,7 @@ const OffersAndDiscountsCard = () => {
             <span className="mt-2 text-4xl">$</span>180
             <span className="self-end text-xl">/1 Year</span>
           </h1>
-          <p className="font-sans text-base font-semibold text-[#191919]  underline bg-firstColor w-fit mx-auto px-1 py-px">
+          <p className="font-sans text-base font-semibold text-white underline bg-firstColor w-fit mx-auto px-1 py-px">
             Save 25% with 1 year plan
           </p>
         </div>
@@ -425,7 +425,7 @@ const OffersAndDiscountsCard = () => {
         </div>
         <div className="p-0 mt-12">
           <button
-            className="block w-full select-none rounded-lg bg-thirdColor hover:bg-fourthColor border-b-2 py-3.5 px-7 text-center align-middle font-sans text-sm font-bold uppercase text-white shadow-md shadow-blue-gray-500/10 transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-blue-gray-500/20 focus:scale-[1.02] focus:opacity-[0.85] focus:shadow-none active:scale-100 active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+            className="block w-full select-none rounded-lg bg-secondColor hover:bg-thirdColor border-b-2 py-3.5 px-7 text-center align-middle font-sans text-sm font-bold uppercase text-white shadow-md shadow-blue-gray-500/10 transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-blue-gray-500/20 focus:scale-[1.02] focus:opacity-[0.85] focus:shadow-none active:scale-100 active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
             type="button"
             data-ripple-dark="true"
           >

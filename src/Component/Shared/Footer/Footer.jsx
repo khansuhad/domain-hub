@@ -2,15 +2,9 @@
 import { GrFacebook, GrTwitter, GrLinkedin } from "react-icons/gr";
 const Footer = () => {
   return (
-    <div className="mt-10 max-w-full">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-        <path
-          fill="#222222"
-          fillOpacity="1"
-          d="M0,128L48,117.3C96,107,192,85,288,112C384,139,480,213,576,224C672,235,768,181,864,149.3C960,117,1056,107,1152,122.7C1248,139,1344,181,1392,202.7L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-        ></path>
-      </svg>
-      <div className="bg-[#222222] text-white pt-4 md:pt-10 lg:pt-10">
+    <div className=" max-w-full">
+ 
+      <div className="bg-[#010B3C] text-white pt-4 md:pt-10 lg:pt-10">
         <div>
           <div className="flex-row md:flex lg:flex justify-between gap-10 px-5">
             <div className="mb-4">

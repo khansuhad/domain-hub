@@ -45,7 +45,7 @@ const SuccessShowcase = () => {
         <div className="max-w-7xl mx-auto w-full grid grid-cols-9">
           {/* stack-1 */}
           <div className="col-span-4 w-full h-full">
-            <div className="w-full h-full bg-gradient-to-tr from-teal-600 to-[#23668a] rounded-md p-2">
+            <div className="w-full h-full bg-gradient-to-tr from-[#ac50ef] via-[#7059fb] to-[#23668a] rounded-md p-2">
               <h1 className="text-white text-xl font-medium py-2 md:pl-4">
                 Top Selling
               </h1>
@@ -57,8 +57,8 @@ const SuccessShowcase = () => {
             </div>
           </div>
           <div className="relative col-span-1 w-full h-full flex justify-center items-center">
-            <div className="h-full w-1 bg-gradient-to-tr from-teal-600 to-[#23668a]"></div>
-            <div className="absolute w-6 h-6 rounded-full bg-gradient-to-tr from-teal-600 to-[#23668a] z-10 text-white text-center">
+            <div className="h-full w-1 bg-gradient-to-tr from-[#ac50ef] via-[#7059fb] to-[#23668a]"></div>
+            <div className="absolute w-6 h-6 rounded-full bg-gradient-to-tr from-[#ac50ef] via-[#7059fb] to-[#23668a] z-10 text-white text-center">
               1
             </div>
           </div>
@@ -68,14 +68,14 @@ const SuccessShowcase = () => {
           {/* stack-2 */}
           <div className="col-span-4 w-full h-full"></div>
           <div className="relative col-span-1 w-full h-full flex justify-center items-center">
-            <div className="h-full w-1 bg-gradient-to-tr from-teal-600 to-[#23668a]"></div>
-            <div className="absolute w-6 h-6 rounded-full bg-gradient-to-tr from-teal-600 to-[#23668a] z-10 text-white text-center">
+            <div className="h-full w-1 bg-gradient-to-tr from-[#ac50ef] via-[#7059fb] to-[#23668a]"></div>
+            <div className="absolute w-6 h-6 rounded-full bg-gradient-to-tr from-[#ac50ef] via-[#7059fb] to-[#23668a] z-10 text-white text-center">
               2
             </div>
           </div>
 
           <div className="col-span-4 w-full h-full">
-            <div className="w-full h-full bg-gradient-to-tr from-teal-600 to-[#23668a] rounded-md p-2">
+            <div className="w-full h-full bg-gradient-to-tr from-[#ac50ef] via-[#7059fb] to-[#23668a] rounded-md p-2">
               <h1 className="text-white text-xl font-medium py-2 md:pl-4">
                 Total Users
               </h1>
@@ -91,7 +91,7 @@ const SuccessShowcase = () => {
 
           {/* stack-3 */}
           <div className="col-span-4 w-full h-full">
-            <div className="w-full h-full bg-gradient-to-tr from-teal-600 to-[#23668a] rounded-md p-2">
+            <div className="w-full h-full bg-gradient-to-tr from-[#ac50ef] via-[#7059fb] to-[#23668a] rounded-md p-2">
               <h1 className="text-white text-xl font-medium py-2 md:pl-4">
                 Total Reviews
               </h1>
@@ -104,8 +104,8 @@ const SuccessShowcase = () => {
             </div>
           </div>
           <div className="relative col-span-1 w-full h-full flex justify-center items-center">
-            <div className="h-full w-1 bg-gradient-to-tr from-teal-600 to-[#23668a]"></div>
-            <div className="absolute w-6 h-6 rounded-full bg-gradient-to-tr from-teal-600 to-[#23668a] z-10 text-white text-center">
+            <div className="h-full w-1 bg-gradient-to-tr from-[#ac50ef] via-[#7059fb] to-[#23668a]"></div>
+            <div className="absolute w-6 h-6 rounded-full bg-gradient-to-tr from-[#ac50ef] via-[#7059fb] to-[#23668a] z-10 text-white text-center">
               3
             </div>
           </div>
@@ -115,14 +115,14 @@ const SuccessShowcase = () => {
           {/* stack-4 */}
           <div className="col-span-4 w-full h-full"></div>
           <div className="relative col-span-1 w-full h-full flex justify-center items-center">
-            <div className="h-full w-1 bg-gradient-to-tr from-teal-600 to-[#23668a]"></div>
-            <div className="absolute w-6 h-6 rounded-full bg-gradient-to-tr from-teal-600 to-[#23668a] z-10 text-white text-center">
+            <div className="h-full w-1 bg-gradient-to-tr from-[#ac50ef] via-[#7059fb] to-[#23668a]"></div>
+            <div className="absolute w-6 h-6 rounded-full bg-gradient-to-tr from-[#ac50ef] via-[#7059fb] to-[#23668a] z-10 text-white text-center">
               4
             </div>
           </div>
 
           <div className="col-span-4 w-full h-full">
-            <div className="w-full h-full bg-gradient-to-tr from-teal-600 to-[#23668a] rounded-md p-2">
+            <div className="w-full h-full bg-gradient-to-tr from-[#ac50ef] via-[#7059fb] to-[#23668a] rounded-md p-2">
               <h1 className="text-white text-xl font-medium py-2 md:pl-4">
                 User Engagement Focus
               </h1>
@@ -137,7 +137,7 @@ const SuccessShowcase = () => {
 
           {/* stack-5 */}
           <div className="col-span-4 w-full h-full">
-            <div className="w-full h-full bg-gradient-to-tr from-teal-600 to-[#23668a] rounded-md p-2">
+            <div className="w-full h-full bg-gradient-to-tr from-[#ac50ef] via-[#7059fb] to-[#23668a] rounded-md p-2">
               <h1 className="text-white text-xl font-medium py-2 md:pl-4">
                 Advanced Technology Integration
               </h1>
@@ -150,8 +150,8 @@ const SuccessShowcase = () => {
             </div>
           </div>
           <div className="relative col-span-1 w-full h-full flex justify-center items-center">
-            <div className="h-full w-1 bg-gradient-to-tr from-teal-600 to-[#23668a]"></div>
-            <div className="absolute w-6 h-6 rounded-full bg-gradient-to-tr from-teal-600 to-[#23668a] z-10 text-white text-center">
+            <div className="h-full w-1 bg-gradient-to-tr from-[#ac50ef] via-[#7059fb] to-[#23668a]"></div>
+            <div className="absolute w-6 h-6 rounded-full bg-gradient-to-tr from-[#ac50ef] via-[#7059fb] to-[#23668a] z-10 text-white text-center">
               5
             </div>
           </div>
@@ -161,14 +161,14 @@ const SuccessShowcase = () => {
           {/* stack-6 */}
           <div className="col-span-4 w-full h-full"></div>
           <div className="relative col-span-1 w-full h-full flex justify-center items-center">
-            <div className="h-full w-1 bg-gradient-to-tr from-teal-600 to-[#23668a]"></div>
-            <div className="absolute w-6 h-6 rounded-full bg-gradient-to-tr from-teal-600 to-[#23668a] z-10 text-white text-center">
+            <div className="h-full w-1 bg-gradient-to-tr from-[#ac50ef] via-[#7059fb] to-[#23668a]"></div>
+            <div className="absolute w-6 h-6 rounded-full bg-gradient-to-tr from-[#ac50ef] via-[#7059fb] to-[#23668a] z-10 text-white text-center">
               6
             </div>
           </div>
 
           <div className="col-span-4 w-full h-full">
-            <div className="w-full h-full bg-gradient-to-tr from-teal-600 to-[#23668a] rounded-md p-2">
+            <div className="w-full h-full bg-gradient-to-tr from-[#ac50ef] via-[#7059fb] to-[#23668a] rounded-md p-2">
               <h1 className="text-white text-xl font-medium py-2 md:pl-4">
                 Robust Player in E-Commerce
               </h1>
@@ -184,7 +184,7 @@ const SuccessShowcase = () => {
 
           {/* stack-7 */}
           <div className="col-span-4 w-full h-full">
-            <div className="w-full h-full bg-gradient-to-tr from-teal-600 to-[#23668a] rounded-md p-2">
+            <div className="w-full h-full bg-gradient-to-tr from-[#ac50ef] via-[#7059fb] to-[#23668a] rounded-md p-2">
               <h1 className="text-white text-xl font-medium py-2 md:pl-4">
                 Innovation and Collaboration
               </h1>
@@ -197,8 +197,8 @@ const SuccessShowcase = () => {
             </div>
           </div>
           <div className="relative col-span-1 w-full h-full flex justify-center items-center">
-            <div className="h-full w-1 bg-gradient-to-tr from-teal-600 to-[#23668a]"></div>
-            <div className="absolute w-6 h-6 rounded-full bg-gradient-to-tr from-teal-600 to-[#23668a] z-10 text-white text-center">
+            <div className="h-full w-1 bg-gradient-to-tr from-[#ac50ef] via-[#7059fb] to-[#23668a]"></div>
+            <div className="absolute w-6 h-6 rounded-full bg-gradient-to-tr from-[#ac50ef] via-[#7059fb] to-[#23668a] z-10 text-white text-center">
               7
             </div>
           </div>
@@ -208,7 +208,7 @@ const SuccessShowcase = () => {
       </div>
       <div className="flex flex-col md:flex-row lg:flex-row justify-center items-center gap-5 md:gap-10 lg:gap-24 mt-20">
         <div className="stats shadow">
-          <div className="stat bg-gradient-to-tr from-teal-600 to-[#23668a] text-white">
+          <div className="stat bg-gradient-to-tr from-[#ac50ef] via-[#7059fb] to-[#23668a] text-white">
             <div className="flex justify-between gap-3">
               <div>
                 <div className="stat-title font-bold text-white">
@@ -223,7 +223,7 @@ const SuccessShowcase = () => {
           </div>
         </div>
         <div className="stats shadow">
-          <div className="stat bg-gradient-to-tr from-teal-600 to-[#23668a] text-white">
+          <div className="stat bg-gradient-to-tr from-[#ac50ef] via-[#7059fb] to-[#23668a] text-white">
             <div className="flex justify-between gap-3">
               <div>
                 <div className="stat-title font-bold text-white">
@@ -238,7 +238,7 @@ const SuccessShowcase = () => {
           </div>
         </div>
         <div className="stats shadow">
-          <div className="stat bg-gradient-to-tr from-teal-600 to-[#23668a] text-white">
+          <div className="stat bg-gradient-to-tr from-[#ac50ef] via-[#7059fb] to-[#23668a] text-white">
             <div className="flex justify-between gap-3">
               <div>
                 <div className="stat-title font-bold text-white">

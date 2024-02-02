@@ -6,7 +6,7 @@ import image from "../../../assets/WhyDomainHub/output-onlinegiftools.gif"
 const WhyDomainHub = () => {
     return (
         <>
-            <section className="">
+            <section className="bg-firstColor dark:bg-[#191919] pt-10">
 
                 <div>
                     <Container>
@@ -29,16 +29,16 @@ const WhyDomainHub = () => {
 
                     <div className="">
                         <div className=" space-y-10 ">
-                            <p className="text-gray-600 dark:text-white lg:text-xl leading-relaxed mx-auto ">
+                            <p className="text-white dark:text-white lg:text-xl leading-relaxed mx-auto ">
                                 1.Discover premium domains with ease on DomainHub.
                             </p>
-                            <p className="text-gray-600 dark:text-white lg:text-xl leading-relaxed mx-auto ">
+                            <p className="text-white dark:text-white lg:text-xl leading-relaxed mx-auto ">
                                 2.Our user-friendly platform simplifies the buying and selling process.
                             </p>
-                            <p className="text-gray-600 dark:text-white lg:text-xl leading-relaxed mx-auto ">
+                            <p className="text-white dark:text-white lg:text-xl leading-relaxed mx-auto ">
                                 3. providing a secure and transparent experience.
                             </p>
-                            <p className="text-gray-600 dark:text-white lg:text-xl leading-relaxed mx-auto">
+                            <p className="text-white dark:text-white lg:text-xl leading-relaxed mx-auto">
                                 4.Benefit from expert guidance, a diverse domain portfolio, and a global community.
                             </p>
 

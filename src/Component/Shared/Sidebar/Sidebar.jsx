@@ -38,10 +38,10 @@ const Sidebar = () => {
           aria-label="close sidebar"
           className="drawer-overlay"
         ></label>
-        <ul className="menu p-4 w-60 md:w-80 min-h-full text-sixthColor bg-thirdColor">
+        <ul className="menu p-4 w-60 md:w-80 min-h-full  bg-fifthColor">
           {/* Sidebar content here */}
           <li>
-            <NavLink to={"/"} className="text-xl md:text-2xl font-bold">
+            <NavLink to={"/"} className="text-xl text-white md:text-2xl font-bold">
               DomainHub
             </NavLink>
           </li>
@@ -61,35 +61,22 @@ const Sidebar = () => {
                 isPending
                   ? "pending"
                   : isActive
-                  ? "bg-firstColor text-fifthColor"
-                  : ""
+                  ? "bg-fourthColor text-white"
+                  : "text-white"
               }
             >
               Profile
             </NavLink>
           </li>
-          {user ? (
+          {
             <li onClick={handleLogOut}>
               <Link
-                className={({ isActive, isPending }) =>
-                  isPending ? "pending" : isActive ? "active" : ""
-                }
+                className="text-white"
               >
                 Logout
               </Link>
             </li>
-          ) : (
-            <li>
-              <Link
-                to={"/login"}
-                className={({ isActive, isPending }) =>
-                  isPending ? "pending" : isActive ? "active" : ""
-                }
-              >
-                Login
-              </Link>
-            </li>
-          )}
+          }
         </ul>
       </div>
     </div>

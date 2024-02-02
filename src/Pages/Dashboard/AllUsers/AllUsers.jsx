@@ -11,14 +11,14 @@ const AllUsers = () => {
       {isPendingInfo ? (
         <Loading/>
       ) : (
-        <Container>
-          <div className="px-[5%] dark:text-sixthColor">
+        <div>
+          <div className="px-[5%] dark:text-sixthColor bg-firstColor dark:bg-slate-700 py-5">
             <Heading>Manage all Users</Heading>
             <div className="overflow-x-auto lg:mt-10">
               <table className="table">
                 {/* head */}
                 <thead>
-                  <tr className="dark:text-sixthColor">
+                  <tr className=" text-white border-2 bg-fourthColor dark:text-sixthColor">
                     <th>
                       <label>
                         <input type="checkbox" className="checkbox" />
@@ -38,7 +38,7 @@ const AllUsers = () => {
               </table>
             </div>
           </div>
-        </Container>
+        </div>
       )}
     </>
   );

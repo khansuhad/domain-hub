@@ -1,0 +1,4 @@
+.dashboard .active {
+    background-color: theme('colors.fourthColor');
+    color: white;
+}

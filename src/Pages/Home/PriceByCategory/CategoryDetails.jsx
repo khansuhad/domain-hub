@@ -8,34 +8,44 @@ import { useNavigate } from "react-router-dom";
 import useCart from "../../../Hock/useCart";
 
 const CategoryDetails = () => {
-    const [searchedDomain, setSearchedDomain] = useState("") 
-    const [notAvailable, setNotAvailable] = useState("") 
-    const navigate= useNavigate()
+    const [searchedDomain, setSearchedDomain] = useState("")
+    const [notAvailable, setNotAvailable] = useState("")
+    const navigate = useNavigate()
+    const userInfo = useSelector((state) => state.user.currentUser);
     const domainDetails = useSelector((state) => state.domain.domain)
     const axiosSecure = useAxiosPublic()
-    const [cart]= useCart()
-    const bookedDomains= cart?.filter(item=> item.payment=== "true")
+    const [cart] = useCart()
+    const bookedDomains = cart?.filter(item => item.payment === "true")
     const handleSearch = (e) => {
         e.preventDefault()
         const form = e.target
         const searchData = form.domain.value
-        const searchedDomain = searchData.concat(domainDetails?.name)
-        const findDomain= bookedDomains.filter(item=> item.name===searchedDomain)
+        const domainSearched = searchData.concat(domainDetails?.name)
+        const domain= domainSearched.toLowerCase()
+        console.log("lowercase domain",domain);
+        const findDomain = bookedDomains.filter(item => item.name === domain)
         console.log("test status", findDomain?.length);
-        if(findDomain?.length>0)
-        {
-           setNotAvailable("Sorry! this domain is already taken.")
-           setSearchedDomain("")
+        if (findDomain?.length > 0) {
+            setNotAvailable("Sorry! this domain is already taken.")
+            setSearchedDomain("")
         }
-        else{
-           setSearchedDomain(searchedDomain) 
-           setNotAvailable("")
+        else {
+            setSearchedDomain(domain)
+            setNotAvailable("")
         }
     }
-    console.log("searched",searchedDomain);
+    console.log("domain searched",searchedDomain);
+    const cartItem = {
+        name: searchedDomain,
+        category: domainDetails?.category,
+        price: domainDetails?.price,
+        description: domainDetails?.description,
+        email: userInfo?.email,
+        review: "false",
+        payment:"false"
+    }
     const handleCart = () => {
-
-        axiosSecure.post("/domainAddToCart", { domain: searchedDomain })
+        axiosSecure.post("/domainAddToCart", cartItem)
             .then(res => {
                 if (res.data.insertedId) {
                     console.log(res.data);
@@ -43,33 +53,31 @@ const CategoryDetails = () => {
                     navigate("/")
                 }
             }
-
-
             )
     }
     return (
-        <div className=" container mx-auto dark:text-white">
-            <div className="mb-4 flex flex-col md:flex-row justify-around items-center pt-24 pb-16  dark:text-black bg-orange-300 rounded-xl">
+        <div className="container mx-auto dark:text-white pt-32">
+            <div className="mb-4 flex flex-col md:flex-row justify-around items-center pt-24 pb-16  dark:text-black bg-fourthColor rounded-xl">
                 <div className="space-y-5">
-                    <p className="text-xl font-semibold "> <span className="text-blue-700">{domainDetails?.name}</span>  Domain Names</p>
-                    <p className="text-4xl font-bold">{domainDetails?.description}</p>
-                    <p className="text-xl font-semibold">Available now! Starting at</p>
-                    <p className="text-4xl font-semibold text-blue-700">${domainDetails?.price}/yr</p>
+                    <p className="text-xl font-semibold text-white"> <span className="bg-blue-700 text-white p-1 rounded ">{domainDetails?.name}</span>  Domain Names</p>
+                    <p className="text-4xl font-bold text-white">{domainDetails?.description}</p>
+                    <p className="text-xl font-semibold text-white">Available now! Starting at</p>
+                    <p className="text-4xl font-semibold bg-blue-700 text-white p-1 rounded w-fit">${domainDetails?.price}/yr</p>
                 </div>
                 <div>
                     <img src={img} alt="" />
                 </div>
             </div>
             <div className="mx-28">
-                <p className="text-2xl text-center mb-4 font-bold text-blue-700 ">Start your {domainDetails?.name} domain search now.</p>
+                <p className="text-2xl text-center mb-4 font-bold text-white ">Start your {domainDetails?.name} domain search now.</p>
                 <div >
                     <form action="" onSubmit={handleSearch} className="flex justify-center gap-2">
                         <div className="relative w-full max-w-2xl">
-                        <input type="text" name="domain" placeholder="Enter your domain name" className="input input-bordered input-info w-full  " />
-                        <p className="p-3 bg-slate-700 text-white absolute right-0 top-0 rounded-r-lg">{domainDetails?.name}</p>
+                            <input type="text" name="domain" placeholder="Enter your domain name" className="w-full text-black max-w-2xl p-3 rounded-lg outline-info border-2 border-black" />
+                            <p className="p-3 bg-blue-700 text-white absolute right-0 top-0 rounded-r-lg border-slate-700 border-2">{domainDetails?.name}</p>
                         </div>
-                       
-                        <button type="submit"  className="block select-none rounded-lg bg-blue-500 hover:bg-fourthColor border-b-2 py-2 px-4 text-center align-middle font-sans text-sm font-semibold uppercase text-white shadow-md shadow-blue-gray-500/10 transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-blue-gray-500/20 focus:scale-[1.02] focus:opacity-[0.85] focus:shadow-none active:scale-100 active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">search</button>
+
+                        <button type="submit" className="block select-none rounded-lg bg-secondColor hover:bg-thirdColor border-b-2 py-2 px-4 text-center align-middle font-sans text-sm font-semibold uppercase text-white shadow-md shadow-blue-gray-500/10 transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-blue-gray-500/20 focus:scale-[1.02] focus:opacity-[0.85] focus:shadow-none active:scale-100 active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">search</button>
                     </form>
                     <div>
                         {searchedDomain?.length > 0 ?
@@ -81,15 +89,12 @@ const CategoryDetails = () => {
                                         <div className="flex gap-1 cursor-pointer" onClick={handleCart} > <span>Add to cart </span> <MdAddShoppingCart className="  text-2xl " /></div>
                                     </div>
                                 </div>
-                            </div>: <div>
+                            </div> : <div>
                                 <p className="text-xl text-center mt-5 font-semibold text-red-600">{notAvailable}</p>
-                            </div> }
+                            </div>}
                     </div>
                 </div>
-
             </div>
-
-
         </div>
     );
 };

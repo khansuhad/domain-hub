@@ -15,12 +15,15 @@ export const domainSlice = createSlice({
     updateDomain: (state, action) => {
       state.domain = action.payload
     },
+    domainDetails: (state, action) => {
+      state.domain = action.payload
+    },
    
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { addDomain,updateDomain } = domainSlice.actions
+export const { addDomain,updateDomain,domainDetails } = domainSlice.actions
 
 
 export default domainSlice.reducer

@@ -29,7 +29,7 @@ const SearchingDomain = () => {
     const addToCart = async (domainItem) => {
         // Check if the domain is already in the cart
         const isDomainInCart = carts?.some((cartItem) => cartItem._id === domainItem._id);
-        const domainName = searchTerm + domainItem?.name
+        const domainName = searchTerm.concat(domainItem?.name)
         // console.log(domain);
         // jhdcbjhd
         if (!isDomainInCart) {
@@ -60,7 +60,7 @@ const SearchingDomain = () => {
     
 
     return (
-        <div  className=" container mx-auto dark:text-white">
+        <div  className="  py-10  bg-firstColor dark:text-white px-[10%] px-auto">
             <div className="mb-4  flex flex-col md:flex-row justify-center items-center pt-36 pb-20 dark:text-black">
                 <input
                     type="text"
@@ -90,28 +90,30 @@ const SearchingDomain = () => {
                 <div className="flex flex-col gap-4 w-full p-2">
                     {filteredDomains.length > 0 ? (
                         // Your content when filteredDomains has items
-                        <p className="text-2xl md:text-3xl font-bold text-center"> Available This Domain</p>
+                        <p className="text-2xl md:text-3xl font-bold text-center text-white"> Available This Domain</p>
                     ) : (
                         // Your placeholder or fallback content
-                        <p className="text-2xl md:text-3x font-bold text-center">Not available This Domain</p>
+                        <p className="text-2xl md:text-3x font-bold text-center text-white">Not available This Domain</p>
                     )}
+                           <div  className="grid grid-cols-1 md:grid-cols-2 gap-5 ">  
                     {filteredDomains.map((domainItem) => (
-                        <div key={domainItem?.id} className="relative flex justify-center w-full flex-col rounded-xl bg-gradient-to-tr from-teal-600 to-[#04080b] bg-clip-border p-2 text-white shadow-md shadow-gray-500">
-                            <div className="flex justify-between">
-                                <h3 className="text-lg font-semibold">{searchTerm} {domainItem?.name}</h3>
-                                {/* <p className="text-gray-100">{domain.category}</p> */}
-                                <div className="flex justify-center items-center gap-5">
-                                    <p className="text-gray-100">price: {domainItem.price}</p>
-                                    <div className="border-2 p-2 rounded-lg">
-                                        {/* Cart icon */}
-                                        <MdAddShoppingCart className="  text-2xl cursor-pointer" onClick={() => addToCart(domainItem)} />
-                                    </div>
-                                </div>
+               <div  key={domainItem?.id} className="relative flex justify-center w-full flex-col rounded-xl bg-fourthColor border-2 bg-clip-border p-2 text-white ">
+                   <div className="flex justify-between items-center">
+                       <h3 className="text-lg font-semibold">{searchTerm} {domainItem?.name}</h3>
+                       {/* <p className="text-gray-100">{domain.category}</p> */}
+                       <div className="flex justify-center items-center gap-5">
+                           <p className="text-gray-100">price: {domainItem.price}</p>
+                           <div className="border-2 p-2 bg-secondColor hover:bg-thirdColor rounded-lg">
+                               {/* Cart icon */}
+                               <MdAddShoppingCart className="  text-2xl cursor-pointer " onClick={() => addToCart(domainItem)} />
+                           </div>
+                       </div>
 
-                            </div>
+                   </div>
 
-                        </div>
+               </div>
                     ))}
+                    </div>
                 </div>
 
                 

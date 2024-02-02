@@ -11,7 +11,7 @@ const Profile = () => {
       {isPendingInfo || isLoading ? (
         <Loading/>
       ) : (
-        <div className=" flex dark:bg-slate-700 flex-col justify-center items-center h-screen p-5 md:p-10 text-center">
+        <div className=" flex dark:bg-slate-700 bg-firstColor flex-col justify-center items-center min-h-screen p-5 md:p-10 text-center">
           <div className=" flex flex-col justify-center items-center p-5 bg-fourthColor md:p-10 border shadow-2xl  border-secondColor dark:border-sixthColor text-white dark:text-sixthColor text-lg lg:text-xl  font-bold">
             <div className=" max-w-[200px] w-full">
               <img

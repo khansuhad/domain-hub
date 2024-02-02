@@ -56,9 +56,10 @@ const CategoryDetails = () => {
             )
     }
     return (
-        <div className="container mx-auto dark:text-white pt-32">
-            <div className="mb-4 flex flex-col md:flex-row justify-around items-center pt-24 pb-16  dark:text-black bg-fourthColor rounded-xl">
-                <div className="space-y-5">
+        <div className="bg-firstColor ">
+            <div className="w-[95%] lg:w-[90%] mx-auto dark:text-white pt-32 ">
+            <div className="flex flex-col md:flex-row justify-around items-center pt-24 pb-16  dark:text-black bg-fourthColor rounded-xl">
+                <div className="space-y-5 pl-5">
                     <p className="text-xl font-semibold text-white"> <span className="bg-blue-700 text-white p-1 rounded ">{domainDetails?.name}</span>  Domain Names</p>
                     <p className="text-4xl font-bold text-white">{domainDetails?.description}</p>
                     <p className="text-xl font-semibold text-white">Available now! Starting at</p>
@@ -68,8 +69,8 @@ const CategoryDetails = () => {
                     <img src={img} alt="" />
                 </div>
             </div>
-            <div className="mx-28">
-                <p className="text-2xl text-center mb-4 font-bold text-white ">Start your {domainDetails?.name} domain search now.</p>
+            <div className="lg:mx-28 pt-5">
+                <p className="lg:text-2xl text-center  my-3 font-bold text-white ">Start your {domainDetails?.name} domain search now.</p>
                 <div >
                     <form action="" onSubmit={handleSearch} className="flex justify-center gap-2">
                         <div className="relative w-full max-w-2xl">
@@ -81,20 +82,21 @@ const CategoryDetails = () => {
                     </form>
                     <div>
                         {searchedDomain?.length > 0 ?
-                            <div>
-                                <p className="text-center mt-4 text-xl font-semibold">Congrats! Your Domain is available.</p>
-                                <div className="flex justify-center w-full max-w-3xl flex-col rounded-xl bg-gradient-to-tr from-teal-600 to-[#23668a] bg-clip-border p-2 text-white shadow-md shadow-gray-500 mx-auto mt-1 md:mt-5">
+                            <div className="text-white py-5">
+                                <p className="text-center py-4 text-xl font-semibold">Congrats! Your Domain is available.</p>
+                                <div className="relative flex justify-center w-full flex-col rounded-xl bg-fourthColor border-2 bg-clip-border p-2 text-white ">
                                     <div className="flex justify-between">
                                         <p>{searchedDomain}</p>
                                         <div className="flex gap-1 cursor-pointer" onClick={handleCart} > <span>Add to cart </span> <MdAddShoppingCart className="  text-2xl " /></div>
                                     </div>
                                 </div>
                             </div> : <div>
-                                <p className="text-xl text-center mt-5 font-semibold text-red-600">{notAvailable}</p>
+                                <p className="text-xl text-center pt-5 font-semibold text-red-600">{notAvailable}</p>
                             </div>}
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     );
 };

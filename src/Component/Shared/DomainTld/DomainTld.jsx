@@ -5,13 +5,14 @@ import 'swiper/css/pagination';
 import "./style.css";
 // import required modules
 import { Pagination } from 'swiper/modules';
+import Heading from '../../UI/Heading';
 
 const DomainTld = () => {
     return (
         <>
             <div className='container mx-auto my-10'>
                 <div className=" mx-auto text-center md:w-4/12 my-8">
-                    <h3 className="text-4xl font-bold uppercase border-y-4 py-4 dark:text-white">Domain TLD</h3>
+                    <Heading>Domain TLD</Heading>
 
                 </div>
                 <Swiper

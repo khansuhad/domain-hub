@@ -5,7 +5,7 @@ import MyAllReviewCard from "./MyAllReviewCard";
 const MyAllReviews = () => {
   const [myReviews] = useMyReview();
   return (
-    <div className="flex justify-center items-center h-screen">
+    <div className="flex justify-center items-center h-screen dark:bg-slate-700">
       <div className="flex justify-center items-center h-screen">
         <div>
           <Heading>My Reviews</Heading>

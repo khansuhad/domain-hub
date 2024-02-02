@@ -27,7 +27,7 @@ const Navbar = () => {
         <Link to="reviews">Reviews</Link>
       </li>
       <li>
-        <Link to="/dashboard/profile">Dashboard</Link>
+        <Link to="/dashboard/dashboard">Dashboard</Link>
       </li>
       <li>
         <Link to="/dashboard/myCart"><button className="flex justify-center items-center">

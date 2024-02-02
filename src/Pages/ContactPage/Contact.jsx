@@ -34,7 +34,7 @@ const Contact = () => {
     };
 
     return (
-        <div id="contact" className="  px-[10%] bg-firstColor dark:bg-[#191919] dark:text-white text-white py-10">
+        <div id="contact" className=" px-2  lg:px-[10%] bg-firstColor dark:bg-[#191919] dark:text-white text-white py-10">
             <h2 className="text-2xl md:text-3xl font-bold text-center my-20"><Heading>Contact me</Heading></h2>
             <div className="flex flex-col md:flex-row justify-center gap-10">
                 <div className=" text-center">
@@ -58,7 +58,7 @@ const Contact = () => {
                 </div>
             </div>
 
-            <div className="border border-secondColor  py-5 m-8 rounded-xl bg-fourthColor bg-clip-border p-8 text-white shadow-md shadow-black">
+            <div className="border border-secondColor  py-5 lg:m-8 my-4 rounded-xl bg-fourthColor bg-clip-border p-8 text-white shadow-md shadow-black">
                 <form ref={form} className="card-body" onSubmit={sendEmail}>
                     <div className="form-control">
                         <label className="label">

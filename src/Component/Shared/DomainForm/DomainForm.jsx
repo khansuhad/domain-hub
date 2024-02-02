@@ -6,10 +6,10 @@ import Heading from "../../UI/Heading";
 const DomainForm = ({addDomain}) => {
     return (
 
-        <div className="p-28 border m-10 bg-fourthColor lg:h-[900px] rounded-lg ">
+        <div className="lg:p-28 border m-10 bg-fourthColor lg:h-[900px] rounded-lg py-5">
 
             <div>
-                <h3 className="text-center text-xl md:text-2xl font-bold  text-white"><Heading>Add New Domain</Heading></h3>
+                <h3 className="text-center text-xl md:text-2xl font-bold  text-white "><Heading>Add New Domain</Heading></h3>
 
 
                 <form className="mt-10" onSubmit={addDomain}>

@@ -4,9 +4,12 @@ import UserNavItem from "./UserNavItem";
 import AdminNavItem from "./AdminNavItem";
 import UseAuth from "../../../Hock/UseAuth";
 import toast from "react-hot-toast";
+import useAdmin from "../../../Hock/useAdmin";
 
 const Sidebar = () => {
-  const { user, logoutUser } = UseAuth();
+  const { logoutUser } = UseAuth();
+
+  const [isAdmin] = useAdmin();
   const logOutSuccessToast = () => toast.success("Logout successfully");
   const logOutErrorToast = () => toast.error("Something went wrong");
   const navigate = useNavigate();
@@ -41,18 +44,14 @@ const Sidebar = () => {
         <ul className="menu p-4 w-60 md:w-80 min-h-full  bg-fifthColor">
           {/* Sidebar content here */}
           <li>
-            <NavLink to={"/"} className="text-xl text-white md:text-2xl font-bold">
+            <NavLink
+              to={"/"}
+              className="text-xl text-white md:text-2xl font-bold"
+            >
               DomainHub
             </NavLink>
           </li>
-          {/* User navLink  */}
-          <UserNavItem />
-          <br />
-          <br />
-          <br />
-          {/* Admin nabLink  */}
-          <AdminNavItem />
-
+          {isAdmin ? <AdminNavItem /> : <UserNavItem />}
           {/* common NavLink  */}
           <li className="mt-auto">
             <NavLink
@@ -70,11 +69,7 @@ const Sidebar = () => {
           </li>
           {
             <li onClick={handleLogOut}>
-              <Link
-                className="text-white"
-              >
-                Logout
-              </Link>
+              <Link className="text-white">Logout</Link>
             </li>
           }
         </ul>

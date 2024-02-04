@@ -3,7 +3,6 @@ import Container from "../../../Component/UI/Container";
 import Description from "../../../Component/UI/Description";
 import { IoIosArrowDown,IoIosArrowUp  } from "react-icons/io";
 import Heading from "../../../Component/UI/Heading";
-// import React, { useState } from 'react';
 import Faq from "../../../../public/faq.json"
 import Lottie from 'lottie-react';
 

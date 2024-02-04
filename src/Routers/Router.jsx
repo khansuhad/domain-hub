@@ -27,6 +27,7 @@ import PrivateRoute from "./PrivateRoute";
 import MyCart from "../Pages/Dashboard/MyCart/MyCart";
 import Checkout from "../Pages/Dashboard/Checkout/Checkout";
 import CategoryDetails from "../Pages/Home/PriceByCategory/CategoryDetails";
+import Notification from "../Pages/Notification/Notification";
 
 const Router = createBrowserRouter([
   {
@@ -51,6 +52,10 @@ const Router = createBrowserRouter([
       {
         path: "/reviews",
         element: <Review></Review>,
+      },
+      {
+        path: "/notifications",
+        element: <Notification/>,
       },
       {
         path: "/searchPage",

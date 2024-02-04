@@ -6,8 +6,10 @@ import { LuMoonStar } from "react-icons/lu";
 import UseAuth from "../../../Hock/UseAuth";
 import { FaShoppingCart } from "react-icons/fa";
 import useCart from "../../../Hock/useCart";
+import useNotifications from "../../../Hock/UseNotifications";
 // import { useSelector } from "react-redux";
 const Navbar = () => {
+  const {notification } = useNotifications();
   const [carts, loading, refetch] = useCart();
   const { handleModeChange, mode } = useTheme();
   const { user } = UseAuth();
@@ -101,7 +103,8 @@ const Navbar = () => {
             <Link to='/notifications' className="btn btn-ghost btn-circle">
       <div className="indicator">
       <IoIosNotifications className="text-3xl cursor-pointer" />
-        <span className="badge badge-xs badge-primary indicator-item"></span>
+      { notification.length > 0 && <span className="badge badge-xs badge-primary indicator-item">{notification.length}</span> }  
+      {/* <span className="badge badge-xs badge-primary indicator-item">{notification.length}</span> */}
       </div>
     </Link>
          

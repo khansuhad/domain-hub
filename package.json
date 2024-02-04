@@ -19,6 +19,7 @@
     "axios": "^1.6.5",
     "firebase": "^10.7.2",
     "localforage": "^1.10.0",
+    "lottie-react": "^2.4.0",
     "match-sorter": "^6.3.2",
     "react": "^18.2.0",
     "react-countup": "^6.5.0",

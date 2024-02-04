@@ -25,7 +25,6 @@ const SearchingDomain = () => {
         const matchesCategory = selectedCategory === 'All' || domain.category === selectedCategory;
         return searchTerm && matchesCategory;
     });
-
     const addToCart = async (domainItem) => {
         // Check if the domain is already in the cart
         const isDomainInCart = carts?.some((cartItem) => cartItem._id === domainItem._id);
@@ -41,7 +40,6 @@ const SearchingDomain = () => {
                 email: userInfo?.email,
                 review: "false",
                 payment:"false"
-             
             }
             const cartRes = await useAxios.post('/carts', cartItem)
             if (cartRes.data.acknowledged) {
@@ -52,13 +50,9 @@ const SearchingDomain = () => {
                     confirmButtonText: 'Cool'
                 })
                 refetch()
-
             }
-
         }
     };
-    
-
     return (
         <div  className=" container mx-auto dark:text-white">
             <div className="mb-4  flex flex-col md:flex-row justify-center items-center pt-36 pb-20 dark:text-black">
@@ -69,7 +63,6 @@ const SearchingDomain = () => {
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                 />
-
                 <select
                     className="md:p-2 mr-2 border border-gray-300 rounded-lg"
                     value={selectedCategory}
@@ -104,17 +97,14 @@ const SearchingDomain = () => {
                                     <p className="text-gray-100">price: {domainItem.price}</p>
                                     <div className="border-2 p-2 rounded-lg">
                                         {/* Cart icon */}
-                                        <MdAddShoppingCart className="  text-2xl cursor-pointer" onClick={() => addToCart(domainItem)} />
+                                        <MdAddShoppingCart className="text-2xl cursor-pointer" onClick={() => addToCart(domainItem)}/>
                                     </div>
                                 </div>
-
                             </div>
 
                         </div>
                     ))}
                 </div>
-
-                
 
             </div>
         </div>

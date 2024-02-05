@@ -22,6 +22,7 @@ const CheckoutForm = () => {
   const axiosSecure = useAxiosSecure();
   const { user } = UseAuth();
   const navigate = useNavigate();
+  
 
   const [carts] = useCart();
   console.log("Crat", carts);
@@ -87,6 +88,10 @@ const CheckoutForm = () => {
         // now save the payment in the database
         axiosSecure.put("/carts", carts).then((res) => {
           console.log("cart", res.data);
+          const messages = "payment SuccessFull"
+          axiosSecure.post("/notifications" ,{ messages} ).then(res => {
+            console.log(res.data);
+          })
           navigate("/dashboard/my-all-domains");
           paymentSuccessToast();
         });

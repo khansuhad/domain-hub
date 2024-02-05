@@ -144,11 +144,11 @@ const MyCart = () => {
                 placeholder="Coupon"
                 value={couponCode}
                 onChange={(event) => setCouponCode(event.target.value)}
-                className="border text-black border-gray-300 rounded-l-md py-2 px-4 w-32 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="border text-black border-gray-300 rounded-l-md py-[11px] px-4 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
               <button
                 type="submit"
-                className=" bg-secondColor hover:bg-thirdColor text-white font-bold py-2 px-4 rounded-r-md"
+                className=" bg-cyan-500 hover:bg-thirdColor text-black font-bold py-3 px-4 rounded-r-md"
               >
                 Apply
               </button>

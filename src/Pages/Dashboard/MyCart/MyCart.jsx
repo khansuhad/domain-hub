@@ -77,14 +77,14 @@ const MyCart = () => {
     });
   };
   return (
-    <div className="rounded-lg text-white dark:bg-[#191919] bg-firstColor">
+    <div className="rounded-lg text-white dark:bg-black min-h-screen bg-firstColor ">
       <div className="flex justify-between bg-gradient-to-tr from-[#13104e] to-[#0193e1] ">
         <div className="flex flex-col justify-center w-3/4 items-center">
           <p className="text-2xl w-full font-bold text-center text-white dark:text-white my-10">My Cart</p>
           <div className="flex gap-2">
-            <Link to="/"><button className="btn text-black font-bold uppercase bg-cyan-500">Home</button></Link>
+            <Link to="/"><button className="btn text-black font-bold uppercase bg-secondColor hover:bg-thirdColor hover:text-white">Home</button></Link>
             <Link to="/searchPage">
-              <button className="btn text-black font-bold  uppercase bg-cyan-500">Search Domain</button>
+              <button className="btn text-black font-bold  uppercase bg-secondColor hover:bg-thirdColor hover:text-white">Search Domain</button>
             </Link>
           </div>
 
@@ -134,21 +134,21 @@ const MyCart = () => {
         </div>
 
         <div className=" md:w-[40%] p-5 md:m-10">
-          <div className="bg-fourthColor mb-5 p-2 ">
+          <div className="bg-fourthColor mb-5 p-2 rounded-md">
             {/* Coupon input form*/}
             <form onSubmit={handleSubmit} className="flex items-center">
               <input
                 type="text"
                 id="coupon-code"
                 name="coupon-code"
-                placeholder="Coupon"
+                placeholder="Coupon code"
                 value={couponCode}
                 onChange={(event) => setCouponCode(event.target.value)}
                 className="border text-black border-gray-300 rounded-l-md py-[11px] px-4 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
               <button
                 type="submit"
-                className=" bg-cyan-500 hover:bg-thirdColor text-black font-bold py-3 px-4 rounded-r-md"
+                className=" bg-secondColor hover:bg-thirdColor text-black hover:text-white font-bold py-[13px] px-4 rounded-r-md"
               >
                 Apply
               </button>
@@ -197,9 +197,9 @@ const MyCart = () => {
             ) : (
               <Link
                 to={"/dashboard/checkout"}
-                className="btn btn-block bg-secondColor hover:bg-thirdColor text-white text-xl mr-5 mt-2"
+                className="btn btn-block bg-secondColor hover:bg-thirdColor text-black hover:text-white text-xl mr-5 mt-2"
               >
-                make purchase
+                Make purchase
               </Link>
             )}
           </div>

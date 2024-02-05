@@ -46,37 +46,37 @@ const MyFreeTailApplication = () => {
         <>
             <div
                 className="overflow-x-auto p-5">
-                     <h2 className="text-2xl font-bold text-center my-10">My Free Trial Application</h2>
+                     <h2 className="text-2xl font-bold text-center text-white my-10">My Free Trial Application</h2>
                 <table className="w-full text-left  table-auto min-w-max border-2">
-                    <thead>
+                    <thead className="bg-fourthColor rounded">
                         <tr>
                             <th className="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
-                                <p className="block font-sans text-sm lg:text-xl font-bold antialiased leading-none text-blue-gray-900 opacity-70">
+                                <p className="block font-sans text-sm lg:text-xl font-bold antialiased leading-none text-white opacity-70">
                                     No
                                 </p>
                             </th>
                             <th className="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
-                                <p className="block font-sans text-sm lg:text-xl font-bold antialiased leading-none text-blue-gray-900 opacity-70">
+                                <p className="block font-sans text-sm lg:text-xl font-bold antialiased leading-none text-white opacity-70">
                                     Name
                                 </p>
                             </th>
                             <th className="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
-                                <p className="block font-sans text-sm lg:text-xl font-bold antialiased leading-none text-blue-gray-900 opacity-70">
+                                <p className="block font-sans text-sm lg:text-xl font-bold antialiased leading-none text-white opacity-70">
                                     Email
                                 </p>
                             </th>
                             <th className="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
-                                <p className="block font-sans text-sm lg:text-xl font-bold antialiased leading-none text-blue-gray-900 opacity-70">
+                                <p className="block font-sans text-sm lg:text-xl font-bold antialiased leading-none text-white opacity-70">
                                     Domain
                                 </p>
                             </th>
                             <th className="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
-                                <p className="block font-sans text-sm lg:text-xl font-bold antialiased leading-none text-blue-gray-900 opacity-70">
+                                <p className="block font-sans text-sm lg:text-xl font-bold antialiased leading-none text-white opacity-70">
                                     Application
                                 </p>
                             </th>
                             <th className="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
-                                <p className="block font-sans text-sm lg:text-xl font-bold antialiased leading-none text-blue-gray-900 opacity-70">
+                                <p className="block font-sans text-sm lg:text-xl font-bold antialiased leading-none text-white opacity-70">
                                     Delete
                                 </p>
                             </th>
@@ -85,7 +85,7 @@ const MyFreeTailApplication = () => {
                     </thead>
                     {
                         singleFreeTrialUser.map((users,inx) => <>
-                            <tbody>
+                            <tbody className="text-white">
                                 <tr>
                                     <td className="p-4 border-b border-blue-gray-50">
                                         <p className="block font-sans text-sm lg:text-xl  antialiased font-normal leading-normal text-blue-gray-900">
@@ -108,16 +108,16 @@ const MyFreeTailApplication = () => {
                                         </p>
                                     </td>
                                     <td className="p-4 border-b border-blue-gray-50 flex items-center gap-3">
-                                        {users?.approve == "Accepted" && <p className="block cursor-pointer text-center lg:text-xl lg:font-semibold bg-green-400 p-2 rounded-md font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
+                                        {users?.approve == "Accepted" && <p className="block cursor-pointer text-black text-center lg:text-xl lg:font-semibold bg-green-400 p-2 rounded-md font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
                                             Accepted
                                         </p>}
 
-                                        {users?.approve == "Pending" && <p className="block  font-sans text-sm text-center lg:text-xl lg:font-semibold bg-red-200 p-2 rounded-md antialiased font-normal leading-normal text-blue-gray-900">
+                                        {users?.approve == "Pending" && <p className="block  font-sans text-sm text-center text-black lg:text-xl lg:font-semibold bg-yellow-300 p-2 rounded-md antialiased font-normal leading-normal text-blue-gray-900">
                                             Pending
                                         </p>
                                         }
 
-                                        {users?.approve == "Rejected" && <p className="block cursor-pointer text-center lg:text-xl lg:font-semibold bg-red-400 p-2 rounded-md  font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
+                                        {users?.approve == "Rejected" && <p className="block cursor-pointer text-black text-center lg:text-xl lg:font-semibold bg-red-400 p-2 rounded-md  font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
                                             Rejected
                                         </p>
                                         }

@@ -9,12 +9,12 @@ import {useNavigate } from "react-router-dom";
 const Banner = () => {
     const navigate =useNavigate();
     const dispatch = useDispatch()
-    const backgroundPhoto = {
-        backgroundImage: `url(${banner})`,
-        height: "80vh",
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-    };
+    // const backgroundPhoto = {
+    //     backgroundImage: `url("https://i.postimg.cc/VN0ZFykB/how-to-choose-the-right-domain-name-1.png")`,
+    //     height: "80vh",
+    //     backgroundSize: "cover",
+    //     backgroundRepeat: "no-repeat",
+    // };
 
     const {
         register,
@@ -35,7 +35,7 @@ const Banner = () => {
     };
 
     return (
-        <div style={backgroundPhoto} className="text-white bg-opacity-60">
+        <div  style={{backgroundImage: 'url(https://i.postimg.cc/VN0ZFykB/how-to-choose-the-right-domain-name-1.png)'}} className="text-white bg-opacity-60 hero min-h-screen">
             <div className="flex justify-center items-center h-full">
                 <div>
                     <h2 className="lg:text-5xl md:text-4xl text-2xl font-bold md:mb-5 mb-2">Find Your Desired Domain Now!</h2>
@@ -49,7 +49,7 @@ const Banner = () => {
                                         })}
                                         type="text"
                                         placeholder="Your Domain name"
-                                        className="input input-info lg:w-[400px] md:w-[300px] w-full text-gray-700 dark:bg-gray-700 dark:text-white"
+                                        className="input input-info lg:w-[400px] md:w-[300px] w-full text-black dark:bg-gray-700 dark:text-white outline-none"
                                     />
                                     {errors.domain?.message && (
                                         <p className="text-xs text-red-600 mt-1">
@@ -58,7 +58,7 @@ const Banner = () => {
                                     )}
                                 </div>
                                 <div>
-                                    <button className="btn bg-thirdColor hover:bg-fourthColor dark:bg-gray-700" type="submit">
+                                    <button className="btn bg-secondColor hover:bg-fourthColor dark:bg-gray-700 border-none  transition-all duration-300 " type="submit">
                                         <FaSearch className="text-xl text-white dark:text-[#F5F7F8]"></FaSearch>
                                         <p className="text-lg text-white dark:text-[#F5F7F8]">Search</p>
                                     </button>

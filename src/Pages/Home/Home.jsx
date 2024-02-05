@@ -6,7 +6,6 @@ import FreeTrial from "./FreeTrial/FreeTrial";
 import OffersAndDiscounts from "./OffersAndDiscounts/OffersAndDiscounts";
 import PriceByCategory from "./PriceByCategory/PriceByCategory";
 import SuccessShowcase from "./SuccessShowcase/SuccessShowcase";
-import Tutorial from "./Tutorial/Tutorial";
 import DomainTld from "../../Component/Shared/DomainTld/DomainTld";
 
 const Home = () => {
@@ -21,7 +20,7 @@ const Home = () => {
             <SuccessShowcase/>
             <FreeTrial/>
             <PriceByCategory data={data}/>
-            <Tutorial/>
+            {/* <Tutorial/> */}
             <OffersAndDiscounts/>
         </div>
     );

@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { FaCartArrowDown } from "react-icons/fa";
+import "./active.css"
 const UserNavItem = () => {
   return (
     <>
@@ -7,8 +8,8 @@ const UserNavItem = () => {
         <NavLink
           to="/dashboard/myCart"
           className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "bg-firstColor text-fifthColor" : ""
-          }
+          isPending ? "pending" : isActive ? "abc" : "text-white"
+        }
         >
           <FaCartArrowDown />My Cart
         </NavLink>
@@ -17,8 +18,8 @@ const UserNavItem = () => {
         <NavLink
           to="/dashboard/my-free-tail-application"
           className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "bg-firstColor text-fifthColor" : ""
-          }
+          isPending ? "pending" : isActive ? "abc" : "text-white"
+        }
         >
           My Free Tail Application
         </NavLink>
@@ -28,8 +29,8 @@ const UserNavItem = () => {
         <NavLink
           to="/dashboard/my-all-domains"
           className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "bg-firstColor text-fifthColor" : ""
-          }
+          isPending ? "pending" : isActive ? "abc" : "text-white"
+        }
         >
           My All Domains
         </NavLink>
@@ -38,8 +39,8 @@ const UserNavItem = () => {
         <NavLink
           to="/dashboard/my-all-reviews"
           className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "bg-firstColor text-fifthColor" : ""
-          }
+          isPending ? "pending" : isActive ? "abc" : "text-white"
+        }
         >
           My All Review
         </NavLink>
@@ -47,9 +48,9 @@ const UserNavItem = () => {
       <li>
         <NavLink
           to="/dashboard/support"
-          className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "bg-firstColor text-fifthColor" : ""
-          }
+        className={({ isActive, isPending }) =>
+          isPending ? "pending" : isActive ? "abc" : "text-white"
+        }
         >
           Support
         </NavLink>

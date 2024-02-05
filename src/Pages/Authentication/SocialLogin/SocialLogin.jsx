@@ -34,7 +34,7 @@ const SocialLogin = () => {
   };
   return (
     <>
-      <div className="divider divider-info text-[#191919] dark:text-[#F5F7F8] mt-5">
+      <div className="divider divider-info text-white dark:text-[#F5F7F8] mt-5">
         OR
       </div>
       <div className="grid grid-cols-2 gap-5 my-6">

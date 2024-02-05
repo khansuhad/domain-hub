@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 const AllReviewCard = ({ review }) => {
   return (
-    <div className="card w-96 bg-base-100 shadow-xl">
+    <div className="card w-96 bg-fourthColor shadow-xl text-white ">
       <figure className="px-10 pt-10">
-        <img className="w-[400px] h-[300px]" src={review?.userPhoto} />
+        <img className="w-[300px] h-[200px]" src={review?.userPhoto} />
       </figure>
       <div className="card-body items-center text-center">
         <h2 className="card-title">{review?.userName}</h2>

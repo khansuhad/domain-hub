@@ -1,13 +1,15 @@
 /* eslint-disable react/prop-types */
 
+import Heading from "../../UI/Heading";
+
 
 const DomainForm = ({addDomain}) => {
     return (
 
-        <div className="p-28 border m-10 bg-[#68809c] lg:h-[900px] rounded-lg ">
+        <div className="lg:p-28 border m-10 bg-fourthColor lg:h-[900px] rounded-lg py-5">
 
             <div>
-                <h3 className="text-center text-xl md:text-2xl font-bold  text-white">Add New Domain</h3>
+                <h3 className="text-center text-xl md:text-2xl font-bold  text-white "><Heading>Add New Domain</Heading></h3>
 
 
                 <form className="mt-10" onSubmit={addDomain}>
@@ -15,7 +17,7 @@ const DomainForm = ({addDomain}) => {
                     <div className="m-5 gap-5 justify-center">
                         <div className="form-control w-full ">
                             <label className="label">
-                                <span className="label-text font-bold">TLD Name</span>
+                                <span className="label-text font-bold text-white">TLD Name</span>
                             </label>
                             <label className="input-group">
 
@@ -25,7 +27,7 @@ const DomainForm = ({addDomain}) => {
 
                         <div className="form-control w-full">
                             <label className="label">
-                                <span className="label-text font-bold">Price</span>
+                                <span className="label-text font-bold text-white">Price</span>
                             </label>
                             <label className="input-group">
 
@@ -36,7 +38,7 @@ const DomainForm = ({addDomain}) => {
                     <div className="m-5 md:flex gap-5 justify-center">
                         <div className="form-control w-full">
                             <label className="label">
-                                <span className="label-text font-bold">Category type</span>
+                                <span className="label-text font-bold text-white">Category type</span>
                             </label>
                             <label className="input-group">
                                 <select name="category" className="select select-bordered w-full">
@@ -55,18 +57,18 @@ const DomainForm = ({addDomain}) => {
                     <div className="m-5 md:flex gap-5 justify-center">
                         <div className="form-control w-full">
                             <label className="label">
-                                <span className="label-text font-bold"> Description</span>
+                                <span className="label-text font-bold text-white"> Description</span>
                             </label>
                             <label className="input-group">
 
                                 {/* <input type="text" name="description" placeholder="Description" className="input input-bordered w-full" /> */}
 
-                                <textarea className="w-full" name="description" id="" cols="30" rows="10"></textarea>
+                                <textarea className="w-full pl-2" name="description" id="" cols="30" rows="10"></textarea>
                             </label>
                         </div>
                     </div>
                     <div className="m-5  gap-5 justify-center mb-5">
-                        <input type="submit" value="Add Domain" className="text-white btn btn-block hover:bg-thirdColor bg-fourthColor" />
+                        <input type="submit" value="Add Domain" className="text-white btn btn-block hover:bg-thirdColor border-none bg-secondColor" />
                     </div>
                 </form>
             </div>

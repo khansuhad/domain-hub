@@ -8,8 +8,8 @@ const MyAllDomains = () => {
   const [trueCarts, refetch] = useTruePayment();
 
   return (
-    <div className="bg-firstColor rounded min-h-screen py-10 ">
-      <div className="text-2xl md:text-3xl lg:text-5xl font-bold text-center mb-10 text-[#191919] dark:text-[#F5F7F8] font-roboto ">
+    <div className="bg-firstColor dark:bg-slate-700 rounded min-h-screen py-10 ">
+      <div className="text-2xl md:text-3xl lg:text-5xl font-bold text-center mb-10 text-white dark:text-[#F5F7F8] font-roboto ">
         My All Domains
       </div>
       <div className="w-[90%] mx-auto">
@@ -17,7 +17,7 @@ const MyAllDomains = () => {
           <table className="table text-2xl">
             {/* head */}
             <thead>
-              <tr className="text-2xl text-black">
+              <tr className="text-2xl text-white">
                 <th>Domain</th>
                 <th>Domain name</th>
                 <th>Email</th>
@@ -27,7 +27,7 @@ const MyAllDomains = () => {
             </thead>
             <tbody>
               {trueCarts?.map((trueCart, index) => (
-                <tr key={trueCart?._id} className="text-xl font-medium ">
+                <tr key={trueCart?._id} className="text-xl font-medium text-white">
                   <td>
                     <div className="flex items-center space-x-3">
                       <div>
@@ -42,11 +42,11 @@ const MyAllDomains = () => {
                   <th>
                     <h1>{trueCart?.price}</h1>
                   </th>
-                  <th>
+                {  trueCart?.review == "true" ? <p className=
+                "ml-6 mt-2">Done</p> : <th>
                     <label
                       htmlFor={index + 1}
-                      disabled={trueCart?.review == "true"}
-                      className="btn btn-outline btn-sm"
+                      className="btn btn-outline btn-sm text-white bg-secondColor "
                     >
                       Review
                     </label>
@@ -55,7 +55,9 @@ const MyAllDomains = () => {
                       index={index}
                       refetch={refetch}
                     ></ReviewModal>
-                  </th>
+                  </th> 
+            }
+                
                 </tr>
               ))}
             </tbody>

@@ -73,11 +73,11 @@ const AllFreeTailApplication = () => {
     return (
         <>
             <div
-                className="overflow-x-auto p-5">
-                    <h2 className="text-2xl font-bold text-center my-10">Manage Free Trial Application</h2>
+                className="overflow-x-auto p-5 text-white ">
+                    <h2 className="text-2xl font-bold text-center my-10 ">Manage Free Trial Application</h2>
                 <table className="w-full text-left table-auto min-w-max border-2 ">
                     
-                    <thead>
+                    <thead className="bg-fourthColor   border-2">
                         <tr>
                             <th className="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
                                 <p className="block font-sans text-sm lg:text-xl font-bold antialiased  leading-none text-blue-gray-900 opacity-70">
@@ -137,16 +137,16 @@ const AllFreeTailApplication = () => {
                                         </p>
                                     </td>
                                     <td className="p-4 border-b border-blue-gray-50 flex gap-3">
-                                        {users?.approve === "Accepted" && <p onClick={() => { handleApprove(users.email) }} className="block cursor-pointer bg-green-400 p-2 rounded-md font-sans text-sm antialiased font-semibold leading-normal text-blue-gray-900">
+                                        {users?.approve === "Accepted" && <p onClick={() => { handleApprove(users.email) }} className="block cursor-pointer bg-green-400 text-black p-2 rounded-md font-sans text-sm antialiased font-semibold leading-normal text-blue-gray-900">
                                             Approved
                                         </p>}
-                                        {users?.approve === "Pending" && <p onClick={() => { handleApprove(users.email) }} className="block cursor-pointer bg-red-400 p-2 rounded-md font-sans text-sm antialiased font-semibold leading-normal text-blue-gray-900">
+                                        {users?.approve === "Pending" && <p onClick={() => { handleApprove(users.email) }} className="block cursor-pointer bg-yellow-400 text-black p-2 rounded-md font-sans text-sm antialiased font-semibold leading-normal text-blue-gray-900">
                                             Approve
                                         </p>}
-                                        {users?.approve === "Pending"&&<p onClick={() => { handleDismiss(users.email) }} className="block cursor-pointer bg-yellow-400 p-2 rounded-md  font-sans text-sm antialiased font-semibold leading-normal text-blue-gray-900">
+                                        {users?.approve === "Pending"&&<p onClick={() => { handleDismiss(users.email) }} className="block cursor-pointer bg-red-400 p-2 text-black rounded-md  font-sans text-sm antialiased font-semibold leading-normal text-blue-gray-900">
                                             Dismiss
                                         </p>}
-                                        {users?.approve === "Rejected" && <p onClick={() => { handleDismiss(users.email) }} className="block cursor-pointer bg-red-400 p-2 rounded-md  font-sans text-sm antialiased font-semibold leading-normal text-blue-gray-900">
+                                        {users?.approve === "Rejected" && <p onClick={() => { handleDismiss(users.email) }} className="block cursor-pointer bg-red-400 p-2 text-black rounded-md  font-sans text-sm antialiased font-semibold leading-normal text-blue-gray-900">
                                             Dismissed
                                         </p>}
                                        

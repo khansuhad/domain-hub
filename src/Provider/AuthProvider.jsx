@@ -13,6 +13,7 @@ import { createContext, useEffect, useState } from "react";
 import auth from "../Firebase/Firebase.config";
 import { useDispatch } from "react-redux";
 import { addUser } from "../features/user/userSlice";
+import axios from "axios";
 
 export const AuthContext = createContext();
 const googleProvider = new GoogleAuthProvider();
@@ -69,11 +70,32 @@ const AuthProvider = ({ children }) => {
     logoutUser,
   };
 
+
+
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
+      const userEmail = currentUser?.email || user?.email;
+      const loggedUser = { email: userEmail };
       setUser(currentUser);
-      console.log(currentUser);
       setIsLoading(false);
+
+      if (currentUser) {
+        axios
+          .post("http://localhost:3000/jwt", loggedUser, {
+            withCredentials: true,
+          })
+          .then((res) => {
+            console.log("token respons", res.data);
+          });
+      } else {
+        axios
+          .post("http://localhost:3000/logout", loggedUser, {
+            withCredentials: true,
+          })
+          .then((res) => {
+            console.log("token respons", res.data);
+          });
+      }
 
       // store userInfo in state of redux/Abu bakar
       const userInfo = {
@@ -89,7 +111,7 @@ const AuthProvider = ({ children }) => {
     return () => {
       unSubscribe();
     };
-  }, []);
+  }, [user?.email]);
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
   );

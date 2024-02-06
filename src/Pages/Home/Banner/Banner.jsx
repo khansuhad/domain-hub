@@ -1,6 +1,5 @@
 import { useForm } from "react-hook-form";
 import { FaSearch } from "react-icons/fa";
-import banner from "../../../assets/bannerImg/domain-and.jpg";
 import { useDispatch } from "react-redux";
 import { addDomain } from "../../../features/domain/domainSlice";
 import {useNavigate } from "react-router-dom";
@@ -9,12 +8,12 @@ import {useNavigate } from "react-router-dom";
 const Banner = () => {
     const navigate =useNavigate();
     const dispatch = useDispatch()
-    // const backgroundPhoto = {
-    //     backgroundImage: `url("https://i.postimg.cc/VN0ZFykB/how-to-choose-the-right-domain-name-1.png")`,
-    //     height: "80vh",
-    //     backgroundSize: "cover",
-    //     backgroundRepeat: "no-repeat",
-    // };
+    const backgroundPhoto = {
+        backgroundImage: `url("https://i.postimg.cc/VN0ZFykB/how-to-choose-the-right-domain-name-1.png")`,
+        height: "80vh",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+    };
 
     const {
         register,
@@ -35,7 +34,7 @@ const Banner = () => {
     };
 
     return (
-        <div  style={{backgroundImage: 'url(https://i.postimg.cc/VN0ZFykB/how-to-choose-the-right-domain-name-1.png)'}} className="text-white bg-opacity-60 hero min-h-screen">
+        <div  style={backgroundPhoto} className="text-white bg-opacity-60 ">
             <div className="flex justify-center items-center h-full">
                 <div>
                     <h2 className="lg:text-5xl md:text-4xl text-2xl font-bold md:mb-5 mb-2">Find Your Desired Domain Now!</h2>

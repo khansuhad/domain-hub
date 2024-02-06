@@ -3,7 +3,9 @@ import Container from "../../../Component/UI/Container";
 import Description from "../../../Component/UI/Description";
 import { IoIosArrowDown,IoIosArrowUp  } from "react-icons/io";
 import Heading from "../../../Component/UI/Heading";
-// import React, { useState } from 'react';
+import Faq from "../../../../public/faq.json"
+import Lottie from 'lottie-react';
+
 
 const FAQ = () => {
 
@@ -44,8 +46,8 @@ const FAQ = () => {
 
                 <div className=" flex justify-between items-center ">
                     <div className="flex flex-col w-full md:flex-row justify-center items-center  dark:text-[#191919] dark:bg-[#191919]">
-                        {/* FAQ image  */}
-                        <img className=" w-[50%]" src="https://i.postimg.cc/7YP9yHdc/FAQs-rafiki-2.png" alt="faq image" />
+                        {/* FAQ image animation */}
+                        <Lottie animationData={Faq}/>
 
                         <div className="container   mx-auto py-16">
 

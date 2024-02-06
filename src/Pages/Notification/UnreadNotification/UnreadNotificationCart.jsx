@@ -1,11 +1,12 @@
-import { MdDelete } from "react-icons/md";
-import moment from "moment/moment";
+import moment from "moment";
 import { useEffect, useState } from "react";
+import { MdDelete } from "react-icons/md";
 import Swal from "sweetalert2";
-import useAxiosSecure from "../../Hock/useAxiosSecure";
+import useAxiosSecure from "../../../Hock/useAxiosSecure";
 import PropTypes from "prop-types";
-const NotificationCart = ({noti , refetchNotification}) => {
 
+const UnreadNotificationCart = ({noti , refetchNotification}) => {
+    
     const useAxios = useAxiosSecure();
     const [timeDifference, setTimeDifference] = useState('');
     useEffect(() => {
@@ -45,29 +46,28 @@ const NotificationCart = ({noti , refetchNotification}) => {
             }
         });
     }
-
     return (
         <div  className="bg-sixthColor m-5 p-5 rounded flex justify-between items-center">
-    <div>
-   
-   <h1 className="font-medium">{noti?.messages}</h1>
-   <p className="text-green-600 font-bold">{timeDifference} </p>
-   </div>
- <div>
- <MdDelete
-
-           onClick={() => handleDelete(noti?._id)}
-           className="text-red-500 ml-2 cursor-pointer text-xl"
-         />
-        
-        
- </div>
-    </div>
+        <div>
+       
+       <h1 className="font-medium">{noti?.messages}</h1>
+       <p className="text-green-600 font-bold">{timeDifference} </p>
+       </div>
+     <div>
+     <MdDelete
+    
+               onClick={() => handleDelete(noti?._id)}
+               className="text-red-500 ml-2 cursor-pointer text-xl"
+             />
+            
+            
+     </div>
+        </div>
     );
 };
-NotificationCart.propTypes = {
+UnreadNotificationCart.propTypes = {
     noti: PropTypes.node,
     refetchNotification: PropTypes.node,
     
   };
-export default NotificationCart;
+export default UnreadNotificationCart;

@@ -6,14 +6,27 @@ import { LuMoonStar } from "react-icons/lu";
 import UseAuth from "../../../Hock/UseAuth";
 import { FaShoppingCart } from "react-icons/fa";
 import useCart from "../../../Hock/useCart";
-import useNotifications from "../../../Hock/UseNotifications";
+
+import { useEffect, useState } from "react";
+import useUnreadNotifications from "../../../Hock/useUnreadNotification";
 // import { useSelector } from "react-redux";
 const Navbar = () => {
-  const {notification } = useNotifications();
-  const [carts, loading, refetch] = useCart();
+  const [notificationLength , setNotificationLength] = useState(0)
+  const {notification } = useUnreadNotifications();
+
+  const [carts] = useCart();
   const { handleModeChange, mode } = useTheme();
   const { user } = UseAuth();
 
+  useEffect(() =>{
+      const length = notification.length ;
+      setNotificationLength(length)
+      
+  },[notification.length])
+const handleNotification = () => {
+      const length = 0 ;
+      setNotificationLength(length)
+}
   const navLink = (
     <>
       <li>
@@ -100,10 +113,10 @@ const Navbar = () => {
               )}
             </div>
             {/* notification icon */}
-            <Link to='/notifications' className="btn btn-ghost btn-circle">
-      <div className="indicator">
+            <Link to='/unreadnotifications' className="btn btn-ghost btn-circle">
+      <div className="indicator" onClick={handleNotification}>
       <IoIosNotifications className="text-3xl cursor-pointer" />
-      { notification.length > 0 && <span className="badge badge-xs badge-primary indicator-item">{notification.length}</span> }  
+      { notificationLength > 0 && <span className="badge badge-xs badge-primary indicator-item">{notificationLength }</span> }  
       {/* <span className="badge badge-xs badge-primary indicator-item">{notification.length}</span> */}
       </div>
     </Link>

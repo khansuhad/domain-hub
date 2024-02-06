@@ -3,7 +3,7 @@ export const ReviewCard = ({ review }) => {
   return (
     <div className="card w-96 bg-fourthColor shadow-xl text-white">
       <figure className="px-10 pt-10">
-        <img className="w-[300px] h-[200px]" src="https://i.postimg.cc/mgBGBw2Y/smiling-young-male-professional-standing-with-arms-crossed-while-making-eye-contact-against-isolated.jpg" />
+        <img className="w-[300px] h-[200px]" src={review?.userPhoto} />
       </figure>
       <div className="card-body items-center text-center">
         <h2 className="card-title">{review?.userName}</h2>

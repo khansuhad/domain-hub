@@ -108,7 +108,7 @@ const MyFreeTailApplication = () => {
                                         </p>
                                     </td>
                                     <td className="p-4 border-b border-blue-gray-50 flex items-center gap-3">
-                                        {users?.approve == "Accepted" && <p className="block cursor-pointer text-center lg:text-xl lg:font-semibold bg-green-400 p-2 rounded-md font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
+                                        {users?.approve == "Accepted" && <p className="block cursor-pointer text-black text-center lg:text-xl lg:font-semibold bg-green-400 p-2 rounded-md font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
                                             Accepted
                                         </p>}
 
@@ -117,7 +117,7 @@ const MyFreeTailApplication = () => {
                                         </p>
                                         }
 
-                                        {users?.approve == "Rejected" && <p className="block cursor-pointer text-center lg:text-xl lg:font-semibold bg-red-400 p-2 rounded-md  font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
+                                        {users?.approve == "Rejected" && <p className="block cursor-pointer text-black text-center lg:text-xl lg:font-semibold bg-red-400 p-2 rounded-md  font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
                                             Rejected
                                         </p>
                                         }

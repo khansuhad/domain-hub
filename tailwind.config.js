@@ -16,7 +16,7 @@ export default {
         thirdColor: "#6788F8", // button normal color
         fourthColor: "#202A7C", // button hover color
         fifthColor: "#010B3C", // bg for dark mode and text color for light mode
-        sixthColor: "#F5F7F8", // text color for dark mode
+        sixthColor: "#D7DFEF", // text color for dark mode
       },
     },
   },

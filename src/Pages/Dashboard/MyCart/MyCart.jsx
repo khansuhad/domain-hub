@@ -15,8 +15,32 @@ const MyCart = () => {
   console.log(carts);
   const [couponCode, setCouponCode] = useState("");
   const [totalPrice, setTotalPrice] = useState(0);
+  const [selectedTimes, setSelectedTimes] = useState({});
+  console.log(selectedTimes);
   const [discountPercentage, setDiscountPercentage] = useState(0);
-  console.log(typeof totalPrice , totalPrice);
+  console.log(typeof totalPrice, totalPrice);
+
+  const handleTimeChange = (cartItemId, selectedTime) => {
+    setSelectedTimes((prevSelectedTimes) => ({
+      ...prevSelectedTimes,
+      [cartItemId]: selectedTime,
+    }));
+  };
+
+  // ...
+
+  useEffect(() => {
+    const calculateTotalPrice = () => {
+      const total = carts.reduce((acc, cartItem) => {
+        const domainTotal = parseFloat(cartItem.price) * selectedTimes[cartItem._id];
+        return acc + domainTotal;
+      }, 0);
+
+      setTotalPrice(total.toFixed(2));
+    };
+
+    calculateTotalPrice();
+  }, [carts, discountPercentage, selectedTimes]);
 
   const paymentPrice = (
     parseFloat(totalPrice) -
@@ -25,18 +49,6 @@ const MyCart = () => {
   dispatch(addPayment(paymentPrice));
 
   // Calculate total price when carts or discountPercentage change
-  useEffect(() => {
-    const calculateTotalPrice = () => {
-      const totalPrice = carts.reduce(
-        (acc, cartItem) => acc + parseFloat(cartItem.price),
-        0
-      );
-      console.log(totalPrice);
-      setTotalPrice(parseFloat(totalPrice).toFixed(2));
-    };
-
-    calculateTotalPrice();
-  }, [carts, discountPercentage]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -105,6 +117,7 @@ const MyCart = () => {
 
                 <th className="text-xl font-bold text-white dark:text-white">Name</th>
                 <th className="text-xl font-bold text-white dark:text-white">Price</th>
+                <th className="text-xl font-bold text-white dark:text-white pl-10">Time</th>
                 <th className="text-xl font-bold text-white dark:text-white">Action</th>
               </tr>
             </thead>
@@ -118,6 +131,22 @@ const MyCart = () => {
 
                     <td>{cartItem.name}</td>
                     <td>${cartItem.price}</td>
+                    <td>
+                      {/* Dropdown for selecting the number of years */}
+                      <select
+                        name="time"
+                        value={selectedTimes[cartItem._id] || ''}
+                        onChange={(e) => handleTimeChange(cartItem._id, e.target.value)}
+                        className="border rounded p-2 bg-black text-white"
+                      >
+
+                        <option>Select time</option>
+                        <option value="1">1 Year</option>
+                        <option value="2">2 Years</option>
+                        <option value="3">3 Years</option>
+                        {/* Add more options as needed */}
+                      </select>
+                    </td>
                     <td>
                       <MdDelete
                         onClick={() => handleDeleteItem(cartItem)}

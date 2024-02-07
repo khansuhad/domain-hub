@@ -14,14 +14,12 @@ import auth from "../Firebase/Firebase.config";
 import { useDispatch } from "react-redux";
 import { addUser } from "../features/user/userSlice";
 import axios from "axios";
-import useAxiosPublic from "../Hock/useAxiosPublic";
 
 export const AuthContext = createContext();
 const googleProvider = new GoogleAuthProvider();
 const githubProvider = new GithubAuthProvider();
 
 const AuthProvider = ({ children }) => {
-  const useAxios = useAxiosPublic();
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const dispatch = useDispatch()
@@ -90,8 +88,7 @@ const AuthProvider = ({ children }) => {
             console.log("token respons", res.data);
           });
       } else {
-        console.log("logged out");
-       axios
+        axios
           .post("https://domain-hub-server-side.vercel.app/logout", loggedUser, {
             withCredentials: true,
           })

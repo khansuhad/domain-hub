@@ -28,6 +28,7 @@ import MyCart from "../Pages/Dashboard/MyCart/MyCart";
 import Checkout from "../Pages/Dashboard/Checkout/Checkout";
 import CategoryDetails from "../Pages/Home/PriceByCategory/CategoryDetails";
 import Notification from "../Pages/Notification/Notification";
+import UnreadNotification from "../Pages/Notification/UnreadNotification/UnreadNotification";
 
 const Router = createBrowserRouter([
   {
@@ -56,6 +57,10 @@ const Router = createBrowserRouter([
       {
         path: "/notifications",
         element: <Notification/>,
+      },
+      {
+        path: "/unreadnotifications",
+        element: <UnreadNotification/>,
       },
       {
         path: "/searchPage",

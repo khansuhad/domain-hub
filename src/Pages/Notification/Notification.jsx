@@ -1,21 +1,25 @@
-import { MdDelete } from "react-icons/md";
+import { Link, NavLink } from "react-router-dom";
 import Container from "../../Component/UI/Container";
 import Heading from "../../Component/UI/Heading";
 import useNotifications from "../../Hock/UseNotifications";
 // import useAxiosPublic from "../../Hock/useAxiosPublic";
+import NotificationCart from "./NotificationCart";
+import "./active.css"
+import useAxiosPublic from "../../Hock/useAxiosPublic";
 import Swal from "sweetalert2";
-import useAxiosSecure from "../../Hock/useAxiosSecure";
+
 
 
 
 const Notification = () => {
-    const useAxios = useAxiosSecure();
+
+ 
+ 
+   const useAxios = useAxiosPublic();
     // const useAxios = useAxiosPublic();
     const {notification , refetchNotification} = useNotifications();
-    console.log(notification);
-    const handleDelete = (id) => {
-        console.log(id);
-        Swal
+    const handleDeleteAll = () =>{
+      Swal
         .fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -26,55 +30,59 @@ const Notification = () => {
             confirmButtonText: "Yes, delete it!"
         }).then(async (result) => {
             if (result.isConfirmed) {
-                console.log(id);
-                const res = await useAxios.delete(`/notifications/${id}`)
-                console.log(res.data);
-                if (res.data.deletedCount > 0) {
-                    // refetch to update the ui
-                    
-
-                    Swal.fire({
-                        title: "Deleted!",
-                        text:  " Item has been deleted",
-                        icon: "success"
-                    });
-                    refetchNotification();
+              useAxios.delete("/notifications/alldatadelete")
+      .then(res => {
+        console.log(res?.data);
+        refetchNotification();
+      })
+                
                 }
 
             }
-        });
+        );
+     
     }
-
+    // console.log(notification.timestamp.year);
+    
+  
 
     return (
-        <div className="lg:w-[80%] mx-auto ">
-           <div className="bg-fourthColor">
+  
+         <div className=" bg-firstColor min-h-screen">
+           <div className="bg-fourthColor lg:w-[80%] mx-auto min-h-screen">
            <Container>
             <Heading className="text-7xl text-white">Notifications</Heading>
             <hr /><br />
-            <button className="btn btn-primary ml-10"> All </button>
+<div className="flex justify-between px-10">
+           <div className="flex gap-2">
+           <NavLink  to='/notifications'  className={({ isActive, isPending }) =>
+    isPending ? "pending" : isActive ? "btn  abc" : "btn  btn-primary "
+  } > All </NavLink >
+            <NavLink  to='/unreadnotifications'  className={({ isActive, isPending }) =>
+    isPending ? "pending" : isActive ? "btn   abc" : "btn  btn-primary "
+  } > Unread </NavLink >
+           </div>
+          {
+            notification.length > 0 && <div>
+             <button onClick={handleDeleteAll} className="btn btn-error text-white">Delete All</button>
+            </div>
+          }
+</div>
 
-          <div>
+        { 
+        notification.length <= 0 ? <div className="flex justify-center items-center  mt-40">
+          <h1 className="text-sixthColor text-5xl  ">No Available Notifications</h1>
+        </div> :
+        <div>
             {
-                notification?.map(noti =>   <div key={noti?._id} className="bg-sixthColor m-5 p-5 rounded flex justify-between items-center">
-                <div>
-                <h1 className="font-bold">Notification Title</h1>
-                <h1 className="font-medium">{noti?.messages}</h1>
-                </div>
-              <div>
-              <MdDelete
-
-                        onClick={() => handleDelete(noti?._id)}
-                        className="text-red-500 ml-2 cursor-pointer text-xl"
-                      />
-              </div>
-            </div>)
+                notification?.map(noti => <NotificationCart key={noti?._id} noti={noti} refetchNotification={refetchNotification}></NotificationCart>  )
             }
-          </div>
+          </div>}
         </Container>
            </div>
            
         </div>
+  
     );
 };
 

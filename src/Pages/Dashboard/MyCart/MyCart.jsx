@@ -15,8 +15,32 @@ const MyCart = () => {
   console.log(carts);
   const [couponCode, setCouponCode] = useState("");
   const [totalPrice, setTotalPrice] = useState(0);
+  const [selectedTimes, setSelectedTimes] = useState({});
+  console.log(selectedTimes);
   const [discountPercentage, setDiscountPercentage] = useState(0);
-  console.log(typeof totalPrice , totalPrice);
+  console.log(typeof totalPrice, totalPrice);
+
+  const handleTimeChange = (cartItemId, selectedTime) => {
+    setSelectedTimes((prevSelectedTimes) => ({
+      ...prevSelectedTimes,
+      [cartItemId]: selectedTime,
+    }));
+  };
+
+  // ...
+
+  useEffect(() => {
+    const calculateTotalPrice = () => {
+      const total = carts.reduce((acc, cartItem) => {
+        const domainTotal = parseFloat(cartItem.price) * selectedTimes[cartItem._id];
+        return acc + domainTotal;
+      }, 0);
+
+      setTotalPrice(total.toFixed(2));
+    };
+
+    calculateTotalPrice();
+  }, [carts, discountPercentage, selectedTimes]);
 
   const paymentPrice = (
     parseFloat(totalPrice) -
@@ -25,18 +49,6 @@ const MyCart = () => {
   dispatch(addPayment(paymentPrice));
 
   // Calculate total price when carts or discountPercentage change
-  useEffect(() => {
-    const calculateTotalPrice = () => {
-      const totalPrice = carts.reduce(
-        (acc, cartItem) => acc + parseFloat(cartItem.price),
-        0
-      );
-      console.log(totalPrice);
-      setTotalPrice(parseFloat(totalPrice).toFixed(2));
-    };
-
-    calculateTotalPrice();
-  }, [carts, discountPercentage]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -77,14 +89,14 @@ const MyCart = () => {
     });
   };
   return (
-    <div className="rounded-lg text-white dark:bg-[#191919] bg-firstColor">
+    <div className="rounded-lg text-white dark:bg-black min-h-screen bg-firstColor ">
       <div className="flex justify-between bg-gradient-to-tr from-[#13104e] to-[#0193e1] ">
         <div className="flex flex-col justify-center w-3/4 items-center">
           <p className="text-2xl w-full font-bold text-center text-white dark:text-white my-10">My Cart</p>
           <div className="flex gap-2">
-            <Link to="/"><button className="btn text-black font-bold uppercase bg-cyan-500">Home</button></Link>
+            <Link to="/"><button className="btn text-black font-bold uppercase bg-secondColor hover:bg-thirdColor hover:text-white">Home</button></Link>
             <Link to="/searchPage">
-              <button className="btn text-black font-bold  uppercase bg-cyan-500">Search Domain</button>
+              <button className="btn text-black font-bold  uppercase bg-secondColor hover:bg-thirdColor hover:text-white">Search Domain</button>
             </Link>
           </div>
 
@@ -97,7 +109,7 @@ const MyCart = () => {
 
       <div className="flex flex-col md:flex-row " >
         <div className="md:overflow-x-auto p-5 md:m-10 md:w-[60%] dark:text-white">
-          <table className="table w-full border-2 min-h-[]">
+          <table className="table w-full border-2">
             {/* head */}
             <thead>
               <tr>
@@ -105,6 +117,7 @@ const MyCart = () => {
 
                 <th className="text-xl font-bold text-white dark:text-white">Name</th>
                 <th className="text-xl font-bold text-white dark:text-white">Price</th>
+                <th className="text-xl font-bold text-white dark:text-white pl-10">Time</th>
                 <th className="text-xl font-bold text-white dark:text-white">Action</th>
               </tr>
             </thead>
@@ -117,7 +130,23 @@ const MyCart = () => {
                     <th>{index + 1}</th>
 
                     <td>{cartItem.name}</td>
-                    <td>${cartItem.price}</td>
+                    <td>${(parseFloat(cartItem.price) * selectedTimes[cartItem._id]).toFixed(2)}</td>
+                    <td>
+                      {/* Dropdown for selecting the number of years */}
+                      <select
+                        name="time"
+                        value={selectedTimes[cartItem._id] || ''}
+                        onChange={(e) => handleTimeChange(cartItem._id, e.target.value)}
+                        className="border border-purple-900 rounded p-2 font-bold bg-white text-black"
+                      >
+
+                        <option>Select time</option>
+                        <option value="1">1 Year</option>
+                        <option value="2">2 Years</option>
+                        <option value="3">3 Years</option>
+                        {/* Add more options as needed */}
+                      </select>
+                    </td>
                     <td>
                       <MdDelete
                         onClick={() => handleDeleteItem(cartItem)}
@@ -134,21 +163,21 @@ const MyCart = () => {
         </div>
 
         <div className=" md:w-[40%] p-5 md:m-10">
-          <div className="bg-fourthColor mb-5 p-2 ">
+          <div className="bg-fourthColor mb-5 p-2 rounded-md">
             {/* Coupon input form*/}
             <form onSubmit={handleSubmit} className="flex items-center">
               <input
                 type="text"
                 id="coupon-code"
                 name="coupon-code"
-                placeholder="Coupon"
+                placeholder="Coupon code"
                 value={couponCode}
                 onChange={(event) => setCouponCode(event.target.value)}
-                className="border text-black border-gray-300 rounded-l-md py-2 px-4 w-32 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="border text-black border-gray-300 rounded-l-md py-[11px] px-4 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
               <button
                 type="submit"
-                className=" bg-secondColor hover:bg-thirdColor text-white font-bold py-2 px-4 rounded-r-md"
+                className=" bg-secondColor hover:bg-thirdColor text-black hover:text-white font-bold py-[13px] px-4 rounded-r-md"
               >
                 Apply
               </button>
@@ -197,9 +226,9 @@ const MyCart = () => {
             ) : (
               <Link
                 to={"/dashboard/checkout"}
-                className="btn btn-block bg-secondColor hover:bg-thirdColor text-white text-xl mr-5 mt-2"
+                className="btn btn-block bg-secondColor hover:bg-thirdColor text-black hover:text-white text-xl mr-5 mt-2"
               >
-                make purchase
+                Make purchase
               </Link>
             )}
           </div>

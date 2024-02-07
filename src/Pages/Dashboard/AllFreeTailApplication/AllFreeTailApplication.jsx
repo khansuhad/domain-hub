@@ -6,8 +6,12 @@ import swal from "sweetalert";
 import { MdDelete } from "react-icons/md";
 import useAxiosPublic from "../../../Hock/useAxiosPublic";
 import Swal from "sweetalert2";
+import moment from 'moment';
+
+
 
 const AllFreeTailApplication = () => {
+ 
     const [freeTrialUsers, , refetch] = useFreeTrial();
     console.log(freeTrialUsers);
     const axiosPublic = useAxiosPublic();
@@ -19,6 +23,16 @@ const AllFreeTailApplication = () => {
                 if (res.data.modifiedCount > 0) {
                     swal("Application approve", "sent", "success");
                     refetch()
+                    const messages = "Your domain trail request had approved";
+                    const status = "unread";
+                    const timeSpace = moment();
+                    const domainName = freeTrialUsers.domainName ;
+                    axiosPublic.post("/notifications" ,{ messages ,timeSpace , domainName, status} ).then(res => {
+                      console.log(res.data);
+                    })
+                    axiosPublic.post("/unreadnotifications" ,{ messages ,timeSpace , domainName, status} ).then(res => {
+                      console.log(res.data);
+                    })
                 }
             })
             .catch(err => {

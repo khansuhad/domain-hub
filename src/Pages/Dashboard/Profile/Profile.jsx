@@ -23,7 +23,7 @@ const Profile = () => {
             <h1 className="text-3xl sm:text-4xl lg:text-5xl my-3 font-bold">
               {info?.name}
             </h1>
-            <p>{info?.role}</p>
+            <p className="uppercase">{info?.role}</p>
             <p className="my-1">{info?.phone}</p>
             <p>{user?.email}</p>
             <Link

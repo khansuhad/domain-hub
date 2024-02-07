@@ -109,7 +109,7 @@ const MyCart = () => {
 
       <div className="flex flex-col md:flex-row " >
         <div className="md:overflow-x-auto p-5 md:m-10 md:w-[60%] dark:text-white">
-          <table className="table w-full border-2 min-h-[]">
+          <table className="table w-full border-2">
             {/* head */}
             <thead>
               <tr>
@@ -130,14 +130,14 @@ const MyCart = () => {
                     <th>{index + 1}</th>
 
                     <td>{cartItem.name}</td>
-                    <td>${cartItem.price}</td>
+                    <td>${(parseFloat(cartItem.price) * selectedTimes[cartItem._id]).toFixed(2)}</td>
                     <td>
                       {/* Dropdown for selecting the number of years */}
                       <select
                         name="time"
                         value={selectedTimes[cartItem._id] || ''}
                         onChange={(e) => handleTimeChange(cartItem._id, e.target.value)}
-                        className="border rounded p-2 bg-black text-white"
+                        className="border border-purple-900 rounded p-2 font-bold bg-white text-black"
                       >
 
                         <option>Select time</option>

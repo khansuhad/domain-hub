@@ -9,22 +9,20 @@ import SuccessShowcase from "./SuccessShowcase/SuccessShowcase";
 import DomainTld from "../../Component/Shared/DomainTld/DomainTld";
 
 const Home = () => {
-    const data= useLoaderData()
-    return (
-        <div className="bg-firstColor dark:bg-[#191919]">
-       
-            <Banner/>
-            <DomainTld></DomainTld>
-            <BestHostingPlan/>
-            <FAQ/>
-            <SuccessShowcase/>
-            <FreeTrial/>
-            <PriceByCategory data={data}/>
-            {/* <Tutorial/> */}
-            <OffersAndDiscounts/>
-        </div>
-    );
+  const data = useLoaderData();
+  return (
+    <div className="bg-firstColor dark:bg-[#191919]">
+      <Banner />
+      <DomainTld></DomainTld>
+      <FreeTrial />
+      <BestHostingPlan />
+      <FAQ />
+      <SuccessShowcase />
+      <PriceByCategory data={data} />
+      {/* <Tutorial/> */}
+      <OffersAndDiscounts />
+    </div>
+  );
 };
-
 
 export default Home;

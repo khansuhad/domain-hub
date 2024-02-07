@@ -42,7 +42,7 @@ const handleNotification = () => {
         <Link to="reviews">Reviews</Link>
       </li>
       <li>
-        <Link to="/dashboard/dashboard">Dashboard</Link>
+        <Link to="/dashboard/profile">Dashboard</Link>
       </li>
       <li>
         <Link to="/dashboard/myCart"><button className="flex justify-center items-center">

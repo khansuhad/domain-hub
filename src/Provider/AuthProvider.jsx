@@ -14,12 +14,14 @@ import auth from "../Firebase/Firebase.config";
 import { useDispatch } from "react-redux";
 import { addUser } from "../features/user/userSlice";
 import axios from "axios";
+import useAxiosPublic from "../Hock/useAxiosPublic";
 
 export const AuthContext = createContext();
 const googleProvider = new GoogleAuthProvider();
 const githubProvider = new GithubAuthProvider();
 
 const AuthProvider = ({ children }) => {
+  const useAxios = useAxiosPublic();
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const dispatch = useDispatch()
@@ -80,16 +82,17 @@ const AuthProvider = ({ children }) => {
       setIsLoading(false);
 
       if (currentUser) {
-        axios
-          .post("http://localhost:3000/jwt", loggedUser, {
+        useAxios
+          .post("/jwt", loggedUser, {
             withCredentials: true,
           })
           .then((res) => {
             console.log("token respons", res.data);
           });
       } else {
-        axios
-          .post("http://localhost:3000/logout", loggedUser, {
+        console.log("logged out");
+        useAxios
+          .post("/logout", loggedUser, {
             withCredentials: true,
           })
           .then((res) => {

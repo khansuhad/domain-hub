@@ -82,8 +82,8 @@ const AuthProvider = ({ children }) => {
       setIsLoading(false);
 
       if (currentUser) {
-        useAxios
-          .post("/jwt", loggedUser, {
+        axios
+          .post("https://domain-hub-server-side.vercel.app/jwt", loggedUser, {
             withCredentials: true,
           })
           .then((res) => {
@@ -91,8 +91,8 @@ const AuthProvider = ({ children }) => {
           });
       } else {
         console.log("logged out");
-        useAxios
-          .post("/logout", loggedUser, {
+       axios
+          .post("https://domain-hub-server-side.vercel.app/logout", loggedUser, {
             withCredentials: true,
           })
           .then((res) => {

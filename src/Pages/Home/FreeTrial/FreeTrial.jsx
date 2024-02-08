@@ -55,15 +55,12 @@ const FreeTrial = () => {
         <>
             <Container>
                 <Heading>{t("trialTitle")}</Heading>
-                <Description>description</Description>
+                <Description>{t("trialTitlesDes")} </Description>
             </Container>
 
             {/* Free Trial Section Start */}
 
             <section className="flex lg:flex-row flex-col items-center justify-between  rounded-md dark:bg-[#191919] lg:px-[15%]  lg:h-[600px]">
-
-
-
                 <div className="lg:w-[750px] space-y-10" >
                     <img src={image} alt="" />
                 </div>
@@ -86,7 +83,7 @@ const FreeTrial = () => {
                                     {
                                         domain?.map(dom => <option key={dom._id} value={dom.name}>{dom.name}</option>)
                                     }
-                                    <option disabled value="">Select Domain</option>
+                                    <option disabled value="">{t("trialSelect")}</option>
 
 
                                 </select>
@@ -104,7 +101,7 @@ const FreeTrial = () => {
                                 ) : (
                                     <Link to="/registration">
                                         <h1 className="bg-blue-500 btn text-white p-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">
-                                            First registration
+                                            {t("trialSectionTitle")}
                                         </h1>
                                     </Link>
                                 )

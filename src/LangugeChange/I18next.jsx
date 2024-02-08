@@ -91,6 +91,7 @@ i18n.use(initReactI18next).init({
 
         //free trial
         trialTitle: "Freetrial",
+        trialTitlesDes:"Enjoy a free domain on us! Simply apply by sending us your favorite domain name, and we'll take care of the rest. Secure your online presence with a personalized domain that reflects your identity. Don't miss out on this opportunity to enhance your web presence.",
         trialSectionTitle: "Free Trial Application",
         trialSelect: "Select Domain",
         trialDes: "Sign up for 7 days a free trial and explore our amazing features! We understand the importance of finding the perfect domain to elevate your online presence.",
@@ -242,6 +243,7 @@ i18n.use(initReactI18next).init({
 
         //free trial
         trialTitle: "বিনামূল্যে ট্রায়াল",
+        trialTitlesDes:"আমাদের একটি বিনামূল্যে ডোমেইন উপভোগ করুন! শুধু আপনার প্রিয় ডোমেইন নাম পাঠিয়ে আবেদন করুন, এবং আমরা বাকিটা দেখব। একটি ব্যক্তিগতকৃত ডোমেনের মাধ্যমে আপনার অনলাইন উপস্থিতি সুরক্ষিত করুন যা আপনার পরিচয় প্রতিফলিত করে। আপনার ওয়েব উপস্থিতি বাড়ানোর এই সুযোগটি মিস করবেন না",
         trialSectionTitle: "বিনামূল্যে ট্রায়াল আবেদন",
         trialSelect: "ডোমেইন নির্বাচন করুন",
         trialDes: "7 দিনের জন্য একটি বিনামূল্যে ট্রায়াল সাইন আপ করুন এবং আমাদের আশ্চর্যজনক বৈশিষ্ট্যগুলি অন্বেষণ করুন! আপনার অনলাইন উপস্থিতি বাড়ানোর জন্য নিখুঁত ডোমেন খোঁজার গুরুত্ব আমরা বুঝি",

@@ -41,7 +41,7 @@ const Navbar = () => {
         <Link to="reviews">{t("navReview")}</Link>
       </li>
       <li>
-        <Link to="/dashboard/dashboard" onClick={() => i18n.changeLanguage("en")}>{t("navDashboard")}</Link>
+        <Link to="/dashboard/profile">{t("navDashboard")}</Link>
       </li>
       <li>
         <Link to="/dashboard/myCart"><button className="flex justify-center items-center">

@@ -9,11 +9,13 @@ import useCart from "../../../Hock/useCart";
 import { useDispatch } from "react-redux";
 import { changeLanguage } from "../../../features/language/languageSlice";
 import { useTranslation } from "react-i18next";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useUnreadNotifications from "../../../Hock/useUnreadNotification";
 
 // import { useSelector } from "react-redux";
 const Navbar = () => {
+  const [notificationLength , setNotificationLength] = useState(0)
+console.log("notifications",notification);
   const { i18n, t } = useTranslation()
   const [language, setLanguage] = useState("bn")
   const [carts] = useCart();
@@ -26,6 +28,16 @@ const Navbar = () => {
   const { user } = UseAuth();
   const dispatch = useDispatch()
 
+  useEffect(() =>{
+    console.log(notification.length);
+      const length = notification.length ;
+      setNotificationLength(length)
+      
+  },[notification.length])
+const handleNotification = () => {
+      const length = 0 ;
+      setNotificationLength(length)
+}
   const navLink = (
     <>
       <li>
@@ -129,12 +141,15 @@ const Navbar = () => {
             </div>
             {/* notification icon */}
             <Link to='/unreadnotifications' className="btn btn-ghost btn-circle">
-              <div className="indicator">
-                <IoIosNotifications className="text-3xl cursor-pointer" />
-                {notification.length > 0 && <span className="badge badge-xs badge-primary indicator-item">{notification.length}</span>}
-                {/* <span className="badge badge-xs badge-primary indicator-item">{notification.length}</span> */}
-              </div>
-            </Link>
+      <div className="indicator" onClick={handleNotification}>
+      <IoIosNotifications className="text-3xl cursor-pointer" />
+      { notificationLength > 0 && <span className="badge badge-xs badge-primary indicator-item">{notificationLength}</span> }  
+      {/* <span className="badge badge-xs badge-primary indicator-item">{notification.length}</span> */}
+      </div>
+    </Link>
+         
+    
+           
             {user?.email ? (
               <Link to="/dashboard/profile" className="dropdown dropdown-end">
                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">

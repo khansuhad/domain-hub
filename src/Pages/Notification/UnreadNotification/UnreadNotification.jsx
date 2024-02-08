@@ -1,26 +1,29 @@
-import { Link, NavLink } from "react-router-dom";
+import {  NavLink } from "react-router-dom";
 import Container from "../../../Component/UI/Container";
 import Heading from "../../../Component/UI/Heading";
 import useUnreadNotifications from "../../../Hock/useUnreadNotification";
 import UnreadNotificationCart from "./UnreadNotificationCart";
-import { useEffect, useState } from "react";
-import useAxiosSecure from "../../../Hock/useAxiosSecure";
+import { useEffect } from "react";
 import useAxiosPublic from "../../../Hock/useAxiosPublic";
 import "../active.css"
+import UseAuth from "../../../Hock/UseAuth";
 
 const UnreadNotification = () => {
-  // const useAxios = useAxiosSecure(); 
+  const {user} = UseAuth();
   const useAxios = useAxiosPublic();
     const {notification , refetchNotification} = useUnreadNotifications();
     console.log(notification);
+ 
     useEffect(  () => {
+const myUser = notification?.find( noti => noti.email === user?.email)
+console.log(myUser?.email);
+if(myUser?.email){
 
-   
+  return () =>{
+    updateAllNotifications();
+  }
+}
 
-    return () =>{
-      updateAllNotifications();
-    }
-   
 
     },[])
 
@@ -28,6 +31,7 @@ const UnreadNotification = () => {
       const status = "readed"
       useAxios.patch("/notifications/updatestatus" , {status})
       .then(res => {
+        // refetchNotification();
        console.log(res?.data);
     })
   }

@@ -30,7 +30,7 @@ const NotificationCart = ({noti , refetchNotification}) => {
         }).then(async (result) => {
             if (result.isConfirmed) {
                 console.log(id);
-                const res = await useAxios.delete(`/notifications/id/${id}`)
+                const res = await useAxios.delete(`/notifications/${id}`)
                 console.log(res.data);
                 if (res.data.deletedCount > 0) {
                     // refetch to update the ui

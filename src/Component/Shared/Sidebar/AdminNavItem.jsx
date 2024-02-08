@@ -38,16 +38,7 @@ const AdminNavItem = () => {
           {t("allDomain")}
         </NavLink>
       
-        <NavLink
-          to="/dashboard/all-domain-requests"
-          className={({ isActive, isPending }) =>
-          isPending ? "pending" : isActive ? "abc" : "text-white"
-        }
-          
-        >
-          {t("allDomainReq")}
-        </NavLink>
-     
+      
         <NavLink
           to="/dashboard/all-free-tail-applications"
           className={({ isActive, isPending }) =>

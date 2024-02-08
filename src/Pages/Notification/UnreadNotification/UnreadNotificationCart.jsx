@@ -1,22 +1,23 @@
 import moment from "moment";
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import UseAuth from "../../../Hock/UseAuth";
+// import UseAuth from "../../../Hock/UseAuth";
 
 const UnreadNotificationCart = ({noti }) => {
-    const {user} = UseAuth();
+    // const {user} = UseAuth();
     const [timeDifference, setTimeDifference] = useState('');
     console.log(timeDifference);
     useEffect(() => {
-      if(user?.email === noti?.email){
+      // console.log(noti?.userEmail,user?.email);
+      // if(user?.email === noti?.userEmail){
         const intervalId = setInterval(() => {
           const newDynamicTime = moment(noti.timeSpace).fromNow();
           setTimeDifference(newDynamicTime);
         }, 1000); // Update every second
     
         return () => clearInterval(intervalId); // Cleanup interval on component unmount
-      } }
-      , [noti.timeSpace , noti?.email , user?.email]);   
+      } 
+      , [noti.timeSpace ]);   
   
     return (
         <div  className="bg-sixthColor m-5 p-5 rounded flex justify-between items-center">

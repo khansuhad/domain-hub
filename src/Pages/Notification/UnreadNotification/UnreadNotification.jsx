@@ -6,19 +6,24 @@ import UnreadNotificationCart from "./UnreadNotificationCart";
 import { useEffect } from "react";
 import useAxiosPublic from "../../../Hock/useAxiosPublic";
 import "../active.css"
+import UseAuth from "../../../Hock/UseAuth";
 
 const UnreadNotification = () => {
+  const {user} = UseAuth();
   const useAxios = useAxiosPublic();
     const {notification , refetchNotification} = useUnreadNotifications();
     console.log(notification);
+ 
     useEffect(  () => {
+const myUser = notification?.find( noti => noti.email === user?.email)
+console.log(myUser?.email);
+if(myUser?.email){
 
-   
+  return () =>{
+    updateAllNotifications();
+  }
+}
 
-    return () =>{
-      updateAllNotifications();
-    }
-   
 
     },[])
 
@@ -26,6 +31,7 @@ const UnreadNotification = () => {
       const status = "readed"
       useAxios.patch("/notifications/updatestatus" , {status})
       .then(res => {
+        // refetchNotification();
        console.log(res?.data);
     })
   }

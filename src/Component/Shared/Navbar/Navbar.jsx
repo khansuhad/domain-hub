@@ -12,13 +12,14 @@ import useUnreadNotifications from "../../../Hock/useUnreadNotification";
 // import { useSelector } from "react-redux";
 const Navbar = () => {
   const [notificationLength , setNotificationLength] = useState(0)
-  const {notification } = useUnreadNotifications();
-
+  const {notification , refetchNotification } = useUnreadNotifications();
+console.log("notifications",notification);
   const [carts] = useCart();
   const { handleModeChange, mode } = useTheme();
   const { user } = UseAuth();
 
   useEffect(() =>{
+    console.log(notification.length);
       const length = notification.length ;
       setNotificationLength(length)
       
@@ -116,7 +117,7 @@ const handleNotification = () => {
             <Link to='/unreadnotifications' className="btn btn-ghost btn-circle">
       <div className="indicator" onClick={handleNotification}>
       <IoIosNotifications className="text-3xl cursor-pointer" />
-      { notificationLength > 0 && <span className="badge badge-xs badge-primary indicator-item">{notificationLength }</span> }  
+      { notificationLength > 0 && <span className="badge badge-xs badge-primary indicator-item">{notification.length}</span> }  
       {/* <span className="badge badge-xs badge-primary indicator-item">{notification.length}</span> */}
       </div>
     </Link>

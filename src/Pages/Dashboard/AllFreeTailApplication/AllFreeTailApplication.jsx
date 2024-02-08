@@ -1,19 +1,15 @@
-
-
-
 import useFreeTrial from "../../../Hock/useFreeTrial";
 import swal from "sweetalert";
 import { MdDelete } from "react-icons/md";
 import useAxiosPublic from "../../../Hock/useAxiosPublic";
 import Swal from "sweetalert2";
 import moment from 'moment';
-import UseAuth from "../../../Hock/UseAuth";
+
 
 
 
 const AllFreeTailApplication = () => {
-    const { user } = UseAuth();
-    const userEmail = user?.email
+   
     const [freeTrialUsers, , refetch] = useFreeTrial();
     console.log(freeTrialUsers);
     const axiosPublic = useAxiosPublic();
@@ -29,7 +25,7 @@ const AllFreeTailApplication = () => {
                     const status = "unread";
                     const timeSpace = moment();
                     const domainName = freeTrialUsers.domainName ;
-                    axiosPublic.post("/notifications" ,{ messages ,timeSpace , domainName, status , userEmail} ).then(res => {
+                    axiosPublic.post("/notifications" ,{ messages ,timeSpace , domainName, status , email} ).then(res => {
                       console.log(res.data);
                     })
                    
@@ -47,6 +43,13 @@ const AllFreeTailApplication = () => {
                 if (res.data.modifiedCount > 0) {
                     swal("Application Rejected", "sent", "success");
                     refetch()
+                    const messages = "Your domain trail request had dismiss";
+                    const status = "unread";
+                    const timeSpace = moment();
+                    const domainName = freeTrialUsers.domainName ;
+                    axiosPublic.post("/notifications" ,{ messages ,timeSpace , domainName, status , email} ).then(res => {
+                      console.log(res.data);
+                    })
                 }
             })
             .catch(err => {
@@ -76,6 +79,13 @@ const AllFreeTailApplication = () => {
                                 icon: "success"
                             });
                             refetch();
+                            const messages = "Your domain trail request had deleted from admin panel";
+                            const status = "unread";
+                            const timeSpace = moment();
+                            const domainName = freeTrialUsers.domainName ;
+                            axiosPublic.post("/notifications" ,{ messages ,timeSpace , domainName, status , email} ).then(res => {
+                              console.log(res.data);
+                            })
                         }
                     })
             }

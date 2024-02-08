@@ -11,7 +11,7 @@ const useUnreadNotifications = () => {
     isPending: isPendingUnreadNotification,
     refetch: refetchNotification,
   } = useQuery({
-    queryKey: ["unreadnotification"],
+    queryKey: ["unreadNotification"],
     queryFn: async () => {
       const res = await axiosSecure.get(`/allunreadnotifications/${user.email}`);
       console.log(res?.data);

@@ -54,7 +54,7 @@ const FreeTrial = () => {
         <>
             <Container>
                 <Heading>Freetrial</Heading>
-                <Description>description</Description>
+                <Description>Enjoy a free domain on us! Simply apply by sending us your favorite domain name, and we'll take care of the rest. Secure your online presence with a personalized domain that reflects your identity. Don't miss out on this opportunity to enhance your web presence. </Description>
             </Container>
 
             {/* Free Trial Section Start */}

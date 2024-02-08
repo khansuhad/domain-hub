@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addPayment } from "../../../features/PaymentPrice/PaymentPrice";
 import { PiCurrencyDollarFill } from "react-icons/pi";
+import UseAuth from "../../../Hock/UseAuth";
 
 const MyCart = () => {
   const dispatch = useDispatch();
@@ -19,6 +20,9 @@ const MyCart = () => {
   console.log(selectedTimes);
   const [discountPercentage, setDiscountPercentage] = useState(0);
   console.log(typeof totalPrice, totalPrice);
+
+  const axiosPublic = useAxiosPublic();
+  const { user } = UseAuth()
 
   const handleTimeChange = (cartItemId, selectedTime) => {
     setSelectedTimes((prevSelectedTimes) => ({
@@ -88,6 +92,24 @@ const MyCart = () => {
       }
     });
   };
+
+  const handleSsl = () => {
+    const priceForSsl = {
+      totalPrice,
+      email: user.email
+    }
+    console.log(priceForSsl);
+    axiosPublic.post("/order", priceForSsl)
+      .then(res => {
+        window.location.replace(res.data.url);
+        console.log(res.data);
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }
+
+
   return (
     <div className="rounded-lg text-white dark:bg-black min-h-screen bg-firstColor ">
       <div className="flex justify-between bg-gradient-to-tr from-[#13104e] to-[#0193e1] ">
@@ -108,7 +130,7 @@ const MyCart = () => {
       </div>
 
       <div className="flex flex-col md:flex-row " >
-        <div className="md:overflow-x-auto p-5 md:m-10 md:w-[60%] dark:text-white">
+        <div className="overflow-x-auto p-5 md:m-10 md:w-[60%] dark:text-white">
           <table className="table w-full border-2">
             {/* head */}
             <thead>
@@ -211,26 +233,44 @@ const MyCart = () => {
               </p>
             </div>
 
-            {totalPrice < 100 ? (
-              <>
-                <div className="flex items-center gap-2">
-                  <p className=" text-red-500">Please Buy Minimum 100   </p><PiCurrencyDollarFill className="text-xl text-red-600" />
-                </div>
-                <button
-                  disabled
-                  className="btn btn-block bg-secondColor hover:bg-thirdColor text-white text-xl mr-5 mt-2"
-                >
-                  make purchase
-                </button>
-              </>
-            ) : (
-              <Link
-                to={"/dashboard/checkout"}
-                className="btn btn-block bg-secondColor hover:bg-thirdColor text-black hover:text-white text-xl mr-5 mt-2"
-              >
-                Make purchase
-              </Link>
-            )}
+            <button className="btn btn-block uppercase text-xl font-bold bg-secondColor hover:bg-thirdColor" onClick={() => document.getElementById('my_modal_3').showModal()}>Make purchase</button>
+            <dialog id="my_modal_3" className="modal">
+              <div className="modal-box ">
+
+                <form method="dialog" className="my-10">
+                  {totalPrice < 100 ? (
+                    <>
+                      <div className="flex items-center gap-2">
+                        <p className=" text-red-500">Please Buy Minimum 100   </p><PiCurrencyDollarFill className="text-xl text-red-600" />
+                      </div>
+                      <button
+                        disabled
+                        className="btn btn-block bg-secondColor hover:bg-thirdColor text-white text-xl mr-5 mt-2"
+                      >
+                        Pay with stipe
+                      </button>
+                    </>
+                  ) : (
+                    <>
+
+
+                      <Link
+                        to={"/dashboard/checkout"}
+                        className="btn uppercase btn-block bg-secondColor hover:bg-thirdColor text-black hover:text-white text-xl mr-5 mt-2"
+                      >
+                        Pay with stipe
+                      </Link>
+                      <button onClick={handleSsl} className="btn uppercase btn-block text-xl btn-accent my-10">Pay With another</button>
+                    </>
+                  )}
+                  
+                  <button className="btn btn-sm btn-circle text-black btn-ghost absolute right-2 top-2">✕</button>
+                </form>
+
+              </div>
+            </dialog>
+
+
           </div>
         </div>
       </div>

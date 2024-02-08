@@ -3,16 +3,13 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
   TotalBill:""
 }
-
 export const paymentSlice = createSlice({
   name: 'TotalBill',
   initialState,
   reducers: {
-
     addPayment: (state, action) => {
       state.TotalBill = action.payload
     },
-    
   },
 })
 

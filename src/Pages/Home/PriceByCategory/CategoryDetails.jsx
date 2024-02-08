@@ -14,7 +14,7 @@ const CategoryDetails = () => {
     const userInfo = useSelector((state) => state.user.currentUser);
     const domainDetails = useSelector((state) => state.domain.domain)
     const axiosSecure = useAxiosPublic()
-    const [cart] = useCart()
+    const [cart, loading, refetch] = useCart()
     const bookedDomains = cart?.filter(item => item.payment === "true")
     const handleSearch = (e) => {
         e.preventDefault()
@@ -50,7 +50,9 @@ const CategoryDetails = () => {
                 if (res.data.insertedId) {
                     console.log(res.data);
                     toast.success("Successfully Added to Cart!")
+                    refetch()
                     navigate("/")
+                    
                 }
             }
             )
@@ -74,7 +76,7 @@ const CategoryDetails = () => {
                 <div >
                     <form action="" onSubmit={handleSearch} className="flex justify-center gap-2">
                         <div className="relative w-full max-w-2xl">
-                            <input type="text" name="domain" placeholder="Enter your domain name" className="w-full text-black max-w-2xl p-3 rounded-lg outline-info border-2 border-black" />
+                            <input type="text" name="domain" placeholder="Enter your domain name" className="w-full text-black max-w-2xl p-3 rounded-lg outline-info border-2" />
                             <p className="p-3 bg-blue-700 text-white absolute right-0 top-0 rounded-r-lg border-slate-700 border-2">{domainDetails?.name}</p>
                         </div>
 

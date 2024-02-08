@@ -4,12 +4,14 @@ import { useEffect, useState } from "react";
 import CategoryCards from "./CategoryCards";
 import { CgMenuGridR } from "react-icons/cg";
 import useDomain from "../../../Hock/useDomain";
+import { useTranslation } from "react-i18next";
 
 const PriceByCategory = ({ data }) => {
     const [domain,loading,refetch]=useDomain()
     const [category, setCategory] = useState("education");
     const [categoryData, setCategoryData] = useState([]);
     const [showCategory, setShowCategory]= useState(false)
+    const {t}= useTranslation()
     const handleTab = (selected) => {
         setCategory(selected);
     };
@@ -26,15 +28,15 @@ const handleCategory=()=>{
 }
     return (
         <Container>
-            <Heading>Price by category</Heading>
-            <div className="flex mx-10 flex-col md:flex-row ">
-                <div className="md:grid w-1/6 h-fit hidden">
+            <Heading>{t("categoryTitle")}</Heading>
+            <div className="flex mx-10 flex-col md:flex-row">
+                <div className="md:grid w-1/6 h-fit hidden mt-10">
                     <button
                         className={` p-2 text-center font-semibold ${category === "education" ? "bg-fourthColor text-white" : "bg-[#010B3C] text-white"
                             }`}
                         onClick={() => handleTab("education")}
                     >
-                        Education
+                        {t("category1")}
                     </button>
 
                     <button
@@ -42,7 +44,7 @@ const handleCategory=()=>{
                             }`}
                         onClick={() => handleTab("commerce")}
                     >
-                        Commerce
+                        {t("category2")}
                     </button>
 
                     <button
@@ -50,47 +52,47 @@ const handleCategory=()=>{
                             }`}
                         onClick={() => handleTab("health")}
                     >
-                        Health
+                        {t("category3")}
                     </button>
                     <button
                         className={` p-2 text-center font-semibold  ${category === "government" ? "bg-fourthColor text-white" : "bg-[#010B3C] text-white"
                             }`}
                         onClick={() => handleTab("government")}
                     >
-                        Government
+                         {t("category4")}
                     </button>
                     <button
                         className={` p-2 text-center font-semibold  ${category === "industry" ? "bg-fourthColor text-white" : "bg-[#010B3C] text-white"
                             }`}
                         onClick={() => handleTab("industry")}
                     >
-                        Industry
+                        {t("category5")}
                     </button>
                     <button
                         className={` p-2 text-center font-semibold  ${category === "media" ? "bg-fourthColor text-white" : "bg-[#010B3C] text-white"
                             }`}
                         onClick={() => handleTab("media")}
                     >
-                        Media
+                        {t("category6")}
                     </button>
                     <button
                         className={` p-2 text-center font-semibold  ${category === "sport" ? "bg-fourthColor text-white" : "bg-[#010B3C] text-white"
                             }`}
                         onClick={() => handleTab("sport")}
                     >
-                        Sport
+                        {t("category7")}
                     </button>
                     <button
                         className={` p-2 text-center font-semibold ${category === "technology" ? "bg-fourthColor text-white" : "bg-[#010B3C] text-white"
                             }`}
                         onClick={() => handleTab("technology")}
                     >
-                        Technology
+                         {t("category8")}
                     </button>
                 </div>
                 <div className="flex md:hidden">
                     <div>
-                        <p className="flex items-center text-xl dark:text-white"><CgMenuGridR onClick={handleCategory} className="text-3xl dark:text-sky-200"></CgMenuGridR> Select Category</p>
+                        <p className="flex items-center text-xl dark:text-white"><CgMenuGridR onClick={handleCategory} className="text-3xl dark:text-sky-200"></CgMenuGridR>{t("categorySelect")} </p>
                         <div className="relative">
                        {showCategory?
                         <div className="grid w-full h-fit md:hidden z-10 absolute mt-2 " data-aos="fade-right">
@@ -99,7 +101,7 @@ const handleCategory=()=>{
                                 }`}
                             onClick={() => handleTab("education")}
                         >
-                            Education
+                            {t("category1")}
                         </button>
     
                         <button
@@ -107,7 +109,7 @@ const handleCategory=()=>{
                                 }`}
                             onClick={() => handleTab("commerce")}
                         >
-                            Commerce
+                            {t("category2")}
                         </button>
     
                         <button
@@ -115,42 +117,42 @@ const handleCategory=()=>{
                                 }`}
                             onClick={() => handleTab("health")}
                         >
-                            Health
+                            {t("category3")}
                         </button>
                         <button
                             className={` p-2 text-center font-semibold  ${category === "government" ? "bg-fourthColor text-white" : "bg-[#010B3C] text-white"
                                 }`}
                             onClick={() => handleTab("government")}
                         >
-                            Government
+                            {t("category4")}
                         </button>
                         <button
                             className={` p-2 text-center font-semibold  ${category === "industry" ? "bg-fourthColor text-white" : "bg-[#010B3C] text-white"
                                 }`}
                             onClick={() => handleTab("industry")}
                         >
-                            Industry
+                            {t("category5")}
                         </button>
                         <button
                             className={` p-2 text-center font-semibold  ${category === "media" ? "bg-fourthColor text-white" : "bg-[#010B3C] text-white"
                                 }`}
                             onClick={() => handleTab("media")}
                         >
-                            Media
+                            {t("category6")}
                         </button>
                         <button
                             className={` p-2 text-center font-semibold  ${category === "sport" ? "bg-fourthColor text-white" : "bg-[#010B3C] text-white"
                                 }`}
                             onClick={() => handleTab("sport")}
                         >
-                            Sport
+                            {t("category7")}
                         </button>
                         <button
                             className={` p-2 text-center font-semibold ${category === "technology" ? "bg-fourthColor text-white" : "bg-[#010B3C] text-white"
                                 }`}
                             onClick={() => handleTab("technology")}
                         >
-                            Technology
+                            {t("category8")}
                         </button>
                     </div>
                         

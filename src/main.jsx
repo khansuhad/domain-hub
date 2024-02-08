@@ -7,6 +7,7 @@ import { Provider } from "react-redux";
 import { store } from "./app/store";
 import AuthProvider from "./Provider/AuthProvider.jsx";
 import { Toaster } from "react-hot-toast";
+import './LangugeChange/I18next.jsx';
 import {
   QueryClient,
   QueryClientProvider,

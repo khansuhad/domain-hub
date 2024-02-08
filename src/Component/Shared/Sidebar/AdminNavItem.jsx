@@ -1,7 +1,9 @@
 import { NavLink } from "react-router-dom";
 import "./active.css";
+import { useTranslation } from "react-i18next";
 
 const AdminNavItem = () => {
+  const {i18n,t}= useTranslation()
   return (
     <>
       <li>
@@ -12,7 +14,7 @@ const AdminNavItem = () => {
         }
           
         >
-          Dashboard
+          {t("navDashboard")}
         </NavLink>
     
         <NavLink
@@ -22,7 +24,8 @@ const AdminNavItem = () => {
         }
           
         >
-          Create Domain
+          
+          {t("create")}
         </NavLink>
       
         <NavLink
@@ -32,7 +35,7 @@ const AdminNavItem = () => {
         }
           
         >
-          All Domains
+          {t("allDomain")}
         </NavLink>
       
         <NavLink
@@ -42,7 +45,7 @@ const AdminNavItem = () => {
         }
           
         >
-          All Domain Request
+          {t("allDomainReq")}
         </NavLink>
      
         <NavLink
@@ -52,7 +55,7 @@ const AdminNavItem = () => {
         }
           
         >
-          All Free Tail Applications
+          {t("allFreeTrial")}
         </NavLink>
      
         <NavLink
@@ -62,7 +65,7 @@ const AdminNavItem = () => {
         }
           
         >
-          All Reviews
+          {t("allReviews")}
         </NavLink>
 
         <NavLink
@@ -72,7 +75,7 @@ const AdminNavItem = () => {
         }
          
         >
-          All Users
+          {t("allUser")}
         </NavLink>
       </li>
     </>

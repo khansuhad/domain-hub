@@ -1,8 +1,10 @@
 
+import { useTranslation } from 'react-i18next';
 import Description from '../../../Component/UI/Description';
 import Heading from '../../../Component/UI/Heading';
 
 const AboutUs = () => {
+    const { t } = useTranslation()
     return (
         <>
             {/* About Us Section start */}
@@ -12,11 +14,11 @@ const AboutUs = () => {
                     
 
                         <Heading>
-                            About Us
+                            {t("navAbout")}
                         </Heading>
 
                         <Description>
-                            Explore Our Website
+                            {t("aboutDes")}
                         </Description>
 
                   
@@ -24,7 +26,7 @@ const AboutUs = () => {
 
                 <div className='lg:w-9/12 mx-auto  lg:border-white  text-white   dark:bg-[#191919] dark:text-white dark:border-white'>
                     <h1 className='lg:text-2xl text-sm px-5 lg:px-20 font-normal bg-fourthColor border-2  p-8 lg:rounded-s-full lg:rounded-e-full'>
-                        Welcome to DomainHub – Your Premier Destination for Domain Buying and Selling!At DomainHub, we are passionate about connecting individuals, businesses, and visionaries with the perfect domain names to elevate their online presence. As a leading domain selling platform, we offer a seamless and secure marketplace where buyers and sellers come together to explore a world of possibilities.
+                      {t("aboutH1")}
                     </h1>
                 </div>
 

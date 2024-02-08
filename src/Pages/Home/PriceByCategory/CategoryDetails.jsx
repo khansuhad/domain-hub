@@ -14,7 +14,7 @@ const CategoryDetails = () => {
     const userInfo = useSelector((state) => state.user.currentUser);
     const domainDetails = useSelector((state) => state.domain.domain)
     const axiosSecure = useAxiosPublic()
-    const [cart] = useCart()
+    const [cart, loading, refetch] = useCart()
     const bookedDomains = cart?.filter(item => item.payment === "true")
     const handleSearch = (e) => {
         e.preventDefault()
@@ -50,6 +50,7 @@ const CategoryDetails = () => {
                 if (res.data.insertedId) {
                     console.log(res.data);
                     toast.success("Successfully Added to Cart!")
+                    refetch()
                     navigate("/")
                     
                 }

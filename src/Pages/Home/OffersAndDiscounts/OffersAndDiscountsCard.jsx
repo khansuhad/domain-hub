@@ -1,4 +1,7 @@
+import { useTranslation } from "react-i18next";
+
 const OffersAndDiscountsCard = () => {
+  const {t}= useTranslation()
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-6 py-10 px-[10%]">
       <div
@@ -9,7 +12,7 @@ const OffersAndDiscountsCard = () => {
       >
         <div className="relative pb-8 m-0 mb-8 overflow-hidden text-center text-gray-700 bg-transparent border-b rounded-none shadow-none border-white/10 bg-clip-border">
           <p className="block font-sans text-sm antialiased font-normal leading-normal text-white uppercase">
-            Basic DUO
+            {t("plan1")}
           </p>
           <h1 className="flex justify-center gap-1 my-6 font-sans antialiased font-normal tracking-normal text-white text-7xl">
             <span className="mt-2 text-xl"></span>
@@ -141,7 +144,7 @@ const OffersAndDiscountsCard = () => {
             type="button"
             data-ripple-dark="true"
           >
-            Get Started
+            {t("plan1Btn")}
           </button>
         </div>
       </div>
@@ -153,7 +156,7 @@ const OffersAndDiscountsCard = () => {
       >
         <div className="relative pb-8 m-0 mb-8 overflow-hidden text-center text-gray-700 bg-transparent border-b rounded-none shadow-none border-white/10 bg-clip-border">
           <p className="block font-sans text-sm antialiased font-normal leading-normal text-white uppercase">
-            Premium DUO
+          {t("plan2")}
           </p>
           <h1 className="flex justify-center gap-1 my-6 font-sans antialiased font-normal tracking-normal text-white text-7xl">
             <span className="mt-2 text-xl"></span>
@@ -285,7 +288,7 @@ const OffersAndDiscountsCard = () => {
             type="button"
             data-ripple-dark="true"
           >
-            Get Started
+            {t("plan1Btn")}
           </button>
         </div>
       </div>
@@ -297,7 +300,7 @@ const OffersAndDiscountsCard = () => {
       >
         <div className="relative pb-8 m-0 mb-8 overflow-hidden text-center text-gray-700 bg-transparent border-b rounded-none shadow-none border-white/10 bg-clip-border">
           <p className="block font-sans text-sm antialiased font-normal leading-normal text-white uppercase">
-            Premium Family
+          {t("plan3")}
           </p>
           <h1 className="flex justify-center gap-1 my-6 font-sans antialiased font-normal tracking-normal text-white text-7xl">
             <span className="mt-2 text-xl"></span>
@@ -429,7 +432,7 @@ const OffersAndDiscountsCard = () => {
             type="button"
             data-ripple-dark="true"
           >
-            Get Started
+            {t("plan1Btn")}
           </button>
         </div>
       </div>

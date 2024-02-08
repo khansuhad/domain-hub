@@ -7,29 +7,36 @@ import UseAuth from "../../../Hock/UseAuth";
 import { FaShoppingCart } from "react-icons/fa";
 import useCart from "../../../Hock/useCart";
 import useNotifications from "../../../Hock/UseNotifications";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { changeLanguage } from "../../../features/language/languageSlice";
+import { useTranslation } from "react-i18next";
 // import { useSelector } from "react-redux";
 const Navbar = () => {
-  const {notification } = useNotifications();
+  const {i18n, t}=useTranslation()
+  const [language,setLanguage]= useState("bn")
+  const { notification } = useNotifications();
   const [carts, loading, refetch] = useCart();
   const { handleModeChange, mode } = useTheme();
   const { user } = UseAuth();
+  const dispatch= useDispatch()
 
   const navLink = (
     <>
       <li>
-        <Link to="/">Home</Link>
+        <Link to="/">{t("navHome")}</Link>
       </li>
       <li>
-        <Link to="/about">About</Link>
+        <Link to="/about">{t("navAbout")}</Link>
       </li>
       <li>
-        <Link to="/contact">Contact</Link>
+        <Link to="/contact">{t("navContact")}</Link>
       </li>
       <li>
-        <Link to="reviews">Reviews</Link>
+        <Link to="reviews">{t("navReview")}</Link>
       </li>
       <li>
-        <Link to="/dashboard/dashboard">Dashboard</Link>
+        <Link to="/dashboard/dashboard" onClick={()=> i18n.changeLanguage("en")}>{t("navDashboard")}</Link>
       </li>
       <li>
         <Link to="/dashboard/myCart"><button className="flex justify-center items-center">
@@ -38,7 +45,14 @@ const Navbar = () => {
         </button></Link>
       </li>
     </>
-  );
+  ); 
+  const handleLanguageToggle = () => {
+    
+    setLanguage(prevLanguage => (prevLanguage === "en" ? "bn" :"en"));
+    dispatch(changeLanguage(language))
+    i18n.changeLanguage(language)
+  };
+ console.log("selected language in usestate",language);
 
   return (
     <div>
@@ -77,14 +91,23 @@ const Navbar = () => {
                 src="https://i.postimg.cc/3RxTkQ63/Whats-App-Image-2024-02-02-at-5-41-26-PM-removebg-preview.png"
                 alt=""
               />{" "}
-              <p>DomainHub</p>
+              <p>{t("navTitle")}</p>
             </div>
           </div>
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1">{navLink}</ul>
           </div>
           <div className="navbar-end">
-          <div>
+            <div className="form-control w-24 mr-2">
+              <label className="cursor-pointer label">
+                <span className="label-text text-white">{language==="en"?"বাংলা":"English"}</span>
+                <input type="checkbox" className="toggle toggle-primary" 
+                 checked={language === "bn"} 
+                 onChange={handleLanguageToggle}
+                />
+              </label>
+            </div>
+            <div>
               {mode === "light" ? (
                 <LuMoonStar
                   onClick={handleModeChange}
@@ -101,15 +124,15 @@ const Navbar = () => {
             </div>
             {/* notification icon */}
             <Link to='/notifications' className="btn btn-ghost btn-circle">
-      <div className="indicator">
-      <IoIosNotifications className="text-3xl cursor-pointer" />
-      { notification.length > 0 && <span className="badge badge-xs badge-primary indicator-item">{notification.length}</span> }  
-      {/* <span className="badge badge-xs badge-primary indicator-item">{notification.length}</span> */}
-      </div>
-    </Link>
-         
-    
-           
+              <div className="indicator">
+                <IoIosNotifications className="text-3xl cursor-pointer" />
+                {notification.length > 0 && <span className="badge badge-xs badge-primary indicator-item">{notification.length}</span>}
+                {/* <span className="badge badge-xs badge-primary indicator-item">{notification.length}</span> */}
+              </div>
+            </Link>
+
+
+
             {user?.email ? (
               <Link to="/dashboard/profile" className="dropdown dropdown-end">
                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
@@ -136,12 +159,12 @@ const Navbar = () => {
               </Link>
             ) : (
               <Link to="/login">
-                <button className="btn btn-sm  btn-ghost">Login</button>
+                <button className="btn btn-sm  btn-ghost">{t("navLogin")}</button>
               </Link>
             )}
 
             {/* sun and moon mode icon  */}
-         
+
           </div>
         </div>
       </div>

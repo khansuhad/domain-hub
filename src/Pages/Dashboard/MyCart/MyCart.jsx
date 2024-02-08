@@ -92,6 +92,7 @@ const MyCart = () => {
       }
     });
   };
+  console.log(totalPrice);
 
   const handleSsl = () => {
     const priceForSsl = {
@@ -152,7 +153,8 @@ const MyCart = () => {
                     <th>{index + 1}</th>
 
                     <td>{cartItem.name}</td>
-                    <td>${(parseFloat(cartItem.price) * selectedTimes[cartItem._id]).toFixed(2)}</td>
+                    <td>{selectedTimes[cartItem._id] ? (parseFloat(cartItem.price) * selectedTimes[cartItem._id]).toFixed(2) : "0.00"} $</td>
+
                     <td>
                       {/* Dropdown for selecting the number of years */}
                       <select
@@ -209,28 +211,18 @@ const MyCart = () => {
           <div className="bg-fourthColor w-full p-2 leading-10 rounded">
             <div className="flex justify-between">
               <p className="font-bold"> Total Price: </p>
-              <p> {parseFloat(totalPrice).toFixed(2)} $</p>
+              {/* total price */}
+              <p>{isNaN(totalPrice) ? "0.00" : parseFloat(totalPrice).toFixed(2)} $</p>
             </div>
             <div className="flex justify-between">
               <p className="font-bold"> Discount: </p>
-              <p>
-                {" "}
-                -
-                {(parseFloat(totalPrice) * (discountPercentage / 100)).toFixed(
-                  2
-                )}{" "}
-                $
-              </p>
+              {/* Discount price */}
+              <p>-{isNaN(totalPrice) || isNaN(discountPercentage) ? '0.00' : (parseFloat(totalPrice) * (discountPercentage / 100)).toFixed(2)} $</p>
             </div>
             <div className="flex justify-between">
               <p className="font-bold"> Total: </p>
-              <p className="font-bold">
-                {(
-                  parseFloat(totalPrice) -
-                  totalPrice * (discountPercentage / 100)
-                ).toFixed(2)}{" "}
-                $
-              </p>
+              {/* total price for payment */}
+              <p className="font-bold"> {!isNaN(totalPrice) && !isNaN(discountPercentage) ? (parseFloat(totalPrice) - totalPrice * (discountPercentage / 100)).toFixed(2) : '0.00'} $</p>
             </div>
 
             <button className="btn btn-block uppercase text-xl font-bold bg-secondColor hover:bg-thirdColor" onClick={() => document.getElementById('my_modal_3').showModal()}>Make purchase</button>

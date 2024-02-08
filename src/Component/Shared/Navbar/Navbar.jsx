@@ -15,7 +15,7 @@ import useUnreadNotifications from "../../../Hock/useUnreadNotification";
 // import { useSelector } from "react-redux";
 const Navbar = () => {
   const [notificationLength , setNotificationLength] = useState(0)
-console.log("notifications",notification);
+// console.log("notifications",notification);
   const { i18n, t } = useTranslation()
   const [language, setLanguage] = useState("bn")
   const [carts] = useCart();

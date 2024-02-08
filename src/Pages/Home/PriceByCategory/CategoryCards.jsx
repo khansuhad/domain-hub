@@ -2,10 +2,12 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { domainDetails } from '../../../features/domain/domainSlice'
+import { useTranslation } from 'react-i18next'
 
 const CategoryCards = ({ data }) => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  const {t}=useTranslation()
   const handleDetails = () => {
     dispatch(domainDetails(data))
     navigate("/domainDetails")
@@ -23,7 +25,7 @@ const CategoryCards = ({ data }) => {
             data-ripple-dark="true"
             onClick={handleDetails}
           >
-            Show Details
+            {t("showDetails")}
           </button>
         </div>
 

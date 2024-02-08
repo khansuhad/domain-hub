@@ -7,9 +7,11 @@ import abuBakar from "../../../assets/OurTeam/abu-bakar.jpg"
 import fahim from "../../../assets/OurTeam/fahim.jpg"
 import shariful from "../../../assets/OurTeam/shariful.jpg"
 import digontha from "../../../assets/OurTeam/digontha.png"
+import { useTranslation } from "react-i18next";
 
 
 const OurTeam = () => {
+    const { t } = useTranslation()
     return (
         <>
             {/* our team section start */}
@@ -19,11 +21,11 @@ const OurTeam = () => {
                     <Container>
 
                         <Heading>
-                            Our Team
+                            {t("ourTeam")}
                         </Heading>
 
                         <Description>
-                            Explore Our Team
+                            {t("exploreTeam")}
                         </Description>
 
                         <div className="grid h-fit dark:text-white grid-cols-2 md:grid-cols-3 text-center lg:grid-cols-6 w-9/12 mx-auto pt-10">

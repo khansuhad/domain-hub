@@ -1,16 +1,18 @@
+import { useTranslation } from "react-i18next";
 import Container from "../../../Component/UI/Container";
 import Description from "../../../Component/UI/Description";
 import Heading from "../../../Component/UI/Heading";
 import OffersAndDiscountsCard from "./OffersAndDiscountsCard";
 
 const OffersAndDiscounts = () => {
+  const {t}= useTranslation()
   return (
 
      <div>
-       <Heading>Special Offers and Discounts</Heading>
+       <Heading>{t("discountTitle")}</Heading>
 
 <Description>
-Explore exclusive deals on domain hosting and selling at our website! Unlock special offers and discounts to elevate your online presence. Don&#39;t miss out on limited-time savings for powerful web solutions.
+{t("discountDes")}
 </Description>
 <OffersAndDiscountsCard/>
      </div>

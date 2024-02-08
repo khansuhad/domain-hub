@@ -8,6 +8,7 @@ import { persistor, store } from "./app/store";
 import { PersistGate } from 'redux-persist/integration/react';
 import AuthProvider from "./Provider/AuthProvider.jsx";
 import { Toaster } from "react-hot-toast";
+import './LangugeChange/I18next.jsx';
 import {
   QueryClient,
   QueryClientProvider,

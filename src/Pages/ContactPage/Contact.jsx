@@ -6,9 +6,11 @@ import { useRef } from "react";
 import Swal from "sweetalert2";
 import Container from "../../Component/UI/Container";
 import Heading from "../../Component/UI/Heading";
+import { useTranslation } from "react-i18next";
 // import { useSelector } from "react-redux";
 
 const Contact = () => {
+    const {t}= useTranslation()
 
     // const domain= useSelector(state=>state.domain.domain)
     // console.log('domain Info',domain)
@@ -35,24 +37,24 @@ const Contact = () => {
 
     return (
         <div id="contact" className=" px-2  lg:px-[10%] bg-firstColor dark:bg-[#191919] dark:text-white text-white py-10">
-            <h2 className="text-2xl md:text-3xl font-bold text-center my-20"><Heading>Contact me</Heading></h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-center my-20"><Heading>{t("contactUs")}</Heading></h2>
             <div className="flex flex-col md:flex-row justify-center gap-10">
                 <div className=" text-center">
                     <div className="text-3xl text-sky-500 flex justify-center"><IoCall /></div>
-                    <p className="text-2xl font-bold">Call</p>
+                    <p className="text-2xl font-bold">{t("call")}</p>
                     +8801728306504
 
                 </div>
 
                 <div className=" text-center">
                     <div className="text-3xl flex justify-center text-sky-500"><MdEmail /></div>
-                    <p className="text-2xl font-bold">Email</p>
+                    <p className="text-2xl font-bold">{t("contactEmailTitle")}</p>
                     <p>domainhub321@gmail.com</p>
 
                 </div>
                 <div className=" text-center">
                     <div className="text-3xl text-center text-sky-500 flex justify-center"> <FaLocationDot /></div>
-                    <p className="text-2xl font-bold">Location</p>
+                    <p className="text-2xl font-bold">{t("location")}</p>
                     <p>Brahmanbaria,Bangladesh</p>
 
                 </div>
@@ -62,25 +64,25 @@ const Contact = () => {
                 <form ref={form} className="card-body" onSubmit={sendEmail}>
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text font-bold text-white">Name</span>
+                            <span className="label-text font-bold text-white">{t("contactNameTitle")}</span>
                         </label>
-                        <input type="text" placeholder="Your name" name="from_name" className="input border input-bordered text-black" required />
+                        <input type="text" placeholder={t("contactName")} name="from_name" className="input border input-bordered text-black" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text font-bold text-white">Email</span>
+                            <span className="label-text font-bold text-white">{t("contactEmailTitle")}</span>
                         </label>
-                        <input type="email" placeholder="Your email" name="from_email" className="input input-bordered text-black" required />
+                        <input type="email" placeholder={t("contactEmail")} name="from_email" className="input input-bordered text-black" required />
                     </div>
 
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text font-bold text-white">Message</span>
+                            <span className="label-text font-bold text-white">{t("messageTitle")}</span>
                         </label>
-                        <textarea className="border rounded p-5 text-black" name="message" placeholder="Write Your message"  />
+                        <textarea className="border rounded p-5 text-black" name="message" placeholder={t("message")}  />
 
 
-                        <input className="btn mt-5 uppercase font-bold text-xl text-white bg-secondColor hover:bg-thirdColor " type="submit" value="Send" />
+                        <input className="btn mt-5 uppercase font-bold text-xl text-white bg-secondColor hover:bg-thirdColor " type="submit" value={t("send")} />
                     </div>
 
                     {/* <label>Name</label> 

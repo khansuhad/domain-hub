@@ -25,7 +25,6 @@ const SearchingDomain = () => {
         const matchesCategory = selectedCategory === 'All' || domain.category === selectedCategory;
         return searchTerm && matchesCategory;
     });
-
     const addToCart = async (domainItem) => {
         // Check if the domain is already in the cart
         const isDomainInCart = carts?.some((cartItem) => cartItem._id === domainItem._id);
@@ -41,7 +40,6 @@ const SearchingDomain = () => {
                 email: userInfo?.email,
                 review: "false",
                 payment:"false"
-             
             }
             const cartRes = await useAxios.post('/carts', cartItem)
             if (cartRes.data.acknowledged) {
@@ -52,13 +50,9 @@ const SearchingDomain = () => {
                     confirmButtonText: 'Cool'
                 })
                 refetch()
-
             }
-
         }
     };
-    
-
     return (
         <div  className="  py-10  bg-firstColor dark:text-white px-[10%] px-auto">
             <div className="mb-4  flex flex-col md:flex-row justify-center items-center pt-36 pb-20 dark:text-black">
@@ -69,7 +63,6 @@ const SearchingDomain = () => {
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                 />
-
                 <select
                     className="md:p-2 mr-2 border border-gray-300 rounded-lg"
                     value={selectedCategory}
@@ -115,8 +108,6 @@ const SearchingDomain = () => {
                     ))}
                     </div>
                 </div>
-
-                
 
             </div>
         </div>

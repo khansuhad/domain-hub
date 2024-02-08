@@ -17,7 +17,6 @@ import Dashboard from "../Pages/Dashboard/Dashboard/Dashboard";
 import CreateDomain from "../Pages/Dashboard/CreateDomain/CreateDomain";
 import EditDomain from "../Pages/Dashboard/EditDomain/EditDomain";
 import AllDomains from "../Pages/Dashboard/AllDomains/AllDomains";
-import AllDomainRequest from "../Pages/Dashboard/AllDomainRequest/AllDomainRequest";
 import AllFreeTailApplication from "../Pages/Dashboard/AllFreeTailApplication/AllFreeTailApplication";
 import AllReviews from "../Pages/Dashboard/AllReviews/AllReviews";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
@@ -188,14 +187,8 @@ const Router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-      {
-        path: "/dashboard/all-domain-requests",
-        element: (
-          <PrivateRoute>
-            <AllDomainRequest />
-          </PrivateRoute>
-        ),
-      },
+      
+    
       {
         path: "/dashboard/all-free-tail-applications",
         element: (

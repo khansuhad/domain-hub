@@ -15,16 +15,15 @@ const Home = () => {
        
             <Banner/>
             <DomainTld></DomainTld>
+            <FreeTrial/>
             <BestHostingPlan/>
             <FAQ/>
-            <SuccessShowcase/>
-            <FreeTrial/>
+            <SuccessShowcase/>         
             <PriceByCategory data={data}/>
             {/* <Tutorial/> */}
             <OffersAndDiscounts/>
         </div>
     );
 };
-
 
 export default Home;

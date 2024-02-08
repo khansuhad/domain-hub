@@ -6,19 +6,30 @@ import { LuMoonStar } from "react-icons/lu";
 import UseAuth from "../../../Hock/UseAuth";
 import { FaShoppingCart } from "react-icons/fa";
 import useCart from "../../../Hock/useCart";
-
+import { useDispatch } from "react-redux";
+import { changeLanguage } from "../../../features/language/languageSlice";
+import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
 import useUnreadNotifications from "../../../Hock/useUnreadNotification";
+
 // import { useSelector } from "react-redux";
 const Navbar = () => {
   const [notificationLength , setNotificationLength] = useState(0)
-  const {notification } = useUnreadNotifications();
-
+// console.log("notifications",notification);
+  const { i18n, t } = useTranslation()
+  const [language, setLanguage] = useState("bn")
   const [carts] = useCart();
+
+
+  // import { useSelector } from "react-redux";
+
+  const { notification } = useUnreadNotifications();
   const { handleModeChange, mode } = useTheme();
   const { user } = UseAuth();
+  const dispatch = useDispatch()
 
   useEffect(() =>{
+    console.log(notification.length);
       const length = notification.length ;
       setNotificationLength(length)
       
@@ -30,19 +41,19 @@ const handleNotification = () => {
   const navLink = (
     <>
       <li>
-        <Link to="/">Home</Link>
+        <Link to="/">{t("navHome")}</Link>
       </li>
       <li>
-        <Link to="/about">About</Link>
+        <Link to="/about">{t("navAbout")}</Link>
       </li>
       <li>
-        <Link to="/contact">Contact</Link>
+        <Link to="/contact">{t("navContact")}</Link>
       </li>
       <li>
-        <Link to="reviews">Reviews</Link>
+        <Link to="reviews">{t("navReview")}</Link>
       </li>
       <li>
-        <Link to="/dashboard/profile">Dashboard</Link>
+        <Link to="/dashboard/profile" onClick={()=>i18n.changeLanguage("en")}>{t("navDashboard")} </Link>
       </li>
       <li>
         <Link to="/dashboard/myCart"><button className="flex justify-center items-center">
@@ -52,6 +63,13 @@ const handleNotification = () => {
       </li>
     </>
   );
+  const handleLanguageToggle = () => {
+
+    setLanguage(prevLanguage => (prevLanguage === "en" ? "bn" : "en"));
+    dispatch(changeLanguage(language))
+    i18n.changeLanguage(language)
+  };
+  console.log("selected language in usestate", language);
 
   return (
     <div>
@@ -90,14 +108,23 @@ const handleNotification = () => {
                 src="https://i.postimg.cc/3RxTkQ63/Whats-App-Image-2024-02-02-at-5-41-26-PM-removebg-preview.png"
                 alt=""
               />{" "}
-              <p>DomainHub</p>
+              <p>{t("navTitle")}</p>
             </div>
           </div>
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1">{navLink}</ul>
           </div>
           <div className="navbar-end">
-          <div>
+            <div className="form-control w-24 mr-2">
+              <label className="cursor-pointer label">
+                <span className="label-text text-white">{language === "en" ? "বাংলা" : "English"}</span>
+                <input type="checkbox" className="toggle toggle-primary"
+                  checked={language === "bn"}
+                  onChange={handleLanguageToggle}
+                />
+              </label>
+            </div>
+            <div>
               {mode === "light" ? (
                 <LuMoonStar
                   onClick={handleModeChange}
@@ -116,7 +143,7 @@ const handleNotification = () => {
             <Link to='/unreadnotifications' className="btn btn-ghost btn-circle">
       <div className="indicator" onClick={handleNotification}>
       <IoIosNotifications className="text-3xl cursor-pointer" />
-      { notificationLength > 0 && <span className="badge badge-xs badge-primary indicator-item">{notificationLength }</span> }  
+      { notificationLength > 0 && <span className="badge badge-xs badge-primary indicator-item">{notificationLength}</span> }  
       {/* <span className="badge badge-xs badge-primary indicator-item">{notification.length}</span> */}
       </div>
     </Link>
@@ -149,12 +176,12 @@ const handleNotification = () => {
               </Link>
             ) : (
               <Link to="/login">
-                <button className="btn btn-sm  btn-ghost">Login</button>
+                <button className="btn btn-sm  btn-ghost">{t("navLogin")}</button>
               </Link>
             )}
 
             {/* sun and moon mode icon  */}
-         
+
           </div>
         </div>
       </div>

@@ -2,14 +2,15 @@ import { Link } from "react-router-dom";
 import Container from "../../../Component/UI/Container";
 import Description from "../../../Component/UI/Description";
 import Heading from "../../../Component/UI/Heading";
+import { useTranslation } from "react-i18next";
 
 const BestHostingPlan = () => {
-
+    const { t } = useTranslation()
     return (
         <Container>
             <div className="bg-firstColor p-3 dark:bg-[#191919] dark:text-white">
-                <Heading>Chose The Best Hosting Plan</Heading>
-                <Description>Choose from our best hosting plans to unlock the full potential of your online presence. <br />Elevate your website with our premium hosting plans crafted for excellence.</Description>
+                <Heading>{t("planHeader")}</Heading>
+                <Description>{t("planDes")} <br />{t("planDes2")}</Description>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-6 px-[10%]">
                     <div data-aos="flip-left"
@@ -18,7 +19,7 @@ const BestHostingPlan = () => {
                           
                         <div className="relative pb-8 m-0 mb-8 overflow-hidden text-center text-gray-700 bg-transparent border-b rounded-none shadow-none border-white/10 bg-clip-border">
                             <p className="block font-sans text-sm antialiased font-normal leading-normal text-white uppercase">
-                                Basic DUO
+                                {t("plan1")}
                             </p>
                             <h1 className="flex justify-center gap-1 mt-6 font-sans antialiased font-normal tracking-normal text-white text-7xl">
                                 <span className="mt-2 text-xl"></span><span className="mt-2 text-4xl">$</span>10
@@ -146,7 +147,7 @@ const BestHostingPlan = () => {
                                 type="button"
                                 data-ripple-dark="true"
                             >
-                                Get Started
+                                {t("plan1Btn")}
                             </button>
                         </div>
                     </div>
@@ -156,7 +157,7 @@ const BestHostingPlan = () => {
                         data-aos-duration="2000" className="relative flex w-full flex-col rounded-xl bg-[#202A7C] bg-clip-border p-8 text-white shadow-md shadow-black">
                         <div className="relative pb-8 m-0 mb-8 overflow-hidden text-center text-gray-700 bg-transparent border-b rounded-none shadow-none border-white/10 bg-clip-border">
                             <p className="block font-sans text-sm antialiased font-normal leading-normal text-white uppercase">
-                                Comfort Duo
+                                {t("plan2")}
                             </p>
                             <h1 className="flex justify-center gap-1 mt-6 font-sans antialiased font-normal tracking-normal text-white text-7xl">
                                 <span className="mt-2 text-4xl">$</span>15
@@ -285,7 +286,7 @@ const BestHostingPlan = () => {
                                     type="button"
                                     data-ripple-dark="true"
                                 >
-                                    Get Premium Duo
+                                    {t("plan2Btn")}
                                 </button>
                             </Link>
 
@@ -297,7 +298,7 @@ const BestHostingPlan = () => {
                         data-aos-duration="2000" className="relative  flex w-full  flex-col rounded-xl bg-[#202A7C] bg-clip-border p-8 text-white shadow-md shadow-black">
                         <div className="relative pb-8 m-0 mb-8 overflow-hidden text-center text-gray-700 bg-transparent border-b rounded-none shadow-none border-white/10 bg-clip-border">
                             <p className="block font-sans text-sm antialiased font-normal leading-normal text-white uppercase">
-                                Premium Duo
+                                {t("plan3")}
                             </p>
                             <h1 className="flex justify-center gap-1 mt-6 font-sans antialiased font-normal tracking-normal text-white text-7xl">
                                 <span className="mt-2 text-4xl">$</span>20
@@ -425,7 +426,7 @@ const BestHostingPlan = () => {
                                     type="button"
                                     data-ripple-dark="true"
                                 >
-                                    Get premium Family
+                                    {t("plan3Btn")}
                                 </button>
                             </Link>
                         </div>

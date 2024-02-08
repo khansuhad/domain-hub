@@ -8,10 +8,11 @@ import { Link } from "react-router-dom";
 import swal from "sweetalert";
 import useDomain from "../../../Hock/useDomain";
 import useAxiosPublic from "../../../Hock/useAxiosPublic";
+import { useTranslation } from "react-i18next";
 
 const FreeTrial = () => {
     const { user } = UseAuth();
-    console.log("FreeTrial", user);
+    const {t}=useTranslation()
 
     const [domain] = useDomain();
     console.log(domain);
@@ -53,16 +54,13 @@ const FreeTrial = () => {
 
         <>
             <Container>
-                <Heading>Freetrial</Heading>
-                <Description>description</Description>
+                <Heading>{t("trialTitle")}</Heading>
+                <Description>{t("trialTitlesDes")} </Description>
             </Container>
 
             {/* Free Trial Section Start */}
 
             <section className="flex lg:flex-row flex-col items-center justify-between  rounded-md dark:bg-[#191919] lg:px-[15%]  lg:h-[600px]">
-
-
-
                 <div className="lg:w-[750px] space-y-10" >
                     <img src={image} alt="" />
                 </div>
@@ -73,7 +71,7 @@ const FreeTrial = () => {
                     <div className="max-w-md p-8 dark:bg-gray-700 bg-fourthColor shadow-md rounded-md">
 
 
-                        <h1 className="lg:text-4xl text-3xl font-bold  mb-6">Free Trial Application</h1>
+                        <h1 className="lg:text-4xl text-3xl font-bold  mb-6">{t("trialSectionTitle")}</h1>
 
 
                         <form onSubmit={handleFreeTrialApplication} className="mb-4 ">
@@ -81,29 +79,29 @@ const FreeTrial = () => {
 
                             <div>
                                 <select required name="Domain" defaultValue="" className="select p-0 pl-2 appearance-none w-full border-none outline-none text-black text-sm font-semibold">
-                                    <option disabled value="">Select Domain</option>
+                                    <option disabled value="">{t("trialSelect")}</option>
                                     {
                                         domain?.map(dom => <option key={dom._id} value={dom.name}>{dom.name}</option>)
                                     }
-                                    <option disabled value="">Select Domain</option>
+                                    <option disabled value="">{t("trialSelect")}</option>
 
 
                                 </select>
                             </div>
 
                             <p className="text-white pt-2 dark:text-white mb-4 text-[12px] font-thin ">
-                                Sign up for 7 days a free trial and explore our amazing features! We understand the importance of finding the perfect domain to elevate your online presence.
+                                {t("trialDes")}
                             </p>
 
                             {
                                 user ? (
                                     <button type="submit" className="bg-secondColor btn border-none text-white p-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">
-                                        Free Trial Application
+                                        {t("trialSectionTitle")}
                                     </button>
                                 ) : (
                                     <Link to="/registration">
                                         <h1 className="bg-blue-500 btn text-white p-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">
-                                            First registration
+                                            {t("trialSectionTitle")}
                                         </h1>
                                     </Link>
                                 )

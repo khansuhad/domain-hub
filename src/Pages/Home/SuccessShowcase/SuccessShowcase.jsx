@@ -8,11 +8,13 @@ import { FaUserGroup } from "react-icons/fa6";
 import { MdOutlineReviews } from "react-icons/md";
 import CountUp from "react-countup";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const SuccessShowcase = () => {
   const [sellings, setSellings] = useState({})
   const [reviews, setReviews] = useState({})
   const [users, setUsers] = useState({})
+  const {t}=useTranslation()
 
 
   useEffect(() =>{
@@ -35,11 +37,9 @@ const SuccessShowcase = () => {
 
   return (
     <Container>
-      <Heading>Success Showcase</Heading>
+      <Heading>{t("successTitle")}</Heading>
       <Description>
-        DomainHub.com: Where E-Commerce Excellence Meets Cutting-Edge
-        Technology, Redefining Web Hosting and Selling with Top-Tier Packages
-        and Seamless Experiences.
+       {t("successDes")}
       </Description>
       <div className="w-full flex justify-center items-center mt-16 mb-16">
         <div className="max-w-7xl mx-auto w-full grid grid-cols-9">
@@ -47,12 +47,10 @@ const SuccessShowcase = () => {
           <div className="col-span-4 w-full h-full">
             <div className="w-full h-full bg-gradient-to-tr from-[#ac50ef] via-[#7059fb] to-[#23668a] rounded-md p-2">
               <h1 className="text-white text-xl font-medium py-2 md:pl-4">
-                Top Selling
+                {t("success1Title")}
               </h1>
               <p className="text-gray-100 sm:text-sm text-xs p-1">
-                DomainHub.com excels as a leading E-Commerce platform with
-                top-selling packages that set industry standards, showcasing our
-                commitment to quality and value.
+              {t("success1Title")}
               </p>
             </div>
           </div>
@@ -77,13 +75,10 @@ const SuccessShowcase = () => {
           <div className="col-span-4 w-full h-full">
             <div className="w-full h-full bg-gradient-to-tr from-[#ac50ef] via-[#7059fb] to-[#23668a] rounded-md p-2">
               <h1 className="text-white text-xl font-medium py-2 md:pl-4">
-                Total Users
+              {t("success2Title")}
               </h1>
               <p className="text-gray-100 sm:text-sm text-xs p-1">
-                Our thriving user community reflects the trust and satisfaction
-                of a diverse range of individuals, businesses, bloggers, and
-                developers who rely on DomainHub.com for their web hosting and
-                selling needs.
+              {t("success2Des")}
               </p>
             </div>
           </div>
@@ -93,13 +88,10 @@ const SuccessShowcase = () => {
           <div className="col-span-4 w-full h-full">
             <div className="w-full h-full bg-gradient-to-tr from-[#ac50ef] via-[#7059fb] to-[#23668a] rounded-md p-2">
               <h1 className="text-white text-xl font-medium py-2 md:pl-4">
-                Total Reviews
+              {t("success3Title")}
               </h1>
               <p className="text-gray-100 sm:text-sm text-xs p-1">
-                Positive reviews abound, underscoring the streamlined and
-                efficient experience we provide. Users commend our platform for
-                features such as live chat support, subscription management, and
-                a user-friendly domain search.
+              {t("success3Des")}
               </p>
             </div>
           </div>
@@ -124,12 +116,10 @@ const SuccessShowcase = () => {
           <div className="col-span-4 w-full h-full">
             <div className="w-full h-full bg-gradient-to-tr from-[#ac50ef] via-[#7059fb] to-[#23668a] rounded-md p-2">
               <h1 className="text-white text-xl font-medium py-2 md:pl-4">
-                User Engagement Focus
+              {t("success3Title")}
               </h1>
               <p className="text-gray-100 sm:text-sm text-xs p-1">
-                With category-based pricing, special discounts, and a free trial
-                option, DomainHub.com actively enhances user engagement,
-                offering flexibility and affordability to our valued customers.
+              {t("success3Des")}
               </p>
             </div>
           </div>
@@ -139,13 +129,10 @@ const SuccessShowcase = () => {
           <div className="col-span-4 w-full h-full">
             <div className="w-full h-full bg-gradient-to-tr from-[#ac50ef] via-[#7059fb] to-[#23668a] rounded-md p-2">
               <h1 className="text-white text-xl font-medium py-2 md:pl-4">
-                Advanced Technology Integration
+              {t("success4Title")}
               </h1>
               <p className="text-gray-100 sm:text-sm text-xs p-1">
-                The incorporation of Redux for centralized and scalable state
-                management showcases our dedication to advanced technology,
-                ensuring a seamless and adaptable solution for large-scale web
-                applications.
+              {t("success4Des")}
               </p>
             </div>
           </div>
@@ -170,13 +157,10 @@ const SuccessShowcase = () => {
           <div className="col-span-4 w-full h-full">
             <div className="w-full h-full bg-gradient-to-tr from-[#ac50ef] via-[#7059fb] to-[#23668a] rounded-md p-2">
               <h1 className="text-white text-xl font-medium py-2 md:pl-4">
-                Robust Player in E-Commerce
+              {t("success5Title")}
               </h1>
               <p className="text-gray-100 sm:text-sm text-xs p-1">
-                Our commitment to a seamless user experience, coupled with
-                cutting-edge technology, positions DomainHub.com as a robust
-                player in the e-commerce landscape, particularly in the web
-                infrastructure services sector
+              {t("success5Des")}
               </p>
             </div>
           </div>
@@ -186,13 +170,10 @@ const SuccessShowcase = () => {
           <div className="col-span-4 w-full h-full">
             <div className="w-full h-full bg-gradient-to-tr from-[#ac50ef] via-[#7059fb] to-[#23668a] rounded-md p-2">
               <h1 className="text-white text-xl font-medium py-2 md:pl-4">
-                Innovation and Collaboration
+              {t("success6Title")}
               </h1>
               <p className="text-gray-100 sm:text-sm text-xs p-1">
-                The DomainHub.com team collectively pushes limits, exploring new
-                technologies to create a significant and positive difference in
-                the marketplace, demonstrating our ongoing commitment to
-                innovation and collaboration.
+              {t("success6Des")}
               </p>
             </div>
           </div>
@@ -212,7 +193,7 @@ const SuccessShowcase = () => {
             <div className="flex justify-between gap-3">
               <div>
                 <div className="stat-title font-bold text-white">
-                  Total Sellings
+                  {t("totalSell")}
                 </div>
                 <div className="stat-value">
                <CountUp end={sellings.topSellings}/>
@@ -227,7 +208,7 @@ const SuccessShowcase = () => {
             <div className="flex justify-between gap-3">
               <div>
                 <div className="stat-title font-bold text-white">
-                  Total Users
+                {t("totalUser")}
                 </div>
                 <div className="stat-value">
                   <CountUp end={users.topUsers}/>
@@ -242,7 +223,7 @@ const SuccessShowcase = () => {
             <div className="flex justify-between gap-3">
               <div>
                 <div className="stat-title font-bold text-white">
-                  Total Reviews
+                {t("totalReview")}
                 </div>
                 <div className="stat-value">
                   <CountUp end={reviews.topReviews} />

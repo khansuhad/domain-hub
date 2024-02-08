@@ -4,9 +4,11 @@ import "./index.css";
 import { RouterProvider } from "react-router-dom";
 import Router from "./Routers/Router.jsx";
 import { Provider } from "react-redux";
-import { store } from "./app/store";
+import { persistor, store } from "./app/store";
+import { PersistGate } from 'redux-persist/integration/react';
 import AuthProvider from "./Provider/AuthProvider.jsx";
 import { Toaster } from "react-hot-toast";
+import './LangugeChange/I18next.jsx';
 import {
   QueryClient,
   QueryClientProvider,
@@ -19,10 +21,12 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <Provider store={store}>
-        <AuthProvider>
-          <RouterProvider router={Router} />
-        </AuthProvider>
-        <Toaster />
+        <PersistGate loading={null} persistor={persistor}>
+          <AuthProvider>
+            <RouterProvider router={Router} />
+          </AuthProvider>
+          <Toaster />
+        </PersistGate>
       </Provider>
     </QueryClientProvider>
   </React.StrictMode>

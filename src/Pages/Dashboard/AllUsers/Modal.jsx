@@ -1,11 +1,11 @@
 import PropTypes from "prop-types";
 import toast from "react-hot-toast";
 import { useForm } from "react-hook-form";
-import useAxiosPublic from "../../../Hock/useAxiosPublic";
 import UseAllGetUser from "../../../Hock/UseAllGetUser";
+import useAxiosSecure from "../../../Hock/useAxiosSecure";
 
 const Modal = ({ item }) => {
-  const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
   const roleChangeSuccessToast = () =>
     toast.success("This user role change successfully");
   const { refetchInfo } = UseAllGetUser();
@@ -23,7 +23,7 @@ const Modal = ({ item }) => {
     const info = {
       role: data.role,
     };
-    await axiosPublic.put(`/users-role/${item?._id}`, info).then((res) => {
+    await axiosSecure.put(`/users-role/${item?._id}`, info).then((res) => {
       console.log(res);
       if (res.data.modifiedCount) {
         roleChangeSuccessToast();
@@ -36,7 +36,9 @@ const Modal = ({ item }) => {
       {/* Open the modal using document.getElementById('ID').showModal() method */}
 
       <button
-        onClick={() => document.getElementById(`my_modal_${item._id}`).showModal()}
+        onClick={() =>
+          document.getElementById(`my_modal_${item._id}`).showModal()
+        }
         className={
           item?.role !== "user"
             ? ` bg-thirdColor w-fit hover:bg-fourthColor text-white  border-2 btn-sm rounded-sm`

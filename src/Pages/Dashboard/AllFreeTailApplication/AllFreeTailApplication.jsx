@@ -23,9 +23,14 @@ const AllFreeTailApplication = () => {
                 if (res.data.modifiedCount > 0) {
                     swal("Application approve", "sent", "success");
                     refetch()
-                    const messages = "your domain trail has approve"
+                    const messages = "Your domain trail request had approved";
+                    const status = "unread";
                     const timeSpace = moment();
-                    axiosPublic.post("/notifications" ,{ messages ,timeSpace} ).then(res => {
+                    const domainName = freeTrialUsers.domainName ;
+                    axiosPublic.post("/notifications" ,{ messages ,timeSpace , domainName, status} ).then(res => {
+                      console.log(res.data);
+                    })
+                    axiosPublic.post("/unreadnotifications" ,{ messages ,timeSpace , domainName, status} ).then(res => {
                       console.log(res.data);
                     })
                 }

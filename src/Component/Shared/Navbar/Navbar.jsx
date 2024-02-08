@@ -6,20 +6,25 @@ import { LuMoonStar } from "react-icons/lu";
 import UseAuth from "../../../Hock/UseAuth";
 import { FaShoppingCart } from "react-icons/fa";
 import useCart from "../../../Hock/useCart";
-import useNotifications from "../../../Hock/UseNotifications";
-import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { changeLanguage } from "../../../features/language/languageSlice";
 import { useTranslation } from "react-i18next";
+import { useState } from "react";
+import useUnreadNotifications from "../../../Hock/useUnreadNotification";
+
 // import { useSelector } from "react-redux";
 const Navbar = () => {
-  const {i18n, t}=useTranslation()
-  const [language,setLanguage]= useState("bn")
-  const { notification } = useNotifications();
-  const [carts, loading, refetch] = useCart();
+  const { i18n, t } = useTranslation()
+  const [language, setLanguage] = useState("bn")
+  const [carts] = useCart();
+
+
+  // import { useSelector } from "react-redux";
+
+  const { notification } = useUnreadNotifications();
   const { handleModeChange, mode } = useTheme();
   const { user } = UseAuth();
-  const dispatch= useDispatch()
+  const dispatch = useDispatch()
 
   const navLink = (
     <>
@@ -36,7 +41,7 @@ const Navbar = () => {
         <Link to="reviews">{t("navReview")}</Link>
       </li>
       <li>
-        <Link to="/dashboard/dashboard" onClick={()=> i18n.changeLanguage("en")}>{t("navDashboard")}</Link>
+        <Link to="/dashboard/dashboard" onClick={() => i18n.changeLanguage("en")}>{t("navDashboard")}</Link>
       </li>
       <li>
         <Link to="/dashboard/myCart"><button className="flex justify-center items-center">
@@ -45,14 +50,14 @@ const Navbar = () => {
         </button></Link>
       </li>
     </>
-  ); 
+  );
   const handleLanguageToggle = () => {
-    
-    setLanguage(prevLanguage => (prevLanguage === "en" ? "bn" :"en"));
+
+    setLanguage(prevLanguage => (prevLanguage === "en" ? "bn" : "en"));
     dispatch(changeLanguage(language))
     i18n.changeLanguage(language)
   };
- console.log("selected language in usestate",language);
+  console.log("selected language in usestate", language);
 
   return (
     <div>
@@ -100,10 +105,10 @@ const Navbar = () => {
           <div className="navbar-end">
             <div className="form-control w-24 mr-2">
               <label className="cursor-pointer label">
-                <span className="label-text text-white">{language==="en"?"বাংলা":"English"}</span>
-                <input type="checkbox" className="toggle toggle-primary" 
-                 checked={language === "bn"} 
-                 onChange={handleLanguageToggle}
+                <span className="label-text text-white">{language === "en" ? "বাংলা" : "English"}</span>
+                <input type="checkbox" className="toggle toggle-primary"
+                  checked={language === "bn"}
+                  onChange={handleLanguageToggle}
                 />
               </label>
             </div>
@@ -123,16 +128,13 @@ const Navbar = () => {
               )}
             </div>
             {/* notification icon */}
-            <Link to='/notifications' className="btn btn-ghost btn-circle">
+            <Link to='/unreadnotifications' className="btn btn-ghost btn-circle">
               <div className="indicator">
                 <IoIosNotifications className="text-3xl cursor-pointer" />
                 {notification.length > 0 && <span className="badge badge-xs badge-primary indicator-item">{notification.length}</span>}
                 {/* <span className="badge badge-xs badge-primary indicator-item">{notification.length}</span> */}
               </div>
             </Link>
-
-
-
             {user?.email ? (
               <Link to="/dashboard/profile" className="dropdown dropdown-end">
                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">

@@ -30,7 +30,7 @@ const Notification = () => {
             confirmButtonText: "Yes, delete it!"
         }).then(async (result) => {
             if (result.isConfirmed) {
-              useAxios.delete("/notifications/alldatadelete")
+              useAxios.delete("/notifications")
       .then(res => {
         console.log(res?.data);
         refetchNotification();

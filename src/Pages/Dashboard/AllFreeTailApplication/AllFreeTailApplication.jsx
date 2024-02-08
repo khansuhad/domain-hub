@@ -7,11 +7,13 @@ import { MdDelete } from "react-icons/md";
 import useAxiosPublic from "../../../Hock/useAxiosPublic";
 import Swal from "sweetalert2";
 import moment from 'moment';
+import UseAuth from "../../../Hock/UseAuth";
 
 
 
 const AllFreeTailApplication = () => {
- 
+    const { user } = UseAuth();
+    const userEmail = user?.email
     const [freeTrialUsers, , refetch] = useFreeTrial();
     console.log(freeTrialUsers);
     const axiosPublic = useAxiosPublic();
@@ -27,12 +29,10 @@ const AllFreeTailApplication = () => {
                     const status = "unread";
                     const timeSpace = moment();
                     const domainName = freeTrialUsers.domainName ;
-                    axiosPublic.post("/notifications" ,{ messages ,timeSpace , domainName, status} ).then(res => {
+                    axiosPublic.post("/notifications" ,{ messages ,timeSpace , domainName, status , userEmail} ).then(res => {
                       console.log(res.data);
                     })
-                    axiosPublic.post("/unreadnotifications" ,{ messages ,timeSpace , domainName, status} ).then(res => {
-                      console.log(res.data);
-                    })
+                   
                 }
             })
             .catch(err => {
@@ -87,7 +87,7 @@ const AllFreeTailApplication = () => {
     return (
         <>
             <div
-                className="overflow-x-auto p-5 text-white ">
+                className="overflow-x-auto p-5 text-white bg-firstColor min-h-screen ">
                     <h2 className="text-2xl font-bold text-center my-10 ">Manage Free Trial Application</h2>
                 <table className="w-full text-left table-auto min-w-max border-2 ">
                     

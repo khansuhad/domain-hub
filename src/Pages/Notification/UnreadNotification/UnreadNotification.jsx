@@ -1,15 +1,13 @@
-import { Link, NavLink } from "react-router-dom";
+import {  NavLink } from "react-router-dom";
 import Container from "../../../Component/UI/Container";
 import Heading from "../../../Component/UI/Heading";
 import useUnreadNotifications from "../../../Hock/useUnreadNotification";
 import UnreadNotificationCart from "./UnreadNotificationCart";
-import { useEffect, useState } from "react";
-import useAxiosSecure from "../../../Hock/useAxiosSecure";
+import { useEffect } from "react";
 import useAxiosPublic from "../../../Hock/useAxiosPublic";
 import "../active.css"
 
 const UnreadNotification = () => {
-  // const useAxios = useAxiosSecure(); 
   const useAxios = useAxiosPublic();
     const {notification , refetchNotification} = useUnreadNotifications();
     console.log(notification);

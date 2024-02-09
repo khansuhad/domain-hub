@@ -38,6 +38,13 @@ const handleNotification = () => {
       const length = 0 ;
       setNotificationLength(length)
 }
+const handleLanguageToggle = () => {
+
+  setLanguage(prevLanguage => (prevLanguage === "en" ? "bn" : "en"));
+  dispatch(changeLanguage(language))
+  i18n.changeLanguage(language)
+};
+console.log("selected language in usestate", language);
   const navLink = (
     <>
       <li>
@@ -55,6 +62,15 @@ const handleNotification = () => {
       <li>
         <Link to="/dashboard/profile" onClick={()=>i18n.changeLanguage("en")}>{t("navDashboard")} </Link>
       </li>
+      <li className="form-control w-24  text-left   lg:hidden">
+              <label className="cursor-pointer label">
+                <span className="label-text text-black">{language === "en" ? "বাংলা" : "English"}</span>
+                <input type="checkbox" className="toggle toggle-primary"
+                  checked={language === "bn"}
+                  onChange={handleLanguageToggle}
+                />
+              </label>
+            </li>
       <li>
         <Link to="/dashboard/myCart"><button className="flex justify-center items-center">
           <FaShoppingCart className="mr-2"></FaShoppingCart>
@@ -63,13 +79,7 @@ const handleNotification = () => {
       </li>
     </>
   );
-  // const handleLanguageToggle = () => {
 
-  //   setLanguage(prevLanguage => (prevLanguage === "en" ? "bn" : "en"));
-  //   dispatch(changeLanguage(language))
-  //   i18n.changeLanguage(language)
-  // };
-  console.log("selected language in usestate", language);
 
   return (
     <div>
@@ -111,11 +121,11 @@ const handleNotification = () => {
               <p className="text-sm">{t("navTitle")}</p>
             </div>
           </div>
-          <div className="navbar-center hidden lg:flex">
+          <div className="navbar-center hidden lg:flex ">
             <ul className="menu menu-horizontal px-1">{navLink}</ul>
           </div>
           <div className="navbar-end">
-            {/* <div className="form-control w-24 mr-2">
+            <div className="form-control w-24 mr-4  hidden lg:flex">
               <label className="cursor-pointer label">
                 <span className="label-text text-white">{language === "en" ? "বাংলা" : "English"}</span>
                 <input type="checkbox" className="toggle toggle-primary"
@@ -123,7 +133,7 @@ const handleNotification = () => {
                   onChange={handleLanguageToggle}
                 />
               </label>
-            </div> */}
+            </div>
             <div>
               {mode === "light" ? (
                 <LuMoonStar

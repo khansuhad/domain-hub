@@ -63,12 +63,12 @@ const handleNotification = () => {
       </li>
     </>
   );
-  const handleLanguageToggle = () => {
+  // const handleLanguageToggle = () => {
 
-    setLanguage(prevLanguage => (prevLanguage === "en" ? "bn" : "en"));
-    dispatch(changeLanguage(language))
-    i18n.changeLanguage(language)
-  };
+  //   setLanguage(prevLanguage => (prevLanguage === "en" ? "bn" : "en"));
+  //   dispatch(changeLanguage(language))
+  //   i18n.changeLanguage(language)
+  // };
   console.log("selected language in usestate", language);
 
   return (
@@ -101,21 +101,21 @@ const handleNotification = () => {
               </ul>
             </div>
 
-            <div className="flex justify-between items-center gap-2 text-xl">
+            <div className="md:flex justify-between items-center text-xl hidden">
               {" "}
               <img
                 className="w-20 h-10 rounded-full"
                 src="https://i.postimg.cc/3RxTkQ63/Whats-App-Image-2024-02-02-at-5-41-26-PM-removebg-preview.png"
                 alt=""
               />{" "}
-              <p>{t("navTitle")}</p>
+              <p className="text-sm">{t("navTitle")}</p>
             </div>
           </div>
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1">{navLink}</ul>
           </div>
           <div className="navbar-end">
-            <div className="form-control w-24 mr-2">
+            {/* <div className="form-control w-24 mr-2">
               <label className="cursor-pointer label">
                 <span className="label-text text-white">{language === "en" ? "বাংলা" : "English"}</span>
                 <input type="checkbox" className="toggle toggle-primary"
@@ -123,7 +123,7 @@ const handleNotification = () => {
                   onChange={handleLanguageToggle}
                 />
               </label>
-            </div>
+            </div> */}
             <div>
               {mode === "light" ? (
                 <LuMoonStar

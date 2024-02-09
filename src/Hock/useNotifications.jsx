@@ -1,7 +1,9 @@
+import UseAuth from "./UseAuth";
 import useAxiosSecure from "./useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 
 const useNotifications = () => {
+  const { user } = UseAuth();
   const axiosSecure = useAxiosSecure();
   const {
     data: notification = [],
@@ -11,7 +13,7 @@ const useNotifications = () => {
   } = useQuery({
     queryKey: ["notification"],
     queryFn: async () => {
-      const res = await axiosSecure.get(`/notifications`);
+      const res = await axiosSecure.get(`/notifications/${user.email}`);
       console.log(res?.data);
       return res?.data;
     },

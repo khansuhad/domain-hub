@@ -28,6 +28,7 @@ import Checkout from "../Pages/Dashboard/Checkout/Checkout";
 import CategoryDetails from "../Pages/Home/PriceByCategory/CategoryDetails";
 import Notification from "../Pages/Notification/Notification";
 import UnreadNotification from "../Pages/Notification/UnreadNotification/UnreadNotification";
+import MakePremiumCheckout from "../Pages/Dashboard/MakePremiumCheckout/MakePremiumCheckout";
 
 const Router = createBrowserRouter([
   {
@@ -95,6 +96,14 @@ const Router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <Profile />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/dashboard/make-premium-checkout",
+        element: (
+          <PrivateRoute>
+            <MakePremiumCheckout />
           </PrivateRoute>
         ),
       },

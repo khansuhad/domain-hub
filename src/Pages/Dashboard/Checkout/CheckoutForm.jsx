@@ -4,7 +4,6 @@ import useAxiosSecure from "../../../Hock/useAxiosSecure";
 import UseAuth from "../../../Hock/UseAuth";
 import Container from "../../../Component/UI/Container";
 import Heading from "../../../Component/UI/Heading";
-import useCart from "../../../Hock/useCart";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useSelector } from "react-redux";
@@ -27,9 +26,6 @@ const CheckoutForm = () => {
   const email = user?.email ;
   const navigate = useNavigate();
   
-
-  const [carts] = useCart();
-  console.log("Cart", carts);
 
   useEffect(() => {
     if (totalPrice > 0) {
@@ -90,7 +86,7 @@ const CheckoutForm = () => {
         console.log(transactionId);
 
         // now save the payment in the database
-        axiosSecure.put("/carts", carts).then((res) => {
+        axiosSecure.put("/carts", cartItemSelectedTime).then((res) => {
           console.log("cart", res.data);
           const messages = "Your domain payment is successful";
           const status = "unread";

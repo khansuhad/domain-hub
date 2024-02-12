@@ -1,3 +1,5 @@
+import ReactPaginate from 'react-paginate';
+
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { MdAddShoppingCart } from "react-icons/md";
@@ -9,6 +11,13 @@ import LiveChat from "../../Component/Shared/liveChat section/LiveChat";
 
 
 const SearchingDomain = () => {
+    const [currentPage, setCurrentPage] = useState(0); // Current page state
+    const domainsPerPage = 18; // Number of domains to display per page
+    // Logic to calculate the index of the last domain item of the current page
+    const indexOfLastDomain = (currentPage + 1) * domainsPerPage;
+    // Logic to calculate the index of the first domain item of the current page
+    const indexOfFirstDomain = indexOfLastDomain - domainsPerPage;
+
     const searchValue = useSelector((state) => state.domain.domain)
     const userInfo = useSelector((state) => state.user.currentUser);
     console.log(userInfo.email);
@@ -25,7 +34,15 @@ const SearchingDomain = () => {
         // const matchesSearch = domain.name.toLowerCase().includes(searchTerm.toLowerCase());
         const matchesCategory = selectedCategory === 'All' || domain.category === selectedCategory;
         return searchTerm && matchesCategory;
-    });
+    }).slice(indexOfFirstDomain, indexOfLastDomain); // Apply pagination;
+
+    const pageCount = Math.ceil(domain?.length / domainsPerPage); // Calculate total number of pages
+
+    const handlePageClick = ({ selected }) => {
+        setCurrentPage(selected); // Set current page when page is clicked
+    };
+
+
     const addToCart = async (domainItem) => {
         // Check if the domain is already in the cart
         const isDomainInCart = carts?.some((cartItem) => cartItem._id === domainItem._id);
@@ -100,31 +117,6 @@ const SearchingDomain = () => {
             </div>
 
             <div className="  py-10  bg-firstColor dark:bg-black dark:text-white lg:px-[10%] px-auto">
-                {/* <div className="mb-4  flex flex-col md:flex-row justify-center items-center pt-36 pb-20 dark:text-black">
-                    <input
-                        type="text"
-                        placeholder="search here"
-                        className=" border md:w-full m-2 border-gray-300 rounded-lg mr-1 p-2 "
-                        value={searchTerm}
-                        onChange={(e) => setSearchTerm(e.target.value)}
-                    />
-                    <select
-                        className="md:p-2 mr-2 border border-gray-300 rounded-lg"
-                        value={selectedCategory}
-                        onChange={(e) => setSelectedCategory(e.target.value)}
-                    >
-                        <option value="All">All Categories</option>
-                        <option value="technology">Technology</option>
-                        <option value="education">Education</option>
-                        <option value="commerce">Commerce</option>
-                        <option value="health">health</option>
-                        <option value="sport">Sport</option>
-                        <option value="industry">Industry</option>
-                        <option value="government">Government</option>
-                        
-                    </select>
-                </div> */}
-
                 <div className="flex gap-5">
                     <div className="flex flex-col gap-4 w-full p-2">
                         {filteredDomains.length > 0 ? (
@@ -157,6 +149,19 @@ const SearchingDomain = () => {
 
                 </div>
             </div>
+             {/* Pagination */}
+             <ReactPaginate className='flex gap-5 text-white justify-center bg-firstColor pb-5'
+                previousLabel={"<<Previous"}
+                nextLabel={"Next>>"}
+                breakLabel={"..."}
+                breakClassName={"break-me"}
+                pageCount={pageCount}
+                marginPagesDisplayed={2}
+                pageRangeDisplayed={5}
+                onPageChange={handlePageClick}
+                containerClassName={"pagination"}
+                activeClassName={"active"}
+            />
             <LiveChat></LiveChat>
         </>
     );

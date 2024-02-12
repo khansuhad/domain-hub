@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 import { addPayment } from "../../../features/PaymentPrice/PaymentPrice";
 import { PiCurrencyDollarFill } from "react-icons/pi";
 import UseAuth from "../../../Hock/UseAuth";
+import { addCartItemSelectedTime } from "../../../features/cartItemSelectedTime/cartItemSelectedTime";
 
 const MyCart = () => {
   const dispatch = useDispatch();
@@ -17,7 +18,14 @@ const MyCart = () => {
   const [couponCode, setCouponCode] = useState("");
   const [totalPrice, setTotalPrice] = useState(0);
   const [selectedTimes, setSelectedTimes] = useState({});
-  console.log(selectedTimes);
+  console.log("DomainSelectTime", selectedTimes);
+  const [cartItemSelectedTime, setCartItemSelectedTime] = useState([]); // State to store selected times for each domain item
+  console.log("DomainSelectTime", cartItemSelectedTime);
+  // store cartItemSelectedTime in state of redux
+  dispatch(addCartItemSelectedTime(cartItemSelectedTime));
+
+
+
   const [discountPercentage, setDiscountPercentage] = useState(0);
   console.log(typeof totalPrice, totalPrice);
 
@@ -25,12 +33,23 @@ const MyCart = () => {
   const { user } = UseAuth()
 
   const handleTimeChange = (cartItemId, selectedTime) => {
-    setSelectedTimes((prevSelectedTimes) => ({
+    // Update the selected time for the specific domain item
+    setCartItemSelectedTime(prevTimes => {
+      const updatedTimes = [...prevTimes];
+      const existingItemIndex = updatedTimes.findIndex(item => item.id === cartItemId);
+      if (existingItemIndex !== -1) {
+        updatedTimes[existingItemIndex] = { id: cartItemId, time: selectedTime };
+      } else {
+        updatedTimes.push({ id: cartItemId, time: selectedTime });
+      }
+      return updatedTimes;
+    });
+
+    setSelectedTimes(prevSelectedTimes => ({
       ...prevSelectedTimes,
       [cartItemId]: selectedTime,
     }));
   };
-
   // ...
 
   useEffect(() => {

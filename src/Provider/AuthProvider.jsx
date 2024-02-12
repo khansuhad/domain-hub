@@ -81,7 +81,7 @@ const AuthProvider = ({ children }) => {
 
       if (currentUser) {
         axios
-          .post("https://domain-hub-server-side.vercel.app/jwt", loggedUser, {
+          .post("http://localhost:3000/jwt", loggedUser, {
             withCredentials: true,
           })
           .then((res) => {
@@ -89,7 +89,7 @@ const AuthProvider = ({ children }) => {
           });
       } else {
         axios
-          .post("https://domain-hub-server-side.vercel.app/logout", loggedUser, {
+          .post("http://localhost:3000/logout", loggedUser, {
             withCredentials: true,
           })
           .then((res) => {
@@ -99,11 +99,11 @@ const AuthProvider = ({ children }) => {
 
       // store userInfo in state of redux/Abu bakar
       const userInfo = {
-        displayName: currentUser.displayName,
-        email: currentUser.email,
-        photoURL: currentUser.photoURL,
-        phoneNumber: currentUser.phoneNumber,
-        accessToken: currentUser.accessToken,
+        displayName: currentUser?.displayName,
+        email: currentUser?.email,
+        photoURL: currentUser?.photoURL,
+        phoneNumber: currentUser?.phoneNumber,
+        accessToken: currentUser?.accessToken,
       }
       dispatch(addUser(userInfo));
       // store userInfo in state of redux/Abu bakar
@@ -111,7 +111,7 @@ const AuthProvider = ({ children }) => {
     return () => {
       unSubscribe();
     };
-  }, [user?.email]);
+  }, [user?.email,dispatch]);
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
   );

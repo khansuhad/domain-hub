@@ -1,21 +1,17 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import useAxiosSecure from "../../../Hock/useAxiosSecure";
 import UseAuth from "../../../Hock/UseAuth";
 import Container from "../../../Component/UI/Container";
 import Heading from "../../../Component/UI/Heading";
 import { useNavigate } from "react-router-dom";
-import toast from "react-hot-toast";
-import { useSelector } from "react-redux";
-import moment from "moment";
 
-const CheckoutForm = () => {
- 
-  const totalPrice = useSelector((state) => state.payment.TotalBill);
-  const cartItemSelectedTime = useSelector((state) => state.cartItemTime.cartItemSelectedTime);
-  console.log(cartItemSelectedTime);
+const MakePremiumCheckoutForm = () => {
+  const totalPrice = 99;
   const paymentSuccessToast = () => toast.success("Payment successfully");
   const paymentErrorToast = () => toast.error("Something went wrong");
+  const [paymentLoading, setPaymentLoading] = useState(false);
   const [error, setError] = useState("");
   const [clientSecret, setClientSecret] = useState("");
   const [transactionId, setTransactionId] = useState("");
@@ -23,9 +19,7 @@ const CheckoutForm = () => {
   const elements = useElements();
   const axiosSecure = useAxiosSecure();
   const { user } = UseAuth();
-  const email = user?.email ;
   const navigate = useNavigate();
-  
 
   useEffect(() => {
     if (totalPrice > 0) {
@@ -43,6 +37,7 @@ const CheckoutForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setPaymentLoading(true);
     if (!stripe || !elements) {
       return;
     }
@@ -84,22 +79,16 @@ const CheckoutForm = () => {
         console.log("transaction id", paymentIntent.id);
         setTransactionId(paymentIntent.id);
         console.log(transactionId);
-
-        // now save the payment in the database
-        axiosSecure.put("/carts", cartItemSelectedTime).then((res) => {
-          console.log("cart", res.data);
-          const messages = "Your domain payment is successful";
-          const status = "unread";
-          const timeSpace = moment();
-          const domainName = '' ;
-          axiosSecure.post("/notifications" ,{ messages ,timeSpace , domainName, status , email} ).then(res => {
-            console.log(res.data);
-          })
-          navigate("/dashboard/my-all-domains");
-          paymentSuccessToast();
-        });
       }
     }
+    // update user status
+    axiosSecure.put(`/get-premium?email=${user?.email}`).then((res) => {
+      console.log("/get-premium", res.data);
+      // if(res.data)
+      navigate("/dashboard/profile");
+      paymentSuccessToast();
+      setPaymentLoading(false);
+    });
   };
 
   return (
@@ -108,7 +97,7 @@ const CheckoutForm = () => {
         <div className="max-w-6xl mx-auto border-2 rounded border-thirdColor px-5 sm:px-10 py-10">
           <Heading>Payment</Heading>
           <h1 className="text-lg md:text-xl lg:text-3xl my-5 font-bold text-white dark:text-[#F5F7F8] ">
-            Total Price {totalPrice}
+            Get premium 99$
           </h1>
           <form onSubmit={handleSubmit}>
             <label htmlFor="Payment">
@@ -135,13 +124,19 @@ const CheckoutForm = () => {
 
             <p className="text-red-600">{error}</p>
             <div className="text-center mt-5">
-              <button
-                type="submit"
-                disabled={!stripe || !clientSecret}
-                className="btn bg-thirdColor hover:bg-fourthColor text-white border-0"
-              >
-                Payment
-              </button>
+              {paymentLoading ? (
+                <button className="btn bg-thirdColor hover:bg-fourthColor text-white border-0">
+                  Loading..
+                </button>
+              ) : (
+                <button
+                  type="submit"
+                  disabled={!stripe || !clientSecret}
+                  className="btn bg-thirdColor hover:bg-fourthColor text-white border-0"
+                >
+                  Payment
+                </button>
+              )}
             </div>
           </form>
         </div>
@@ -150,4 +145,4 @@ const CheckoutForm = () => {
   );
 };
 
-export default CheckoutForm;
+export default MakePremiumCheckoutForm;

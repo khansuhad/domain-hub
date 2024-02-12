@@ -13,6 +13,8 @@ import moment from "moment";
 const CheckoutForm = () => {
  
   const totalPrice = useSelector((state) => state.payment.TotalBill);
+  const cartItemSelectedTime = useSelector((state) => state.cartItemTime.cartItemSelectedTime);
+  console.log(cartItemSelectedTime);
   const paymentSuccessToast = () => toast.success("Payment successfully");
   const paymentErrorToast = () => toast.error("Something went wrong");
   const [error, setError] = useState("");

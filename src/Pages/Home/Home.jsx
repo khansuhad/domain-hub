@@ -7,6 +7,7 @@ import OffersAndDiscounts from "./OffersAndDiscounts/OffersAndDiscounts";
 import PriceByCategory from "./PriceByCategory/PriceByCategory";
 import SuccessShowcase from "./SuccessShowcase/SuccessShowcase";
 import DomainTld from "../../Component/Shared/DomainTld/DomainTld";
+import Review from "./Review/Review";
 
 const Home = () => {
     const data= useLoaderData()
@@ -18,7 +19,8 @@ const Home = () => {
             <FreeTrial/>
             <BestHostingPlan/>
             <FAQ/>
-            <SuccessShowcase/>         
+            <SuccessShowcase/> 
+            <Review/>        
             <PriceByCategory data={data}/>
             {/* <Tutorial/> */}
             <OffersAndDiscounts/>

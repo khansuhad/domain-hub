@@ -21,7 +21,7 @@ import AllFreeTailApplication from "../Pages/Dashboard/AllFreeTailApplication/Al
 import AllReviews from "../Pages/Dashboard/AllReviews/AllReviews";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 import EditProfile from "../Pages/Dashboard/EditProfile/EditProfile";
-import { Review } from "../Pages/Review/Review";
+// import { Review } from "../Pages/Review/Review";
 import PrivateRoute from "./PrivateRoute";
 import MyCart from "../Pages/Dashboard/MyCart/MyCart";
 import Checkout from "../Pages/Dashboard/Checkout/Checkout";
@@ -50,10 +50,10 @@ const Router = createBrowserRouter([
         path: "/about",
         element: <About />,
       },
-      {
-        path: "/reviews",
-        element: <Review></Review>,
-      },
+      // {
+      //   path: "/reviews",
+      //   element: <Review></Review>,
+      // },
       {
         path: "/notifications",
         element: <Notification/>,

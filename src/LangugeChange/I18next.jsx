@@ -22,6 +22,7 @@ i18n.use(initReactI18next).init({
         navReview: "Reviews",
         navDashboard: "Dashboard",
         navLogin:"Login",
+        navBlog: "Blog",
         //about us
         aboutDes: "Explore Our Website",
         aboutH1: "Welcome to DomainHub – Your Premier Destination for Domain Buying and Selling!At DomainHub, we are passionate about connecting individuals, businesses, and visionaries with the perfect domain names to elevate their online presence. As a leading domain selling platform, we offer a seamless and secure marketplace where buyers and sellers come together to explore a world of possibilities.",
@@ -175,6 +176,7 @@ i18n.use(initReactI18next).init({
         navReview: "পর্যালোচনা",
         navDashboard: "ড্যাশবোর্ড",
         navLogin:"লগইন",
+        navBlog:"ব্লগ",
         //about us
         aboutDes: "আমাদের ওয়েবসাইট অন্বেষণ",
         aboutH1: "DomainHub-এ স্বাগতম - ডোমেন কেনা-বেচার জন্য আপনার প্রধান গন্তব্য! DomainHub-এ, আমরা ব্যক্তি, ব্যবসা, এবং স্বপ্নদর্শীদের সাথে তাদের অনলাইন উপস্থিতি বাড়াতে নিখুঁত ডোমেন নামগুলির সাথে সংযোগ করার বিষয়ে উত্সাহী। একটি নেতৃস্থানীয় ডোমেন বিক্রির প্ল্যাটফর্ম হিসাবে, আমরা একটি নিরবচ্ছিন্ন এবং নিরাপদ মার্কেটপ্লেস অফার করি যেখানে ক্রেতা এবং বিক্রেতারা একত্রিত হয়ে সম্ভাবনার বিশ্ব অন্বেষণ করে।",

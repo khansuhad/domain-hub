@@ -95,12 +95,9 @@ const MyCart = () => {
   console.log(totalPrice);
 
   const handleSsl = () => {
-    const priceForSsl = {
-      totalPrice,
-      email: user.email
-    }
-    console.log(priceForSsl);
-    axiosPublic.post("/order", priceForSsl)
+ 
+    
+    axiosPublic.post("/order", carts)
       .then(res => {
         window.location.replace(res.data.url);
         console.log(res.data);

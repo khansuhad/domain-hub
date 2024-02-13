@@ -70,7 +70,7 @@ const Notification = () => {
             }
           </div>
           {
-            notification.length <= 0 ? <div className="flex justify-center items-center  mt-40">
+            notification.length <= 0 ? <div className="flex w-[80%] mx-auto justify-center items-center  mt-40">
               <h1 className="text-sixthColor text-5xl  ">{t("noNotification")}</h1>
             </div> :
               <div>

@@ -8,6 +8,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import "./style.css";
 import { Pagination } from 'swiper/modules';
+import { Link } from "react-router-dom";
 // // import required modules
 // import SwiperCore, { Navigation } from 'swiper';
 // SwiperCore.use([Navigation]);
@@ -55,9 +56,9 @@ export const Review = () => {
             </SwiperSlide>
           ))}
         </Swiper>
-      {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-7xl mx-auto mt-20">
-     
-      </div> */}
+      <div className="flex justify-center mt-20">
+              <Link to="/reviews" className="bg-secondColor hover:bg-thirdColor btn border-none text-white">See All Review</Link>
+      </div>
     </div>
   );
 };

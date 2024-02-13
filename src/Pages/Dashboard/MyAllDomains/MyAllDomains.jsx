@@ -57,15 +57,11 @@ const MyAllDomains = () => {
                       refetch={refetch}
                     ></ReviewModal>
                   </th>
-
                   }
                   <th>
-                  <p className="text-sm"><StatusCountDown></StatusCountDown></p>
+                  <p className="text-sm"><StatusCountDown cart={trueCart}></StatusCountDown></p>
                   </th>
-
                 </tr>
-
-
               ))}
             </tbody>
             {/* foot */}

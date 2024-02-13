@@ -1,12 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Countdown from 'react-countdown';
+import useCart from '../../Hock/useCart';
 
 const Completionist = () => <button  className="btn btn-outline btn-sm text-white bg-thirdColor">Renew</button>;
 
-const StatusCountDown = () => {
-    // const date= 1707609600000
-  const renderer = ({ days,hours, minutes, seconds, completed }) => {
+const StatusCountDown = ({cart}) => {
+  const date= parseInt(cart?.purchaseDate) 
+  const time= parseInt(cart?.years)*365*24*60*60*1000
+  
+  console.log("date and time:",date,time);
+
+   
+  const renderer = ({days,hours, minutes, seconds, completed }) => {
     if (completed) {
       return <Completionist />;
     } else {
@@ -15,7 +21,7 @@ const StatusCountDown = () => {
   };
   return (
     <Countdown
-      date={Date.now() + 3600}
+      date={date + time}
       renderer={renderer}
     />
   );

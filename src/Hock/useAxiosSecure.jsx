@@ -8,6 +8,7 @@ const axiosSecure = axios.create({
   // baseURL: "https://domain-hub-server-side.vercel.app",
   withCredentials: true,
 });
+
 const useAxiosSecure = () => {
   const navigate = useNavigate();
   const { logoutUser } = UseAuth();

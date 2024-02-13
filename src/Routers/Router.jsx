@@ -21,13 +21,14 @@ import AllFreeTailApplication from "../Pages/Dashboard/AllFreeTailApplication/Al
 import AllReviews from "../Pages/Dashboard/AllReviews/AllReviews";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 import EditProfile from "../Pages/Dashboard/EditProfile/EditProfile";
-import { Review } from "../Pages/Review/Review";
+// import { Review } from "../Pages/Review/Review";
 import PrivateRoute from "./PrivateRoute";
 import MyCart from "../Pages/Dashboard/MyCart/MyCart";
 import Checkout from "../Pages/Dashboard/Checkout/Checkout";
 import CategoryDetails from "../Pages/Home/PriceByCategory/CategoryDetails";
 import Notification from "../Pages/Notification/Notification";
 import UnreadNotification from "../Pages/Notification/UnreadNotification/UnreadNotification";
+import MakePremiumCheckout from "../Pages/Dashboard/MakePremiumCheckout/MakePremiumCheckout";
 
 const Router = createBrowserRouter([
   {
@@ -49,10 +50,10 @@ const Router = createBrowserRouter([
         path: "/about",
         element: <About />,
       },
-      {
-        path: "/reviews",
-        element: <Review></Review>,
-      },
+      // {
+      //   path: "/reviews",
+      //   element: <Review></Review>,
+      // },
       {
         path: "/notifications",
         element: <Notification/>,
@@ -95,6 +96,14 @@ const Router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <Profile />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/dashboard/make-premium-checkout",
+        element: (
+          <PrivateRoute>
+            <MakePremiumCheckout />
           </PrivateRoute>
         ),
       },

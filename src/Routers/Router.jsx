@@ -29,6 +29,7 @@ import CategoryDetails from "../Pages/Home/PriceByCategory/CategoryDetails";
 import Notification from "../Pages/Notification/Notification";
 import UnreadNotification from "../Pages/Notification/UnreadNotification/UnreadNotification";
 import MakePremiumCheckout from "../Pages/Dashboard/MakePremiumCheckout/MakePremiumCheckout";
+import PriceByCategory from "../Pages/Home/PriceByCategory/PriceByCategory";
 
 const Router = createBrowserRouter([
   {
@@ -54,6 +55,11 @@ const Router = createBrowserRouter([
       //   path: "/reviews",
       //   element: <Review></Review>,
       // },
+      {
+
+        path:"/domainCategory",
+        element: <PriceByCategory></PriceByCategory>
+      },
       {
         path: "/notifications",
         element: <Notification/>,

@@ -17,11 +17,17 @@ i18n.use(initReactI18next).init({
         bannerSearchBtn: "Search",
         navTitle: "DomainHub",
         navHome: "Home",
+        navPricing: "Pricing",
         navAbout: "About us",
         navContact: "Contact",
         navReview: "Reviews",
         navDashboard: "Dashboard",
         navLogin:"Login",
+        navNotification:"Notifications",
+        notificationAll:"All",
+        notificationUnread:"Unread",
+        noNotification:"No Available Notifications",
+        deleteNotofocation:"Delete All",
         //about us
         aboutDes: "Explore Our Website",
         aboutH1: "Welcome to DomainHub – Your Premier Destination for Domain Buying and Selling!At DomainHub, we are passionate about connecting individuals, businesses, and visionaries with the perfect domain names to elevate their online presence. As a leading domain selling platform, we offer a seamless and secure marketplace where buyers and sellers come together to explore a world of possibilities.",
@@ -109,6 +115,11 @@ i18n.use(initReactI18next).init({
         categorySelect: "Select Category",
         showDetails: "Show Details",
 
+        //see details
+        domainAvailable:"Congrats! Your Domain is available.",
+        domainEnter:"Enter your domain name",
+        addToCart:"Add to cart",
+
         //offer and discounts
         discountTitle: "Special Offers and Discounts",
         discountDes: "Explore exclusive deals on domain hosting and selling at our website! Unlock special offers and discounts to elevate your online presence. Don't miss out on limited-time savings for powerful web solutions.",
@@ -170,11 +181,17 @@ i18n.use(initReactI18next).init({
         bannerSearchBtn: "অনুসন্ধান",
         navTitle: "ডোমেইন হাব",
         navHome: "বাড়ি",
+        navPricing: "মূল্য নির্ধারণ",
         navAbout: "আমাদের সম্পর্কে",
         navContact: "যোগাযোগ",
         navReview: "পর্যালোচনা",
         navDashboard: "ড্যাশবোর্ড",
         navLogin:"লগইন",
+        navNotification:"বিজ্ঞপ্তি",
+        notificationAll:"সব",
+        notificationUnread:"অপঠিত",
+        noNotification:"কোন বিজ্ঞপ্তি উপলব্ধ নেই",
+        deleteNotofocation:"মুছে ফেলুন",
         //about us
         aboutDes: "আমাদের ওয়েবসাইট অন্বেষণ",
         aboutH1: "DomainHub-এ স্বাগতম - ডোমেন কেনা-বেচার জন্য আপনার প্রধান গন্তব্য! DomainHub-এ, আমরা ব্যক্তি, ব্যবসা, এবং স্বপ্নদর্শীদের সাথে তাদের অনলাইন উপস্থিতি বাড়াতে নিখুঁত ডোমেন নামগুলির সাথে সংযোগ করার বিষয়ে উত্সাহী। একটি নেতৃস্থানীয় ডোমেন বিক্রির প্ল্যাটফর্ম হিসাবে, আমরা একটি নিরবচ্ছিন্ন এবং নিরাপদ মার্কেটপ্লেস অফার করি যেখানে ক্রেতা এবং বিক্রেতারা একত্রিত হয়ে সম্ভাবনার বিশ্ব অন্বেষণ করে।",
@@ -260,6 +277,11 @@ i18n.use(initReactI18next).init({
         category8: "প্রযুক্তি",
         categorySelect: "বিভাগ নির্বাচন করুন",
         showDetails: "বিস্তারিত দেখাও",
+
+         //see details
+         domainAvailable:"অভিনন্দন! আপনার ডোমেন উপলব্ধ",
+         domainEnter:"আপনার ডোমেইন নাম লিখুন",
+         addToCart:"কার্টে যোগ করুন",
 
         //discount
         discountTitle: "বিশেষ অফার এবং ডিসকাউন্ট",

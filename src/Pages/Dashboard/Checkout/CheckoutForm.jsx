@@ -26,6 +26,7 @@ const CheckoutForm = () => {
   const { user } = UseAuth();
   const email = user?.email;
   const navigate = useNavigate();
+  
 
   useEffect(() => {
     if (totalPrice > 0) {

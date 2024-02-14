@@ -150,7 +150,7 @@ const SearchingDomain = () => {
                 </div>
             </div>
              {/* Pagination */}
-             <ReactPaginate className='flex gap-5 text-white justify-center bg-firstColor pb-5'
+             <ReactPaginate className='flex gap-5 text-white justify-center bg-firstColor dark:bg-black pb-5'
                 previousLabel={"<<Previous"}
                 nextLabel={"Next>>"}
                 breakLabel={"..."}

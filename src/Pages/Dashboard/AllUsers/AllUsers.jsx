@@ -1,15 +1,52 @@
+import { useEffect, useState } from "react";
 import Loading from "../../../Component/Loading/Loading";
-import Container from "../../../Component/UI/Container";
 import Heading from "../../../Component/UI/Heading";
-import UseAllGetUser from "../../../Hock/UseAllGetUser";
 import AllUsersRow from "./AllUsersRow";
+import useAxiosSecure from "../../../Hock/useAxiosSecure";
 
 const AllUsers = () => {
-  const { info, isPendingInfo } = UseAllGetUser();
+  const [info, setTeams] = useState([]);
+  const [count, setCount] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [countLoading, setCountLoading] = useState(true);
+  const [itemPerPage, setItemPerPage] = useState(10);
+  const [currentPage, setCurrentPage] = useState(0);
+
+  const axiosSecure = useAxiosSecure();
+  useEffect(() => {
+    setLoading(true);
+    axiosSecure.get("/user-count").then((res) => {
+      setCount(res.data.count);
+      setCountLoading(false);
+    });
+    axiosSecure
+      .get(`/users?page=${currentPage}&size=${itemPerPage}`)
+      .then((res) => {
+        setTeams(res.data);
+        setLoading(false);
+      });
+  }, [axiosSecure, currentPage, itemPerPage]);
+  const numberOfPages = Math.ceil(count / itemPerPage);
+  const pages = [...Array(numberOfPages).keys()];
+  console.log(pages);
+  const handleItemParPageChange = (e) => {
+    setItemPerPage(Number(e.target.value));
+    setCurrentPage(0);
+  };
+  const handlePrevPage = () => {
+    if (currentPage > 0) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+  const handleNextPage = () => {
+    if (currentPage < pages.length - 1) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
   return (
     <>
-      {isPendingInfo ? (
-        <Loading/>
+      {loading || countLoading ? (
+        <Loading />
       ) : (
         <div>
           <div className="px-[5%] dark:text-sixthColor bg-firstColor dark:bg-slate-700 py-5">
@@ -36,6 +73,43 @@ const AllUsers = () => {
                   ))}
                 </tbody>
               </table>
+            </div>
+            <div className="flex flex-wrap justify-center items-center gap-2 my-10">
+              <button
+                onClick={handlePrevPage}
+                className={`bg-thirdColor w-fit hover:bg-fourthColor text-white  border-2 btn-sm rounded-sm`}
+              >
+                Prev
+              </button>
+              {pages?.map((page, i) => (
+                <button
+                  key={page}
+                  onClick={() => setCurrentPage(page)}
+                  className={`${
+                    currentPage === page
+                      ? "bg-thirdColor w-fit hover:bg-fourthColor text-white  border-2 btn-sm rounded-sm"
+                      : " w-fit bg-fourthColor hover:bg-thirdColor hover:text-firstColor  dark:text-fifthColor hover:dark:text-firstColor   btn-sm rounded-sm"
+                  }`}
+                >
+                  {++i}
+                </button>
+              ))}
+              <button
+                onClick={handleNextPage}
+                className={`bg-thirdColor w-fit hover:bg-fourthColor text-white  border-2 btn-sm rounded-sm`}
+              >
+                Next
+              </button>
+              <select
+                value={itemPerPage}
+                onChange={handleItemParPageChange}
+                className="select select-primary w-fit text-primary"
+              >
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="50">50</option>
+              </select>
             </div>
           </div>
         </div>

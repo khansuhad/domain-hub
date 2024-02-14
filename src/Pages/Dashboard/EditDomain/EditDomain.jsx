@@ -35,7 +35,7 @@ const EditDomain = () => {
                 <h3 className="text-center text-xl md:text-2xl font-bold  text-white">Update Domain</h3>
 
 
-                <form className="mt-10" onSubmit={handleUpdate}>
+                <form className="mt-10 text-black" onSubmit={handleUpdate}>
 
                     <div className="m-5 gap-5 justify-center">
                         <div className="form-control w-full ">

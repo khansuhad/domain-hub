@@ -9,31 +9,33 @@ import { MdOutlineReviews } from "react-icons/md";
 import CountUp from "react-countup";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import useAxiosPublic from "../../../Hock/useAxiosPublic";
 
 const SuccessShowcase = () => {
-  const [sellings, setSellings] = useState({})
-  const [reviews, setReviews] = useState({})
-  const [users, setUsers] = useState({})
+  const [sellings, setSellings] = useState([])
+  const [reviews, setReviews] = useState([])
+  const [users, setUsers] = useState([])
   const {t}=useTranslation()
-
+  const useAxios = useAxiosPublic();
 
   useEffect(() =>{
-    fetch("/successShowcaseReviews.json")
-    .then(res => res.json())
-    .then(data => {
+    useAxios.get("/reviewsLength")
+    .then(res => {
+      const data = res?.data ;
       setReviews(data)
     })
-    fetch("/successShowcaseUsers.json")
-    .then(res => res.json())
-    .then(data => {
+    useAxios.get("/usersLength")
+    .then(res => {
+      const data = res?.data;
       setUsers(data)
     })
-    fetch("/successShowcaseSellings.json")
-    .then(res => res.json())
-    .then(data => {
+    useAxios.get("/sellingsLength")
+    .then(res => {
+      const data = res?.data;
       setSellings(data)
     })
-  },[])
+
+  },[useAxios])
 
   return (
     <Container>
@@ -196,7 +198,7 @@ const SuccessShowcase = () => {
                   {t("totalSell")}
                 </div>
                 <div className="stat-value">
-               <CountUp end={sellings.topSellings}/>
+               <CountUp end={sellings.length}/>
                 </div>
               </div>
               <MdSell className="mt-6 text-xl" />
@@ -211,7 +213,7 @@ const SuccessShowcase = () => {
                 {t("totalUser")}
                 </div>
                 <div className="stat-value">
-                  <CountUp end={users.topUsers}/>
+                  <CountUp end={users.length}/>
                 </div>
               </div>
               <FaUserGroup className="mt-6 text-xl" />
@@ -226,7 +228,7 @@ const SuccessShowcase = () => {
                 {t("totalReview")}
                 </div>
                 <div className="stat-value">
-                  <CountUp end={reviews.topReviews} />
+                  <CountUp end={reviews.length} />
                 </div>
               </div>
               <MdOutlineReviews className="mt-6 text-xl" />

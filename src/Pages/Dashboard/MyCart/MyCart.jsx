@@ -4,14 +4,16 @@ import Swal from "sweetalert2";
 import useAxiosPublic from "../../../Hock/useAxiosPublic";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addPayment } from "../../../features/PaymentPrice/PaymentPrice";
 import { PiCurrencyDollarFill } from "react-icons/pi";
 import UseAuth from "../../../Hock/UseAuth";
 import { addCartItemSelectedTime } from "../../../features/cartItemSelectedTime/cartItemSelectedTime";
+import useAxiosSecure from "../../../Hock/useAxiosSecure";
 
 const MyCart = () => {
   const dispatch = useDispatch();
+  const cartItemSelectedTimeM = useSelector((state) => state.cartItemTime.cartItemSelectedTime);
   const [carts, loading, refetch] = useCart();
   const useAxios = useAxiosPublic();
   console.log(carts);
@@ -23,6 +25,7 @@ const MyCart = () => {
   console.log("DomainSelectTime", cartItemSelectedTime);
   // store cartItemSelectedTime in state of redux
   dispatch(addCartItemSelectedTime(cartItemSelectedTime));
+  const axiosSecure = useAxiosSecure();
 
 
 
@@ -123,6 +126,10 @@ const MyCart = () => {
       .then(res => {
         window.location.replace(res.data.url);
         console.log(res.data);
+        axiosSecure.put("/carts", cartItemSelectedTimeM).then((res) => {
+          console.log(res.data);
+        })
+
       })
       .catch(err => {
         console.log(err);

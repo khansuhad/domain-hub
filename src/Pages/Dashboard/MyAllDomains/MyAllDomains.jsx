@@ -1,4 +1,5 @@
 // import UseAuth from "../../../Hock/UseAuth";
+import StatusCountDown from "../../../Component/StatusCountDown/StatusCountDown";
 import useTruePayment from "../../../Hock/useTruePayment";
 import ReviewModal from "./reviewModal";
 
@@ -20,9 +21,9 @@ const MyAllDomains = () => {
               <tr className="text-2xl text-white">
                 <th>Domain</th>
                 <th>Domain name</th>
-                <th>Email</th>
                 <th>Price</th>
                 <th>Review</th>
+                <th>Status</th>
               </tr>
             </thead>
             <tbody>
@@ -38,12 +39,12 @@ const MyAllDomains = () => {
                   <td>
                     <h1>{trueCart?.name}</h1>
                   </td>
-                  <td>{trueCart?.email}</td>
-                  <th>
+                  <td>
                     <h1>{trueCart?.price}</h1>
-                  </th>
-                {  trueCart?.review == "true" ? <p className=
-                "ml-6 mt-2">Done</p> : <th>
+                  </td>
+
+                  {trueCart?.review == "true" ? <p className=
+                    "ml-6 mt-2">Done</p> : <th>
                     <label
                       htmlFor={index + 1}
                       className="btn btn-outline btn-sm text-white bg-secondColor "
@@ -55,9 +56,11 @@ const MyAllDomains = () => {
                       index={index}
                       refetch={refetch}
                     ></ReviewModal>
-                  </th> 
-            }
-                
+                  </th>
+                  }
+                  <th>
+                  <p className="text-sm"><StatusCountDown cart={trueCart}></StatusCountDown></p>
+                  </th>
                 </tr>
               ))}
             </tbody>

@@ -4,10 +4,10 @@ import BestHostingPlan from "./BestHostingPlan/BestHostingPlan";
 import FAQ from "./FAQ/FAQ";
 import FreeTrial from "./FreeTrial/FreeTrial";
 import OffersAndDiscounts from "./OffersAndDiscounts/OffersAndDiscounts";
-import PriceByCategory from "./PriceByCategory/PriceByCategory";
 import SuccessShowcase from "./SuccessShowcase/SuccessShowcase";
 import DomainTld from "../../Component/Shared/DomainTld/DomainTld";
 import Review from "./Review/Review";
+import XYZDomainAdvantage from "../../Component/Shared/XYZDomainAdvantage/XYZDomainAdvantage";
 
 const Home = () => {
     const data= useLoaderData()
@@ -19,9 +19,9 @@ const Home = () => {
             <FreeTrial/>
             <BestHostingPlan/>
             <FAQ/>
+            <XYZDomainAdvantage/>
             <SuccessShowcase/> 
             <Review/>        
-            <PriceByCategory data={data}/>
             {/* <Tutorial/> */}
             <OffersAndDiscounts/>
         </div>

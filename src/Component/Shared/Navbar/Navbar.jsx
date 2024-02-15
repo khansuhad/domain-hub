@@ -18,7 +18,7 @@ const Navbar = () => {
 // console.log("notifications",notification);
   const { i18n, t } = useTranslation()
   const [language, setLanguage] = useState("bn")
-  const [carts] = useCart();
+  const [carts, loading, refetch] = useCart();
 
 
   // import { useSelector } from "react-redux";
@@ -49,6 +49,9 @@ console.log("selected language in usestate", language);
     <>
       <li>
         <Link to="/">{t("navHome")}</Link>
+      </li>
+      <li>
+        <Link to="/domainCategory">{t("navPricing")}</Link>
       </li>
       <li>
         <Link to="/about">{t("navAbout")}</Link>

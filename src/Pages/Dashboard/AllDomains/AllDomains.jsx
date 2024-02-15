@@ -126,6 +126,7 @@ const AllDomains = () => {
 
                         </table>
                     </div>
+                    {/* paigination add */}
                     <div className="flex flex-wrap justify-center items-center gap-2 my-10">
                         <div
                             onClick={handlePrevPage}

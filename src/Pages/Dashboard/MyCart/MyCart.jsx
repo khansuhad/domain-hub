@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 import useAxiosPublic from "../../../Hock/useAxiosPublic";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addPayment } from "../../../features/PaymentPrice/PaymentPrice";
 import { PiCurrencyDollarFill } from "react-icons/pi";
 import UseAuth from "../../../Hock/UseAuth";
@@ -112,19 +112,26 @@ const MyCart = () => {
     });
   };
   console.log(totalPrice);
+  
+  // const cartItemSelectedTime = useSelector(
+  //   (state) => state.cartItemTime.cartItemSelectedTime
+  // );
 
   const handleSsl = () => {
- 
-    
-    axiosPublic.post("/order", carts)
+    const priceForSsl = {
+      totalPrice,
+      email: user.email,
+      
+    }
+    console.log(priceForSsl);
+    axiosPublic.post("/order", priceForSsl)
       .then(res => {
         window.location.replace(res.data.url);
         console.log(res.data);
       })
       .catch(err => {
         console.log(err);
-      })
-  }
+    })}
 
 
   return (

@@ -29,7 +29,7 @@ import CategoryDetails from "../Pages/Home/PriceByCategory/CategoryDetails";
 import Notification from "../Pages/Notification/Notification";
 import UnreadNotification from "../Pages/Notification/UnreadNotification/UnreadNotification";
 import MakePremiumCheckout from "../Pages/Dashboard/MakePremiumCheckout/MakePremiumCheckout";
-import Blog from "../Pages/Blog/Blog";
+
 
 const Router = createBrowserRouter([
   {
@@ -71,10 +71,7 @@ const Router = createBrowserRouter([
         path: "/domainDetails",
         element: <CategoryDetails></CategoryDetails>
       },
-      {
-        path: "/blog",
-        element: <Blog/>,
-      }
+     
     ],
   },
   {

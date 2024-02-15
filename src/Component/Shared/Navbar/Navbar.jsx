@@ -59,9 +59,6 @@ console.log("selected language in usestate", language);
       <li>
         <Link to="/contact">{t("navContact")}</Link>
       </li>
-      <li>
-        <Link to="/blog">{t("navBlog")}</Link>
-      </li>
       {/* <li>
         <Link to="reviews">{t("navReview")}</Link>
       </li> */}

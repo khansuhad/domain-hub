@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import useCart from "../../../Hock/useCart";
 import useAllSoldDomain from "../../../Hock/useAllSoldDomain";
 import { useTranslation } from "react-i18next";
-
+import { IoDiamond } from "react-icons/io5";
 const CategoryDetails = () => {
     const { t } = useTranslation()
     const [searchedDomain, setSearchedDomain] = useState("")
@@ -16,6 +16,7 @@ const CategoryDetails = () => {
     const navigate = useNavigate()
     const userInfo = useSelector((state) => state.user.currentUser);
     const domainDetails = useSelector((state) => state.domain.domain)
+    console.log(domainDetails.approve);
     const axiosSecure = useAxiosPublic()
     const [carts,loading, refetch]= useCart()
     const [alldomain] = useAllSoldDomain()
@@ -93,8 +94,13 @@ const CategoryDetails = () => {
                                 <p className="text-center py-4 text-xl font-semibold">{t("domainAvailable")}</p>
                                 <div className="relative flex justify-center w-full flex-col rounded-xl bg-fourthColor border-2 bg-clip-border p-2 text-white ">
                                     <div className="flex justify-between">
+                                        <>
                                         <p>{searchedDomain}</p>
-                                        <div className="flex gap-1 cursor-pointer" onClick={handleCart} > <span>{t("addToCart")} </span> <MdAddShoppingCart className="  text-2xl " /></div>
+                                        {domainDetails.approve?
+                                        <div className="flex gap-1 cursor-pointer"> <span>Claim</span> <IoDiamond className="  text-2xl " /></div>
+                                        :
+                                        <div className="flex gap-1 cursor-pointer" onClick={handleCart} > <span>{t("addToCart")} </span> <MdAddShoppingCart className="  text-2xl " /></div>}
+                                        </>
                                     </div>
                                 </div>
                             </div> : <div>

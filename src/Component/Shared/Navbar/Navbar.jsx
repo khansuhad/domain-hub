@@ -130,14 +130,14 @@ console.log("selected language in usestate", language);
           <div className="navbar-end">
             <div className="form-control w-24 mr-4  hidden lg:flex">
               <label className="cursor-pointer label">
-                <span className="label-text text-white">{language === "en" ? "বাংলা" : "English"}</span>
+                <span className="label-text text-white mr-2">{language === "en" ? "বাংলা" : "English"}</span>
                 <input type="checkbox" className="toggle toggle-primary"
                   checked={language === "bn"}
                   onChange={handleLanguageToggle}
                 />
               </label>
             </div>
-            <div>
+            <div className="ml-2">
               {mode === "light" ? (
                 <LuMoonStar
                   onClick={handleModeChange}
@@ -170,22 +170,6 @@ console.log("selected language in usestate", language);
                     <img src={user?.photoURL} alt={user?.displayName} />
                   </div>
                 </label>
-                {/* <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                  <li>
-                    <button className="btn btn-sm  btn-ghost text-black">{user?.displayName} </button>
-
-                  </li>
-                  <li>
-                    <div className="flex justify-center">
-                      <Link to='/dashboard/profile'><button className="btn btn-sm btn-ghost text-black">My Profile </button></Link>
-                    </div>
-
-                  </li>
-                  <li>
-                    <button onClick={handleLogOut} className="btn btn-sm  btn-ghost text-black">Logout</button>
-
-                  </li>
-                </ul> */}
               </Link>
             ) : (
               <Link to="/login">

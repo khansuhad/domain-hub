@@ -3,7 +3,7 @@
 
 import useSingleFreeTrialUser from "../../../Hock/useSingleFreeTrialUser";
 import { MdDelete } from "react-icons/md";
-
+import { IoDiamond } from "react-icons/io5";
 import useAxiosPublic from "../../../Hock/useAxiosPublic";
 import Swal from "sweetalert2";
 
@@ -70,6 +70,7 @@ const MyFreeTailApplication = () => {
                                     Domain
                                 </p>
                             </th>
+                           
                             <th className="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
                                 <p className="block font-sans text-sm lg:text-xl font-bold antialiased leading-none text-white opacity-70">
                                     Application
@@ -78,6 +79,11 @@ const MyFreeTailApplication = () => {
                             <th className="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
                                 <p className="block font-sans text-sm lg:text-xl font-bold antialiased leading-none text-white opacity-70">
                                     Delete
+                                </p>
+                            </th>
+                            <th className="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
+                                <p className="block font-sans text-sm lg:text-xl font-bold antialiased leading-none text-white opacity-70">
+                                    
                                 </p>
                             </th>
 
@@ -123,9 +129,17 @@ const MyFreeTailApplication = () => {
                                         }
                                        
                                     </td>
+                                 
                                     <td className="p-4 border-b border-blue-gray-50">
                                     <button onClick={()=>{handleDelete(users?.email)}} className="text-2xl text-red-500"><MdDelete></MdDelete></button>
                                     </td>
+
+                                    <td className="p-4 border-b border-blue-gray-50  items-center gap-3">
+                                        {users?.approve == "Accepted" && <p className="flex items-center gap-3 lg:w-[50%] cursor-pointer text-black text-center lg:text-xl lg:font-semibold bg-yellow-500 p-2 rounded-md  font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
+                                            Claim <IoDiamond></IoDiamond>
+                                        </p>}
+                                    </td>
+
 
                                 </tr>
 

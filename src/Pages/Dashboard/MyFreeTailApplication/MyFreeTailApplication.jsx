@@ -90,7 +90,7 @@ const MyFreeTailApplication = () => {
                             </th>
                             <th className="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
                                 <p className="block font-sans text-sm lg:text-xl font-bold antialiased leading-none text-white opacity-70">
-                                    Domain
+                                    TLD
                                 </p>
                             </th>
 
@@ -158,7 +158,7 @@ const MyFreeTailApplication = () => {
                                     </td>
 
                                     <td className="p-4 border-b border-blue-gray-50  items-center gap-3">
-                                        {users?.approve == "Accepted" && <p data-ripple-dark="true" onClick={() => { handleDetails(users?.domainName)}} className="flex items-center gap-3 lg:w-[50%] cursor-pointer text-black text-center lg:text-xl lg:font-semibold bg-yellow-500 p-2 rounded-md  font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
+                                        {users?.approve == "Accepted" && <p data-ripple-dark="true" onClick={() => { handleDetails(users?.domainName)}} className="flex items-center gap-3 lg:w-[50%] cursor-pointer text-black text-center lg:text-xl lg:font-semibold bg-secondColor p-2 rounded-md  font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
                                             Claim <IoDiamond></IoDiamond>
                                         </p>}
                                     </td>

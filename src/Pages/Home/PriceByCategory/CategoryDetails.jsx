@@ -9,6 +9,7 @@ import useCart from "../../../Hock/useCart";
 import useAllSoldDomain from "../../../Hock/useAllSoldDomain";
 import { useTranslation } from "react-i18next";
 import { IoDiamond } from "react-icons/io5";
+import UseAuth from "../../../Hock/UseAuth";
 const CategoryDetails = () => {
     const { t } = useTranslation()
     const [searchedDomain, setSearchedDomain] = useState("")
@@ -63,6 +64,22 @@ const CategoryDetails = () => {
             }
             )
     }
+
+    const {user} = UseAuth()
+
+    const handleClaimDomain = () => {
+        const updateData={
+            claimDomain: searchedDomain,
+            email: user?.email,
+        }
+        axiosSecure.patch("/freeTrialUsers",updateData)
+        .then(res=>{
+            console.log(res.data);
+        })
+        .catch(err=>{
+            console.log(err);
+        })
+    };
     return (
         <div className="bg-firstColor ">
             <div className="w-[95%] lg:w-[90%] mx-auto dark:text-white pt-32 ">
@@ -97,13 +114,14 @@ const CategoryDetails = () => {
                                         <>
                                         <p>{searchedDomain}</p>
                                         {domainDetails.approve?
-                                        <div className="flex gap-1 cursor-pointer"> <span>Claim</span> <IoDiamond className="  text-2xl " /></div>
+                                        <div onClick={handleClaimDomain} className="flex gap-1 cursor-pointer"> <span>Claim</span> <IoDiamond className="  text-2xl " /></div>
                                         :
-                                        <div className="flex gap-1 cursor-pointer" onClick={handleCart} > <span>{t("addToCart")} </span> <MdAddShoppingCart className="  text-2xl " /></div>}
+                                        <div className="flex gap-1 cursor-pointer" onClick={handleCart} > <span>{t("addToCart")} </span> <MdAddShoppingCart className="text-2xl " /></div>}
                                         </>
                                     </div>
                                 </div>
-                            </div> : <div>
+                            </div> : 
+                            <div>
                                 <p className="text-xl text-center pt-5 font-semibold text-red-600">{notAvailable}</p>
                             </div>}
                     </div>

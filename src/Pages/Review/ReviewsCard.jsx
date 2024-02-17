@@ -1,9 +1,9 @@
 import Rating from "react-rating";
 
 /* eslint-disable react/prop-types */
-const ReviewCard = ({ review }) => {
+const ReviewsCard = ({ review }) => {
   return (
-    <div className="card flex m-5 flex-col justify-center  h-96 w-96  bg-fourthColor shadow-xl   text-white p-3">
+    <div className="card flex m-5 flex-col justify-center h-96 bg-fourthColor shadow-xl   text-white p-2">
  <div className="flex flex-col gap-3 justify-center  items-center w-[50%] mx-auto mt-0" >
  <figure className="  w-20 h-20 rounded-full flex justify-center ">
         <img className="w-20 h-20  rounded-full" src={review?.userPhoto} />
@@ -118,4 +118,4 @@ const ReviewCard = ({ review }) => {
 </div>
   );
 };
-export default ReviewCard;
+export default ReviewsCard;

@@ -1,7 +1,6 @@
 // import React, { useEffect } from 'react';
 import { useTranslation } from "react-i18next";
 import Heading from "../../Component/UI/Heading";
-import { ReviewCard } from "./ReviewCard";
 import {  useLoaderData } from "react-router-dom";
 import useAxiosPublic from "../../Hock/useAxiosPublic";
 import { useEffect, useState } from "react";
@@ -12,6 +11,8 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import './style.css';
 import { Pagination, Navigation } from 'swiper/modules';
+import ReviewsCard from "./ReviewsCard";
+
 
 
 export const Review = () => {
@@ -42,7 +43,7 @@ const reviews = useLoaderData();
          
    {review?.map((review) => (
            
-           <ReviewCard  key={review.id} review={review}  />
+           <ReviewsCard  key={review.id} review={review}  />
          
        ))}
    </div>

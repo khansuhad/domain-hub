@@ -10,11 +10,11 @@ const About = () => {
             <div className="dark:bg-[#191919]">
                 
                     <AboutUs></AboutUs>
-                
+
+                    <WhyDomainHub></WhyDomainHub>
+
                     <OurMission></OurMission>
              
-                    <WhyDomainHub></WhyDomainHub>
-               
                     <OurTeam></OurTeam>
                
             </div>

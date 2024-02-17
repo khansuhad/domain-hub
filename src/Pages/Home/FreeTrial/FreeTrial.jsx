@@ -27,8 +27,8 @@ const FreeTrial = () => {
         console.log("Domain:", domainName);
 
         const FreeTrialApplyData = {
-            email: user.email,
-            userName: user.displayName,
+            email: user?.email,
+            userName: user?.displayName,
             domainName,
             approve: "Pending",
 

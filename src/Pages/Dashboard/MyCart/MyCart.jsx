@@ -125,12 +125,17 @@ const MyCart = () => {
     });
   };
   console.log(totalPrice);
+  
+  // const cartItemSelectedTime = useSelector(
+  //   (state) => state.cartItemTime.cartItemSelectedTime
+  // );
 
   const handleSsl = () => {
     const priceForSsl = {
       totalPrice,
       email: user.email,
-    };
+      
+    }
     console.log(priceForSsl);
     axiosPublic
       .post("/order", priceForSsl)
@@ -143,8 +148,8 @@ const MyCart = () => {
       })
       .catch((err) => {
         console.log(err);
-      });
-  };
+    })}
+
 
   return (
     <>

@@ -58,7 +58,7 @@ const MyFreeTailApplication = () => {
         console.log(filterDomain);
         const updatedFilterDomain = {
             ...filterDomain,
-            approve:true
+            approve: true
 
         };
 
@@ -68,7 +68,7 @@ const MyFreeTailApplication = () => {
     return (
         <>
             <div
-                className="overflow-x-auto p-5">
+                className="overflow-x-auto p-5 ">
                 <h2 className="text-2xl font-bold text-center text-white my-10">My Free Trial Application</h2>
                 <table className="w-full text-left  table-auto min-w-max border-2">
                     <thead className="bg-fourthColor rounded">
@@ -104,11 +104,20 @@ const MyFreeTailApplication = () => {
                                     Delete
                                 </p>
                             </th>
-                            <th className="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
-                                <p className="block font-sans text-sm lg:text-xl font-bold antialiased leading-none text-white opacity-70">
 
-                                </p>
-                            </th>
+                            {singleFreeTrialUser.map(item => <>
+                                {
+                                    item?.approve == "Accepted" ?
+                                        <th className="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
+                                            <p className="block font-sans text-sm lg:text-xl font-bold antialiased leading-none text-white opacity-70">
+                                                Your Domain
+                                            </p>
+                                        </th> :
+                                        ""
+                                }
+
+                            </>
+                            )}
 
                         </tr>
                     </thead>
@@ -157,11 +166,24 @@ const MyFreeTailApplication = () => {
                                         <button onClick={() => { handleDelete(users?.email) }} className="text-2xl text-red-500"><MdDelete></MdDelete></button>
                                     </td>
 
-                                    <td className="p-4 border-b border-blue-gray-50  items-center gap-3">
-                                        {users?.approve == "Accepted" && <p data-ripple-dark="true" onClick={() => { handleDetails(users?.domainName)}} className="flex items-center gap-3 lg:w-[50%] cursor-pointer text-black text-center lg:text-xl lg:font-semibold bg-secondColor p-2 rounded-md  font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
-                                            Claim <IoDiamond></IoDiamond>
-                                        </p>}
-                                    </td>
+
+
+                                    {users?.claimDomain ?
+                                        <td className="p-4 border-b border-blue-gray-50  items-center gap-3">
+                                            <p data-ripple-dark="true" className="flex items-center gap-3 lg:w-[50%] cursor-pointer text-black text-center lg:text-xl lg:font-semibold bg-secondColor p-2 rounded-md  font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
+                                                {users?.claimDomain}
+                                            </p>
+                                        </td>
+                                        :
+                                        <td className="p-4 border-b border-blue-gray-50  items-center gap-3">
+                                            {users?.approve == "Accepted" && <p data-ripple-dark="true" onClick={() => { handleDetails(users?.domainName) }} className="flex items-center gap-3 lg:w-[50%] cursor-pointer text-black text-center lg:text-xl lg:font-semibold bg-secondColor p-2 rounded-md  font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
+                                                Claim <IoDiamond></IoDiamond>
+                                            </p>}
+                                        </td>
+                                    }
+
+
+
 
 
                                 </tr>

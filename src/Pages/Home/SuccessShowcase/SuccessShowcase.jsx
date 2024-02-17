@@ -198,7 +198,7 @@ const SuccessShowcase = () => {
                   {t("totalSell")}
                 </div>
                 <div className="stat-value">
-               <CountUp end={sellings.length}/>
+               <CountUp end={sellings?.length}/>
                 </div>
               </div>
               <MdSell className="mt-6 text-xl" />
@@ -213,7 +213,7 @@ const SuccessShowcase = () => {
                 {t("totalUser")}
                 </div>
                 <div className="stat-value">
-                  <CountUp end={users.length}/>
+                  <CountUp end={users?.length}/>
                 </div>
               </div>
               <FaUserGroup className="mt-6 text-xl" />
@@ -228,7 +228,7 @@ const SuccessShowcase = () => {
                 {t("totalReview")}
                 </div>
                 <div className="stat-value">
-                  <CountUp end={reviews.length} />
+                  <CountUp end={reviews?.length} />
                 </div>
               </div>
               <MdOutlineReviews className="mt-6 text-xl" />

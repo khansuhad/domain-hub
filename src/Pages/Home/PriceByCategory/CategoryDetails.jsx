@@ -10,6 +10,7 @@ import useAllSoldDomain from "../../../Hock/useAllSoldDomain";
 import { useTranslation } from "react-i18next";
 import { IoDiamond } from "react-icons/io5";
 import UseAuth from "../../../Hock/UseAuth";
+import swal from "sweetalert";
 const CategoryDetails = () => {
     const { t } = useTranslation()
     const [searchedDomain, setSearchedDomain] = useState("")
@@ -75,6 +76,10 @@ const CategoryDetails = () => {
         axiosSecure.patch("/freeTrialUsers",updateData)
         .then(res=>{
             console.log(res.data);
+            if(res.data.modifiedCount > 0){
+                swal("Congratulation", "You Got Your domain", "success");
+                navigate("/dashboard/my-free-tail-application")
+            }
         })
         .catch(err=>{
             console.log(err);

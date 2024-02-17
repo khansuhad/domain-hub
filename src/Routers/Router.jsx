@@ -31,6 +31,7 @@ import MakePremiumCheckout from "../Pages/Dashboard/MakePremiumCheckout/MakePrem
 import PriceByCategory from "../Pages/Home/PriceByCategory/PriceByCategory";
 import Review from "../Pages/Review/Review";
 
+
 const Router = createBrowserRouter([
   {
     path: "/",
@@ -77,6 +78,7 @@ const Router = createBrowserRouter([
         path: "/domainDetails",
         element: <CategoryDetails></CategoryDetails>
       },
+     
     ],
   },
   {

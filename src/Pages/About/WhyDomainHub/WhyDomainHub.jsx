@@ -48,7 +48,7 @@ const WhyDomainHub = () => {
                     </div>
                 </div>
 
-                <h1 className="lg:text-2xl w-[95%] mx-auto text-sm border mt-10 border-yellow-500 rounded-full bg-yellow-500 lg:w-[700px]  p-2">{t("joinUs")}</h1>
+                <h1 className="lg:text-2xl lg:w-[1000px] text-center w-[95%] mx-auto text-sm border mt-10 border-yellow-500 rounded-full bg-yellow-500  p-5">{t("joinUs")}</h1>
 
             </section>
 

@@ -59,6 +59,9 @@ console.log("selected language in usestate", language);
       <li>
         <Link to="/contact">{t("navContact")}</Link>
       </li>
+      {/* <li>
+        <Link to="reviews">{t("navReview")}</Link>
+      </li> */}
       <li>
         <Link to="/dashboard/profile" onClick={()=>i18n.changeLanguage("en")}>{t("navDashboard")} </Link>
       </li>

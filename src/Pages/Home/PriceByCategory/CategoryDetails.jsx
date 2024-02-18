@@ -56,7 +56,7 @@ const CategoryDetails = () => {
                     console.log(res.data);
                     toast.success("Successfully Added to Cart!")
                     refetch()
-                    navigate("/")
+                    navigate("/dashboard/myCart")
                     
                 }
             }

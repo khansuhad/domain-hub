@@ -125,7 +125,7 @@ const MyCart = () => {
     });
   };
   console.log(totalPrice);
-  
+
   // const cartItemSelectedTime = useSelector(
   //   (state) => state.cartItemTime.cartItemSelectedTime
   // );
@@ -134,7 +134,7 @@ const MyCart = () => {
     const priceForSsl = {
       totalPrice,
       email: user.email,
-      
+
     }
     console.log(priceForSsl);
     axiosPublic
@@ -148,7 +148,8 @@ const MyCart = () => {
       })
       .catch((err) => {
         console.log(err);
-    })}
+      })
+  }
 
 
   return (
@@ -223,9 +224,9 @@ const MyCart = () => {
                         <td>
                           {selectedTimes[cartItem._id]
                             ? (
-                                parseFloat(cartItem.price) *
-                                selectedTimes[cartItem._id]
-                              ).toFixed(2)
+                              parseFloat(cartItem.price) *
+                              selectedTimes[cartItem._id]
+                            ).toFixed(2)
                             : "0.00"}{" "}
                           $
                         </td>
@@ -291,18 +292,16 @@ const MyCart = () => {
                   {isPremium ? (
                     <button
                       type="submit"
-                      className={` bg-secondColor  text-black  font-bold py-[13px] px-4 rounded-r-md ${
-                        !isPremium ? "" : `hover:text-white hover:bg-thirdColor`
-                      }`}
+                      className={` bg-secondColor  text-black  font-bold py-[13px] px-4 rounded-r-md ${!isPremium ? "" : `hover:text-white hover:bg-thirdColor`
+                        }`}
                     >
                       Apply
                     </button>
                   ) : (
                     <button
                       disabled
-                      className={` bg-secondColor  text-black  font-bold py-[13px] px-4 rounded-r-md ${
-                        !isPremium ? "" : `hover:text-white hover:bg-thirdColor`
-                      }`}
+                      className={` bg-secondColor  text-black  font-bold py-[13px] px-4 rounded-r-md ${!isPremium ? "" : `hover:text-white hover:bg-thirdColor`
+                        }`}
                     >
                       Apply
                     </button>
@@ -342,9 +341,9 @@ const MyCart = () => {
                     {isNaN(totalPrice) || isNaN(discountPercentage)
                       ? "0.00"
                       : (
-                          parseFloat(totalPrice) *
-                          (discountPercentage / 100)
-                        ).toFixed(2)}{" "}
+                        parseFloat(totalPrice) *
+                        (discountPercentage / 100)
+                      ).toFixed(2)}{" "}
                     $
                   </p>
                 </div>
@@ -355,9 +354,9 @@ const MyCart = () => {
                     {" "}
                     {!isNaN(totalPrice) && !isNaN(discountPercentage)
                       ? (
-                          parseFloat(totalPrice) -
-                          totalPrice * (discountPercentage / 100)
-                        ).toFixed(2)
+                        parseFloat(totalPrice) -
+                        totalPrice * (discountPercentage / 100)
+                      ).toFixed(2)
                       : "0.00"}{" "}
                     $
                   </p>
@@ -372,7 +371,7 @@ const MyCart = () => {
                   Make purchase
                 </button>
                 <dialog id="my_modal_3" className="modal">
-                  <div className="modal-box ">
+                  <div className="modal-box bg-blue-200">
                     <form method="dialog" className="my-10">
                       {totalPrice < 100 ? (
                         <>
@@ -382,27 +381,41 @@ const MyCart = () => {
                             </p>
                             <PiCurrencyDollarFill className="text-xl text-red-600" />
                           </div>
-                          <button
-                            disabled
-                            className="btn btn-block bg-secondColor hover:bg-thirdColor text-white text-xl mr-5 mt-2"
-                          >
-                            Pay with stipe
-                          </button>
+                          <div>
+                            <button
+                              disabled
+                              className="btn btn-block bg-secondColor hover:bg-thirdColor text-white text-xl mr-5 mt-2"
+                            >
+                              Pay with stipe
+                            </button>
+                          </div>
                         </>
                       ) : (
                         <>
-                          <Link
-                            to={"/dashboard/checkout"}
-                            className="btn uppercase btn-block bg-secondColor hover:bg-thirdColor text-black hover:text-white text-xl mr-5 mt-2"
-                          >
-                            Pay with stipe
-                          </Link>
-                          <button
-                            onClick={handleSsl}
-                            className="btn uppercase btn-block text-xl btn-accent my-10"
-                          >
-                            Pay With another
-                          </button>
+                          <div className="flex md:flex-row flex-col items-center gap-5">
+                            <div>
+                              <img className="h-[100px] w-[200px] mx-auto" src="https://ph-files.imgix.net/e4a4c183-dc15-4f46-9193-f80758fb3d90.png?auto=format&auto=compress&codec=mozjpeg&cs=strip&w=676&h=380&fit=max&dpr=3" alt="" />
+
+                              <Link
+                                to={"/dashboard/checkout"}
+                                className="btn uppercase btn-block bg-secondColor hover:bg-thirdColor text-black hover:text-white text-lg mr-5 mt-2"
+                              >
+                                Pay with stipe
+                              </Link>
+
+                            </div>
+
+                            <div>
+
+                              <img className="h-[100px] w-[200px] mx-auto" src="https://th.bing.com/th/id/R.8cafcc57d908bf15ecd0a48ef1923bed?rik=FSNyKh%2fagJ10IQ&pid=ImgRaw&r=0" alt="" />
+                              <button
+                                onClick={handleSsl}
+                                className="btn uppercase btn-block bg-purple-500 hover:bg-thirdColor text-black hover:text-white text-lg mr-5 mt-2"
+                              >
+                                Pay With another
+                              </button>
+                            </div>
+                          </div>
                         </>
                       )}
 

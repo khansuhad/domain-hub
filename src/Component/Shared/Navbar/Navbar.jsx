@@ -14,8 +14,8 @@ import useUnreadNotifications from "../../../Hock/useUnreadNotification";
 
 // import { useSelector } from "react-redux";
 const Navbar = () => {
-  const [notificationLength , setNotificationLength] = useState(0)
-// console.log("notifications",notification);
+  const [notificationLength, setNotificationLength] = useState(0)
+  // console.log("notifications",notification);
   const { i18n, t } = useTranslation()
   const [language, setLanguage] = useState("bn")
   const [carts, loading, refetch] = useCart();
@@ -28,23 +28,23 @@ const Navbar = () => {
   const { user } = UseAuth();
   const dispatch = useDispatch()
 
-  useEffect(() =>{
+  useEffect(() => {
     console.log(notification.length);
-      const length = notification.length ;
-      setNotificationLength(length)
-      
-  },[notification.length])
-const handleNotification = () => {
-      const length = 0 ;
-      setNotificationLength(length)
-}
-const handleLanguageToggle = () => {
+    const length = notification.length;
+    setNotificationLength(length)
 
-  setLanguage(prevLanguage => (prevLanguage === "en" ? "bn" : "en"));
-  dispatch(changeLanguage(language))
-  i18n.changeLanguage(language)
-};
-console.log("selected language in usestate", language);
+  }, [notification.length])
+  const handleNotification = () => {
+    const length = 0;
+    setNotificationLength(length)
+  }
+  const handleLanguageToggle = () => {
+
+    setLanguage(prevLanguage => (prevLanguage === "en" ? "bn" : "en"));
+    dispatch(changeLanguage(language))
+    i18n.changeLanguage(language)
+  };
+  console.log("selected language in usestate", language);
   const navLink = (
     <>
       <li>
@@ -63,18 +63,18 @@ console.log("selected language in usestate", language);
         <Link to="reviews">{t("navReview")}</Link>
       </li> */}
       <li>
-        <Link to="/dashboard/profile" onClick={()=>i18n.changeLanguage("en")}>{t("navDashboard")} </Link>
+        <Link to="/dashboard/profile" onClick={() => i18n.changeLanguage("en")}>{t("navDashboard")} </Link>
       </li>
       <li className="form-control w-24  text-left   lg:hidden">
-              <label className="cursor-pointer label">
-                <span className="label-text text-black">{language === "en" ? "বাংলা" : "English"}</span>
-                <input type="checkbox" className="toggle toggle-primary"
-                  checked={language === "bn"}
-                  onChange={handleLanguageToggle}
-                />
-              </label>
-            </li>
-      <li>
+        <label className="cursor-pointer label">
+          <span className="label-text text-black">{language === "en" ? "বাংলা" : "English"}</span>
+          <input type="checkbox" className="toggle toggle-primary"
+            checked={language === "bn"}
+            onChange={handleLanguageToggle}
+          />
+        </label>
+      </li>
+      <li className="hidden lg:flex">
         <Link to="/dashboard/myCart"><button className="flex justify-center items-center">
           <FaShoppingCart className="mr-2"></FaShoppingCart>
           <div className="badge badge-primary">+{carts.length} </div>
@@ -137,6 +137,15 @@ console.log("selected language in usestate", language);
                 />
               </label>
             </div>
+
+            {/* cart icon for mobile */}
+            <div className=" md:flex lg:hidden">
+              <Link to="/dashboard/myCart"><button className="flex justify-center items-center">
+                <FaShoppingCart className="mr-2"></FaShoppingCart>
+                <div className="badge badge-primary">+{carts.length} </div>
+              </button></Link>
+            </div>
+
             <div className="ml-2">
               {mode === "light" ? (
                 <LuMoonStar
@@ -152,17 +161,18 @@ console.log("selected language in usestate", language);
                 />
               )}
             </div>
+
             {/* notification icon */}
             <Link to='/unreadnotifications' className="btn btn-ghost btn-circle">
-      <div className="indicator" onClick={handleNotification}>
-      <IoIosNotifications className="text-3xl cursor-pointer" />
-      { notificationLength > 0 && <span className="badge badge-xs badge-primary indicator-item">{notificationLength}</span> }  
-      {/* <span className="badge badge-xs badge-primary indicator-item">{notification.length}</span> */}
-      </div>
-    </Link>
-         
-    
-           
+              <div className="indicator" onClick={handleNotification}>
+                <IoIosNotifications className="text-3xl cursor-pointer" />
+                {notificationLength > 0 && <span className="badge badge-xs badge-primary indicator-item">{notificationLength}</span>}
+                {/* <span className="badge badge-xs badge-primary indicator-item">{notification.length}</span> */}
+              </div>
+            </Link>
+
+
+
             {user?.email ? (
               <Link to="/dashboard/profile" className="dropdown dropdown-end">
                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">

@@ -2,8 +2,9 @@ import Rating from "react-rating";
 
 /* eslint-disable react/prop-types */
 const ReviewCard = ({ review }) => {
+  console.log(review);
   return (
-    <div className="card flex m-5 flex-col justify-center  h-96 w-96  bg-fourthColor shadow-xl   text-white p-3">
+    <div data-aos="zoom-in-left" className="card flex m-5 flex-col justify-center  h-96 w-96  bg-fourthColor shadow-xl   text-white p-3">
  <div className="flex flex-col gap-3 justify-center  items-center w-[50%] mx-auto mt-0" >
  <figure className="  w-20 h-20 rounded-full flex justify-center ">
         <img className="w-20 h-20  rounded-full" src={review?.userPhoto} />
@@ -42,7 +43,7 @@ const ReviewCard = ({ review }) => {
                         />
                         </svg>
                     }
-                    initialRating={3}
+                    initialRating={review?.rating}
                     readonly
                 />
  </div>
@@ -52,8 +53,8 @@ const ReviewCard = ({ review }) => {
       <p className="text-start"><span className=" font-bold"> Domain Name : </span>    {review?.domainName}</p>
         <p className="h-[50px] text-start mt-1 text-base"><span className="font-bold"> Review : </span>{review?.feedback.slice(0,80)}{ review?.feedback.length > 80 && <span className="text-base ml-3">...{/* Open the modal using document.getElementById('ID').showModal() method */}
 <a className="underline cursor-pointer italic" onClick={()=>document.getElementById(`${review?._id}`).showModal()}>Read More</a>
-<dialog id={`${review?._id}`} className="modal">
-  <div className="modal-box bg-fourthColor">
+<dialog id={`${review?._id}`}  className="modal">
+  <div className="modal-box bg-fourthColor" >
   <div className="card flex m-5 flex-col justify-center   bg-fourthColor    text-white px-3">
  <div className="flex flex-col gap-3 justify-center items-center w-[50%] mx-auto" >
  <figure className="  w-20 h-20 rounded-full flex justify-center">
@@ -93,7 +94,7 @@ const ReviewCard = ({ review }) => {
                         />
                         </svg>
                     }
-                    initialRating={3}
+                    initialRating={review?.rating}
                     readonly
                 />
  </div>

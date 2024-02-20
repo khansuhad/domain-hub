@@ -27,7 +27,7 @@ const SearchingDomain = () => {
   const [count, setCount] = useState(null);
   const [load, setLoad] = useState(true);
   const [countLoading, setCountLoading] = useState(true);
-  const [itemPerPage, setItemPerPage] = useState(10);
+  const [itemPerPage, setItemPerPage] = useState(20);
   console.log(itemPerPage);
   const [currentPage, setCurrentPage] = useState(0);
   console.log(currentPage);

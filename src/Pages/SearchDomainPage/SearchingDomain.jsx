@@ -8,12 +8,13 @@ import Swal from "sweetalert2";
 import LiveChat from "../../Component/Shared/liveChat section/LiveChat";
 import useAxiosSecure from "../../Hock/useAxiosSecure";
 import Loading from "../../Component/Loading/Loading";
+import swal from "sweetalert";
 
 const SearchingDomain = () => {
   const searchValue = useSelector((state) => state.domain.domain);
   const userInfo = useSelector((state) => state.user.currentUser);
   console.log(userInfo.email);
-  const [carts, refetch] = useCart();
+  const [carts, loading, refetch] = useCart();
   const useAxios = useAxiosPublic();
   console.log(carts);
 
@@ -24,7 +25,7 @@ const SearchingDomain = () => {
   const [info, setTeams] = useState([]);
   console.log(info);
   const [count, setCount] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [load, setLoad] = useState(true);
   const [countLoading, setCountLoading] = useState(true);
   const [itemPerPage, setItemPerPage] = useState(10);
   console.log(itemPerPage);
@@ -33,7 +34,7 @@ const SearchingDomain = () => {
 
   const axiosSecure = useAxiosSecure();
   useEffect(() => {
-    setLoading(true);
+    setLoad(true);
     axiosSecure.get("/domain-count").then((res) => {
       setCount(res.data.count);
       setCountLoading(false);
@@ -42,7 +43,7 @@ const SearchingDomain = () => {
       .get(`/domain?page=${currentPage}&size=${itemPerPage}`)
       .then((res) => {
         setTeams(res.data);
-        setLoading(false);
+        setLoad(false);
       });
   }, [axiosSecure, currentPage, itemPerPage]);
   const numberOfPages = Math.ceil(count / itemPerPage);
@@ -76,13 +77,22 @@ const SearchingDomain = () => {
 
 
   const addToCart = async (domainItem) => {
+    refetch()
     const domainName = searchTerm.concat(domainItem?.name);
+    console.log(domainName);
     // Check if the domain is already in the cart
-    const isDomainInCart = carts?.some(
-      (cartItem) => cartItem.name === domainName
-    );
+    const isDomainInCart = carts?.some((cartItem) => cartItem.name === domainName);
+    console.log(!isDomainInCart);
+    if(isDomainInCart){
+      Swal.fire({
+        title: "Wrong!",
+        text: "Already Added Cart",
+        icon: "error",
+        confirmButtonText: "Close",
+      });
+      // swal("Oops!", "Already Added Cart!", "error");
+    }
     // console.log(domain);
-    // jhdcbjhd
     if (!isDomainInCart) {
       const cartItem = {
         name: domainName,
@@ -108,7 +118,7 @@ const SearchingDomain = () => {
   };
   return (
     <>
-      {loading || countLoading ? (
+      {load || countLoading ||loading ? (
         <Loading />
       ) : (
         <div>
@@ -205,10 +215,10 @@ const SearchingDomain = () => {
             </div>
           </div>
           {/* paigination add */}
-          <div className="flex flex-wrap justify-center items-center gap-2 my-10">
+          <div className="flex flex-wrap justify-center items-center gap-2 py-10 bg-firstColor dark:bg-black">
             <div
               onClick={handlePrevPage}
-              className={`bg-thirdColor w-fit hover:bg-fourthColor text-white flex justify-center items-center border-2 btn-sm rounded-sm`}
+              className={`bg-thirdColor w-fit hover:bg-fourthColor text-white  flex justify-center items-center border-2 btn-sm rounded-sm`}
             >
 
               Prev
@@ -219,8 +229,8 @@ const SearchingDomain = () => {
                 key={page}
                 onClick={() => setCurrentPage(page)}
                 className={`${currentPage === page
-                  ? "bg-thirdColor w-fit hover:bg-fourthColor text-white border-2 btn-sm rounded-sm"
-                  : " w-fit bg-fourthColor hover:bg-thirdColor hover:text-firstColor text-white dark:text-fifthColor hover:dark:text-firstColor  btn-sm rounded-sm"
+                  ? "bg-thirdColor w-fit hover:bg-fourthColor text-white border-2 btn-sm  rounded-sm"
+                  : " w-fit bg-fourthColor hover:bg-thirdColor hover:text-firstColor text-white dark:text-white hover:dark:text-firstColor  btn-sm rounded-sm"
                   }`}
               >
                 {++i}

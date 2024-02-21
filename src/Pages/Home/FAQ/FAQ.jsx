@@ -66,8 +66,8 @@ const FAQ = () => {
                                             <span className="text-xl">{activeIndex === index ? <IoIosArrowUp /> : <IoIosArrowDown />}</span>
                                         </div>
                                         {activeIndex === index && (
-                                            <div className="p-6">
-                                                <p className="text-gray-700">{item.answer}</p>
+                                            <div className="p-6 bg-fifthColor border-b-2">
+                                                <p className="text-white ">{item.answer}</p>
                                             </div>
                                         )}
                                     </div>

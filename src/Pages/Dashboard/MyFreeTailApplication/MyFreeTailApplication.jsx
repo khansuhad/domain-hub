@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { domainDetails } from "../../../features/domain/domainSlice";
 import useDomain from "../../../Hock/useDomain";
+import FreeTrialCountDown from "../../../Component/StatusCountDown/FreeTrialCountDown";
 
 
 const MyFreeTailApplication = () => {
@@ -51,11 +52,7 @@ const MyFreeTailApplication = () => {
                                     Name
                                 </p>
                             </th>
-                            <th className="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
-                                <p className="block font-sans text-sm lg:text-xl font-bold antialiased leading-none text-white opacity-70">
-                                    Email
-                                </p>
-                            </th>
+
                             <th className="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
                                 <p className="block font-sans text-sm lg:text-xl font-bold antialiased leading-none text-white opacity-70">
                                     TLD
@@ -72,11 +69,18 @@ const MyFreeTailApplication = () => {
                             {singleFreeTrialUser.map(item => <>
                                 {
                                     item?.approve == "Accepted" ?
-                                        <th className="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
+                                    <>
+                                    <th className="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
                                             <p className="block font-sans text-sm lg:text-xl font-bold antialiased leading-none text-white opacity-70">
                                                 Your Domain
                                             </p>
-                                        </th> :
+                                        </th>
+                                    <th className="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
+                                            <p className="block font-sans text-sm lg:text-xl font-bold antialiased leading-none text-white opacity-70">
+                                                Status
+                                            </p>
+                                        </th>
+                                    </> :
                                         ""
                                 }
 
@@ -99,11 +103,7 @@ const MyFreeTailApplication = () => {
                                             {users.userName}
                                         </p>
                                     </td>
-                                    <td className="p-4 ">
-                                        <p className="block font-sans text-sm lg:text-xl  antialiased font-normal leading-normal text-blue-gray-900">
-                                            {users?.email}
-                                        </p>
-                                    </td>
+                                    
                                     <td className="p-4 ">
                                         <p className="block font-sans text-sm lg:text-xl  antialiased font-normal leading-normal text-blue-gray-900">
                                             {users?.domainName}
@@ -127,11 +127,18 @@ const MyFreeTailApplication = () => {
                                     </td>
 
                                     {users?.claimDomain ?
+                                        <>
                                         <td className="p-4 border-b border-blue-gray-50  items-center gap-3">
                                             <p data-ripple-dark="true" className="flex items-center gap-3 lg:w-[50%] cursor-pointer text-black text-center lg:text-xl lg:font-semibold bg-secondColor p-2 rounded-sm   font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
                                                 {users?.claimDomain}
                                             </p>
                                         </td>
+                                        <td className="p-4 border-b border-blue-gray-50  items-center gap-3">
+                                            <p data-ripple-dark="true" className="flex items-center gap-3 cursor-pointer text-black text-center lg:text-xl lg:font-semibold bg-secondColor p-2 rounded-sm   font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
+                                            <FreeTrialCountDown trialDate={users?.claimDate}></FreeTrialCountDown>                                      
+                                            </p>
+                                        </td>
+                                        </>
                                         :
                                         <td className="p-4 border-b border-blue-gray-50  items-center gap-3">
                                             {users?.approve == "Accepted" && <p data-ripple-dark="true" onClick={() => { handleDetails(users?.domainName) }} className="flex items-center gap-3 lg:w-[50%] cursor-pointer text-black text-center lg:text-xl lg:font-semibold bg-secondColor p-2 rounded-sm hover:bg-thirdColor  font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">

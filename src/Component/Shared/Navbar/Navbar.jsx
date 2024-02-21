@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { IoIosNotifications } from "react-icons/io";
 import useTheme from "../../../Hock/useTheme";
 import { FiSun } from "react-icons/fi";
@@ -13,6 +13,7 @@ import { useEffect, useState } from "react";
 import useUnreadNotifications from "../../../Hock/useUnreadNotification";
 import useAdmin from "../../../Hock/useAdmin";
 
+import "./active.css";
 // import { useSelector } from "react-redux";
 const Navbar = () => {
   const [isAdmin] = useAdmin();
@@ -50,17 +51,27 @@ const Navbar = () => {
   console.log("selected language in usestate", language);
   const navLink = (
     <>
+
+
       <li>
-        <Link to="/">{t("navHome")}</Link>
+        <NavLink to="/"    className={({ isActive, isPending }) =>
+          isPending ? "pending" : isActive ? "abc" : "text-white"
+        }>{t("navHome")}</NavLink>
       </li>
       <li>
-        <Link to="/domainCategory">{t("navPricing")}</Link>
+        <NavLink to="/domainCategory"    className={({ isActive, isPending }) =>
+          isPending ? "pending" : isActive ? "abc" : "text-white"
+        }>{t("navPricing")}</NavLink>
       </li>
       <li>
-        <Link to="/about">{t("navAbout")}</Link>
+        <NavLink to="/about"    className={({ isActive, isPending }) =>
+          isPending ? "pending" : isActive ? "abc" : "text-white"
+        }>{t("navAbout")}</NavLink>
       </li>
       <li>
-        <Link to="/contact">{t("navContact")}</Link>
+        <NavLink to="/contact"    className={({ isActive, isPending }) =>
+          isPending ? "pending" : isActive ? "abc" : "text-white"
+        }>{t("navContact")}</NavLink>
       </li>
       {/* <li>
         <Link to="reviews">{t("navReview")}</Link>

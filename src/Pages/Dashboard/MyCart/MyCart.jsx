@@ -160,7 +160,7 @@ const MyCart = () => {
         <div className="rounded-lg text-white dark:bg-black min-h-screen bg-firstColor ">
           <div className="flex justify-between bg-gradient-to-tr from-[#13104e] to-[#0193e1] ">
             <div className="flex flex-col justify-center w-3/4 items-center">
-              <p className="text-2xl w-full font-bold text-center text-white dark:text-white my-10">
+              <p className="text-2xl md:text-4xl lg:text-5xl w-full font-bold text-center text-white dark:text-white my-10">
                 My Cart
               </p>
               <div className="flex gap-2">

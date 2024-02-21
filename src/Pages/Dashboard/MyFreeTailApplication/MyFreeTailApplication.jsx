@@ -129,7 +129,7 @@ const MyFreeTailApplication = () => {
                                     {users?.claimDomain ?
                                         <>
                                         <td className="p-4 border-b border-blue-gray-50  items-center gap-3">
-                                            <p data-ripple-dark="true" className="flex items-center gap-3 lg:w-[50%] cursor-pointer text-black text-center lg:text-xl lg:font-semibold bg-secondColor p-2 rounded-sm   font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
+                                            <p data-ripple-dark="true" className="flex items-center gap-3 cursor-pointer text-black text-center lg:text-xl lg:font-semibold bg-secondColor p-2 rounded-sm   font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
                                                 {users?.claimDomain}
                                             </p>
                                         </td>

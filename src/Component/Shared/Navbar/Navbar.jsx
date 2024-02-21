@@ -11,9 +11,12 @@ import { changeLanguage } from "../../../features/language/languageSlice";
 import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
 import useUnreadNotifications from "../../../Hock/useUnreadNotification";
+import useAdmin from "../../../Hock/useAdmin";
 
 // import { useSelector } from "react-redux";
 const Navbar = () => {
+  const [isAdmin] = useAdmin();
+  console.log(isAdmin);
   const [notificationLength, setNotificationLength] = useState(0)
   // console.log("notifications",notification);
   const { i18n, t } = useTranslation()
@@ -74,12 +77,12 @@ const Navbar = () => {
           />
         </label>
       </li>
-      <li className="hidden lg:flex">
+      {!isAdmin? (<li className="hidden lg:flex">
         <Link to="/dashboard/myCart"><button className="flex justify-center items-center">
           <FaShoppingCart className="mr-2"></FaShoppingCart>
           <div className="badge badge-primary">+{carts.length} </div>
         </button></Link>
-      </li>
+      </li>):""}
     </>
   );
 
@@ -138,13 +141,13 @@ const Navbar = () => {
               </label>
             </div>
 
-            {/* cart icon for mobile */}
-            <div className=" md:flex lg:hidden">
+            {/* cart icon for mobile and tablet */}
+            {!isAdmin?(<div className=" md:flex lg:hidden">
               <Link to="/dashboard/myCart"><button className="flex justify-center items-center">
                 <FaShoppingCart className="mr-2"></FaShoppingCart>
                 <div className="badge badge-primary">+{carts.length} </div>
               </button></Link>
-            </div>
+            </div>):""}
 
             <div className="ml-2">
               {mode === "light" ? (

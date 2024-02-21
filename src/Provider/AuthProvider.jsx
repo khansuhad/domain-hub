@@ -99,11 +99,11 @@ const AuthProvider = ({ children }) => {
 
       // store userInfo in state of redux/Abu bakar
       const userInfo = {
-        displayName: currentUser.displayName,
-        email: currentUser.email,
-        photoURL: currentUser.photoURL,
-        phoneNumber: currentUser.phoneNumber,
-        accessToken: currentUser.accessToken,
+        displayName: currentUser?.displayName,
+        email: currentUser?.email,
+        photoURL: currentUser?.photoURL,
+        phoneNumber: currentUser?.phoneNumber,
+        accessToken: currentUser?.accessToken,
       }
       dispatch(addUser(userInfo));
       // store userInfo in state of redux/Abu bakar
@@ -111,7 +111,7 @@ const AuthProvider = ({ children }) => {
     return () => {
       unSubscribe();
     };
-  }, [user?.email]);
+  }, [user?.email,dispatch]);
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
   );

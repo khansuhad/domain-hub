@@ -6,13 +6,15 @@ import "./style.css";
 // import required modules
 import { Pagination } from 'swiper/modules';
 import Heading from '../../UI/Heading';
+import { useTranslation } from 'react-i18next';
 
 const DomainTld = () => {
+    const { t } = useTranslation()
     return (
         <>
             <div className='container mx-auto my-10'>
                 <div className=" mx-auto text-center md:w-4/12 my-8">
-                    <Heading>Domain TLD</Heading>
+                    <Heading>{t("TldTitle")}</Heading>
 
                 </div>
                 <Swiper

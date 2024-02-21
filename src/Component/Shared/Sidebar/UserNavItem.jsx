@@ -1,7 +1,9 @@
 import { NavLink } from "react-router-dom";
 import { FaCartArrowDown } from "react-icons/fa";
 import "./active.css"
+import { useTranslation } from "react-i18next";
 const UserNavItem = () => {
+  const {t}=useTranslation()
   return (
     <>
       <li>
@@ -11,7 +13,7 @@ const UserNavItem = () => {
           isPending ? "pending" : isActive ? "abc" : "text-white"
         }
         >
-          <FaCartArrowDown />My Cart
+          <FaCartArrowDown />{t("myCartNav")}
         </NavLink>
       </li>
       <li>
@@ -21,7 +23,7 @@ const UserNavItem = () => {
           isPending ? "pending" : isActive ? "abc" : "text-white"
         }
         >
-          My Free Tail Application
+          {t("freeTrialNav")}
         </NavLink>
       </li>
 
@@ -32,7 +34,7 @@ const UserNavItem = () => {
           isPending ? "pending" : isActive ? "abc" : "text-white"
         }
         >
-          My All Domains
+          {t("myDomainNav")}
         </NavLink>
       </li>
       <li>
@@ -42,7 +44,7 @@ const UserNavItem = () => {
           isPending ? "pending" : isActive ? "abc" : "text-white"
         }
         >
-          My All Review
+          {t("myReviewNav")}
         </NavLink>
       </li>
       <li>
@@ -52,7 +54,7 @@ const UserNavItem = () => {
           isPending ? "pending" : isActive ? "abc" : "text-white"
         }
         >
-          Support
+         {t("supportNav")}
         </NavLink>
       </li>
     </>

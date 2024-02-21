@@ -8,51 +8,55 @@ import { FaUserGroup } from "react-icons/fa6";
 import { MdOutlineReviews } from "react-icons/md";
 import CountUp from "react-countup";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
+import useAxiosPublic from "../../../Hock/useAxiosPublic";
 
 const SuccessShowcase = () => {
-  const [sellings, setSellings] = useState({})
-  const [reviews, setReviews] = useState({})
-  const [users, setUsers] = useState({})
+  const [sellings, setSellings] = useState([])
+  const [reviews, setReviews] = useState([])
+  const [users, setUsers] = useState([])
+  const { t } = useTranslation()
+  const useAxios = useAxiosPublic();
 
 
-  useEffect(() =>{
-    fetch("/successShowcaseReviews.json")
-    .then(res => res.json())
-    .then(data => {
-      setReviews(data)
-    })
-    fetch("/successShowcaseUsers.json")
-    .then(res => res.json())
-    .then(data => {
-      setUsers(data)
-    })
-    fetch("/successShowcaseSellings.json")
-    .then(res => res.json())
-    .then(data => {
-      setSellings(data)
-    })
-  },[])
+  useEffect(() => {
+    useAxios.get("/reviewsLength")
+      .then(res => {
+        const data = res?.data;
+        setReviews(data)
+      })
+    useAxios.get("/usersLength")
+      .then(res => {
+        const data = res?.data;
+        setUsers(data)
+      })
+    useAxios.get("/sellingsLength")
+      .then(res => {
+        const data = res?.data;
+        setSellings(data)
+      })
+
+  }, [useAxios])
 
   return (
     <Container>
-      <Heading>Success Showcase</Heading>
+      <Heading>{t("successTitle")}</Heading>
       <Description>
-        DomainHub.com: Where E-Commerce Excellence Meets Cutting-Edge
-        Technology, Redefining Web Hosting and Selling with Top-Tier Packages
-        and Seamless Experiences.
+        {t("successDes")}
       </Description>
       <div className="w-full flex justify-center items-center mt-16 mb-16">
         <div className="max-w-7xl mx-auto w-full grid grid-cols-9">
           {/* stack-1 */}
           <div className="col-span-4 w-full h-full">
-            <div className="w-full h-full bg-gradient-to-tr from-[#ac50ef] via-[#7059fb] to-[#23668a] rounded-md p-2">
+            <div className="w-full h-full bg-gradient-to-tr from-[#ac50ef] via-[#7059fb] to-[#23668a] rounded-md p-2"
+              data-aos="flip-left"
+              data-aos-easing="ease-out-cubic"
+              data-aos-duration="2000">
               <h1 className="text-white text-xl font-medium py-2 md:pl-4">
-                Top Selling
+                {t("success1Title")}
               </h1>
               <p className="text-gray-100 sm:text-sm text-xs p-1">
-                DomainHub.com excels as a leading E-Commerce platform with
-                top-selling packages that set industry standards, showcasing our
-                commitment to quality and value.
+                {t("success1Title")}
               </p>
             </div>
           </div>
@@ -75,15 +79,16 @@ const SuccessShowcase = () => {
           </div>
 
           <div className="col-span-4 w-full h-full">
-            <div className="w-full h-full bg-gradient-to-tr from-[#ac50ef] via-[#7059fb] to-[#23668a] rounded-md p-2">
+            <div className="w-full h-full bg-gradient-to-tr from-[#ac50ef] via-[#7059fb] to-[#23668a] rounded-md p-2"
+            data-aos="flip-right"
+            data-aos-easing="ease-out-cubic"
+            data-aos-duration="2000"
+            >
               <h1 className="text-white text-xl font-medium py-2 md:pl-4">
-                Total Users
+                {t("success2Title")}
               </h1>
               <p className="text-gray-100 sm:text-sm text-xs p-1">
-                Our thriving user community reflects the trust and satisfaction
-                of a diverse range of individuals, businesses, bloggers, and
-                developers who rely on DomainHub.com for their web hosting and
-                selling needs.
+                {t("success2Des")}
               </p>
             </div>
           </div>
@@ -91,15 +96,16 @@ const SuccessShowcase = () => {
 
           {/* stack-3 */}
           <div className="col-span-4 w-full h-full">
-            <div className="w-full h-full bg-gradient-to-tr from-[#ac50ef] via-[#7059fb] to-[#23668a] rounded-md p-2">
+            <div className="w-full h-full bg-gradient-to-tr from-[#ac50ef] via-[#7059fb] to-[#23668a] rounded-md p-2"
+            data-aos="flip-left"
+            data-aos-easing="ease-out-cubic"
+            data-aos-duration="2000"
+            >
               <h1 className="text-white text-xl font-medium py-2 md:pl-4">
-                Total Reviews
+                {t("success3Title")}
               </h1>
               <p className="text-gray-100 sm:text-sm text-xs p-1">
-                Positive reviews abound, underscoring the streamlined and
-                efficient experience we provide. Users commend our platform for
-                features such as live chat support, subscription management, and
-                a user-friendly domain search.
+                {t("success3Des")}
               </p>
             </div>
           </div>
@@ -122,14 +128,16 @@ const SuccessShowcase = () => {
           </div>
 
           <div className="col-span-4 w-full h-full">
-            <div className="w-full h-full bg-gradient-to-tr from-[#ac50ef] via-[#7059fb] to-[#23668a] rounded-md p-2">
+            <div className="w-full h-full bg-gradient-to-tr from-[#ac50ef] via-[#7059fb] to-[#23668a] rounded-md p-2"
+            data-aos="flip-right"
+            data-aos-easing="ease-out-cubic"
+            data-aos-duration="2000"
+            >
               <h1 className="text-white text-xl font-medium py-2 md:pl-4">
-                User Engagement Focus
+                {t("success3Title")}
               </h1>
               <p className="text-gray-100 sm:text-sm text-xs p-1">
-                With category-based pricing, special discounts, and a free trial
-                option, DomainHub.com actively enhances user engagement,
-                offering flexibility and affordability to our valued customers.
+                {t("success3Des")}
               </p>
             </div>
           </div>
@@ -137,15 +145,16 @@ const SuccessShowcase = () => {
 
           {/* stack-5 */}
           <div className="col-span-4 w-full h-full">
-            <div className="w-full h-full bg-gradient-to-tr from-[#ac50ef] via-[#7059fb] to-[#23668a] rounded-md p-2">
+            <div className="w-full h-full bg-gradient-to-tr from-[#ac50ef] via-[#7059fb] to-[#23668a] rounded-md p-2"
+            data-aos="flip-left"
+            data-aos-easing="ease-out-cubic"
+            data-aos-duration="2000"
+            >
               <h1 className="text-white text-xl font-medium py-2 md:pl-4">
-                Advanced Technology Integration
+                {t("success4Title")}
               </h1>
               <p className="text-gray-100 sm:text-sm text-xs p-1">
-                The incorporation of Redux for centralized and scalable state
-                management showcases our dedication to advanced technology,
-                ensuring a seamless and adaptable solution for large-scale web
-                applications.
+                {t("success4Des")}
               </p>
             </div>
           </div>
@@ -168,15 +177,16 @@ const SuccessShowcase = () => {
           </div>
 
           <div className="col-span-4 w-full h-full">
-            <div className="w-full h-full bg-gradient-to-tr from-[#ac50ef] via-[#7059fb] to-[#23668a] rounded-md p-2">
+            <div className="w-full h-full bg-gradient-to-tr from-[#ac50ef] via-[#7059fb] to-[#23668a] rounded-md p-2"
+            data-aos="flip-right"
+            data-aos-easing="ease-out-cubic"
+            data-aos-duration="2000"        
+            >
               <h1 className="text-white text-xl font-medium py-2 md:pl-4">
-                Robust Player in E-Commerce
+                {t("success5Title")}
               </h1>
               <p className="text-gray-100 sm:text-sm text-xs p-1">
-                Our commitment to a seamless user experience, coupled with
-                cutting-edge technology, positions DomainHub.com as a robust
-                player in the e-commerce landscape, particularly in the web
-                infrastructure services sector
+                {t("success5Des")}
               </p>
             </div>
           </div>
@@ -184,15 +194,16 @@ const SuccessShowcase = () => {
 
           {/* stack-7 */}
           <div className="col-span-4 w-full h-full">
-            <div className="w-full h-full bg-gradient-to-tr from-[#ac50ef] via-[#7059fb] to-[#23668a] rounded-md p-2">
+            <div className="w-full h-full bg-gradient-to-tr from-[#ac50ef] via-[#7059fb] to-[#23668a] rounded-md p-2"
+            data-aos="flip-left"
+            data-aos-easing="ease-out-cubic"
+            data-aos-duration="2000"
+            >
               <h1 className="text-white text-xl font-medium py-2 md:pl-4">
-                Innovation and Collaboration
+                {t("success6Title")}
               </h1>
               <p className="text-gray-100 sm:text-sm text-xs p-1">
-                The DomainHub.com team collectively pushes limits, exploring new
-                technologies to create a significant and positive difference in
-                the marketplace, demonstrating our ongoing commitment to
-                innovation and collaboration.
+                {t("success6Des")}
               </p>
             </div>
           </div>
@@ -207,45 +218,45 @@ const SuccessShowcase = () => {
         </div>
       </div>
       <div className="flex flex-col md:flex-row lg:flex-row justify-center items-center gap-5 md:gap-10 lg:gap-24 mt-20">
-        <div className="stats shadow">
-          <div className="stat bg-gradient-to-tr from-[#ac50ef] via-[#7059fb] to-[#23668a] text-white">
+        <div className="stats shadow" data-aos="flip-up">
+          <div className="stat bg-gradient-to-tr from-[#ac50ef] via-[#7059fb] to-[#23668a] text-white"  >
             <div className="flex justify-between gap-3">
               <div>
                 <div className="stat-title font-bold text-white">
-                  Total Sellings
+                  {t("totalSell")}
                 </div>
                 <div className="stat-value">
-               <CountUp end={sellings.topSellings}/>
+                  <CountUp end={sellings?.length} />
                 </div>
               </div>
               <MdSell className="mt-6 text-xl" />
             </div>
           </div>
         </div>
-        <div className="stats shadow">
+        <div className="stats shadow"  data-aos="flip-up">
           <div className="stat bg-gradient-to-tr from-[#ac50ef] via-[#7059fb] to-[#23668a] text-white">
             <div className="flex justify-between gap-3">
               <div>
-                <div className="stat-title font-bold text-white">
-                  Total Users
+                <div className="stat-title font-bold text-white" >
+                  {t("totalUser")}
                 </div>
                 <div className="stat-value">
-                  <CountUp end={users.topUsers}/>
+                  <CountUp end={users?.length} />
                 </div>
               </div>
               <FaUserGroup className="mt-6 text-xl" />
             </div>
           </div>
         </div>
-        <div className="stats shadow">
-          <div className="stat bg-gradient-to-tr from-[#ac50ef] via-[#7059fb] to-[#23668a] text-white">
+        <div className="stats shadow" data-aos="flip-up">
+          <div className="stat bg-gradient-to-tr from-[#ac50ef] via-[#7059fb] to-[#23668a] text-white"  >
             <div className="flex justify-between gap-3">
               <div>
                 <div className="stat-title font-bold text-white">
-                  Total Reviews
+                  {t("totalReview")}
                 </div>
                 <div className="stat-value">
-                  <CountUp end={reviews.topReviews} />
+                  <CountUp end={reviews?.length} />
                 </div>
               </div>
               <MdOutlineReviews className="mt-6 text-xl" />

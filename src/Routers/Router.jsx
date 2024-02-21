@@ -17,18 +17,20 @@ import Dashboard from "../Pages/Dashboard/Dashboard/Dashboard";
 import CreateDomain from "../Pages/Dashboard/CreateDomain/CreateDomain";
 import EditDomain from "../Pages/Dashboard/EditDomain/EditDomain";
 import AllDomains from "../Pages/Dashboard/AllDomains/AllDomains";
-import AllDomainRequest from "../Pages/Dashboard/AllDomainRequest/AllDomainRequest";
 import AllFreeTailApplication from "../Pages/Dashboard/AllFreeTailApplication/AllFreeTailApplication";
 import AllReviews from "../Pages/Dashboard/AllReviews/AllReviews";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 import EditProfile from "../Pages/Dashboard/EditProfile/EditProfile";
-import { Review } from "../Pages/Review/Review";
 import PrivateRoute from "./PrivateRoute";
 import MyCart from "../Pages/Dashboard/MyCart/MyCart";
 import Checkout from "../Pages/Dashboard/Checkout/Checkout";
 import CategoryDetails from "../Pages/Home/PriceByCategory/CategoryDetails";
 import Notification from "../Pages/Notification/Notification";
 import UnreadNotification from "../Pages/Notification/UnreadNotification/UnreadNotification";
+import MakePremiumCheckout from "../Pages/Dashboard/MakePremiumCheckout/MakePremiumCheckout";
+import PriceByCategory from "../Pages/Home/PriceByCategory/PriceByCategory";
+import Review from "../Pages/Review/Review";
+
 
 const Router = createBrowserRouter([
   {
@@ -53,6 +55,12 @@ const Router = createBrowserRouter([
       {
         path: "/reviews",
         element: <Review></Review>,
+        loader: () => fetch("http://localhost:3000/reviewsLength")
+      },
+      {
+
+        path:"/domainCategory",
+        element: <PriceByCategory></PriceByCategory>
       },
       {
         path: "/notifications",
@@ -70,6 +78,7 @@ const Router = createBrowserRouter([
         path: "/domainDetails",
         element: <CategoryDetails></CategoryDetails>
       },
+     
     ],
   },
   {
@@ -96,6 +105,14 @@ const Router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <Profile />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/dashboard/make-premium-checkout",
+        element: (
+          <PrivateRoute>
+            <MakePremiumCheckout />
           </PrivateRoute>
         ),
       },
@@ -188,14 +205,8 @@ const Router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-      {
-        path: "/dashboard/all-domain-requests",
-        element: (
-          <PrivateRoute>
-            <AllDomainRequest />
-          </PrivateRoute>
-        ),
-      },
+      
+    
       {
         path: "/dashboard/all-free-tail-applications",
         element: (

@@ -4,9 +4,10 @@ import BestHostingPlan from "./BestHostingPlan/BestHostingPlan";
 import FAQ from "./FAQ/FAQ";
 import FreeTrial from "./FreeTrial/FreeTrial";
 import OffersAndDiscounts from "./OffersAndDiscounts/OffersAndDiscounts";
-import PriceByCategory from "./PriceByCategory/PriceByCategory";
 import SuccessShowcase from "./SuccessShowcase/SuccessShowcase";
 import DomainTld from "../../Component/Shared/DomainTld/DomainTld";
+import Review from "./Review/Review";
+import XYZDomainAdvantage from "../../Component/Shared/XYZDomainAdvantage/XYZDomainAdvantage";
 
 const Home = () => {
     const data= useLoaderData()
@@ -15,16 +16,16 @@ const Home = () => {
        
             <Banner/>
             <DomainTld></DomainTld>
+            <FreeTrial/>
             <BestHostingPlan/>
             <FAQ/>
-            <SuccessShowcase/>
-            <FreeTrial/>
-            <PriceByCategory data={data}/>
+            <XYZDomainAdvantage/>
+            <SuccessShowcase/> 
+            <Review/>        
             {/* <Tutorial/> */}
             <OffersAndDiscounts/>
         </div>
     );
 };
-
 
 export default Home;

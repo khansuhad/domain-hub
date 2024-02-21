@@ -5,26 +5,28 @@ import { IoIosArrowDown,IoIosArrowUp  } from "react-icons/io";
 import Heading from "../../../Component/UI/Heading";
 import Faq from "../../../../public/faq.json"
 import Lottie from 'lottie-react';
+import { useTranslation } from "react-i18next";
 
 
 const FAQ = () => {
+    const {t}=useTranslation()
 
     const faqData = [
         {
-            question: ' What is domain hosting?',
-            answer: 'Domain hosting refers to the service of storing and managing website files and data on a server connected to the internet. It allows your website to be accessible to users worldwide.',
+            question: t("Faq1Q"),
+            answer:  t("Faq1A"),
         },
         {
-            question: '  How do I choose the right domain name for my website?',
-            answer: 'We provide a domain name search tool to help you find and register an available domain. Consider a name that reflects your brand, is easy to remember, and relevant to your content.',
+            question: t("Faq2Q"),
+            answer: t("Faq2A") ,
         },
         {
-            question: '  What types of hosting plans do you offer?',
-            answer: 'We offer a range of hosting plans, including shared hosting, VPS hosting, and dedicated hosting. Each plan caters to different needs, from personal blogs to large business websites.',
+            question: t("Faq3Q"),
+            answer:  t("Faq3A"),
         },
         {
-            question: 'Do you provide customer support, and how can I reach you?',
-            answer: 'Yes, we offer 24/7 customer support through various channels, including live chat, email, and phone. Our support team is ready to assist you with any questions or issues you may encounter.',
+            question: t("Faq4Q") ,
+            answer: t("Faq4A"),
         },
     ];
 
@@ -38,10 +40,10 @@ const FAQ = () => {
         <Container>
             <div className="bg-firstColor p-2 dark:bg-[#191919] dark:text-white px-[10%]">
                 {/* section Heading */}
-               <Heading>Frequently Asked Questions</Heading>
+               <Heading>{t("FaqTitle")}</Heading>
 
                 {/* section subHeading */}
-                <Description>Find answers to common questions about choosing, registering, and managing your domain.</Description>
+                <Description>{t("FaqDes")}</Description>
 
 
                 <div className=" flex justify-between items-center ">
@@ -64,8 +66,8 @@ const FAQ = () => {
                                             <span className="text-xl">{activeIndex === index ? <IoIosArrowUp /> : <IoIosArrowDown />}</span>
                                         </div>
                                         {activeIndex === index && (
-                                            <div className="p-6">
-                                                <p className="text-gray-700">{item.answer}</p>
+                                            <div className="p-6 bg-fifthColor border-b-2">
+                                                <p className="text-white ">{item.answer}</p>
                                             </div>
                                         )}
                                     </div>

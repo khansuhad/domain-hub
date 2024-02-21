@@ -1,20 +1,27 @@
-import Container from "../../../Component/UI/Container";
+import { useTranslation } from "react-i18next";
 import Description from "../../../Component/UI/Description";
 import Heading from "../../../Component/UI/Heading";
-import OffersAndDiscountsCard from "./OffersAndDiscountsCard";
-
+import useGetSpecialDiscount from "../../../Hock/useGetSpecialDiscount";
+import OffersAndDiscountsCards from "./OffersAndDiscountsCards";
+import Container from "../../../Component/UI/Container";
 const OffersAndDiscounts = () => {
+  const { t } = useTranslation();
+  const { info } = useGetSpecialDiscount();
+  console.log(info);
   return (
+    <Container>
+      <Heading>{t("discountTitle")}</Heading>
 
-     <div>
-       <Heading>Special Offers and Discounts</Heading>
-
-<Description>
-Explore exclusive deals on domain hosting and selling at our website! Unlock special offers and discounts to elevate your online presence. Don&#39;t miss out on limited-time savings for powerful web solutions.
-</Description>
-<OffersAndDiscountsCard/>
-     </div>
-    
+      <Description>{t("discountDes")}</Description>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 px-[5%] md:px-[10%] my-10">
+        {info?.map((item) => (
+          <OffersAndDiscountsCards
+            key={item.id}
+            data={item}
+          ></OffersAndDiscountsCards>
+        ))}
+      </div>
+    </Container>
   );
 };
 

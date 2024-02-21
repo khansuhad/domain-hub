@@ -1,6 +1,3 @@
-
-
-
 import useFreeTrial from "../../../Hock/useFreeTrial";
 import swal from "sweetalert";
 import { MdDelete } from "react-icons/md";
@@ -11,11 +8,9 @@ import moment from 'moment';
 
 
 const AllFreeTailApplication = () => {
- 
     const [freeTrialUsers, , refetch] = useFreeTrial();
     console.log(freeTrialUsers);
     const axiosPublic = useAxiosPublic();
-
     const handleApprove = (email) => {
         axiosPublic.put(`/freeTrialUsers?email=${email}&status=Accepted`)
             .then(res => {
@@ -26,12 +21,9 @@ const AllFreeTailApplication = () => {
                     const messages = "Your domain trail request had approved";
                     const status = "unread";
                     const timeSpace = moment();
-                    const domainName = freeTrialUsers.domainName ;
-                    axiosPublic.post("/notifications" ,{ messages ,timeSpace , domainName, status} ).then(res => {
-                      console.log(res.data);
-                    })
-                    axiosPublic.post("/unreadnotifications" ,{ messages ,timeSpace , domainName, status} ).then(res => {
-                      console.log(res.data);
+                    const domainName = freeTrialUsers.domainName;
+                    axiosPublic.post("/notifications", { messages, timeSpace, domainName, status, email }).then(res => {
+                        console.log(res.data);
                     })
                 }
             })
@@ -47,6 +39,13 @@ const AllFreeTailApplication = () => {
                 if (res.data.modifiedCount > 0) {
                     swal("Application Rejected", "sent", "success");
                     refetch()
+                    const messages = "Your domain trail request had dismiss";
+                    const status = "unread";
+                    const timeSpace = moment();
+                    const domainName = freeTrialUsers.domainName;
+                    axiosPublic.post("/notifications", { messages, timeSpace, domainName, status, email }).then(res => {
+                        console.log(res.data);
+                    })
                 }
             })
             .catch(err => {
@@ -76,21 +75,26 @@ const AllFreeTailApplication = () => {
                                 icon: "success"
                             });
                             refetch();
+                            const messages = "Your domain trail request had deleted from admin panel";
+                            const status = "unread";
+                            const timeSpace = moment();
+                            const domainName = freeTrialUsers.domainName;
+                            axiosPublic.post("/notifications", { messages, timeSpace, domainName, status, email }).then(res => {
+                                console.log(res.data);
+                            })
                         }
                     })
             }
         });
-
-   
     };
 
     return (
         <>
             <div
-                className="overflow-x-auto p-5 text-white ">
-                    <h2 className="text-2xl font-bold text-center my-10 ">Manage Free Trial Application</h2>
+                className="overflow-x-auto p-5 text-white bg-firstColor min-h-screen ">
+                <h2 className="text-2xl font-bold text-center my-10 ">Manage Free Trial Application</h2>
                 <table className="w-full text-left table-auto min-w-max border-2 ">
-                    
+
                     <thead className="bg-fourthColor   border-2">
                         <tr>
                             <th className="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
@@ -110,7 +114,7 @@ const AllFreeTailApplication = () => {
                             </th>
                             <th className="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
                                 <p className="block font-sans text-sm lg:text-xl font-bold antialiased  leading-none text-blue-gray-900 opacity-70">
-                                    Domain
+                                    TLD
                                 </p>
                             </th>
                             <th className="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
@@ -127,12 +131,12 @@ const AllFreeTailApplication = () => {
                         </tr>
                     </thead>
                     {
-                        freeTrialUsers?.map((users,inx) => <>
+                        freeTrialUsers?.map((users, inx) => <>
                             <tbody>
                                 <tr>
                                     <td className="p-4 border-b border-blue-gray-50">
                                         <p className="block font-sans text-sm lg:text-2xl  antialiased font-normal leading-normal text-blue-gray-900">
-                                            {inx+1}
+                                            {inx + 1}
                                         </p>
                                     </td>
                                     <td className="p-4 border-b border-blue-gray-50">
@@ -157,18 +161,18 @@ const AllFreeTailApplication = () => {
                                         {users?.approve === "Pending" && <p onClick={() => { handleApprove(users.email) }} className="block cursor-pointer bg-yellow-400 text-black p-2 rounded-md font-sans text-sm antialiased font-semibold leading-normal text-blue-gray-900">
                                             Approve
                                         </p>}
-                                        {users?.approve === "Pending"&&<p onClick={() => { handleDismiss(users.email) }} className="block cursor-pointer bg-red-400 p-2 text-black rounded-md  font-sans text-sm antialiased font-semibold leading-normal text-blue-gray-900">
+                                        {users?.approve === "Pending" && <p onClick={() => { handleDismiss(users.email) }} className="block cursor-pointer bg-red-400 p-2 text-black rounded-md  font-sans text-sm antialiased font-semibold leading-normal text-blue-gray-900">
                                             Dismiss
                                         </p>}
                                         {users?.approve === "Rejected" && <p onClick={() => { handleDismiss(users.email) }} className="block cursor-pointer bg-red-400 p-2 text-black rounded-md  font-sans text-sm antialiased font-semibold leading-normal text-blue-gray-900">
                                             Dismissed
                                         </p>}
-                                       
+
                                     </td>
                                     <td className="p-4 border-b border-blue-gray-50">
-                                    <button onClick={()=>{handleDelete(users?.email)}} className="text-2xl text-red-500"><MdDelete></MdDelete></button>
+                                        <button onClick={() => { handleDelete(users?.email) }} className="text-2xl text-red-500"><MdDelete></MdDelete></button>
                                     </td>
-                                    
+
 
                                 </tr>
 

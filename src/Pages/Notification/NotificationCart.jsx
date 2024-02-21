@@ -30,7 +30,7 @@ const NotificationCart = ({noti , refetchNotification}) => {
         }).then(async (result) => {
             if (result.isConfirmed) {
                 console.log(id);
-                const res = await useAxios.delete(`/notifications/id/${id}`)
+                const res = await useAxios.delete(`/notifications/${id}`)
                 console.log(res.data);
                 if (res.data.deletedCount > 0) {
                     // refetch to update the ui
@@ -47,7 +47,8 @@ const NotificationCart = ({noti , refetchNotification}) => {
     }
 
     return (
-        <div  className="bg-sixthColor m-5 p-5 rounded flex justify-between items-center">
+        <div data-aos="fade-up"
+        data-aos-anchor-placement="center-center"  className="bg-sixthColor m-5 p-5 rounded flex justify-between items-center">
     <div>
    
    <h1 className="font-medium">{noti?.messages}</h1>

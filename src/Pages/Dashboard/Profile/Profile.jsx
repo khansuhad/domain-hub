@@ -20,11 +20,11 @@ const Profile = () => {
             <div className="hidden xl:block"></div>
             <div className="md:col-span-2 xl:col-span-3 flex flex-col justify-center items-center p-5 bg-fourthColor md:p-10 border shadow-2xl  border-secondColor dark:border-sixthColor text-white dark:text-sixthColor text-lg lg:text-xl  font-bold text-center">
               <div className="flex-grow">
-                <div className=" max-w-[300px] w-full mx-auto mb-5">
+                <div className="flex justify-center mb-5">
                   <img
                     src={user?.photoURL}
                     alt={`image of ${info?.name}`}
-                    className="w-full  rounded-full border-[12px] border-thirdColor"
+                    className="h-[300px] w-[300px]  object-cover rounded-full border-[12px] border-thirdColor"
                   />
                 </div>
                 <h1 className="text-2xl sm:text-3xl lg:text-4xl my-3 font-bold">
@@ -80,7 +80,7 @@ const Profile = () => {
 
               <Link
                 to={"/dashboard/edit-profile"}
-                className="btn bg-thirdColor hover:bg-fourthColor text-white border-0 mt-5"
+                className="btn bg-secondColor hover:bg-thirdColor text-white border-0 mt-5"
               >
                 Edit profile
               </Link>

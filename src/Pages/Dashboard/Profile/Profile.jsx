@@ -3,9 +3,11 @@ import Loading from "../../../Component/Loading/Loading";
 import UseAuth from "../../../Hock/UseAuth";
 import useGetUser from "../../../Hock/UseGetUser";
 import Heading from "../../../Component/UI/Heading";
+import GetPremiumModal from "./GetPremiumModal";
+import { IoDiamond } from "react-icons/io5";
 
 const Profile = () => {
-  const { info, isPendingInfo } = useGetUser();
+  const { info, isPendingInfo, refetchInfo } = useGetUser();
   const { user, isLoading } = UseAuth();
   return (
     <>
@@ -32,16 +34,10 @@ const Profile = () => {
                   {info?.role}
                 </p>
               </div>
-              {info?.premium !== true && (
-                <Link
-                  to={"/dashboard/make-premium-checkout"}
-                  className="btn bg-thirdColor hover:bg-fourthColor text-white border-0 mt-5"
-                >
-                  Get premium
-                </Link>
-              )}
+              {info?.premium !== true && <GetPremiumModal info={info} refetchInfo={refetchInfo} />}
             </div>
-            <div className="col-span-3 flex flex-col p-5 bg-fourthColor md:p-10 border shadow-2xl  border-secondColor dark:border-sixthColor text-white dark:text-sixthColor
+            <div
+              className="col-span-3 flex flex-col p-5 bg-fourthColor md:p-10 border shadow-2xl  border-secondColor dark:border-sixthColor text-white dark:text-sixthColor
            text-lg lg:text-xl"
             >
               <div className="flex-grow">
@@ -67,8 +63,16 @@ const Profile = () => {
                 <p className="my-1">
                   Email: {info?.email ? info?.email : "N/A"}
                 </p>
-                <p className="my-1">
-                  Point: {info?.point ? info?.point : "N/A"}
+                <p className="my-1 flex items-center gap-1">
+                  Diamond:{" "}
+                  {info?.point ? (
+                    <>
+                      {info?.point}
+                      <IoDiamond />
+                    </>
+                  ) : (
+                    "N/A"
+                  )}
                 </p>
               </div>
 

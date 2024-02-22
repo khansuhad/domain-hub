@@ -5,91 +5,86 @@ import useAxiosPublic from "../../../Hock/useAxiosPublic";
 import { useEffect, useState } from "react";
 import useAxiosSecure from "../../../Hock/useAxiosSecure";
 import Loading from "../../../Component/Loading/Loading";
-import swal from "sweetalert";
-import { MdOutlineKeyboardDoubleArrowLeft } from "react-icons/md";
-import { MdKeyboardDoubleArrowRight } from "react-icons/md";
+import { MdKeyboardDoubleArrowRight, MdOutlineKeyboardDoubleArrowLeft } from "react-icons/md";
+
 
 const AllDomains = () => {
-  const [domain, refetch] = useDomain();
-  const useAxios = useAxiosPublic();
+    const [domain,loading,refetch] = useDomain();
+    const useAxios = useAxiosPublic();
 
-  const [info, setTeams] = useState([]);
-  console.log(info);
-  const [count, setCount] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [countLoading, setCountLoading] = useState(true);
-  const [itemPerPage, setItemPerPage] = useState(20);
-  console.log(itemPerPage);
-  const [currentPage, setCurrentPage] = useState(0);
-  console.log(currentPage);
+    const [info, setTeams] = useState([]);
+    console.log(info);
+    const [count, setCount] = useState(null);
+    const [load, setLoading] = useState(true);
+    const [countLoading, setCountLoading] = useState(true);
+    const [itemPerPage, setItemPerPage] = useState(50);
+    console.log(itemPerPage);
+    const [currentPage, setCurrentPage] = useState(0);
+    console.log(currentPage);
 
-  const axiosSecure = useAxiosSecure();
-  useEffect(() => {
-    setLoading(true);
-    axiosSecure.get("/domain-count").then((res) => {
-      setCount(res.data.count);
-      setCountLoading(false);
-    });
-    axiosSecure
-      .get(`/domain?page=${currentPage}&size=${itemPerPage}`)
-      .then((res) => {
-        setTeams(res.data);
-        setLoading(false);
-      });
-  }, [axiosSecure, currentPage, itemPerPage]);
-  const numberOfPages = Math.ceil(count / itemPerPage);
-  const pages = [...Array(numberOfPages).keys()];
-  console.log(pages);
-  const handleItemParPageChange = (e) => {
-    setItemPerPage(Number(e.target.value));
-    setCurrentPage(0);
-  };
-  const handlePrevPage = () => {
-    if (currentPage > 0) {
-      setCurrentPage(currentPage - 1);
-    }
-  };
-  const handleNextPage = () => {
-    if (currentPage < pages.length - 1) {
-      setCurrentPage(currentPage + 1);
-    }
-  };
-
-  const handleDeleteItem = (id) => {
-    console.log(id);
-    swal
-
-      .fire({
-        title: "Are you sure?",
-        text: "You won't be able to revert this!",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, delete it!",
-      })
-      .then(async (result) => {
-        if (result.isConfirmed) {
-          console.log(id);
-          const res = await useAxios.delete(`/domain/${id}`);
-          console.log(res.data);
-          if (res.data.deletedCount > 0) {
-            // refetch to update the ui
-            refetch();
-
-            Swal.fire({
-              title: "Deleted!",
-              text: " Item has been deleted",
-              icon: "success",
+    const axiosSecure = useAxiosSecure();
+    useEffect(() => {
+        setLoading(true);
+        axiosSecure.get("/domain-count").then((res) => {
+            setCount(res.data.count);
+            setCountLoading(false);
+        });
+        axiosSecure
+            .get(`/domain?page=${currentPage}&size=${itemPerPage}`)
+            .then((res) => {
+                setTeams(res.data);
+                setLoading(false);
             });
-          }
+    }, [axiosSecure, currentPage, itemPerPage]);
+    const numberOfPages = Math.ceil(count / itemPerPage);
+    const pages = [...Array(numberOfPages).keys()];
+    console.log(pages);
+    const handleItemParPageChange = (e) => {
+        setItemPerPage(Number(e.target.value));
+        setCurrentPage(0);
+    };
+    const handlePrevPage = () => {
+        if (currentPage > 0) {
+            setCurrentPage(currentPage - 1);
         }
-      });
-  };
+    };
+    const handleNextPage = () => {
+        if (currentPage < pages.length - 1) {
+            setCurrentPage(currentPage + 1);
+        }
+    };
+
+    const handleDeleteItem = (id) => {
+        console.log(id);
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!",
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                console.log(id);
+                const res = await useAxios.delete(`/domain/${id}`);
+                console.log(res.data);
+                if (res.data.deletedCount > 0) {
+                    // refetch to update the ui
+                    refetch();
+                    Swal.fire({
+                        title: "Deleted!",
+                        text: " Item has been deleted",
+                        icon: "success",
+                    });
+                }
+            }
+        });
+    };
 
   return (
     <>
-      {loading || countLoading ? (
+      {load|| countLoading ||loading ? (
         <Loading />
       ) : (
         <div className=" p-10 dark:text-white text-white dark:bg-slate-700 bg-firstColor py-5">

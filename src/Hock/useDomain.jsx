@@ -5,7 +5,7 @@ import useAxiosPublic from "./useAxiosPublic";
 
 const useDomain =()=>{
     const axiosPublic =useAxiosPublic();
-    const {refetch, data: domain = [], isPending: loading,} = useQuery({
+    const {data: domain = [], isPending: loading, refetch} = useQuery({
         queryKey: ['domain'],
         queryFn: async() =>{
             const res =await axiosPublic.get('/domain');

@@ -21,7 +21,7 @@ const DomainForm = ({addDomain}) => {
                             </label>
                             <label className="input-group">
 
-                                <input type="text" name="tld" placeholder="TLD name" className="input input-bordered w-full" />
+                                <input type="text " name="tld" placeholder="TLD name" className="input input-bordered w-full text-black" />
                             </label>
                         </div>
 
@@ -31,7 +31,7 @@ const DomainForm = ({addDomain}) => {
                             </label>
                             <label className="input-group">
 
-                                <input type="text" name="price" placeholder="Price " className="input input-bordered w-full" />
+                                <input type="number" name="price" placeholder="Price " className="input input-bordered w-full text-black" />
                             </label>
                         </div>
                     </div>
@@ -77,4 +77,4 @@ const DomainForm = ({addDomain}) => {
     );
 };
 
-export default DomainForm;
+export default DomainForm;

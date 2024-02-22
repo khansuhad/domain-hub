@@ -14,6 +14,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
   const loc = useLocation();
 
@@ -29,6 +30,7 @@ const Login = () => {
     },
   });
   const onSubmit = (data) => {
+    setLoading(true);
     const email = data.email;
     const password = data.password;
     console.log(email, password);
@@ -39,9 +41,12 @@ const Login = () => {
       .then(() => {
         navigate(from, { replace: true });
         loginSuccessToast();
+
+        setLoading(false);
       })
       .catch(() => {
         setError("Email or password don't match");
+        setLoading(false);
       });
   };
 
@@ -137,12 +142,18 @@ const Login = () => {
             </label>
           </div>
           <div className="form-control mt-6">
-            <button
-              className="btn bg-secondColor hover:bg-thirdColor text-white border-0"
-              type="submit"
-            >
-              Login
-            </button>
+            {loading ? (
+              <button className="btn bg-secondColor hover:bg-secondColor text-white border-0 cursor-not-allowed">
+                Loading...
+              </button>
+            ) : (
+              <button
+                className="btn bg-secondColor hover:bg-thirdColor text-white border-0"
+                type="submit"
+              >
+                Login
+              </button>
+            )}
           </div>
         </form>
         <SocialLogin />

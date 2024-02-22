@@ -12,6 +12,7 @@ import moment from "moment";
 const CheckoutForm = () => {
   const paymentSuccessToast = () => toast.success("Payment successfully");
   const paymentErrorToast = () => toast.error("Something went wrong");
+  const [paymentLoading, setPaymentLoading] = useState(false);
   const [error, setError] = useState("");
   const [clientSecret, setClientSecret] = useState("");
   const [transactionId, setTransactionId] = useState("");
@@ -48,6 +49,7 @@ const CheckoutForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setPaymentLoading(true);
     if (!stripe || !elements) {
       return;
     }
@@ -82,6 +84,8 @@ const CheckoutForm = () => {
 
     if (confirmError) {
       console.log("confirm error");
+
+      setPaymentLoading(false);
       paymentErrorToast();
     } else {
       console.log("payment intent", paymentIntent);
@@ -110,6 +114,7 @@ const CheckoutForm = () => {
             });
           navigate("/dashboard/my-all-domains");
           paymentSuccessToast();
+          setPaymentLoading(false);
         });
       }
     }
@@ -148,13 +153,19 @@ const CheckoutForm = () => {
 
             <p className="text-red-600">{error}</p>
             <div className="text-center mt-5">
-              <button
-                type="submit"
-                disabled={!stripe || !clientSecret}
-                className="btn bg-thirdColor hover:bg-fourthColor text-white border-0"
-              >
-                Payment
-              </button>
+              {paymentLoading ? (
+                <button className="btn bg-secondColor hover:bg-secondColor cursor-not-allowed text-white border-0">
+                  Loading..
+                </button>
+              ) : (
+                <button
+                  type="submit"
+                  disabled={!stripe || !clientSecret}
+                  className="btn bg-secondColor hover:bg-thirdColor text-white border-0"
+                >
+                  Payment
+                </button>
+              )}
             </div>
           </form>
         </div>

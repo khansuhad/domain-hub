@@ -18,6 +18,7 @@ const Registration = () => {
 
   const loc = useLocation();
   const axiosPublic = useAxiosPublic();
+  const [loading, setLoading] = useState(false);
 
   const from = loc.state?.from?.pathname || "/";
   const navigate = useNavigate();
@@ -34,6 +35,7 @@ const Registration = () => {
     },
   });
   const onSubmit = async (data) => {
+    setLoading(true);
     const name = data.name;
     const email = data.email;
     const password = data.password;
@@ -61,7 +63,7 @@ const Registration = () => {
           email: email,
           name: name,
           role: "user",
-          phone: ""
+          phone: "",
         };
         axiosPublic.post("/users", userInfo).then((res) => {
           console.log(res.data);
@@ -76,9 +78,11 @@ const Registration = () => {
           email: email,
         });
         navigate(from, { replace: true });
+        setLoading(false);
       })
       .catch(() => {
         setError("Email already registered");
+        setLoading(false);
       });
   };
   return (
@@ -188,12 +192,20 @@ const Registration = () => {
             )}
           </div>
           <div className="form-control mt-6">
-            <button
-              className="btn bg-secondColor hover:bg-thirdColor text-white border-0"
-              type="submit"
-            >
-              Registration
-            </button>
+            {loading ? (
+              <button
+                className="btn bg-secondColor hover:bg-secondColor text-white border-0 cursor-not-allowed"
+              >
+                Loading...
+              </button>
+            ) : (
+              <button
+                className="btn bg-secondColor hover:bg-thirdColor text-white border-0"
+                type="submit"
+              >
+                Registration
+              </button>
+            )}
           </div>
         </form>
         <SocialLogin />

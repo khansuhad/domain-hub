@@ -115,6 +115,7 @@ const ReviewModal = ({ trueCart, index, refetch }) => {
                 placeholder="Input Your Rating"
                 name="rating"
                 className="input input-bordered"
+                required
                 value={rating}
                 onChange={handleRatingChange}
               />
@@ -126,6 +127,7 @@ const ReviewModal = ({ trueCart, index, refetch }) => {
               <textarea
                 type="text"
                 className="textarea textarea-bordered"
+                required
                 name="feedback"
                 placeholder="Tell Your Feedback"
               ></textarea>

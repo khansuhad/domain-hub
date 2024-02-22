@@ -126,9 +126,6 @@ const ReviewModal = ({ trueCart, index, refetch }) => {
             >
               Review
             </button>
-            <button className="btn btn-outline btn-sm ml-[500px] mt-5">
-              X
-            </button>
           </form>
         </div>
       </div>

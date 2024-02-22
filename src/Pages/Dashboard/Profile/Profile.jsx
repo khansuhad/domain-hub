@@ -80,7 +80,7 @@ const Profile = () => {
 
               <Link
                 to={"/dashboard/edit-profile"}
-                className="btn bg-thirdColor hover:bg-fourthColor text-white border-0 mt-5"
+                className="btn bg-secondColor hover:bg-thirdColor text-white border-0 mt-5"
               >
                 Edit profile
               </Link>

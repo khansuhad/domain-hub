@@ -7,6 +7,7 @@ import useAxiosSecure from "../../../Hock/useAxiosSecure";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import Loading from "../../../Component/Loading/Loading";
+import Heading from "../../../Component/UI/Heading";
 
 const EditProfile = () => {
   const { info, isPendingInfo } = useGetUser();
@@ -27,11 +28,17 @@ const EditProfile = () => {
       photo: user?.photoURL,
       email: user?.email,
       phoneNumber: info?.phone,
+      presentAddress: info?.presentAddress,
+      permanentAddress: info?.permanentAddress,
+      nationality: info?.nationality,
     },
   });
   const onSubmit = async (data) => {
     const name = data.name;
     const phoneNumber = data.phoneNumber;
+    const presentAddress = data.presentAddress;
+    const permanentAddress = data.permanentAddress;
+    const nationality = data.nationality;
     // image upload to imgbb and then get an url
     const imageFile = { image: data.photo[0] };
     const res = await axios.post(
@@ -54,6 +61,9 @@ const EditProfile = () => {
         name,
         phone: phoneNumber,
         email: user?.email,
+        presentAddress,
+        permanentAddress,
+        nationality,
       };
       console.log(updateIfo);
       axiosSecure.put(`/users?${user?.email}`, updateIfo).then((res) => {
@@ -72,12 +82,10 @@ const EditProfile = () => {
       {isPendingInfo || isLoading ? (
         <Loading />
       ) : (
-        <div className=" flex flex-col justify-center items-center h-screen p-5 md:p-10 text-center">
-          <div className=" flex flex-col justify-center items-center p-5 md:p-10 border shadow-2xl dark:bg-slate-700 bg-fourthColor text-white  border-secondColor dark:border-sixthColor dark:text-sixthColor text-lg lg:text-xl  font-bold">
+        <div className="max-w-5xl w-full mx-auto p-5 md:p-10 text-center ">
+          <div className="p-5 md:p-10 border shadow-2xl dark:bg-slate-700 bg-fourthColor text-white  border-secondColor dark:border-sixthColor dark:text-sixthColor text-lg lg:text-xl  font-bold w-full my-10">
             <form onSubmit={handleSubmit(onSubmit)}>
-              <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-5">
-                Update Profile
-              </h1>
+              <Heading>Update Profile</Heading>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text text-lg text-white dark:text-[#F5F7F8]">
@@ -87,6 +95,45 @@ const EditProfile = () => {
                 <input
                   {...register("name")}
                   defaultValue={info?.name}
+                  className="input input-bordered 
+                  text-black bg-[#F5F7F8] dark:border-[#F5F7F8] dark:text-[#F5F7F8] dark:bg-[#191919] "
+                />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text text-lg text-white dark:text-[#F5F7F8]">
+                    nationality
+                  </span>
+                </label>
+                <input
+                  {...register("nationality")}
+                  defaultValue={info?.nationality}
+                  className="input input-bordered 
+                  text-black bg-[#F5F7F8] dark:border-[#F5F7F8] dark:text-[#F5F7F8] dark:bg-[#191919] "
+                />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text text-lg text-white dark:text-[#F5F7F8]">
+                    Permanent address
+                  </span>
+                </label>
+                <input
+                  {...register("permanentAddress")}
+                  defaultValue={info?.permanentAddress}
+                  className="input input-bordered 
+                  text-black bg-[#F5F7F8] dark:border-[#F5F7F8] dark:text-[#F5F7F8] dark:bg-[#191919] "
+                />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text text-lg text-white dark:text-[#F5F7F8]">
+                    Present address
+                  </span>
+                </label>
+                <input
+                  {...register("presentAddress")}
+                  defaultValue={info?.presentAddress}
                   className="input input-bordered 
                   text-black bg-[#F5F7F8] dark:border-[#F5F7F8] dark:text-[#F5F7F8] dark:bg-[#191919] "
                 />

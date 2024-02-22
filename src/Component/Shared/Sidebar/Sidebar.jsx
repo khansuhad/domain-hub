@@ -8,6 +8,7 @@ import useAdmin from "../../../Hock/useAdmin";
 import { useTranslation } from "react-i18next";
 import { useState } from "react";
 
+
 const Sidebar = () => {
   const {i18n, t}=useTranslation()
   const [language,setLanguage]= useState("bn")
@@ -52,7 +53,7 @@ const Sidebar = () => {
           aria-label="close sidebar"
           className="drawer-overlay"
         ></label>
-        <ul className="menu p-4 w-60 md:w-80 min-h-full  bg-fifthColor">
+        <ul className="menu p-4 w-60 md:w-80 min-h-full  bg-fifthColor text-white">
           {/* Sidebar content here */}
           <li>
             <NavLink
@@ -78,13 +79,13 @@ const Sidebar = () => {
             </div>
             <NavLink
               to="/dashboard/profile"
-              className={({ isActive, isPending }) =>
-                isPending
-                  ? "pending"
-                  : isActive
-                  ? "bg-fourthColor text-white"
-                  : "text-white"
-              }
+              // className={({ isActive, isPending }) =>
+              //   isPending
+              //     ? "pending"
+              //     : isActive
+              //     ? "bg-fourthColor text-white"
+              //     : "text-white"
+              // }
             >
               {t("navProfile")}
             </NavLink>

@@ -2,11 +2,20 @@
 import toast from "react-hot-toast";
 import UseAuth from "../../../Hock/UseAuth";
 import useAxiosPublic from "../../../Hock/useAxiosPublic";
+import { useState } from "react";
 
 const ReviewModal = ({ trueCart, index, refetch }) => {
   const { user } = UseAuth();
   console.log(user);
   const axiosPublic = useAxiosPublic();
+  const [rating, setRating] = useState("");
+
+  const handleRatingChange = (event) => {
+    const value = event.target.value;
+    if (value === "" || (parseInt(value) >= 0 && parseInt(value) <= 5)) {
+      setRating(value);
+    }
+  };
   const handleReview = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -106,6 +115,8 @@ const ReviewModal = ({ trueCart, index, refetch }) => {
                 placeholder="Input Your Rating"
                 name="rating"
                 className="input input-bordered"
+                value={rating}
+                onChange={handleRatingChange}
               />
             </div>
             <div className="form-control">
@@ -125,9 +136,6 @@ const ReviewModal = ({ trueCart, index, refetch }) => {
               className="btn btn-outline btn-sm mt-4 w-full"
             >
               Review
-            </button>
-            <button className="btn btn-outline btn-sm ml-[500px] mt-5">
-              X
             </button>
           </form>
         </div>

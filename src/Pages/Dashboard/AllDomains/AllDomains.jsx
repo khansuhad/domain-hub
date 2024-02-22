@@ -1,5 +1,5 @@
 import Swal from "sweetalert2";
-import DomainRow from "../../../Component/Shared/DomainRow/Domainrow";
+import DomainRow from "../../../Component/Shared/DomainRow/DomainRow";
 import useDomain from "../../../Hock/useDomain";
 import useAxiosPublic from "../../../Hock/useAxiosPublic";
 import { useEffect, useState } from "react";
@@ -82,87 +82,86 @@ const AllDomains = () => {
         });
     };
 
-    return (
-
-        <>
-            {load || countLoading ? (
-                <Loading />
-            ) : (
-                <div className=" p-10 dark:text-white text-white dark:bg-slate-700 bg-firstColor py-5">
-                    <h2 className="text-center my-5 "> <span className=" font-bold"> Our Total Domain: </span>{domain?.length}</h2>
-                    <div className="overflow-x-auto p-5">
-                        <table className="table border">
-                            {/* head */}
-                            <thead className="md:text-xl font-bold text-white border-2 bg-fourthColor dark:text-white">
-                                <tr>
-
-                                    <th>No</th>
-                                    <th>TLD</th>
-                                    <th>Price</th>
-                                    <th>Category</th>
-                                    <th>Update</th>
-                                    <th>Delete</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {/* row  */}
-                                {
-                                    info?.map((domianItem, index) => <DomainRow
-                                        key={domianItem._id}
-                                        domianItem={domianItem}
-                                        handleDeleteItem={handleDeleteItem}
-                                        index={index}
-                                    ></DomainRow>)
-                                }
-
-                            </tbody>
-
-
-                        </table>
-                    </div>
-                    {/* paigination add */}
-                    <div className="flex flex-wrap justify-center items-center gap-2 my-10">
-                        <div
-                            onClick={handlePrevPage}
-                            className={`bg-thirdColor w-fit hover:bg-fourthColor text-white flex justify-center items-center border-2 btn-sm rounded-sm`}
-                        >
-                            <MdOutlineKeyboardDoubleArrowLeft />
-                            Prev
-                        </div>
-                        {pages?.map((page, i) => (
-                            <button
-                                key={page}
-                                onClick={() => setCurrentPage(page)}
-                                className={`${currentPage === page
-                                    ? "bg-thirdColor w-fit hover:bg-fourthColor text-white  border-2 btn-sm rounded-sm"
-                                    : " w-fit bg-fourthColor hover:bg-thirdColor hover:text-firstColor  dark:text-fifthColor hover:dark:text-firstColor   btn-sm rounded-sm"
-                                    }`}
-                            >
-                                {++i}
-                            </button>
-                        ))}
-                        <div
-                            onClick={handleNextPage}
-                            className={`bg-thirdColor w-fit hover:bg-fourthColor text-white  flex justify-center items-center border-2 btn-sm rounded-sm`}
-                        >
-                            Next <MdKeyboardDoubleArrowRight />
-                        </div>
-                        <select
-                            value={itemPerPage}
-                            onChange={handleItemParPageChange}
-                            className="select select-primary w-fit text-primary"
-                        >
-                            <option value="5">5</option>
-                            <option value="10">10</option>
-                            <option value="20">20</option>
-                            <option value="50">50</option>
-                        </select>
-                    </div>
-
-                </div>
-            )}
-        </>
-    );
+  return (
+    <>
+      {load|| countLoading ||loading ? (
+        <Loading />
+      ) : (
+        <div className=" p-10 dark:text-white text-white dark:bg-slate-700 bg-firstColor py-5">
+          <h2 className="text-center my-5 ">
+            {" "}
+            <span className=" font-bold"> Our Total Domain: </span>
+            {domain?.length}
+          </h2>
+          <div className="overflow-x-auto p-5">
+            <table className="table border">
+              {/* head */}
+              <thead className="md:text-xl font-bold text-white border-2 bg-fourthColor dark:text-white">
+                <tr>
+                  <th>No</th>
+                  <th>TLD</th>
+                  <th>Price</th>
+                  <th>Category</th>
+                  <th>Update</th>
+                  <th>Delete</th>
+                </tr>
+              </thead>
+              <tbody>
+                {/* row  */}
+                {info?.map((domianItem, index) => (
+                  <DomainRow
+                    key={domianItem._id}
+                    domianItem={domianItem}
+                    handleDeleteItem={handleDeleteItem}
+                    index={index}
+                  ></DomainRow>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          {/* paigination add */}
+          <div className="flex flex-wrap justify-center items-center gap-2 my-10">
+            <div
+              onClick={handlePrevPage}
+              className={`bg-thirdColor w-fit hover:bg-fourthColor text-white flex justify-center items-center border-2 btn-sm rounded-sm`}
+            >
+              <MdOutlineKeyboardDoubleArrowLeft />
+              Prev
+            </div>
+            {pages?.map((page, i) => (
+              <button
+                key={page}
+                onClick={() => setCurrentPage(page)}
+                className={`${
+                  currentPage === page
+                    ? "bg-thirdColor w-fit hover:bg-fourthColor text-white  border-2 btn-sm rounded-sm"
+                    : " w-fit bg-fourthColor hover:bg-thirdColor hover:text-firstColor  dark:text-fifthColor hover:dark:text-firstColor   btn-sm rounded-sm"
+                }`}
+              >
+                {++i}
+              </button>
+            ))}
+            <div
+              onClick={handleNextPage}
+              className={`bg-thirdColor w-fit hover:bg-fourthColor text-white  flex justify-center items-center border-2 btn-sm rounded-sm`}
+            >
+              Next <MdKeyboardDoubleArrowRight />
+            </div>
+            <select
+              value={itemPerPage}
+              onChange={handleItemParPageChange}
+              className="select select-primary w-fit text-primary"
+            >
+              <option value="5">5</option>
+              <option value="10">10</option>
+              <option value="20">20</option>
+              <option value="50">50</option>
+            </select>
+          </div>
+        </div>
+      )}
+    </>
+  );
 };
 
 export default AllDomains;

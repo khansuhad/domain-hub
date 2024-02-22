@@ -1,14 +1,12 @@
 import PropTypes from "prop-types";
 import toast from "react-hot-toast";
 import { useForm } from "react-hook-form";
-import UseAllGetUser from "../../../Hock/UseAllGetUser";
 import useAxiosSecure from "../../../Hock/useAxiosSecure";
 
-const Modal = ({ item }) => {
+const Modal = ({ item, refetch, setRefetch }) => {
   const axiosSecure = useAxiosSecure();
   const roleChangeSuccessToast = () =>
     toast.success("This user role change successfully");
-  const { refetchInfo } = UseAllGetUser();
 
   const {
     register,
@@ -25,9 +23,9 @@ const Modal = ({ item }) => {
     };
     await axiosSecure.put(`/users-role/${item?._id}`, info).then((res) => {
       console.log(res);
-      if (res.data.modifiedCount) {
+      if (res.data.modifiedCount > 0) {
         roleChangeSuccessToast();
-        refetchInfo();
+        setRefetch(refetch + 1);
       }
     });
   };
@@ -48,20 +46,22 @@ const Modal = ({ item }) => {
         {item?.role}
       </button>
 
-      <dialog id={`my_modal_${item._id}`} className="modal text-black">
-        <div className="modal-box">
+      <dialog id={`my_modal_${item._id}`} className="modal">
+        <div className="modal-box bg-fourthColor border shadow-2xl  border-secondColor dark:border-sixthColor text-white dark:text-sixthColor text-lg lg:text-xl  font-bold text-center">
           <h1 className="text-xl sm:text-2xl lg:text-3xl text-center mt-10 font-bold">
             Change Role
           </h1>
           <form className="card-body pt-0" onSubmit={handleSubmit(onSubmit)}>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Role</span>
+                <span className="label-text text-white dark:text-sixthColor">
+                  Role
+                </span>
               </label>
               <select
                 defaultValue={item?.role}
                 {...register("role", { required: "Role is required" })}
-                className="select select-bordered w-full"
+                className="select select-bordered w-full text-black"
               >
                 <option value="user">User</option>
                 <option value="admin">Admin</option>
@@ -94,6 +94,8 @@ const Modal = ({ item }) => {
 
 Modal.propTypes = {
   item: PropTypes.object,
+  refetch: PropTypes.number,
+  setRefetch: PropTypes.func
 };
 
 export default Modal;

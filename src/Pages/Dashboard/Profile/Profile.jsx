@@ -16,14 +16,15 @@ const Profile = () => {
       ) : (
         <div className="  dark:bg-slate-700 bg-firstColor  p-5 md:p-10">
           <Heading>Welcome to your profile </Heading>
-          <div className="grid grid-cols-1 md:grid-cols-6 gap-10 md:my-20">
-            <div className="col-span-2 flex flex-col justify-center items-center p-5 bg-fourthColor md:p-10 border shadow-2xl  border-secondColor dark:border-sixthColor text-white dark:text-sixthColor text-lg lg:text-xl  font-bold text-center">
+          <div className="grid grid-cols-1 md:grid-cols-5 xl:grid-cols-9 gap-10 md:my-20">
+            <div className="hidden xl:block"></div>
+            <div className="md:col-span-2 xl:col-span-3 flex flex-col justify-center items-center p-5 bg-fourthColor md:p-10 border shadow-2xl  border-secondColor dark:border-sixthColor text-white dark:text-sixthColor text-lg lg:text-xl  font-bold text-center">
               <div className="flex-grow">
-                <div className=" max-w-[200px] w-full mx-auto">
+                <div className=" max-w-[300px] w-full mx-auto mb-5">
                   <img
                     src={user?.photoURL}
                     alt={`image of ${info?.name}`}
-                    className="w-full rounded-xl "
+                    className="w-full  rounded-full border-[12px] border-thirdColor"
                   />
                 </div>
                 <h1 className="text-2xl sm:text-3xl lg:text-4xl my-3 font-bold">
@@ -37,7 +38,7 @@ const Profile = () => {
               {info?.premium !== true && <GetPremiumModal info={info} refetchInfo={refetchInfo} />}
             </div>
             <div
-              className="col-span-3 flex flex-col p-5 bg-fourthColor md:p-10 border shadow-2xl  border-secondColor dark:border-sixthColor text-white dark:text-sixthColor
+              className="md:col-span-3 xl:col-span-4 flex flex-col p-5 bg-fourthColor md:p-10 border shadow-2xl  border-secondColor dark:border-sixthColor text-white dark:text-sixthColor
            text-lg lg:text-xl"
             >
               <div className="flex-grow">

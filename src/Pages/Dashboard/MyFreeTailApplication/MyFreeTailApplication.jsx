@@ -64,28 +64,17 @@ const MyFreeTailApplication = () => {
                                     Application
                                 </p>
                             </th>
+                            <th className="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
+                                                <p className="block font-sans text-sm lg:text-xl font-bold antialiased leading-none text-white opacity-70">
+                                                    Your Domain
+                                                </p>
+                                            </th>
+                                            <th className="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
+                                                <p className="block font-sans text-sm lg:text-xl font-bold antialiased leading-none text-white opacity-70">
+                                                  Time Status
+                                                </p>
+                                            </th>
 
-
-                            {singleFreeTrialUser.map(item => <>
-                                {
-                                    item?.approve == "Accepted" ?
-                                    <>
-                                    <th className="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
-                                            <p className="block font-sans text-sm lg:text-xl font-bold antialiased leading-none text-white opacity-70">
-                                                Your Domain
-                                            </p>
-                                        </th>
-                                    <th className="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
-                                            <p className="block font-sans text-sm lg:text-xl font-bold antialiased leading-none text-white opacity-70">
-                                                Status
-                                            </p>
-                                        </th>
-                                    </> :
-                                        ""
-                                }
-
-                            </>
-                            )}
 
                         </tr>
                     </thead>
@@ -103,7 +92,7 @@ const MyFreeTailApplication = () => {
                                             {users.userName}
                                         </p>
                                     </td>
-                                    
+
                                     <td className="p-4 ">
                                         <p className="block font-sans text-sm lg:text-xl  antialiased font-normal leading-normal text-blue-gray-900">
                                             {users?.domainName}
@@ -128,16 +117,16 @@ const MyFreeTailApplication = () => {
 
                                     {users?.claimDomain ?
                                         <>
-                                        <td className="p-4 border-b border-blue-gray-50  items-center gap-3">
-                                            <p data-ripple-dark="true" className="flex items-center gap-3 lg:w-[50%] cursor-pointer text-black text-center lg:text-xl lg:font-semibold bg-secondColor p-2 rounded-sm   font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
-                                                {users?.claimDomain}
-                                            </p>
-                                        </td>
-                                        <td className="p-4 border-b border-blue-gray-50  items-center gap-3">
-                                            <p data-ripple-dark="true" className="flex items-center gap-3 cursor-pointer text-black text-center lg:text-xl lg:font-semibold bg-secondColor p-2 rounded-sm   font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
-                                            <FreeTrialCountDown trialDate={users?.claimDate}></FreeTrialCountDown>                                      
-                                            </p>
-                                        </td>
+                                            <td className="p-4 border-b border-blue-gray-50  items-center gap-3">
+                                                <p data-ripple-dark="true" className="flex justify-center items-center gap-3 lg:w-[50%]  cursor-pointer text-black text-center lg:text-xl lg:font-semibold bg-secondColor p-2 rounded-sm   font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
+                                                    {users?.claimDomain}
+                                                </p>
+                                            </td>
+                                            <td className="p-4 border-b border-blue-gray-50 w-[300px] mx-auto items-center gap-3">
+                                                <p data-ripple-dark="true" className="flex  justify-center items-center gap-3 cursor-pointer text-black  lg:text-xl lg:font-semibold  bg-secondColor p-2 rounded-sm   font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
+                                                    <FreeTrialCountDown  trialDate={users?.claimDate}></FreeTrialCountDown>
+                                                </p>
+                                            </td>
                                         </>
                                         :
                                         <td className="p-4 border-b border-blue-gray-50  items-center gap-3">

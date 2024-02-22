@@ -54,24 +54,16 @@ const Navbar = () => {
 
 
       <li>
-        <NavLink to="/"    className={({ isActive, isPending }) =>
-          isPending ? "pending" : isActive ? "abc" : "text-white"
-        }>{t("navHome")}</NavLink>
+        <NavLink to="/" >{t("navHome")}</NavLink>
       </li>
       <li>
-        <NavLink to="/domainCategory"    className={({ isActive, isPending }) =>
-          isPending ? "pending" : isActive ? "abc" : "text-white"
-        }>{t("navPricing")}</NavLink>
+        <NavLink to="/domainCategory" >{t("navPricing")}</NavLink>
       </li>
       <li>
-        <NavLink to="/about"    className={({ isActive, isPending }) =>
-          isPending ? "pending" : isActive ? "abc" : "text-white"
-        }>{t("navAbout")}</NavLink>
+        <NavLink to="/about" >{t("navAbout")}</NavLink>
       </li>
       <li>
-        <NavLink to="/contact"    className={({ isActive, isPending }) =>
-          isPending ? "pending" : isActive ? "abc" : "text-white"
-        }>{t("navContact")}</NavLink>
+        <NavLink to="/contact" >{t("navContact")}</NavLink>
       </li>
       {/* <li>
         <Link to="reviews">{t("navReview")}</Link>

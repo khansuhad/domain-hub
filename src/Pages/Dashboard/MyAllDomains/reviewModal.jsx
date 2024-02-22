@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { useNavigate } from "react-router-dom";
 import UseAuth from "../../../Hock/UseAuth";
 import useAxiosPublic from "../../../Hock/useAxiosPublic";
 import { useState } from "react";
@@ -9,6 +10,7 @@ const ReviewModal = ({ trueCart, index, refetch }) => {
   console.log(user);
   const axiosPublic = useAxiosPublic();
   const [rating, setRating] = useState("");
+  const navigate = useNavigate();
 
   const handleRatingChange = (event) => {
     const value = event.target.value;
@@ -46,8 +48,8 @@ const ReviewModal = ({ trueCart, index, refetch }) => {
           showConfirmButton: false,
           timer: 1500,
         });
+        navigate("/dashboard/my-all-reviews");
       }
-      refetch();
     });
     axiosPublic.put(`/cart/${cartId}`).then((res) => {
       if (res.data.modifiedCount) {

@@ -11,6 +11,7 @@ const AllUsers = () => {
   const [countLoading, setCountLoading] = useState(true);
   const [itemPerPage, setItemPerPage] = useState(10);
   const [currentPage, setCurrentPage] = useState(0);
+  const [refetch, setRefetch] = useState(0)
 
   const axiosSecure = useAxiosSecure();
   useEffect(() => {
@@ -25,7 +26,7 @@ const AllUsers = () => {
         setTeams(res.data);
         setLoading(false);
       });
-  }, [axiosSecure, currentPage, itemPerPage]);
+  }, [axiosSecure, currentPage, itemPerPage, refetch]);
   const numberOfPages = Math.ceil(count / itemPerPage);
   const pages = [...Array(numberOfPages).keys()];
   console.log(pages);
@@ -69,7 +70,7 @@ const AllUsers = () => {
                 </thead>
                 <tbody>
                   {info?.map((item) => (
-                    <AllUsersRow key={item?._id} item={item} />
+                    <AllUsersRow key={item?._id} item={item} refetch={refetch} setRefetch={setRefetch} />
                   ))}
                 </tbody>
               </table>

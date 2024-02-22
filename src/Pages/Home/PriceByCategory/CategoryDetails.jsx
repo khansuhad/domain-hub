@@ -50,7 +50,8 @@ const CategoryDetails = () => {
         description: domainDetails?.description,
         email: userInfo?.email,
         review: "false",
-        payment:"false"
+        payment:"false",
+        domainId: domainDetails?._id,
     }
     const handleCart = () => {
         axiosSecure.post("/carts", cartItem)
@@ -59,7 +60,7 @@ const CategoryDetails = () => {
                     console.log(res.data);
                     toast.success("Successfully Added to Cart!")
                     refetch()
-                    navigate("/")
+                    navigate("/dashboard/myCart")
                     
                 }
             }

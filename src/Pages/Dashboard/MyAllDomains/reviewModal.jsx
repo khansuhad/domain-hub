@@ -1,12 +1,23 @@
 /* eslint-disable react/prop-types */
-import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 import UseAuth from "../../../Hock/UseAuth";
 import useAxiosPublic from "../../../Hock/useAxiosPublic";
+import { useState } from "react";
+import Swal from "sweetalert2";
 
 const ReviewModal = ({ trueCart, index, refetch }) => {
   const { user } = UseAuth();
   console.log(user);
   const axiosPublic = useAxiosPublic();
+  const [rating, setRating] = useState("");
+  const navigate = useNavigate();
+
+  const handleRatingChange = (event) => {
+    const value = event.target.value;
+    if (value === "" || (parseInt(value) >= 0 && parseInt(value) <= 5)) {
+      setRating(value);
+    }
+  };
   const handleReview = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -30,9 +41,15 @@ const ReviewModal = ({ trueCart, index, refetch }) => {
 
     axiosPublic.post("/review", reviewDetail).then((res) => {
       if (res.data.insertedId) {
-        toast.success("Thank You For Your FeedBack");
+        Swal.fire({
+          position: "top-center",
+          icon: "success",
+          title: "Thank you for your review",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        navigate("/dashboard/my-all-reviews");
       }
-      refetch();
     });
     axiosPublic.put(`/cart/${cartId}`).then((res) => {
       if (res.data.modifiedCount) {
@@ -99,13 +116,16 @@ const ReviewModal = ({ trueCart, index, refetch }) => {
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Rating Out Of 5</span>
+                <span className="label-text">Rating Out Of (0-5)</span>
               </label>
               <input
                 type="number"
                 placeholder="Input Your Rating"
                 name="rating"
                 className="input input-bordered"
+                required
+                value={rating}
+                onChange={handleRatingChange}
               />
             </div>
             <div className="form-control">
@@ -115,6 +135,7 @@ const ReviewModal = ({ trueCart, index, refetch }) => {
               <textarea
                 type="text"
                 className="textarea textarea-bordered"
+                required
                 name="feedback"
                 placeholder="Tell Your Feedback"
               ></textarea>
@@ -125,9 +146,6 @@ const ReviewModal = ({ trueCart, index, refetch }) => {
               className="btn btn-outline btn-sm mt-4 w-full"
             >
               Review
-            </button>
-            <button className="btn btn-outline btn-sm ml-[500px] mt-5">
-              X
             </button>
           </form>
         </div>

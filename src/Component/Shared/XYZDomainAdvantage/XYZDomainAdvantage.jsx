@@ -6,12 +6,12 @@ const XYZDomainAdvantage = () => {
             <h2 className="text-xl md:text-3xl lg:text-5xl font-bold p-5 text-center text-white mb-5">Embrace Your Online Identity with .xyz Domains</h2>
 
 
-            <div className="flex flex-col md:flex-row justify-between items-center">
-                <div className="md:w-1/2">
-                    <img className="w-full h-full object-cover" src="https://i.postimg.cc/25JSBbqn/worldwide-online-shopping-concept-3d-rendering-808337-15098-removebg-preview.png" alt="" />
+            <div className="flex flex-col md:flex-row justify-between items-center" > 
+                <div className="md:w-1/2 delay-200" data-aos="zoom-in-right" >
+                    <img className="w-full h-full object-cover" src="https://i.postimg.cc/x1kfsXJp/306085512-594752135421525-3294087082390439834-n-1-removebg-preview.png" alt="" />
 
                 </div>
-                <div className="text-white p-5 flex flex-col gap-5 lg:gap-10  md:w-1/2">
+                <div className="text-white p-5 flex flex-col gap-5 lg:gap-10  md:w-1/2 delay-200" data-aos="zoom-in-right">
                     <div>
                         <p className="text-xl lg:text-2xl font-bold">.xyz Domain Names Are Always Available</p>
                         <p>This unique extension can help you successfully pass the domain name availability check.</p>

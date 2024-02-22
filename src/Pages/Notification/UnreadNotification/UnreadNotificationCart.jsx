@@ -20,7 +20,8 @@ const UnreadNotificationCart = ({noti }) => {
       , [noti.timeSpace ]);   
   
     return (
-        <div  className="bg-sixthColor m-5 p-5 rounded flex justify-between items-center">
+        <div data-aos="fade-up"
+        data-aos-anchor-placement="center-center"  className="bg-sixthColor m-5 p-5 rounded flex justify-between items-center">
         <div>
        
        <h1 className="font-medium">{noti?.messages}</h1>

@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import Modal from "./Modal";
 
-const AllUsersRow = ({ item }) => {
+const AllUsersRow = ({ item , refetch, setRefetch}) => {
   return (
     <tr className="text-white">
       <th>
@@ -13,7 +13,7 @@ const AllUsersRow = ({ item }) => {
       <td>{item?.email}</td>
       <td>{item?.phone}</td>
       <th>
-        <Modal item={item} />
+        <Modal item={item} refetch={refetch} setRefetch={setRefetch} />
       </th>
     </tr>
   );
@@ -21,6 +21,8 @@ const AllUsersRow = ({ item }) => {
 
 AllUsersRow.propTypes = {
   item: PropTypes.object,
+  refetch: PropTypes.number,
+  setRefetch: PropTypes.func,
 };
 
 export default AllUsersRow;

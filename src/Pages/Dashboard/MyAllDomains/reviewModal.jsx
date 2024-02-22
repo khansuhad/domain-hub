@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
-import toast from "react-hot-toast";
 import UseAuth from "../../../Hock/UseAuth";
 import useAxiosPublic from "../../../Hock/useAxiosPublic";
 import { useState } from "react";
+import Swal from "sweetalert2";
 
 const ReviewModal = ({ trueCart, index, refetch }) => {
   const { user } = UseAuth();
@@ -39,7 +39,13 @@ const ReviewModal = ({ trueCart, index, refetch }) => {
 
     axiosPublic.post("/review", reviewDetail).then((res) => {
       if (res.data.insertedId) {
-        toast.success("Thank You For Your FeedBack");
+        Swal.fire({
+          position: "top-center",
+          icon: "success",
+          title: "Thank you for your review",
+          showConfirmButton: false,
+          timer: 1500,
+        });
       }
       refetch();
     });

@@ -3,24 +3,28 @@ import PropTypes from "prop-types";
 import { IoDiamond } from "react-icons/io5";
 import useAxiosSecure from "../../../Hock/useAxiosSecure";
 import toast from "react-hot-toast";
+import { useState } from "react";
 
 const GetPremiumModal = ({ info, refetchInfo }) => {
   const navigate = useNavigate();
   const paymentSuccessToast = () => toast.success("Payment successfully");
   const axiosSecure = useAxiosSecure();
+  const [loading, setLoading] = useState(false)
   const handlePremium = () => {
+    setLoading(true)
     axiosSecure
       .put(`/get-premium-use-point?email=${info?.email}`)
       .then((res) => {
         navigate("/dashboard/profile");
         paymentSuccessToast();
         refetchInfo();
+        setLoading(false)
       });
   };
   return (
     <div>
       <button
-        className="btn bg-thirdColor hover:bg-fourthColor text-white border-0 mt-5"
+        className="btn bg-secondColor hover:bg-thirdColor text-white border-0 mt-5"
         onClick={() => document.getElementById("my_modal_3").showModal()}
       >
         Get premium
@@ -38,14 +42,14 @@ const GetPremiumModal = ({ info, refetchInfo }) => {
           </h1>
           <Link
             to={"/dashboard/make-premium-checkout"}
-            className="btn bg-thirdColor hover:bg-fourthColor text-white border-0 m-5"
+            className="btn bg-secondColor hover:bg-thirdColor text-white border-0 m-5"
           >
             Pay 99 $
           </Link>
-          {info.point >= 99 ? (
+          {info.point >= 99 || loading ? (
             <button
               onClick={handlePremium}
-              className="btn bg-thirdColor hover:bg-fourthColor text-white border-0 m-5"
+              className="btn bg-secondColor hover:bg-thirdColor text-white border-0 m-5"
             >
               Use 99 <IoDiamond />
             </button>

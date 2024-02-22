@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import Loading from "../../../Component/Loading/Loading";
 import Heading from "../../../Component/UI/Heading";
+import { useState } from "react";
 
 const EditProfile = () => {
   const { info, isPendingInfo } = useGetUser();
@@ -17,6 +18,7 @@ const EditProfile = () => {
   const updateProfileSuccessToast = () =>
     toast.success("Profile update successfully");
   const updateProfileErrorToast = () => toast.error("Profile can't update");
+  const [loading, setLoading] = useState(false);
   const {
     register,
     handleSubmit,
@@ -34,6 +36,7 @@ const EditProfile = () => {
     },
   });
   const onSubmit = async (data) => {
+    setLoading(true);
     const name = data.name;
     const phoneNumber = data.phoneNumber;
     const presentAddress = data.presentAddress;
@@ -71,8 +74,12 @@ const EditProfile = () => {
         if (res.status === 200) {
           navigate("/dashboard/profile");
           updateProfileSuccessToast();
+
+          setLoading(false);
         } else {
           updateProfileErrorToast();
+
+          setLoading(false);
         }
       });
     });
@@ -83,7 +90,7 @@ const EditProfile = () => {
         <Loading />
       ) : (
         <div className="max-w-5xl w-full mx-auto p-5 md:p-10 text-center ">
-          <div className="p-5 md:p-10 border shadow-2xl dark:bg-slate-700 bg-fourthColor text-white  border-secondColor dark:border-sixthColor dark:text-sixthColor text-lg lg:text-xl  font-bold w-full my-10">
+          <div className="p-5 md:p-10 border shadow-2xl dark:bg-slate-700 bg-fourthColor text-white  border-secondColor dark:border-sixthColor dark:text-sixthColor text-lg lg:text-xl  font-bold w-full">
             <form onSubmit={handleSubmit(onSubmit)}>
               <Heading>Update Profile</Heading>
               <div className="form-control">
@@ -183,12 +190,21 @@ const EditProfile = () => {
                 />
               </div>
               <div className="form-control mt-6">
-                <button
-                  className="btn bg-secondColor hover:bg-thirdColor text-white border-0"
-                  type="submit"
-                >
-                  Update Profile
-                </button>
+                {loading ? (
+                  <button
+                    className="btn bg-secondColor hover:bg-secondColor text-white border-0 cursor-not-allowed"
+                    type="submit"
+                  >
+                    Loading...
+                  </button>
+                ) : (
+                  <button
+                    className="btn bg-secondColor hover:bg-thirdColor text-white border-0"
+                    type="submit"
+                  >
+                    Update Profile
+                  </button>
+                )}
               </div>
             </form>
           </div>

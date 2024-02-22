@@ -125,14 +125,14 @@ const MakePremiumCheckoutForm = () => {
             <p className="text-red-600">{error}</p>
             <div className="text-center mt-5">
               {paymentLoading ? (
-                <button className="btn bg-thirdColor hover:bg-fourthColor text-white border-0">
+                <button className="btn bg-secondColor hover:bg-secondColor cursor-not-allowed text-white border-0">
                   Loading..
                 </button>
               ) : (
                 <button
                   type="submit"
                   disabled={!stripe || !clientSecret}
-                  className="btn bg-thirdColor hover:bg-fourthColor text-white border-0"
+                  className="btn bg-secondColor hover:bg-thirdColor text-white border-0"
                 >
                   Payment
                 </button>

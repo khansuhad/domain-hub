@@ -41,7 +41,7 @@ const DomainForm = ({addDomain}) => {
                                 <span className="label-text font-bold text-white">Category type</span>
                             </label>
                             <label className="input-group">
-                                <select name="category" className="select select-bordered w-full">
+                                <select name="category" className="select select-bordered w-full text-black ">
                                     <option value="health">health</option>
                                     <option value="commerce">commerce</option>
                                     <option value="education">education</option>
@@ -63,7 +63,7 @@ const DomainForm = ({addDomain}) => {
 
                                 {/* <input type="text" name="description" placeholder="Description" className="input input-bordered w-full" /> */}
 
-                                <textarea className="w-full pl-2" name="description" id="" cols="30" rows="10"></textarea>
+                                <textarea className="w-full text-black  pl-2" name="description" id="" cols="30" rows="10"></textarea>
                             </label>
                         </div>
                     </div>

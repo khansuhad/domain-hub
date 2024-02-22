@@ -3,8 +3,6 @@ import Container from "../../../Component/UI/Container";
 import Description from "../../../Component/UI/Description";
 import { IoIosArrowDown,IoIosArrowUp  } from "react-icons/io";
 import Heading from "../../../Component/UI/Heading";
-import Faq from "../../../../public/faq.json"
-import Lottie from 'lottie-react';
 import { useTranslation } from "react-i18next";
 
 
@@ -47,11 +45,13 @@ const FAQ = () => {
 
 
                 <div className=" flex justify-between items-center ">
-                    <div className="flex flex-col w-full md:flex-row justify-center items-center  dark:text-[#191919] dark:bg-[#191919]">
-                        {/* FAQ image animation */}
-                        <Lottie animationData={Faq}/>
+                    <div data-aos="zoom-in-right" className="flex flex-col w-full md:flex-row justify-center items-center  dark:text-[#191919] dark:bg-[#191919]">
+                        {/* FAQ image */}
+                        <div className="w-full delay-200 md:w-1/2 flex-grow">
+                            <img className="w-full" src="https://i.postimg.cc/SNn9gk0x/FAQs-rafiki-3-removebg-preview.png" alt="" />
+                        </div>
 
-                        <div className="container   mx-auto py-16">
+                        <div data-aos="zoom-in-right" className="container w-1/2 mx-auto py-16 delay-200">
 
 
                             <div className="grid gap-4">

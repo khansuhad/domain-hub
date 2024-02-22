@@ -12,28 +12,31 @@ import { useTranslation } from "react-i18next";
 import useAxiosPublic from "../../../Hock/useAxiosPublic";
 
 const SuccessShowcase = () => {
-  const [sellings, setSellings] = useState([])
+  const [selling, setSelling] = useState([])
   const [reviews, setReviews] = useState([])
   const [users, setUsers] = useState([])
   const {t}=useTranslation()
   const useAxios = useAxiosPublic();
-
+console.log(selling, reviews, users);
   
   useEffect(() =>{
     useAxios.get("/reviewsLength")
     .then(res => {
       const data = res?.data ;
+      console.log(data);
       setReviews(data)
     })
     useAxios.get("/usersLength")
     .then(res => {
       const data = res?.data;
+      console.log(data);
       setUsers(data)
     })
     useAxios.get("/sellingsLength")
     .then(res => {
       const data = res?.data;
-      setSellings(data)
+      console.log(data);
+      setSelling(data)
     })
 
   },[useAxios])
@@ -199,7 +202,7 @@ const SuccessShowcase = () => {
                   {t("totalSell")}
                 </div>
                 <div className="stat-value">
-               <CountUp end={sellings?.length}/>
+               <CountUp end={selling?.length}/>
                 </div>
               </div>
               <MdSell className="mt-6 text-xl" />

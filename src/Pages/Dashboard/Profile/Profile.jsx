@@ -47,6 +47,7 @@ const Profile = () => {
                 </h1>
                 <p className="my-1">Name: {info?.name ? info?.name : "N/A"}</p>
                 <p className="my-1">Role: {info?.role ? info?.role : "N/A"}</p>
+                <p className="my-1">Premium: {info?.premium ? "True" : "False"}</p>
                 <p className="my-1">
                   Present address:{" "}
                   {info?.presentAddress ? info?.presentAddress : "N/A"}

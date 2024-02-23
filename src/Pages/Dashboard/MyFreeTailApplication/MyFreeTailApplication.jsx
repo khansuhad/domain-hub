@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { domainDetails } from "../../../features/domain/domainSlice";
 import useDomain from "../../../Hock/useDomain";
 import FreeTrialCountDown from "../../../Component/StatusCountDown/FreeTrialCountDown";
+import { Helmet } from "react-helmet";
 
 const MyFreeTailApplication = () => {
   const [singleFreeTrialUser, , refetch] = useSingleFreeTrialUser();
@@ -28,6 +29,10 @@ const MyFreeTailApplication = () => {
   };
   return (
     <>
+      <Helmet>
+        <title>DomainHub | Free Trial </title>
+        <meta name="description" content="Helmet application" />
+      </Helmet>
       <div className="overflow-x-auto p-5 ">
         <h2 className="text-2xl font-bold text-center text-white my-10">
           My Free Trial Application

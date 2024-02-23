@@ -171,15 +171,15 @@ const MyCart = () => {
               <p className="text-2xl md:text-4xl lg:text-5xl w-full font-bold text-center text-white dark:text-white my-10">
                 My Cart
               </p>
-              <div className="flex gap-2">
+              <div className="flex flex-col md:flex-row justify-center items-center gap-2 m-2 pb-2">
                 <Link to="/">
-                  <button className="btn text-black font-bold uppercase bg-secondColor hover:bg-thirdColor hover:text-white">
+                  <button className="p-2 px-11  md:p-3 rounded-md text-black font-bold uppercase bg-secondColor hover:bg-thirdColor hover:text-white text-sm">
                     Home
                   </button>
                 </Link>
                 <Link to="/searchPage">
-                  <button className="btn text-black font-bold  uppercase bg-secondColor hover:bg-thirdColor hover:text-white">
-                    Search Domain
+                  <button className="p-2 md:p-3 rounded-md text-black font-bold  uppercase bg-secondColor hover:bg-thirdColor hover:text-white text-sm">
+                    Search Domain 
                   </button>
                 </Link>
               </div>
@@ -373,7 +373,7 @@ const MyCart = () => {
                 </div>
 
                 <button
-                  className="btn btn-block uppercase text-xl font-bold bg-secondColor hover:bg-thirdColor"
+                  className="btn btn-block text-sm uppercase md:text-xl font-bold bg-secondColor hover:bg-thirdColor"
                   onClick={() =>
                     document.getElementById("my_modal_3").showModal()
                   }

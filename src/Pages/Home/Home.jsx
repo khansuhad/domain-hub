@@ -14,7 +14,7 @@ const Home = () => {
        
             <Banner/>
             <DomainTld></DomainTld>
-            <FreeTrial/>
+            {/* <FreeTrial/> */}
             <BestHostingPlan/>
             <FAQ/>
             <XYZDomainAdvantage/>

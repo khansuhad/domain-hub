@@ -12,7 +12,7 @@ const MyAllDomains = () => {
   return (
     <>
       <Helmet>
-        <title>DomainHub | All Notifications</title>
+        <title>DomainHub | All Domains</title>
         <meta name="description" content="Helmet application" />
       </Helmet>
 

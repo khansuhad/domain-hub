@@ -12,6 +12,7 @@ import { addCartItemSelectedTime } from "../../../features/cartItemSelectedTime/
 import useAxiosSecure from "../../../Hock/useAxiosSecure";
 import usePremiumUser from "../../../Hock/usePremiumUser";
 import Loading from "../../../Component/Loading/Loading";
+import { Helmet } from "react-helmet";
 
 const MyCart = () => {
   const dispatch = useDispatch();
@@ -162,6 +163,10 @@ const MyCart = () => {
 
   return (
     <>
+      <Helmet>
+        <title>DomainHub | My Cart</title>
+        <meta name="description" content="Helmet application" />
+      </Helmet>
       {isPremiumLoading ? (
         <Loading />
       ) : (
@@ -179,7 +184,7 @@ const MyCart = () => {
                 </Link>
                 <Link to="/searchPage">
                   <button className="p-2 md:p-3 rounded-md text-black font-bold  uppercase bg-secondColor hover:bg-thirdColor hover:text-white text-sm">
-                    Search Domain 
+                    Search Domain
                   </button>
                 </Link>
               </div>

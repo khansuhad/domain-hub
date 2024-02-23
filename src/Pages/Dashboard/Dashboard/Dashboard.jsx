@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import Loading from "../../../Component/Loading/Loading";
 import Heading from "../../../Component/UI/Heading";
 import UseAuth from "../../../Hock/UseAuth";
@@ -39,6 +40,10 @@ const Dashboard = () => {
   ];
   return (
     <>
+      <Helmet>
+        <title>DomainHub | Dashboard</title>
+        <meta name="description" content="Helmet application" />
+      </Helmet>
       {isPendingStats ? (
         <Loading />
       ) : (

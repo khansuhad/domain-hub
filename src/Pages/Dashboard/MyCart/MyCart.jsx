@@ -323,7 +323,7 @@ const MyCart = () => {
                   <p className="text-red-600 mt-2">
                     Only premium user can use coupon{" "}
                     <Link
-                      to={"/dashboard/make-premium-checkout"}
+                      to={"/dashboard/profile"}
                       className="font-bold underline text-secondColor"
                     >
                       Get premium

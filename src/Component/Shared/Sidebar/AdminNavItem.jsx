@@ -9,9 +9,9 @@ const AdminNavItem = () => {
       <li>
         <NavLink
           to="/dashboard/dashboard"
-          className={({ isActive, isPending }) =>
-          isPending ? "pending" : isActive ? "abc" : "text-white"
-        }
+        //   className={({ isActive, isPending }) =>
+        //   isPending ? "pending" : isActive ? "abc" : "text-white"
+        // }
           
         >
           {t("navDashboard")}
@@ -19,9 +19,9 @@ const AdminNavItem = () => {
     
         <NavLink
           to="/dashboard/create-domain"
-          className={({ isActive, isPending }) =>
-          isPending ? "pending" : isActive ? "abc" : "text-white"
-        }
+        //   className={({ isActive, isPending }) =>
+        //   isPending ? "pending" : isActive ? "abc" : "text-white"
+        // }
           
         >
           
@@ -30,9 +30,9 @@ const AdminNavItem = () => {
       
         <NavLink
           to="/dashboard/all-domains"
-          className={({ isActive, isPending }) =>
-          isPending ? "pending" : isActive ? "abc" : "text-white"
-        }
+        //   className={({ isActive, isPending }) =>
+        //   isPending ? "pending" : isActive ? "abc" : "text-white"
+        // }
           
         >
           {t("allDomain")}
@@ -41,9 +41,9 @@ const AdminNavItem = () => {
       
         <NavLink
           to="/dashboard/all-free-tail-applications"
-          className={({ isActive, isPending }) =>
-          isPending ? "pending" : isActive ? "abc" : "text-white"
-        }
+        //   className={({ isActive, isPending }) =>
+        //   isPending ? "pending" : isActive ? "abc" : "text-white"
+        // }
           
         >
           {t("allFreeTrial")}
@@ -51,9 +51,9 @@ const AdminNavItem = () => {
      
         <NavLink
           to="/dashboard/all-Reviews"
-          className={({ isActive, isPending }) =>
-          isPending ? "pending" : isActive ? "abc" : "text-white"
-        }
+        //   className={({ isActive, isPending }) =>
+        //   isPending ? "pending" : isActive ? "abc" : "text-white"
+        // }
           
         >
           {t("allReviews")}
@@ -61,9 +61,9 @@ const AdminNavItem = () => {
 
         <NavLink
           to="/dashboard/all-users"
-          className={({ isActive, isPending }) =>
-          isPending ? "pending" : isActive ? "abc" : "text-white"
-        }
+        //   className={({ isActive, isPending }) =>
+        //   isPending ? "pending" : isActive ? "abc" : "text-white"
+        // }
          
         >
           {t("allUser")}

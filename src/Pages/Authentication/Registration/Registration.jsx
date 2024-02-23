@@ -89,7 +89,7 @@ const Registration = () => {
   return (
     <>
       <Helmet>
-        <title>DomainHub | Login</title>
+        <title>DomainHub | Register</title>
         <meta name="description" content="Helmet application" />
       </Helmet>
 

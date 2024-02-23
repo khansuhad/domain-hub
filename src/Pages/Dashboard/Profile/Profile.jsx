@@ -5,12 +5,17 @@ import useGetUser from "../../../Hock/UseGetUser";
 import Heading from "../../../Component/UI/Heading";
 import GetPremiumModal from "./GetPremiumModal";
 import { IoDiamond } from "react-icons/io5";
+import { Helmet } from "react-helmet";
 
 const Profile = () => {
   const { info, isPendingInfo, refetchInfo } = useGetUser();
   const { user, isLoading } = UseAuth();
   return (
     <>
+      <Helmet>
+        <title>DomainHub | Profile</title>
+        <meta name="description" content="Helmet application" />
+      </Helmet>
       {isPendingInfo || isLoading ? (
         <Loading />
       ) : (
@@ -35,7 +40,9 @@ const Profile = () => {
                   {info?.role}
                 </p>
               </div>
-              {info?.premium !== true && <GetPremiumModal info={info} refetchInfo={refetchInfo} />}
+              {info?.premium !== true && (
+                <GetPremiumModal info={info} refetchInfo={refetchInfo} />
+              )}
             </div>
             <div
               className="md:col-span-3 xl:col-span-4 flex flex-col p-5 bg-fourthColor md:p-10 border shadow-2xl  border-secondColor dark:border-sixthColor text-white dark:text-sixthColor
@@ -47,7 +54,9 @@ const Profile = () => {
                 </h1>
                 <p className="my-1">Name: {info?.name ? info?.name : "N/A"}</p>
                 <p className="my-1">Role: {info?.role ? info?.role : "N/A"}</p>
-                <p className="my-1">Premium: {info?.premium ? "True" : "False"}</p>
+                <p className="my-1">
+                  Premium: {info?.premium ? "True" : "False"}
+                </p>
                 <p className="my-1">
                   Present address:{" "}
                   {info?.presentAddress ? info?.presentAddress : "N/A"}

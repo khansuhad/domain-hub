@@ -1,4 +1,3 @@
-import { useLoaderData } from "react-router-dom";
 import Banner from "./Banner/Banner";
 import BestHostingPlan from "./BestHostingPlan/BestHostingPlan";
 import FAQ from "./FAQ/FAQ";
@@ -10,13 +9,12 @@ import Review from "./Review/Review";
 import XYZDomainAdvantage from "../../Component/Shared/XYZDomainAdvantage/XYZDomainAdvantage";
 
 const Home = () => {
-    const data= useLoaderData()
     return (
         <div className="bg-firstColor dark:bg-[#191919]">
        
             <Banner/>
             <DomainTld></DomainTld>
-            <FreeTrial/>
+            {/* <FreeTrial/> */}
             <BestHostingPlan/>
             <FAQ/>
             <XYZDomainAdvantage/>

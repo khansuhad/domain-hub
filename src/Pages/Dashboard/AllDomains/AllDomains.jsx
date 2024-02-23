@@ -17,7 +17,7 @@ const AllDomains = () => {
     const [count, setCount] = useState(null);
     const [load, setLoading] = useState(true);
     const [countLoading, setCountLoading] = useState(true);
-    const [itemPerPage, setItemPerPage] = useState(50);
+    const [itemPerPage, setItemPerPage] = useState(20);
     console.log(itemPerPage);
     const [currentPage, setCurrentPage] = useState(0);
     console.log(currentPage);
@@ -88,9 +88,8 @@ const AllDomains = () => {
         <Loading />
       ) : (
         <div className=" p-10 dark:text-white text-white dark:bg-slate-700 bg-firstColor py-5">
-          <h2 className="text-center my-5 ">
-            {" "}
-            <span className=" font-bold"> Our Total Domain: </span>
+          <h2 className="text-center my-5 text-2xl md:text-3xl lg:text-5xl">
+            <span className=" font-bold text-2xl md:text-3xl lg:text-5xl"> Our Total Domain: </span>
             {domain?.length}
           </h2>
           <div className="overflow-x-auto p-5">

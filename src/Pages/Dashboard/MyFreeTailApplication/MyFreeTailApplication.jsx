@@ -2,49 +2,18 @@
 
 
 import useSingleFreeTrialUser from "../../../Hock/useSingleFreeTrialUser";
-import { MdDelete } from "react-icons/md";
-import { IoDiamond } from "react-icons/io5";
-import useAxiosPublic from "../../../Hock/useAxiosPublic";
-import Swal from "sweetalert2";
+import { IoDiamond } from "react-icons/io5";;
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { domainDetails } from "../../../features/domain/domainSlice";
 import useDomain from "../../../Hock/useDomain";
+import FreeTrialCountDown from "../../../Component/StatusCountDown/FreeTrialCountDown";
+
 
 const MyFreeTailApplication = () => {
     const [singleFreeTrialUser, , refetch] = useSingleFreeTrialUser()
     console.log(singleFreeTrialUser);
-    const axiosPublic = useAxiosPublic()
 
-    const handleDelete = (email) => {
-        Swal.fire({
-            title: "Are you sure?",
-            text: "You won't be able to revert this!",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!"
-        }).then(async (res) => {
-            if (res.isConfirmed) {
-                axiosPublic.delete(`/freeTrialUsers?email=${email}`)
-                    .then(res => {
-                        console.log(res.data);
-
-                        if (res.data.deletedCount > 0) {
-                            Swal.fire({
-                                title: "Deleted!",
-                                text: " Item has been deleted",
-                                icon: "success"
-                            });
-                            refetch();
-                        }
-                    })
-            }
-        });
-
-
-    };
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
@@ -83,11 +52,7 @@ const MyFreeTailApplication = () => {
                                     Name
                                 </p>
                             </th>
-                            <th className="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
-                                <p className="block font-sans text-sm lg:text-xl font-bold antialiased leading-none text-white opacity-70">
-                                    Email
-                                </p>
-                            </th>
+
                             <th className="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
                                 <p className="block font-sans text-sm lg:text-xl font-bold antialiased leading-none text-white opacity-70">
                                     TLD
@@ -100,24 +65,16 @@ const MyFreeTailApplication = () => {
                                 </p>
                             </th>
                             <th className="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
-                                <p className="block font-sans text-sm lg:text-xl font-bold antialiased leading-none text-white opacity-70">
-                                    Delete
-                                </p>
-                            </th>
+                                                <p className="block font-sans text-sm lg:text-xl font-bold antialiased leading-none text-white opacity-70">
+                                                    Your Domain
+                                                </p>
+                                            </th>
+                                            <th className="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
+                                                <p className="block font-sans text-sm lg:text-xl font-bold antialiased leading-none text-white opacity-70">
+                                                  Time Status
+                                                </p>
+                                            </th>
 
-                            {singleFreeTrialUser.map(item => <>
-                                {
-                                    item?.approve == "Accepted" ?
-                                        <th className="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
-                                            <p className="block font-sans text-sm lg:text-xl font-bold antialiased leading-none text-white opacity-70">
-                                                Your Domain
-                                            </p>
-                                        </th> :
-                                        ""
-                                }
-
-                            </>
-                            )}
 
                         </tr>
                     </thead>
@@ -125,27 +82,23 @@ const MyFreeTailApplication = () => {
                         singleFreeTrialUser.map((users, inx) => <>
                             <tbody className="text-white">
                                 <tr>
-                                    <td className="p-4 border-b border-blue-gray-50">
+                                    <td className="p-4 ">
                                         <p className="block font-sans text-sm lg:text-xl  antialiased font-normal leading-normal text-blue-gray-900">
                                             {inx + 1}
                                         </p>
                                     </td>
-                                    <td className="p-4 border-b border-blue-gray-50">
+                                    <td className="p-4 ">
                                         <p className="block font-sans text-sm lg:text-xl  antialiased font-normal leading-normal text-blue-gray-900">
                                             {users.userName}
                                         </p>
                                     </td>
-                                    <td className="p-4 border-b border-blue-gray-50">
-                                        <p className="block font-sans text-sm lg:text-xl  antialiased font-normal leading-normal text-blue-gray-900">
-                                            {users?.email}
-                                        </p>
-                                    </td>
-                                    <td className="p-4 border-b border-blue-gray-50">
+
+                                    <td className="p-4 ">
                                         <p className="block font-sans text-sm lg:text-xl  antialiased font-normal leading-normal text-blue-gray-900">
                                             {users?.domainName}
                                         </p>
                                     </td>
-                                    <td className="p-4 border-b border-blue-gray-50 flex items-center gap-3">
+                                    <td className="p-4  flex items-center gap-3">
                                         {users?.approve == "Accepted" && <p className="block cursor-pointer text-black text-center lg:text-xl lg:font-semibold bg-green-400 p-2 rounded-sm font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
                                             Accepted
                                         </p>}
@@ -162,18 +115,19 @@ const MyFreeTailApplication = () => {
 
                                     </td>
 
-                                    <td className="p-4 border-b border-blue-gray-50">
-                                        <button onClick={() => { handleDelete(users?.email) }} className="text-2xl text-red-500"><MdDelete></MdDelete></button>
-                                    </td>
-
-
-
                                     {users?.claimDomain ?
-                                        <td className="p-4 border-b border-blue-gray-50  items-center gap-3">
-                                            <p data-ripple-dark="true" className="flex items-center gap-3 lg:w-[50%] cursor-pointer text-black text-center lg:text-xl lg:font-semibold bg-secondColor p-2 rounded-sm   font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
-                                                {users?.claimDomain}
-                                            </p>
-                                        </td>
+                                        <>
+                                            <td className="p-4 border-b border-blue-gray-50  items-center gap-3">
+                                                <p data-ripple-dark="true" className="flex justify-center items-center gap-3 lg:w-[50%]  cursor-pointer text-black text-center lg:text-xl lg:font-semibold bg-secondColor p-2 rounded-sm   font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
+                                                    {users?.claimDomain}
+                                                </p>
+                                            </td>
+                                            <td className="p-4 border-b border-blue-gray-50 w-[300px] mx-auto items-center gap-3">
+                                                <p data-ripple-dark="true" className="flex  justify-center items-center gap-3 cursor-pointer text-black  lg:text-xl lg:font-semibold  bg-secondColor p-2 rounded-sm   font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
+                                                    <FreeTrialCountDown  trialDate={users?.claimDate}></FreeTrialCountDown>
+                                                </p>
+                                            </td>
+                                        </>
                                         :
                                         <td className="p-4 border-b border-blue-gray-50  items-center gap-3">
                                             {users?.approve == "Accepted" && <p data-ripple-dark="true" onClick={() => { handleDetails(users?.domainName) }} className="flex items-center gap-3 lg:w-[50%] cursor-pointer text-black text-center lg:text-xl lg:font-semibold bg-secondColor p-2 rounded-sm hover:bg-thirdColor  font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
@@ -181,10 +135,6 @@ const MyFreeTailApplication = () => {
                                             </p>}
                                         </td>
                                     }
-
-
-
-
 
                                 </tr>
 

@@ -64,18 +64,14 @@ const FreeTrial = () => {
                 <div className="lg:w-[750px] space-y-10 delay-200"  data-aos="zoom-in-right"  >
                     <img src={image} alt="" />
                 </div>
-
-
+                
                 <div className=" h-screen flex items-center justify-center text-white">
 
                     <div className="max-w-md p-8 dark:bg-gray-700 bg-fourthColor shadow-md rounded-md delay-200" data-aos="zoom-in-left" >
 
-
                         <h1 className="lg:text-4xl text-3xl font-bold  mb-6">{t("trialSectionTitle")}</h1>
 
-
                         <form onSubmit={handleFreeTrialApplication} className="mb-4 ">
-
 
                             <div>
                                 <select required name="Domain" defaultValue="" className="select p-0 pl-2 appearance-none w-full border-none outline-none text-black text-sm font-semibold">
@@ -106,11 +102,7 @@ const FreeTrial = () => {
                                     </Link>
                                 )
                             }
-
                         </form>
-
-
-
                     </div>
 
                 </div>

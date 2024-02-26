@@ -83,7 +83,7 @@ const SearchingDomain = () => {
     // Check if the domain is already in the cart
     const isDomainInCart = carts?.some((cartItem) => cartItem.name === domainName);
     console.log(!isDomainInCart);
-    if(isDomainInCart){
+    if (isDomainInCart) {
       Swal.fire({
         title: "Wrong!",
         text: "Already Added Cart",
@@ -118,7 +118,7 @@ const SearchingDomain = () => {
   };
   return (
     <>
-      {load || countLoading ||loading ? (
+      {load || countLoading || loading ? (
         <Loading />
       ) : (
         <div>
@@ -150,14 +150,30 @@ const SearchingDomain = () => {
                   value={selectedCategory}
                   onChange={(e) => setSelectedCategory(e.target.value)}
                 >
-                  <option value="All">All Categories</option>
-                  <option value="technology">Technology</option>
-                  <option value="education">Education</option>
-                  <option value="commerce">Commerce</option>
-                  <option value="health">health</option>
-                  <option value="sport">Sport</option>
-                  <option value="industry">Industry</option>
-                  <option value="government">Government</option>
+                  <option className="bg-thirdColor dark:bg-slate-700 dark:text-white  text-black font-semibold" value="All">
+                    All Categories
+                  </option>
+                  <option className="bg-thirdColor dark:bg-slate-700 dark:text-white  text-black font-semibold" value="technology">
+                    Technology
+                  </option>
+                  <option className="bg-thirdColor dark:bg-slate-700 dark:text-white  text-black font-semibold" value="education">
+                    Education
+                  </option>
+                  <option className="bg-thirdColor dark:bg-slate-700 dark:text-white  text-black font-semibold" value="commerce">
+                    Commerce
+                  </option>
+                  <option className="bg-thirdColor dark:bg-slate-700 dark:text-white  text-black font-semibold" value="health">
+                    health
+                  </option>
+                  <option className="bg-thirdColor dark:bg-slate-700 dark:text-white  text-black font-semibold" value="sport">
+                    Sport
+                  </option>
+                  <option className="bg-thirdColor dark:bg-slate-700 dark:text-white  text-black font-semibold" value="industry">
+                    Industry
+                  </option>
+                  <option className="bg-thirdColor dark:bg-slate-700 dark:text-white  text-black font-semibold" value="government">
+                    Government
+                  </option>
                   {/* Add more categories as needed */}
                 </select>
               </div>
@@ -225,7 +241,7 @@ const SearchingDomain = () => {
             </div>
             {pages?.map((page, i) => (
               <button
-              
+
                 key={page}
                 onClick={() => setCurrentPage(page)}
                 className={`${currentPage === page

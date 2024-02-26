@@ -17,9 +17,7 @@ const MyCart = () => {
   const dispatch = useDispatch();
   const { isPremium, isPremiumLoading } = usePremiumUser();
   console.log("user, isPremium", isPremium);
-  const cartItemSelectedTimeM = useSelector(
-    (state) => state.cartItemTime.cartItemSelectedTime
-  );
+
   const [carts, loading, refetch] = useCart();
   const useAxios = useAxiosPublic();
   console.log(carts);
@@ -38,6 +36,18 @@ const MyCart = () => {
 
   const axiosPublic = useAxiosPublic();
   const { user } = UseAuth();
+
+  const totalPriceMBM = useSelector((state) => state.payment.TotalBill);
+  const email = user?.email;
+  const cartItemSelectedTimeMBM = useSelector(
+    (state) => state.cartItemTime.cartItemSelectedTime
+  );
+  const data = {
+    totalPriceMBM,
+    cartItemSelectedTimeMBM,
+
+    email,
+  };
 
   const handleTimeChange = (cartItemId, selectedTime) => {
     // Update the selected time for the specific domain item
@@ -134,23 +144,21 @@ const MyCart = () => {
     const priceForSsl = {
       totalPrice,
       email: user.email,
-
-    }
+    };
     console.log(priceForSsl);
     axiosPublic
       .post("/order", priceForSsl)
       .then((res) => {
         window.location.replace(res.data.url);
         console.log(res.data);
-        axiosSecure.put("/carts", cartItemSelectedTimeM).then((res) => {
+        axiosSecure.put("/carts", data).then((res) => {
           console.log(res.data);
         });
       })
       .catch((err) => {
         console.log(err);
-      })
-  }
-
+      });
+  };
 
   return (
     <>
@@ -160,7 +168,7 @@ const MyCart = () => {
         <div className="rounded-lg text-white dark:bg-black min-h-screen bg-firstColor ">
           <div className="flex justify-between bg-gradient-to-tr from-[#13104e] to-[#0193e1] ">
             <div className="flex flex-col justify-center w-3/4 items-center">
-              <p className="text-2xl w-full font-bold text-center text-white dark:text-white my-10">
+              <p className="text-2xl md:text-4xl lg:text-5xl w-full font-bold text-center text-white dark:text-white my-10">
                 My Cart
               </p>
               <div className="flex gap-2">
@@ -224,9 +232,9 @@ const MyCart = () => {
                         <td>
                           {selectedTimes[cartItem._id]
                             ? (
-                              parseFloat(cartItem.price) *
-                              selectedTimes[cartItem._id]
-                            ).toFixed(2)
+                                parseFloat(cartItem.price) *
+                                selectedTimes[cartItem._id]
+                              ).toFixed(2)
                             : "0.00"}{" "}
                           $
                         </td>
@@ -292,16 +300,18 @@ const MyCart = () => {
                   {isPremium ? (
                     <button
                       type="submit"
-                      className={` bg-secondColor  text-black  font-bold py-[13px] px-4 rounded-r-md ${!isPremium ? "" : `hover:text-white hover:bg-thirdColor`
-                        }`}
+                      className={` bg-secondColor  text-black  font-bold py-[13px] px-4 rounded-r-md ${
+                        !isPremium ? "" : `hover:text-white hover:bg-thirdColor`
+                      }`}
                     >
                       Apply
                     </button>
                   ) : (
                     <button
                       disabled
-                      className={` bg-secondColor  text-black  font-bold py-[13px] px-4 rounded-r-md ${!isPremium ? "" : `hover:text-white hover:bg-thirdColor`
-                        }`}
+                      className={` bg-secondColor  text-black  font-bold py-[13px] px-4 rounded-r-md ${
+                        !isPremium ? "" : `hover:text-white hover:bg-thirdColor`
+                      }`}
                     >
                       Apply
                     </button>
@@ -313,7 +323,7 @@ const MyCart = () => {
                   <p className="text-red-600 mt-2">
                     Only premium user can use coupon{" "}
                     <Link
-                      to={"/dashboard/make-premium-checkout"}
+                      to={"/dashboard/profile"}
                       className="font-bold underline text-secondColor"
                     >
                       Get premium
@@ -341,9 +351,9 @@ const MyCart = () => {
                     {isNaN(totalPrice) || isNaN(discountPercentage)
                       ? "0.00"
                       : (
-                        parseFloat(totalPrice) *
-                        (discountPercentage / 100)
-                      ).toFixed(2)}{" "}
+                          parseFloat(totalPrice) *
+                          (discountPercentage / 100)
+                        ).toFixed(2)}{" "}
                     $
                   </p>
                 </div>
@@ -354,9 +364,9 @@ const MyCart = () => {
                     {" "}
                     {!isNaN(totalPrice) && !isNaN(discountPercentage)
                       ? (
-                        parseFloat(totalPrice) -
-                        totalPrice * (discountPercentage / 100)
-                      ).toFixed(2)
+                          parseFloat(totalPrice) -
+                          totalPrice * (discountPercentage / 100)
+                        ).toFixed(2)
                       : "0.00"}{" "}
                     $
                   </p>
@@ -394,7 +404,11 @@ const MyCart = () => {
                         <>
                           <div className="flex md:flex-row flex-col items-center gap-5">
                             <div>
-                              <img className="h-[100px] w-[200px] mx-auto" src="https://ph-files.imgix.net/e4a4c183-dc15-4f46-9193-f80758fb3d90.png?auto=format&auto=compress&codec=mozjpeg&cs=strip&w=676&h=380&fit=max&dpr=3" alt="" />
+                              <img
+                                className="h-[100px] w-[200px] mx-auto"
+                                src="https://ph-files.imgix.net/e4a4c183-dc15-4f46-9193-f80758fb3d90.png?auto=format&auto=compress&codec=mozjpeg&cs=strip&w=676&h=380&fit=max&dpr=3"
+                                alt=""
+                              />
 
                               <Link
                                 to={"/dashboard/checkout"}
@@ -402,12 +416,14 @@ const MyCart = () => {
                               >
                                 Pay with stipe
                               </Link>
-
                             </div>
 
                             <div>
-
-                              <img className="h-[100px] w-[200px] mx-auto" src="https://th.bing.com/th/id/R.8cafcc57d908bf15ecd0a48ef1923bed?rik=FSNyKh%2fagJ10IQ&pid=ImgRaw&r=0" alt="" />
+                              <img
+                                className="h-[100px] w-[200px] mx-auto"
+                                src="https://th.bing.com/th/id/R.8cafcc57d908bf15ecd0a48ef1923bed?rik=FSNyKh%2fagJ10IQ&pid=ImgRaw&r=0"
+                                alt=""
+                              />
                               <button
                                 onClick={handleSsl}
                                 className="btn uppercase btn-block bg-purple-500 hover:bg-thirdColor text-black hover:text-white text-lg mr-5 mt-2"

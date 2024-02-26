@@ -9,9 +9,9 @@ const UserNavItem = () => {
       <li>
         <NavLink
           to="/dashboard/myCart"
-          className={({ isActive, isPending }) =>
-          isPending ? "pending" : isActive ? "abc" : "text-white"
-        }
+        //   className={({ isActive, isPending }) =>
+        //   isPending ? "pending" : isActive ? "abc" : "text-white"
+        // }
         >
           <FaCartArrowDown />{t("myCartNav")}
         </NavLink>
@@ -19,9 +19,9 @@ const UserNavItem = () => {
       <li>
         <NavLink
           to="/dashboard/my-free-tail-application"
-          className={({ isActive, isPending }) =>
-          isPending ? "pending" : isActive ? "abc" : "text-white"
-        }
+        //   className={({ isActive, isPending }) =>
+        //   isPending ? "pending" : isActive ? "abc" : "text-white"
+        // }
         >
           {t("freeTrialNav")}
         </NavLink>
@@ -30,9 +30,9 @@ const UserNavItem = () => {
       <li>
         <NavLink
           to="/dashboard/my-all-domains"
-          className={({ isActive, isPending }) =>
-          isPending ? "pending" : isActive ? "abc" : "text-white"
-        }
+        //   className={({ isActive, isPending }) =>
+        //   isPending ? "pending" : isActive ? "abc" : "text-white"
+        // }
         >
           {t("myDomainNav")}
         </NavLink>
@@ -40,9 +40,9 @@ const UserNavItem = () => {
       <li>
         <NavLink
           to="/dashboard/my-all-reviews"
-          className={({ isActive, isPending }) =>
-          isPending ? "pending" : isActive ? "abc" : "text-white"
-        }
+        //   className={({ isActive, isPending }) =>
+        //   isPending ? "pending" : isActive ? "abc" : "text-white"
+        // }
         >
           {t("myReviewNav")}
         </NavLink>
@@ -50,9 +50,9 @@ const UserNavItem = () => {
       <li>
         <NavLink
           to="/dashboard/support"
-        className={({ isActive, isPending }) =>
-          isPending ? "pending" : isActive ? "abc" : "text-white"
-        }
+        // className={({ isActive, isPending }) =>
+        //   isPending ? "pending" : isActive ? "abc" : "text-white"
+        // }
         >
          {t("supportNav")}
         </NavLink>

@@ -55,7 +55,7 @@ const Router = createBrowserRouter([
       {
         path: "/reviews",
         element: <Review></Review>,
-        loader: () => fetch("http://localhost:3000/reviewsLength")
+        loader: () => fetch("https://domain-hub-server-side.vercel.app/reviewsLength")
       },
       {
 

@@ -10,13 +10,9 @@ import { useSelector } from "react-redux";
 import moment from "moment";
 
 const CheckoutForm = () => {
-  const totalPrice = useSelector((state) => state.payment.TotalBill);
-  const cartItemSelectedTime = useSelector(
-    (state) => state.cartItemTime.cartItemSelectedTime
-  );
-  console.log("data", cartItemSelectedTime);
   const paymentSuccessToast = () => toast.success("Payment successfully");
   const paymentErrorToast = () => toast.error("Something went wrong");
+  const [paymentLoading, setPaymentLoading] = useState(false);
   const [error, setError] = useState("");
   const [clientSecret, setClientSecret] = useState("");
   const [transactionId, setTransactionId] = useState("");
@@ -26,24 +22,34 @@ const CheckoutForm = () => {
   const { user } = UseAuth();
   const email = user?.email;
   const navigate = useNavigate();
-  
+  const totalPriceMBM = useSelector((state) => state.payment.TotalBill);
+  const cartItemSelectedTimeMBM = useSelector(
+    (state) => state.cartItemTime.cartItemSelectedTime
+  );
+
+  const data = {
+    totalPriceMBM,
+    cartItemSelectedTimeMBM,
+    email: user?.email,
+  };
 
   useEffect(() => {
-    if (totalPrice > 0) {
+    if (totalPriceMBM > 0) {
       axiosSecure
-        .post("/create-payment-intent", { price: totalPrice })
+        .post("/create-payment-intent", { price: totalPriceMBM })
         .then((res) => {
           console.log("useEffect", res.data.clientSecret);
           setClientSecret(res.data.clientSecret);
         });
     }
-  }, [axiosSecure, totalPrice]);
+  }, [axiosSecure, totalPriceMBM]);
 
   console.log("clientSecret", clientSecret);
   console.log("stripe", stripe);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setPaymentLoading(true);
     if (!stripe || !elements) {
       return;
     }
@@ -78,6 +84,8 @@ const CheckoutForm = () => {
 
     if (confirmError) {
       console.log("confirm error");
+
+      setPaymentLoading(false);
       paymentErrorToast();
     } else {
       console.log("payment intent", paymentIntent);
@@ -87,7 +95,7 @@ const CheckoutForm = () => {
         console.log(transactionId);
 
         // now save the payment in the database
-        axiosSecure.put("/carts", cartItemSelectedTime).then((res) => {
+        axiosSecure.put("/carts", data).then((res) => {
           console.log("cart", res.data);
           const messages = "Your domain payment is successful";
           const status = "unread";
@@ -106,6 +114,7 @@ const CheckoutForm = () => {
             });
           navigate("/dashboard/my-all-domains");
           paymentSuccessToast();
+          setPaymentLoading(false);
         });
       }
     }
@@ -117,7 +126,7 @@ const CheckoutForm = () => {
         <div className="max-w-6xl mx-auto border-2 rounded border-thirdColor px-5 sm:px-10 py-10">
           <Heading>Payment</Heading>
           <h1 className="text-lg md:text-xl lg:text-3xl my-5 font-bold text-white dark:text-[#F5F7F8] ">
-            Total Price {totalPrice}
+            Total Price {totalPriceMBM}
           </h1>
           <form onSubmit={handleSubmit}>
             <label htmlFor="Payment">
@@ -144,13 +153,19 @@ const CheckoutForm = () => {
 
             <p className="text-red-600">{error}</p>
             <div className="text-center mt-5">
-              <button
-                type="submit"
-                disabled={!stripe || !clientSecret}
-                className="btn bg-thirdColor hover:bg-fourthColor text-white border-0"
-              >
-                Payment
-              </button>
+              {paymentLoading ? (
+                <button className="btn bg-secondColor hover:bg-secondColor cursor-not-allowed text-white border-0">
+                  Loading..
+                </button>
+              ) : (
+                <button
+                  type="submit"
+                  disabled={!stripe || !clientSecret}
+                  className="btn bg-secondColor hover:bg-thirdColor text-white border-0"
+                >
+                  Payment
+                </button>
+              )}
             </div>
           </form>
         </div>

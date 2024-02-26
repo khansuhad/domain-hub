@@ -16,7 +16,7 @@ const MyAllReviews = () => {
         <div className="flex justify-center items-center min-h-screen">
           <div>
             <Heading>My Reviews</Heading>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center gap-5 ">
+            <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 justify-center gap-5 ">
               {myReviews?.map((myReview) => (
                 <MyAllReviewCard
                   key={myReview?._id}

@@ -9,6 +9,7 @@ import toast from "react-hot-toast";
 import Loading from "../../../Component/Loading/Loading";
 import Heading from "../../../Component/UI/Heading";
 import { useState } from "react";
+import { Helmet } from "react-helmet";
 
 const EditProfile = () => {
   const { info, isPendingInfo } = useGetUser();
@@ -86,6 +87,10 @@ const EditProfile = () => {
   };
   return (
     <>
+      <Helmet>
+        <title>DomainHub | Edit Profile</title>
+        <meta name="description" content="Helmet application" />
+      </Helmet>
       {isPendingInfo || isLoading ? (
         <Loading />
       ) : (

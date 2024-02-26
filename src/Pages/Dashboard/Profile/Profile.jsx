@@ -5,12 +5,17 @@ import useGetUser from "../../../Hock/UseGetUser";
 import Heading from "../../../Component/UI/Heading";
 import GetPremiumModal from "./GetPremiumModal";
 import { IoDiamond } from "react-icons/io5";
+import { Helmet } from "react-helmet";
 
 const Profile = () => {
   const { info, isPendingInfo, refetchInfo } = useGetUser();
   const { user, isLoading } = UseAuth();
   return (
     <>
+      <Helmet>
+        <title>DomainHub | Profile</title>
+        <meta name="description" content="Helmet application" />
+      </Helmet>
       {isPendingInfo || isLoading ? (
         <Loading />
       ) : (

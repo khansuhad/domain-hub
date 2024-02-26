@@ -51,7 +51,7 @@ const FAQ = () => {
                             <img className="w-full" src="https://i.postimg.cc/SNn9gk0x/FAQs-rafiki-3-removebg-preview.png" alt="" />
                         </div>
 
-                        <div data-aos="zoom-in-right" className="container w-1/2 mx-auto py-16 delay-200">
+                        <div data-aos="zoom-in-right" className="container md:w-1/2 mx-auto py-16 delay-200">
 
 
                             <div className="grid gap-4">

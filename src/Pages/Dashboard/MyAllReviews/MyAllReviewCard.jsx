@@ -4,7 +4,7 @@ import Rating from "react-rating";
 const MyAllmyReviewCard = ({ myReview }) => {
   console.log(myReview);
   return (
-    <div data-aos="zoom-in-left" className="card flex m-5 flex-col justify-center  h-96 lg:w-96  bg-fourthColor shadow-xl   text-white p-3">
+    <div data-aos="zoom-in-left" className="card flex m-5 flex-col justify-center  h-96 w-96  bg-fourthColor shadow-xl   text-white p-3">
  <div className="flex flex-col gap-3 justify-center  items-center w-[50%] mx-auto mt-0" >
  <figure className="  w-20 h-20 rounded-full flex justify-center ">
         <img className="w-20 h-20  rounded-full" src={myReview?.userPhoto} />

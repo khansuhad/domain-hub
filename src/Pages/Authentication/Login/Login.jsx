@@ -19,6 +19,7 @@ const Login = () => {
   const loc = useLocation();
 
   const from = loc.state?.from?.pathname || "/";
+  console.log(from);
   const {
     register,
     handleSubmit,

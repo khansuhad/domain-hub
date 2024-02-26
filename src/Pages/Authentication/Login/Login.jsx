@@ -62,7 +62,7 @@ const Login = () => {
     }
   };
   return (
-    <div className=" flex justify-evenly items-center min-h-screen bg-firstColor text-white dark:bg-[#191919] dark:text-[#F5F7F8] p-5 gap-5">
+    <div className=" flex justify-evenly items-center min-h-screen bg-firstColor text-white dark:bg-[#191919] dark:text-[#F5F7F8] p-1 gap-5">
       <img src={img} alt="" className="hidden lg:block max-w-lg" />
       <div className="card shrink-0 w-full max-w-lg shadow-2xl card-body rounded bg-fourthColor border-[#191919] dark:border-[#F5F7F8] border-2">
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-5">

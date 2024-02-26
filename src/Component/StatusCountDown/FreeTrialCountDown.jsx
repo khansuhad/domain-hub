@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Countdown from 'react-countdown';
+import { Link } from 'react-router-dom';
 
 
-const Completionist = () => <button  className="btn btn-outline btn-sm text-white bg-thirdColor">Purchase Now</button>;
+const Completionist = () => <Link to="/domainCategory"><button className="btn btn-outline btn-sm text-white bg-thirdColor">Purchase Now</button></Link>;
 
 const FreeTrialCountDown = ({trialDate}) => {
   const date= trialDate 

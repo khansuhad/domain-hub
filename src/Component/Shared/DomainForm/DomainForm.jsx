@@ -42,13 +42,13 @@ const DomainForm = ({addDomain}) => {
                             </label>
                             <label className="input-group">
                                 <select name="category" className="select select-bordered w-full text-black ">
-                                    <option value="health">health</option>
-                                    <option value="commerce">commerce</option>
-                                    <option value="education">education</option>
-                                    <option value="government">government</option>
-                                    <option value="education">education</option>
-                                    <option value="sport">sport</option>
-                                    <option value="technology">technology</option>
+                                    <option  className="bg-thirdColor dark:bg-slate-700 dark:text-white  text-black font-semibold" value="health">health</option>
+                                    <option  className="bg-thirdColor dark:bg-slate-700 dark:text-white  text-black font-semibold" value="commerce">commerce</option>
+                                    <option  className="bg-thirdColor dark:bg-slate-700 dark:text-white  text-black font-semibold" value="education">education</option>
+                                    <option  className="bg-thirdColor dark:bg-slate-700 dark:text-white  text-black font-semibold" value="government">government</option>
+                                    <option  className="bg-thirdColor dark:bg-slate-700 dark:text-white  text-black font-semibold" value="education">education</option>
+                                    <option  className="bg-thirdColor dark:bg-slate-700 dark:text-white  text-black font-semibold" value="sport">sport</option>
+                                    <option  className="bg-thirdColor dark:bg-slate-700 dark:text-white  text-black font-semibold" value="technology">technology</option>
                                     {/* Add more categories as needed */}
                                 </select>
                             </label>

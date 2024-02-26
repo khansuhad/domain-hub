@@ -1,5 +1,6 @@
 // import UseAuth from "../../../Hock/UseAuth";
 
+import { Helmet } from "react-helmet";
 import StatusCountDown from "../../../Component/StatusCountDown/StatusCountDown";
 import useTruePayment from "../../../Hock/useTruePayment";
 import ReviewModal from "./reviewModal";
@@ -12,6 +13,10 @@ const MyAllDomains = () => {
 
   return (
     <div className="bg-firstColor dark:bg-slate-700 rounded min-h-screen py-10 ">
+       <Helmet>
+        <title>DomainHub | All Domains</title>
+        <meta name="description" content="Helmet application" />
+      </Helmet>
       <div className="text-2xl md:text-3xl lg:text-5xl font-bold text-center mb-10 text-white dark:text-[#F5F7F8] font-roboto ">
         My All Domains
       </div>
@@ -62,14 +67,14 @@ const MyAllDomains = () => {
                   <th>
                   <p className="text-sm"><StatusCountDown cart={trueCart}></StatusCountDown></p>
                   </th>
-                </tr>
-              ))}
-            </tbody>
-            {/* foot */}
+                </tr> ))}
+              </tbody>
+            
           </table>
         </div>
       </div>
-    </div>
+      </div>
+  
   );
 };
 

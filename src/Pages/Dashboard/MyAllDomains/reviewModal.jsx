@@ -2,20 +2,26 @@
 import toast from "react-hot-toast";
 import UseAuth from "../../../Hock/UseAuth";
 import useAxiosPublic from "../../../Hock/useAxiosPublic";
+import swal from "sweetalert";
 
 const ReviewModal = ({ trueCart, index, refetch }) => {
   const { user } = UseAuth();
   console.log(user);
   const axiosPublic = useAxiosPublic();
   const handleReview = (event) => {
+ 
     event.preventDefault();
+
     const form = event.target;
     // inputvalues
+    const rating = parseInt(form.rating.value);
+    if(rating < 1 || rating > 5){
+      return  swal("Error", "Your rating should be 1 to 5", "error");
+    }
     const userName = form.userName.value;
     const userEmail = user?.email;
     const userPhoto = user?.photoURL;
     const cartId = form.cartId.value;
-    const rating = parseInt(form.rating.value);
     const domainName = form.domainName.value;
     const feedback = form.feedback.value.toLowerCase();
     const reviewDetail = {

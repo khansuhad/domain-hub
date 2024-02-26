@@ -1,7 +1,9 @@
 // import UseAuth from "../../../Hock/UseAuth";
+
 import StatusCountDown from "../../../Component/StatusCountDown/StatusCountDown";
 import useTruePayment from "../../../Hock/useTruePayment";
 import ReviewModal from "./reviewModal";
+
 
 const MyAllDomains = () => {
   // state manage
@@ -42,7 +44,6 @@ const MyAllDomains = () => {
                   <td>
                     <h1>{trueCart?.price}</h1>
                   </td>
-
                   {trueCart?.review == "true" ? <p className=
                     "ml-6 mt-2">Done</p> : <th>
                     <label

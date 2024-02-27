@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import img from "../../../assets/Authentication/login.png";
 import toast from "react-hot-toast";
 import UseAuth from "../../../Hock/UseAuth";
+import { Helmet } from "react-helmet";
 const Login = () => {
   const [showPassword, isShowPassword] = useState(false);
   const loginSuccessToast = () => toast.success("Login successfully");
@@ -60,6 +61,11 @@ const Login = () => {
     }
   };
   return (
+    <>
+    <Helmet>
+        <title>DomainHub | Login</title>
+        <meta name="description" content="Helmet application" />
+      </Helmet>
     <div className=" flex justify-evenly items-center min-h-screen bg-firstColor text-white dark:bg-[#191919] dark:text-[#F5F7F8] p-1 gap-5">
       <img src={img} alt="" className="hidden lg:block max-w-lg" />
       <div className="card shrink-0 w-full max-w-lg shadow-2xl card-body rounded bg-fourthColor border-[#191919] dark:border-[#F5F7F8] border-2">
@@ -166,6 +172,7 @@ const Login = () => {
         </p>
       </div>
     </div>
+    </>
   );
 };
 

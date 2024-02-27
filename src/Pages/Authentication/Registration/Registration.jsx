@@ -1,4 +1,4 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import { useState } from "react";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
@@ -16,11 +16,10 @@ const Registration = () => {
   const [error, setError] = useState("");
   const { createUser, setUser } = UseAuth();
 
-  const loc = useLocation();
   const axiosPublic = useAxiosPublic();
   const [loading, setLoading] = useState(false);
 
-  const from = loc.state?.from?.pathname || "/";
+  const from = "/";
   const navigate = useNavigate();
   const {
     register,
@@ -193,9 +192,7 @@ const Registration = () => {
           </div>
           <div className="form-control mt-6">
             {loading ? (
-              <button
-                className="btn bg-secondColor hover:bg-secondColor text-white border-0 cursor-not-allowed"
-              >
+              <button className="btn bg-secondColor hover:bg-secondColor text-white border-0 cursor-not-allowed">
                 Loading...
               </button>
             ) : (

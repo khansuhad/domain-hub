@@ -1,30 +1,82 @@
-import { Helmet } from "react-helmet";
+// import React, { useEffect } from 'react';
+import { useTranslation } from "react-i18next";
 import Heading from "../../../Component/UI/Heading";
-import useReview from "../../../Hock/useReview";
-import AllReviewCard from "./AllReviewCard";
+import { useLoaderData } from "react-router-dom";
+import useAxiosPublic from "../../../Hock/useAxiosPublic";
+import { useEffect, useState } from "react";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import { Pagination, Navigation } from "swiper/modules";
+import ReviewsCard from "../../Review/ReviewsCard";
+import { Helmet } from "react-helmet";
 
 const AllReviews = () => {
-  const [reviews] = useReview();
+  const useAxios = useAxiosPublic();
+  const { t } = useTranslation();
+  const reviews = useLoaderData();
   console.log(reviews);
+  const itemInPage = 8;
+  const reviewsLength = reviews?.length;
+  const page = Math.ceil(reviewsLength / itemInPage);
+  const pages = [...Array(page).keys()];
+  console.log(pages);
+  const [currentPage, setCurrentPage] = useState(0);
+  const [review, setReview] = useState([]);
+  useEffect(() => {
+    useAxios
+      .get(`/reviews?page=${currentPage}&size=${itemInPage}`)
+      .then((res) => {
+        const data = res?.data;
+        setReview(data);
+      });
+  }, [currentPage, useAxios]);
   return (
     <>
       <Helmet>
-        <title>DomainHub | All Reviews</title>
+        <title>DomainHub | Review </title>
         <meta name="description" content="Helmet application" />
       </Helmet>
 
-      <div className="flex justify-center py-10 bg-firstColor items-center min-h-screen dark:bg-slate-700">
-        <div>
-          <Heading>All Reviews</Heading>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-7xl mx-auto mt-20">
-            {reviews?.map((review) => (
-              <AllReviewCard key={review._id} review={review}></AllReviewCard>
+      <div className="py-40 bg-firstColor dark:bg-[#191919] ">
+        <div className="lg:w-[90%] mx-auto">
+          <Heading>{t("reviewTitle")}</Heading>
+
+          <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 justify-center gap-5 ">
+            {review?.map((review) => (
+              <ReviewsCard key={review.id} review={review} />
             ))}
+          </div>
+          <h1 className="text-white text-3xl flex justify-center font-medium mt-10">
+            pagination
+          </h1>
+          <div className="pagination flex justify-center items-center gap-1 lg:w-[20%] mx-auto mt-10">
+            <Swiper
+              slidesPerView={3}
+              // centeredSlides={true}
+              // spaceBetween={30}
+              navigation={true}
+              modules={[Pagination, Navigation]}
+              className="mySwiper"
+            >
+              {pages?.map((page, index) => (
+                <SwiperSlide key={page} onClick={() => setCurrentPage(page)}>
+                  <button
+                    className={`${
+                      currentPage === page ? "selected" : undefined
+                    } py-2 px-4 text-lg rounded bg-black text-white`}
+                  >
+                    {index + 1}
+                  </button>
+                </SwiperSlide>
+              ))}{" "}
+            </Swiper>
           </div>
         </div>
       </div>
     </>
   );
 };
-
 export default AllReviews;

@@ -37,7 +37,7 @@ const UnreadNotification = () => {
   return (
     <>
       <Helmet>
-        <title>DomainHub | Unreaded</title>
+        <title>DomainHub | Unreaded Notifications</title>
         <meta name="description" content="Helmet application" />
       </Helmet>
 

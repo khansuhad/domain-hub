@@ -18,6 +18,7 @@ export const Review = () => {
   const useAxios = useAxiosPublic();
   const { t } = useTranslation();
   const reviews = useLoaderData();
+  console.log(reviews);
   const itemInPage = 8;
   const reviewsLength = reviews?.length;
   const page = Math.ceil(reviewsLength / itemInPage);
@@ -36,7 +37,7 @@ export const Review = () => {
   return (
     <>
       <Helmet>
-        <title>DomainHub | Unreaded</title>
+        <title>DomainHub | Review </title>
         <meta name="description" content="Helmet application" />
       </Helmet>
 
@@ -44,7 +45,7 @@ export const Review = () => {
         <div className="lg:w-[90%] mx-auto">
           <Heading>{t("reviewTitle")}</Heading>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-center gap-5 ">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 justify-center gap-5 ">
             {review?.map((review) => (
               <ReviewsCard key={review.id} review={review} />
             ))}

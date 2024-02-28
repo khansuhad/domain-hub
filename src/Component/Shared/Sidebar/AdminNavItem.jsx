@@ -1,6 +1,10 @@
 import { NavLink } from "react-router-dom";
 import "./active.css";
 import { useTranslation } from "react-i18next";
+import { VscPreview } from "react-icons/vsc";
+import { FaUserFriends,FaHome  } from "react-icons/fa";
+import { AiFillFileText } from "react-icons/ai";
+import { MdCreate,MdDomain,MdDashboard } from "react-icons/md";
 
 const AdminNavItem = () => {
   const {i18n,t}= useTranslation()
@@ -14,6 +18,8 @@ const AdminNavItem = () => {
         // }
           
         >
+          <MdDashboard />
+          
           {t("navDashboard")}
         </NavLink>
     
@@ -24,6 +30,7 @@ const AdminNavItem = () => {
         // }
           
         >
+          <MdCreate />
           
           {t("create")}
         </NavLink>
@@ -35,6 +42,7 @@ const AdminNavItem = () => {
         // }
           
         >
+          <MdDomain />
           {t("allDomain")}
         </NavLink>
       
@@ -46,6 +54,7 @@ const AdminNavItem = () => {
         // }
           
         >
+          <AiFillFileText />
           {t("allFreeTrial")}
         </NavLink>
      
@@ -56,6 +65,7 @@ const AdminNavItem = () => {
         // }
           
         >
+          <VscPreview />
           {t("allReviews")}
         </NavLink>
 
@@ -66,6 +76,7 @@ const AdminNavItem = () => {
         // }
          
         >
+          <FaUserFriends />
           {t("allUser")}
         </NavLink>
       </li>

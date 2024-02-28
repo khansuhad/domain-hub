@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const ErrorPage = () => {
   return (
-    <section className="flex justify-center items-center h-screen p-16 bg-firstColor text-[#191919] dark:bg-[#191919] dark:text-[#F5F7F8]">
+    <section className="flex justify-center items-center h-screen p-16 bg-firstColor text-white dark:bg-[#191919] dark:text-[#F5F7F8]">
       <div className="container flex flex-col items-center justify-center px-5 mx-auto my-8">
         <div className="max-w-md text-center">
           <svg

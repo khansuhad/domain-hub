@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import "./active.css";
 import { useTranslation } from "react-i18next";
 import { VscPreview } from "react-icons/vsc";
-import { FaUserFriends,FaHome  } from "react-icons/fa";
+import { FaUserFriends  } from "react-icons/fa";
 import { AiFillFileText } from "react-icons/ai";
 import { MdCreate,MdDomain,MdDashboard } from "react-icons/md";
 

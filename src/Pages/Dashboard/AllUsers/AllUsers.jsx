@@ -53,7 +53,7 @@ const AllUsers = () => {
           <div className="px-[5%] dark:text-sixthColor bg-firstColor dark:bg-slate-700 py-5">
             <Heading>Manage all Users</Heading>
             <div className="overflow-x-auto lg:mt-10">
-              <table className="table">
+              <table className="table border">
                 {/* head */}
                 <thead>
                   <tr className=" text-white border-2 bg-fourthColor dark:text-sixthColor">

@@ -92,7 +92,7 @@ const AllFreeTailApplication = () => {
         <>
             <div
                 className="overflow-x-auto p-5 text-white bg-firstColor min-h-screen ">
-                <h2 className="text-2xl font-bold text-center my-10 ">Manage Free Trial Application</h2>
+                <h2 className="font-bold text-2xl md:text-3xl lg:text-5xl text-center my-10 ">Manage Free Trial Application</h2>
                 <table className="w-full text-left table-auto min-w-max border-2 ">
 
                     <thead className="bg-fourthColor   border-2">

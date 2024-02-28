@@ -3,6 +3,7 @@ import Loading from "../../../Component/Loading/Loading";
 import Heading from "../../../Component/UI/Heading";
 import AllUsersRow from "./AllUsersRow";
 import useAxiosSecure from "../../../Hock/useAxiosSecure";
+import { Helmet } from "react-helmet";
 
 const AllUsers = () => {
   const [info, setTeams] = useState([]);
@@ -11,7 +12,7 @@ const AllUsers = () => {
   const [countLoading, setCountLoading] = useState(true);
   const [itemPerPage, setItemPerPage] = useState(10);
   const [currentPage, setCurrentPage] = useState(0);
-  const [refetch, setRefetch] = useState(0)
+  const [refetch, setRefetch] = useState(0);
 
   const axiosSecure = useAxiosSecure();
   useEffect(() => {
@@ -46,6 +47,10 @@ const AllUsers = () => {
   };
   return (
     <>
+      <Helmet>
+        <title>DomainHub | All Users</title>
+        <meta name="description" content="Helmet application" />
+      </Helmet>
       {loading || countLoading ? (
         <Loading />
       ) : (
@@ -70,7 +75,12 @@ const AllUsers = () => {
                 </thead>
                 <tbody>
                   {info?.map((item) => (
-                    <AllUsersRow key={item?._id} item={item} refetch={refetch} setRefetch={setRefetch} />
+                    <AllUsersRow
+                      key={item?._id}
+                      item={item}
+                      refetch={refetch}
+                      setRefetch={setRefetch}
+                    />
                   ))}
                 </tbody>
               </table>

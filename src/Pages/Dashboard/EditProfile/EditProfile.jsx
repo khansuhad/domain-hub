@@ -9,6 +9,7 @@ import toast from "react-hot-toast";
 import Loading from "../../../Component/Loading/Loading";
 import Heading from "../../../Component/UI/Heading";
 import { useState } from "react";
+import { Helmet } from "react-helmet";
 
 const EditProfile = () => {
   const { info, isPendingInfo } = useGetUser();
@@ -86,11 +87,15 @@ const EditProfile = () => {
   };
   return (
     <>
+      <Helmet>
+        <title>DomainHub | Edit Profile</title>
+        <meta name="description" content="Helmet application" />
+      </Helmet>
       {isPendingInfo || isLoading ? (
         <Loading />
       ) : (
-        <div className="max-w-5xl w-full mx-auto p-5 md:p-10 text-center ">
-          <div className="p-5 md:p-10 border shadow-2xl dark:bg-slate-700 bg-fourthColor text-white  border-secondColor dark:border-sixthColor dark:text-sixthColor text-lg lg:text-xl  font-bold w-full">
+        <div className="max-w-5xl w-full mx-auto p-5 md:p-10 text-center dark:bg-slate-700 bg-fourthColor">
+          <div className="p-5 md:p-10 border shadow-2xl  text-white  border-secondColor dark:border-sixthColor dark:text-sixthColor text-lg lg:text-xl  font-bold w-full">
             <form onSubmit={handleSubmit(onSubmit)}>
               <Heading>Update Profile</Heading>
               <div className="form-control">

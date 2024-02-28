@@ -146,7 +146,7 @@ const Router = createBrowserRouter([
           <PrivateRoute>
             <MyAllReviews />
           </PrivateRoute>
-        ),
+        )
       },
       {
         path: "/dashboard/support",
@@ -222,6 +222,7 @@ const Router = createBrowserRouter([
             <AllReviews />
           </PrivateRoute>
         ),
+        loader: () => fetch("https://domain-hub-server-side.vercel.app/reviewsLength")
       },
       {
         path: "/dashboard/all-users",

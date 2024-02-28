@@ -3,7 +3,7 @@
 const XYZDomainAdvantage = () => {
     return (
         <div className=" py-16 lg:px-[10%]">
-            <h2 className="text-xl md:text-3xl lg:text-5xl font-bold p-5 text-center text-white mb-5">Embrace Your Online Identity with .xyz Domains</h2>
+            <h2 className="text-xl md:text-3xl lg:text-5xl font-bold p-5 text-center text-white mb-5">Elevate Your Identity</h2>
 
 
             <div className="flex flex-col md:flex-row justify-between items-center" > 

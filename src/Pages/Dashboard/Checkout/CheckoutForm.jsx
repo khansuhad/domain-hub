@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useSelector } from "react-redux";
 import moment from "moment";
+import useTruePayment from "../../../Hock/useTruePayment";
 
 const CheckoutForm = () => {
   const paymentSuccessToast = () => toast.success("Payment successfully");
@@ -26,7 +27,7 @@ const CheckoutForm = () => {
   const cartItemSelectedTimeMBM = useSelector(
     (state) => state.cartItemTime.cartItemSelectedTime
   );
-
+  const [trueCarts, loading, refetch] = useTruePayment()
   const data = {
     totalPriceMBM,
     cartItemSelectedTimeMBM,
@@ -112,6 +113,7 @@ const CheckoutForm = () => {
             .then((res) => {
               console.log(res.data);
             });
+            refetch()
           navigate("/dashboard/my-all-domains");
           paymentSuccessToast();
           setPaymentLoading(false);

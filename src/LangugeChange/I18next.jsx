@@ -52,7 +52,7 @@ i18n.use(initReactI18next).init({
         TldTitle: "Domain TLD",
 
         //Best hosting plan
-        planHeader: "Chose The Best Hosting Plan",
+        planHeader: "Chose The Best Domain",
         planDes: "Choose from our best hosting plans to unlock the full potential of your online presence.",
         planDes2: "Elevate your website with our premium hosting plans crafted for excellence.",
         plan1: "BASIC DUO",

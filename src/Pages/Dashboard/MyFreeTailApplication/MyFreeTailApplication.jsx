@@ -38,6 +38,7 @@ const MyFreeTailApplication = () => {
         <>
             <div
                 className="overflow-x-auto p-5 ">
+                  {/* Section title */}
                 <h2 className="text-2xl font-bold text-center text-white my-10">My Free Trial Application</h2>
                 <table className="w-full text-left  table-auto min-w-max border-2">
                     <thead className="bg-fourthColor rounded">
@@ -74,8 +75,6 @@ const MyFreeTailApplication = () => {
                                     Status
                                 </p>
                             </th>
-
-
                         </tr>
                     </thead>
                     {
@@ -112,7 +111,6 @@ const MyFreeTailApplication = () => {
                                             Rejected
                                         </p>
                                         }
-
                                     </td>
 
                                     {users?.claimDomain ?

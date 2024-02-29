@@ -64,8 +64,7 @@ const FreeTrial = () => {
                 <div className="lg:w-[750px] space-y-10 delay-200"  data-aos="zoom-in-right"  >
                     <img src={image} alt="" />
                 </div>
-
-
+                
                 <div className=" h-screen flex items-center justify-center text-white">
 
                     <div className="max-w-md p-8 dark:bg-gray-700 bg-fourthColor shadow-md rounded-md delay-200" data-aos="zoom-in-left" >

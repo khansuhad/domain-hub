@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { MdAddShoppingCart } from "react-icons/md";
@@ -9,6 +8,7 @@ import LiveChat from "../../Component/Shared/liveChat section/LiveChat";
 import useAxiosSecure from "../../Hock/useAxiosSecure";
 import Loading from "../../Component/Loading/Loading";
 import swal from "sweetalert";
+import { Helmet } from "react-helmet";
 
 const SearchingDomain = () => {
   const searchValue = useSelector((state) => state.domain.domain);
@@ -20,7 +20,6 @@ const SearchingDomain = () => {
 
   const [searchTerm, setSearchTerm] = useState(searchValue);
   const [selectedCategory, setSelectedCategory] = useState("All");
-
 
   const [info, setTeams] = useState([]);
   console.log(info);
@@ -64,26 +63,23 @@ const SearchingDomain = () => {
     }
   };
 
-
-
-
-  const filteredDomains = info
-    ?.filter((domain) => {
-      // const matchesSearch = domain.name.toLowerCase().includes(searchTerm.toLowerCase());
-      const matchesCategory =
-        selectedCategory === "All" || domain.category === selectedCategory;
-      return searchTerm && matchesCategory;
-    })
-
+  const filteredDomains = info?.filter((domain) => {
+    // const matchesSearch = domain.name.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesCategory =
+      selectedCategory === "All" || domain.category === selectedCategory;
+    return searchTerm && matchesCategory;
+  });
 
   const addToCart = async (domainItem) => {
-    refetch()
+    refetch();
     const domainName = searchTerm.concat(domainItem?.name);
     console.log(domainName);
     // Check if the domain is already in the cart
-    const isDomainInCart = carts?.some((cartItem) => cartItem.name === domainName);
+    const isDomainInCart = carts?.some(
+      (cartItem) => cartItem.name === domainName
+    );
     console.log(!isDomainInCart);
-    if(isDomainInCart){
+    if (isDomainInCart) {
       Swal.fire({
         title: "Wrong!",
         text: "Already Added Cart",
@@ -118,7 +114,11 @@ const SearchingDomain = () => {
   };
   return (
     <>
-      {load || countLoading ||loading ? (
+      <Helmet>
+        <title>DomainHub | Searching Domain</title>
+        <meta name="description" content="Helmet application" />
+      </Helmet>
+      {load || countLoading || loading ? (
         <Loading />
       ) : (
         <div>
@@ -133,8 +133,8 @@ const SearchingDomain = () => {
               </p>
 
               <p className="text-white text-sm lg:text-xl text-center md:text-left">
-                Check if your domain’s available, browse alternatives, and land on
-                one that’s perfect for your business, brand, or big idea.
+                Check if your domain’s available, browse alternatives, and land
+                on one that’s perfect for your business, brand, or big idea.
               </p>
 
               <div className="mb-4  flex flex-col md:flex-row justify-center items-center lg:pt-5 dark:text-black">
@@ -150,14 +150,54 @@ const SearchingDomain = () => {
                   value={selectedCategory}
                   onChange={(e) => setSelectedCategory(e.target.value)}
                 >
-                  <option value="All">All Categories</option>
-                  <option value="technology">Technology</option>
-                  <option value="education">Education</option>
-                  <option value="commerce">Commerce</option>
-                  <option value="health">health</option>
-                  <option value="sport">Sport</option>
-                  <option value="industry">Industry</option>
-                  <option value="government">Government</option>
+                  <option
+                    className="bg-thirdColor dark:bg-slate-700 dark:text-white  text-black font-semibold"
+                    value="All"
+                  >
+                    All Categories
+                  </option>
+                  <option
+                    className="bg-thirdColor dark:bg-slate-700 dark:text-white  text-black font-semibold"
+                    value="technology"
+                  >
+                    Technology
+                  </option>
+                  <option
+                    className="bg-thirdColor dark:bg-slate-700 dark:text-white  text-black font-semibold"
+                    value="education"
+                  >
+                    Education
+                  </option>
+                  <option
+                    className="bg-thirdColor dark:bg-slate-700 dark:text-white  text-black font-semibold"
+                    value="commerce"
+                  >
+                    Commerce
+                  </option>
+                  <option
+                    className="bg-thirdColor dark:bg-slate-700 dark:text-white  text-black font-semibold"
+                    value="health"
+                  >
+                    health
+                  </option>
+                  <option
+                    className="bg-thirdColor dark:bg-slate-700 dark:text-white  text-black font-semibold"
+                    value="sport"
+                  >
+                    Sport
+                  </option>
+                  <option
+                    className="bg-thirdColor dark:bg-slate-700 dark:text-white  text-black font-semibold"
+                    value="industry"
+                  >
+                    Industry
+                  </option>
+                  <option
+                    className="bg-thirdColor dark:bg-slate-700 dark:text-white  text-black font-semibold"
+                    value="government"
+                  >
+                    Government
+                  </option>
                   {/* Add more categories as needed */}
                 </select>
               </div>
@@ -198,7 +238,9 @@ const SearchingDomain = () => {
                         </h3>
                         {/* <p className="text-gray-100">{domain.category}</p> */}
                         <div className="flex justify-center items-center gap-5">
-                          <p className="text-gray-100">price: {domainItem.price}</p>
+                          <p className="text-gray-100">
+                            price: {domainItem.price}
+                          </p>
                           <div className="border-2 p-2 bg-secondColor hover:bg-thirdColor rounded-lg">
                             {/* Cart icon */}
                             <MdAddShoppingCart
@@ -220,18 +262,17 @@ const SearchingDomain = () => {
               onClick={handlePrevPage}
               className={`bg-thirdColor w-fit hover:bg-fourthColor text-white  flex justify-center items-center border-2 btn-sm rounded-sm`}
             >
-
               Prev
             </div>
             {pages?.map((page, i) => (
               <button
-              
                 key={page}
                 onClick={() => setCurrentPage(page)}
-                className={`${currentPage === page
-                  ? "bg-thirdColor w-fit hover:bg-fourthColor text-white border-2 btn-sm  rounded-sm"
-                  : " w-fit bg-fourthColor hover:bg-thirdColor hover:text-firstColor text-white dark:text-white hover:dark:text-firstColor  btn-sm rounded-sm"
-                  }`}
+                className={`${
+                  currentPage === page
+                    ? "bg-thirdColor w-fit hover:bg-fourthColor text-white border-2 btn-sm  rounded-sm"
+                    : " w-fit bg-fourthColor hover:bg-thirdColor hover:text-firstColor text-white dark:text-white hover:dark:text-firstColor  btn-sm rounded-sm"
+                }`}
               >
                 {++i}
               </button>

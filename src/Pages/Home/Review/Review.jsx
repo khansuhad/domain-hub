@@ -36,6 +36,10 @@ export const Review = () => {
                             spaceBetween: 40,
                         },
                         1024: {
+                            slidesPerView: 3,
+                            spaceBetween: 50,
+                        },
+                        1536: {
                             slidesPerView: 4,
                             spaceBetween: 50,
                         },

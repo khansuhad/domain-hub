@@ -18,6 +18,7 @@ const Registration = () => {
 
   const loc = useLocation();
   const axiosPublic = useAxiosPublic();
+  const [loading, setLoading] = useState(false);
 
   const from = loc.state?.from?.pathname || "/";
   const navigate = useNavigate();
@@ -34,6 +35,7 @@ const Registration = () => {
     },
   });
   const onSubmit = async (data) => {
+    setLoading(true);
     const name = data.name;
     const email = data.email;
     const password = data.password;
@@ -61,7 +63,7 @@ const Registration = () => {
           email: email,
           name: name,
           role: "user",
-          phone: ""
+          phone: "",
         };
         axiosPublic.post("/users", userInfo).then((res) => {
           console.log(res.data);
@@ -76,13 +78,15 @@ const Registration = () => {
           email: email,
         });
         navigate(from, { replace: true });
+        setLoading(false);
       })
       .catch(() => {
         setError("Email already registered");
+        setLoading(false);
       });
   };
   return (
-    <div className="flex justify-evenly text-white items-center min-h-screen bg-firstColor  dark:bg-[#191919] dark:text-[#F5F7F8] p-5 gap-5">
+    <div className="flex justify-evenly text-white items-center min-h-screen bg-firstColor  dark:bg-[#191919] dark:text-[#F5F7F8] p-1 gap-5">
       <img src={img} alt="" className="hidden lg:block max-w-lg" />
       <div className="card shrink-0 w-full max-w-lg shadow-2xl  card-body rounded bg-fourthColor border-[#191919] dark:border-[#F5F7F8] border-2 ">
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-5">
@@ -188,12 +192,20 @@ const Registration = () => {
             )}
           </div>
           <div className="form-control mt-6">
-            <button
-              className="btn bg-secondColor hover:bg-thirdColor text-white border-0"
-              type="submit"
-            >
-              Registration
-            </button>
+            {loading ? (
+              <button
+                className="btn bg-secondColor hover:bg-secondColor text-white border-0 cursor-not-allowed"
+              >
+                Loading...
+              </button>
+            ) : (
+              <button
+                className="btn bg-secondColor hover:bg-thirdColor text-white border-0"
+                type="submit"
+              >
+                Registration
+              </button>
+            )}
           </div>
         </form>
         <SocialLogin />

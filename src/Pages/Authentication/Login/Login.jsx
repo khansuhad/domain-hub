@@ -14,10 +14,12 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
   const loc = useLocation();
 
   const from = loc.state?.from?.pathname || "/";
+  console.log(from);
   const {
     register,
     handleSubmit,
@@ -29,6 +31,7 @@ const Login = () => {
     },
   });
   const onSubmit = (data) => {
+    setLoading(true);
     const email = data.email;
     const password = data.password;
     console.log(email, password);
@@ -39,9 +42,12 @@ const Login = () => {
       .then(() => {
         navigate(from, { replace: true });
         loginSuccessToast();
+
+        setLoading(false);
       })
       .catch(() => {
         setError("Email or password don't match");
+        setLoading(false);
       });
   };
 
@@ -57,7 +63,7 @@ const Login = () => {
     }
   };
   return (
-    <div className=" flex justify-evenly items-center min-h-screen bg-firstColor text-white dark:bg-[#191919] dark:text-[#F5F7F8] p-5 gap-5">
+    <div className=" flex justify-evenly items-center min-h-screen bg-firstColor text-white dark:bg-[#191919] dark:text-[#F5F7F8] p-1 gap-5">
       <img src={img} alt="" className="hidden lg:block max-w-lg" />
       <div className="card shrink-0 w-full max-w-lg shadow-2xl card-body rounded bg-fourthColor border-[#191919] dark:border-[#F5F7F8] border-2">
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-5">
@@ -137,12 +143,18 @@ const Login = () => {
             </label>
           </div>
           <div className="form-control mt-6">
-            <button
-              className="btn bg-secondColor hover:bg-thirdColor text-white border-0"
-              type="submit"
-            >
-              Login
-            </button>
+            {loading ? (
+              <button className="btn bg-secondColor hover:bg-secondColor text-white border-0 cursor-not-allowed">
+                Loading...
+              </button>
+            ) : (
+              <button
+                className="btn bg-secondColor hover:bg-thirdColor text-white border-0"
+                type="submit"
+              >
+                Login
+              </button>
+            )}
           </div>
         </form>
         <SocialLogin />

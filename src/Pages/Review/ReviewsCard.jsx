@@ -3,7 +3,7 @@ import Rating from "react-rating";
 /* eslint-disable react/prop-types */
 const ReviewsCard = ({ review }) => {
   return (
-    <div data-aos="zoom-in-left" className="card flex m-5 flex-col justify-center h-96 bg-fourthColor shadow-xl   text-white p-2">
+    <div data-aos="zoom-in-left" className="card flex m-5 flex-col justify-center h-96   bg-fourthColor shadow-xl   text-white p-2">
  <div className="flex flex-col gap-3 justify-center  items-center w-[50%] mx-auto mt-0" >
  <figure className="  w-20 h-20 rounded-full flex justify-center ">
         <img className="w-20 h-20  rounded-full" src={review?.userPhoto} />

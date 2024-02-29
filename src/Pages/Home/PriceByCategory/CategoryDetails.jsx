@@ -26,14 +26,12 @@ const CategoryDetails = () => {
   console.log("cart item:", alldomain);
   // const bookedDomains = alldomain?.filter((item) => item.payment === "true");
   const bookedDomains = alldomain
-  console.log("all domain in cart", carts.length);
   const handleSearch = (e) => {
     e.preventDefault();
     const form = e.target;
     const searchData = form.domain.value;
     const domainSearched = searchData.concat(domainDetails?.name);
     const domain = domainSearched.toLowerCase();
-    console.log("lowercase domain", domain);
     const findDomain = bookedDomains.filter((item) => item.name === domain);
     const findDomainInCart = carts.filter((item) => item.name === domain);
     console.log("test sold domain length", findDomain?.length);

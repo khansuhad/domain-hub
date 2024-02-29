@@ -6,6 +6,7 @@ import { CgMenuGridR } from "react-icons/cg";
 import useDomain from "../../../Hock/useDomain";
 import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet";
+import { MdCancel } from "react-icons/md";
 
 const PriceByCategory = ({ data }) => {
   const [domain, loading, refetch] = useDomain();
@@ -36,8 +37,8 @@ const PriceByCategory = ({ data }) => {
 
       <Container>
         <Heading>{t("categoryTitle")}</Heading>
-        <div className="flex mx-10 flex-col md:flex-row">
-          <div className="md:grid w-1/6 h-fit hidden mt-10">
+        <div className="flex lg:mx-10 mx-7 flex-col md:flex-row gap-4">
+          <div className="md:grid w-1/5 h-fit hidden mt-10">
             <button
               className={` p-2 text-center font-semibold ${
                 category === "education"
@@ -123,11 +124,14 @@ const PriceByCategory = ({ data }) => {
           </div>
           <div className="flex md:hidden">
             <div>
-              <p className="flex items-center text-xl dark:text-white">
-                <CgMenuGridR
+              <p className="flex items-center text-xl text-white">
+                {showCategory?<MdCancel
+                onClick={handleCategory}
+                  className="text-3xl text-sky-200"></MdCancel>:<CgMenuGridR
                   onClick={handleCategory}
-                  className="text-3xl dark:text-sky-200"
-                ></CgMenuGridR>
+                  className="text-3xl text-sky-200"
+                ></CgMenuGridR> }
+                
                 {t("categorySelect")}{" "}
               </p>
               <div className="relative">
@@ -225,7 +229,7 @@ const PriceByCategory = ({ data }) => {
               </div>
             </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 lg:gap-7 mt-10 md:mx-10 mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 lg:gap-7 md:gap-5 mt-10 mx-auto">
             {categoryData?.map((item) => (
               <CategoryCards key={item.id} data={item}></CategoryCards>
             ))}

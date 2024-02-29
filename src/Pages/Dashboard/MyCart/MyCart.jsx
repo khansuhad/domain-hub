@@ -13,6 +13,7 @@ import useAxiosSecure from "../../../Hock/useAxiosSecure";
 import usePremiumUser from "../../../Hock/usePremiumUser";
 import Loading from "../../../Component/Loading/Loading";
 import { Helmet } from "react-helmet";
+import Coupon from "./Coupon";
 
 const MyCart = () => {
   const dispatch = useDispatch();
@@ -100,7 +101,7 @@ const MyCart = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(`Coupon code submitted: ${couponCode}`);
-    if (couponCode === "1234") {
+    if (couponCode === "FreePalestine") {
       setDiscountPercentage(20);
     } else {
       setDiscountPercentage(0);
@@ -187,6 +188,12 @@ const MyCart = () => {
                     Search Domain
                   </button>
                 </Link>
+                <Coupon />
+                {/* <Link to="/searchPage">
+                  <button className="p-2 md:p-3 rounded-md text-black font-bold  uppercase bg-secondColor hover:bg-thirdColor hover:text-white text-sm">
+                    Coupon
+                  </button>
+                </Link> */}
               </div>
             </div>
             <div>

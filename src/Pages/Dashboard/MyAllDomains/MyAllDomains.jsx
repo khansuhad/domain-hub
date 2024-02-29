@@ -26,7 +26,7 @@ const MyAllDomains = () => {
             {/* head */}
             <thead>
               <tr className="text-2xl text-white">
-                <th>Domain</th>
+                <th>Serial</th>
                 <th>Domain name</th>
                 <th>Price</th>
                 <th>Review</th>

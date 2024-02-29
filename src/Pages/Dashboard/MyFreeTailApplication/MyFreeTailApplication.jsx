@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { domainDetails } from "../../../features/domain/domainSlice";
 import useDomain from "../../../Hock/useDomain";
-import FreeTrialCountDown from "../../../Component/StatusCountDown/FreeTrialCountDown";
+import FreeTrialCountDown from "../../../Component/FreeTrialCountDown/FreeTrialCountDown";
 import { Helmet } from "react-helmet";
 
 const MyFreeTailApplication = () => {

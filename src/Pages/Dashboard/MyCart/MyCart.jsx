@@ -31,7 +31,7 @@ const MyCart = () => {
   console.log("DomainSelectTime", cartItemSelectedTime);
   // store cartItemSelectedTime in state of redux
   dispatch(addCartItemSelectedTime(cartItemSelectedTime));
-  const axiosSecure = useAxiosSecure();
+  // const axiosSecure = useAxiosSecure();
 
   const [discountPercentage, setDiscountPercentage] = useState(0);
   console.log(typeof totalPrice, totalPrice);
@@ -44,10 +44,10 @@ const MyCart = () => {
   const cartItemSelectedTimeMBM = useSelector(
     (state) => state.cartItemTime.cartItemSelectedTime
   );
+  console.log("Time",cartItemSelectedTimeMBM);
   const data = {
     totalPriceMBM,
     cartItemSelectedTimeMBM,
-
     email,
   };
 
@@ -153,7 +153,7 @@ const MyCart = () => {
       .then((res) => {
         window.location.replace(res.data.url);
         console.log(res.data);
-        axiosSecure.put("/carts", data).then((res) => {
+        axiosPublic.put("/carts",data ).then((res) => {
           console.log(res.data);
         });
       })

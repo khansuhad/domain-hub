@@ -61,13 +61,13 @@ const FreeTrial = () => {
             {/* Free Trial Section Start */}
 
             <section  className="flex lg:flex-row flex-col items-center justify-between  rounded-md dark:bg-[#191919] lg:px-[15%]  lg:h-[600px]">
-                <div className="lg:w-[750px] space-y-10 delay-200"  data-aos="zoom-in-right"  >
+                <div className="lg:w-[750px] space-y-10 delay-200"  data-aos="fade-down"  >
                     <img src={image} alt="" />
                 </div>
                 
                 <div className=" h-screen flex items-center justify-center text-white">
 
-                    <div className="max-w-md p-8 dark:bg-gray-700 bg-fourthColor shadow-md rounded-md delay-200" data-aos="zoom-in-left" >
+                    <div className="max-w-md p-8 dark:bg-gray-700 bg-fourthColor shadow-md rounded-md delay-200" data-aos="fade-down" >
 
                         <h1 className="lg:text-4xl text-3xl font-bold  mb-6">{t("trialSectionTitle")}</h1>
 

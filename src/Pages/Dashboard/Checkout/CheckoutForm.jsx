@@ -9,6 +9,7 @@ import toast from "react-hot-toast";
 import { useSelector } from "react-redux";
 import moment from "moment";
 import Swal from "sweetalert2";
+import useTruePayment from "../../../Hock/useTruePayment";
 
 const CheckoutForm = () => {
   const paymentErrorToast = () => toast.error("Something went wrong");
@@ -27,7 +28,7 @@ const CheckoutForm = () => {
   const cartItemSelectedTimeMBM = useSelector(
     (state) => state.cartItemTime.cartItemSelectedTime
   );
-
+  const [trueCarts, loading, refetch] = useTruePayment()
   const data = {
     totalPriceMBM,
     cartItemSelectedTimeMBM,
@@ -113,6 +114,7 @@ const CheckoutForm = () => {
             .then((res) => {
               console.log(res.data);
             });
+            refetch()
           navigate("/dashboard/my-all-domains");
           Swal.fire({
             title: "Successful payment",

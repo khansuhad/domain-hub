@@ -112,7 +112,7 @@ i18n.use(initReactI18next).init({
         category6: "Media",
         category7: "Sport",
         category8: "Technology",
-        categorySelect: "Select Category",
+        categorySelect: "Select a Category",
         showDetails: "Show Details",
 
         //see details

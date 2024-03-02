@@ -24,17 +24,19 @@ const CategoryDetails = () => {
   const [carts, loading, refetch] = useCart();
   const [alldomain] = useAllSoldDomain();
   console.log("cart item:", alldomain);
-  const bookedDomains = alldomain?.filter((item) => item.payment === "true");
+  // const bookedDomains = alldomain?.filter((item) => item.payment === "true");
+  const bookedDomains = alldomain
   const handleSearch = (e) => {
     e.preventDefault();
     const form = e.target;
     const searchData = form.domain.value;
     const domainSearched = searchData.concat(domainDetails?.name);
     const domain = domainSearched.toLowerCase();
-    console.log("lowercase domain", domain);
     const findDomain = bookedDomains.filter((item) => item.name === domain);
-    console.log("test status", findDomain?.length);
-    if (findDomain?.length > 0) {
+    const findDomainInCart = carts.filter((item) => item.name === domain);
+    console.log("test sold domain length", findDomain?.length);
+    console.log("test cart domain length", findDomainInCart?.length);
+    if (findDomain?.length > 0 || findDomainInCart?.length > 0) {
       setNotAvailable("Sorry! this domain is already taken.");
       setSearchedDomain("");
     } else {

@@ -16,7 +16,10 @@ const StatusCountDown = ({cart}) => {
     if (completed) {
       return <Completionist />;
     } else {
-      return <span>{days} d : {hours} h : {minutes} m: {seconds} s Remaining</span>;
+      const years= Math.floor(days/365) 
+      const months= Math.floor((days%365)/30) 
+      // return <span>{days} d : {hours} h : {minutes} m: {seconds} s Remaining</span>;
+      return <span>{years} y : {months} m Remaining</span>;
     }
   };
   return (

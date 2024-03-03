@@ -5,7 +5,7 @@ import useAxiosPublic from "../../../Hock/useAxiosPublic";
 import Swal from "sweetalert2";
 import moment from "moment";
 import { Helmet } from "react-helmet";
-import { ClimbingBoxLoader } from "react-spinners";
+
 
 const AllFreeTailApplication = () => {
   const [freeTrialUsers,,refetch] = useFreeTrial();

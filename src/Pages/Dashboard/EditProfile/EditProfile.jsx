@@ -20,15 +20,9 @@ const EditProfile = () => {
     toast.success("Profile update successfully");
   const updateProfileErrorToast = () => toast.error("Profile can't update");
   const [loading, setLoading] = useState(false);
-  const {
-    register,
-    handleSubmit,
-
-    formState: { errors },
-  } = useForm({
+  const { register, handleSubmit } = useForm({
     defaultValues: {
       name: info?.name,
-      photo: user?.photoURL,
       email: user?.email,
       phoneNumber: info?.phone,
       presentAddress: info?.presentAddress,
@@ -43,20 +37,27 @@ const EditProfile = () => {
     const presentAddress = data.presentAddress;
     const permanentAddress = data.permanentAddress;
     const nationality = data.nationality;
-    // image upload to imgbb and then get an url
-    const imageFile = { image: data.photo[0] };
-    const res = await axios.post(
-      `https://api.imgbb.com/1/upload?key=${
-        import.meta.env.VITE_IMGBB_API_KEY
-      }`,
-      imageFile,
-      {
-        headers: {
-          "content-type": "multipart/form-data",
-        },
-      }
-    );
-    const photo = res.data.data.display_url;
+    const img = data.photo[0];
+
+    let photo;
+    if (img) {
+      // image upload to imgbb and then get an url
+      const imageFile = { image: data.photo[0] };
+      const res = await axios.post(
+        `https://api.imgbb.com/1/upload?key=${
+          import.meta.env.VITE_IMGBB_API_KEY
+        }`,
+        imageFile,
+        {
+          headers: {
+            "content-type": "multipart/form-data",
+          },
+        }
+      );
+      photo = res.data.data.display_url;
+    } else {
+      photo = info?.photo;
+    }
     await updateProfile(user, {
       displayName: name,
       photoURL: photo,
@@ -157,18 +158,10 @@ const EditProfile = () => {
                   </span>
                 </label>
                 <input
-                  {...register("photo", {
-                    required: "Name is required",
-                  })}
+                  {...register("photo")}
                   type="file"
                   className="input input-bordered text-black bg-[#F5F7F8] dark:border-[#F5F7F8] dark:text-[#F5F7F8] dark:bg-[#191919]  pt-2"
                 />
-
-                {errors.photo?.message && (
-                  <p className="text-xs text-red-600 mt-1 text-start">
-                    {errors.photo?.message}
-                  </p>
-                )}
               </div>
               <div className="form-control">
                 <label className="label">

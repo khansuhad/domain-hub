@@ -75,15 +75,8 @@ const Profile = () => {
                   Email: {info?.email ? info?.email : "N/A"}
                 </p>
                 <p className="my-1 flex items-center gap-1">
-                  Diamond:{" "}
-                  {info?.point ? (
-                    <>
-                      {info?.point}
-                      <IoDiamond />
-                    </>
-                  ) : (
-                    "N/A"
-                  )}
+                  Diamond: {info?.point ? info?.point : 0}
+                  <IoDiamond />
                 </p>
               </div>
 

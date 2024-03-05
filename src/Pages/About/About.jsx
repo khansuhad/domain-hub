@@ -12,13 +12,22 @@ const About = () => {
         <meta name="description" content="Helmet application" />
       </Helmet>
       <div className="dark:bg-[#191919]">
-        <AboutUs></AboutUs>
+        <div data-aos="zoom-in">
+          <AboutUs></AboutUs>
+        </div>
 
-        <WhyDomainHub></WhyDomainHub>
+        <div data-aos="fade-up">
+          <WhyDomainHub></WhyDomainHub>
+        </div>
 
-        <OurMission></OurMission>
+        <div data-aos="zoom-in">
+          <OurMission></OurMission>
+        </div>
 
-        <OurTeam></OurTeam>
+        <div data-aos="fade-up"
+          data-aos-anchor-placement="bottom-bottom">
+          <OurTeam></OurTeam>
+        </div>
       </div>
     </>
   );

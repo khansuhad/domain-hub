@@ -57,7 +57,7 @@ const Contact = () => {
         className=" px-2  lg:px-[10%] bg-firstColor dark:bg-[#191919] dark:text-white text-white py-10"
       >
         <h2 className="text-2xl md:text-3xl font-bold text-center my-20">
-          <Heading>{t("contactUs")}</Heading>
+          <Heading>{t("contact us")}</Heading>
         </h2>
         <div className="flex flex-col md:flex-row justify-center gap-10">
           <div className=" text-center">

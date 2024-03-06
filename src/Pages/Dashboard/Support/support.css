@@ -1,0 +1,29 @@
+.banner-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.banner-image {
+    width: 100%;
+    height: auto;
+    animation: slide-in 1s ease-in-out forwards;
+}
+
+@keyframes slide-in {
+    0% {
+        transform: translateY(-50%);
+    }
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+.video-container {
+    width: 50%;
+    padding: 0 20px;
+}
+
+.video-container iframe {
+    width: 100%;
+    height: 100%;
+}

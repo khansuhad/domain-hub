@@ -40,10 +40,10 @@ const Banner = () => {
         <div style={backgroundPhoto} className="text-white bg-opacity-60 ">
             <div className="flex justify-center items-center h-full">
                 <div>
-                    <h2 className="lg:text-5xl md:text-4xl text-2xl font-bold md:mb-5 mb-2">{t('bannerTitle')}</h2>
+                    <h2 className="lg:text-5xl md:text-4xl text-xl text-center font-bold md:mb-5 mb-2">{t('bannerTitle')}</h2>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="form-control">
-                            <div className="flex gap-2 justify-center  md:mt-5 mt-2">
+                            <div className="flex gap-2 justify-center  md:mt-5 mt-2 px-2 lg:px-0">
                                 <div>
                                     <input
                                         {...register("domain", {
@@ -61,8 +61,10 @@ const Banner = () => {
                                 </div>
                                 <div>
                                     <button className="btn bg-secondColor hover:bg-fourthColor dark:bg-gray-700 border-none  transition-all duration-300 " type="submit">
-                                        <FaSearch className="text-xl text-white dark:text-[#F5F7F8]"></FaSearch>
-                                        <p className="text-lg text-white dark:text-[#F5F7F8]">{t("bannerSearchBtn")}</p>
+                                        <div className="flex items-center gap-2">
+                                            <FaSearch className="lg:text-xl text-white dark:text-[#F5F7F8]"></FaSearch>
+                                            <p className="text-lg text-white dark:text-[#F5F7F8]">{t("bannerSearchBtn")}</p>
+                                        </div>
                                     </button>
                                 </div>
                             </div>

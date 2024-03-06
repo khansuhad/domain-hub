@@ -8,10 +8,10 @@ import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useSelector } from "react-redux";
 import moment from "moment";
+import Swal from "sweetalert2";
 import useTruePayment from "../../../Hock/useTruePayment";
 
 const CheckoutForm = () => {
-  const paymentSuccessToast = () => toast.success("Payment successfully");
   const paymentErrorToast = () => toast.error("Something went wrong");
   const [paymentLoading, setPaymentLoading] = useState(false);
   const [error, setError] = useState("");
@@ -24,6 +24,7 @@ const CheckoutForm = () => {
   const email = user?.email;
   const navigate = useNavigate();
   const totalPriceMBM = useSelector((state) => state.payment.TotalBill);
+  const diamond = Math.round(totalPriceMBM * .25);
   const cartItemSelectedTimeMBM = useSelector(
     (state) => state.cartItemTime.cartItemSelectedTime
   );
@@ -115,7 +116,11 @@ const CheckoutForm = () => {
             });
             refetch()
           navigate("/dashboard/my-all-domains");
-          paymentSuccessToast();
+          Swal.fire({
+            title: "Successful payment",
+            text: `You win ${diamond} diamond`,
+            icon: "success",
+          });
           setPaymentLoading(false);
         });
       }

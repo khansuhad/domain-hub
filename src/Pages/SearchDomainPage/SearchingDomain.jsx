@@ -4,13 +4,18 @@ import { MdAddShoppingCart } from "react-icons/md";
 import useCart from "../../Hock/useCart";
 import useAxiosPublic from "../../Hock/useAxiosPublic";
 import Swal from "sweetalert2";
-import LiveChat from "../../Component/Shared/liveChat section/LiveChat";
 import useAxiosSecure from "../../Hock/useAxiosSecure";
 import Loading from "../../Component/Loading/Loading";
-import swal from "sweetalert";
 import { Helmet } from "react-helmet";
+import useAllSoldDomain from "../../Hock/useAllSoldDomain";
+import ContactSection from "../../Component/Shared/ContactSection/ContactSection";
 
 const SearchingDomain = () => {
+  const [alldomain] = useAllSoldDomain();
+  const bookedDomains = alldomain
+  // console.log(bookedDomains);
+
+  
   const searchValue = useSelector((state) => state.domain.domain);
   const userInfo = useSelector((state) => state.user.currentUser);
   console.log(userInfo.email);
@@ -75,21 +80,29 @@ const SearchingDomain = () => {
     const domainName = searchTerm.concat(domainItem?.name);
     console.log(domainName);
     // Check if the domain is already in the cart
-    const isDomainInCart = carts?.some(
-      (cartItem) => cartItem.name === domainName
-    );
-    console.log(!isDomainInCart);
-    if (isDomainInCart) {
+    // const isDomainInCart = carts?.some(
+    //   (cartItem) => cartItem.name === domainName
+    // );
+
+    // const isbookedDomains = bookedDomains?.some(
+    //   (Item) => Item.name === domainName
+    // );
+  
+    const findDomain = bookedDomains.filter((item) => item.name === domainName);
+    const isDomainInCart = carts.filter((item) => item.name === domainName);
+
+    console.log("isbookedDomains", findDomain?.length);
+    console.log( "isDomainInCart", isDomainInCart?.length);
+    if (findDomain?.length > 0 || isDomainInCart?.length > 0) {
       Swal.fire({
         title: "Wrong!",
-        text: "Already Added Cart",
+        text: "Already taken this",
         icon: "error",
         confirmButtonText: "Close",
       });
       // swal("Oops!", "Already Added Cart!", "error");
     }
-    // console.log(domain);
-    if (!isDomainInCart) {
+    else{
       const cartItem = {
         name: domainName,
         category: domainItem?.category,
@@ -295,7 +308,7 @@ const SearchingDomain = () => {
             </select>
           </div>
 
-          <LiveChat></LiveChat>
+          <ContactSection></ContactSection>
         </div>
       )}
     </>

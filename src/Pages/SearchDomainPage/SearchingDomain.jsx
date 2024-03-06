@@ -4,11 +4,11 @@ import { MdAddShoppingCart } from "react-icons/md";
 import useCart from "../../Hock/useCart";
 import useAxiosPublic from "../../Hock/useAxiosPublic";
 import Swal from "sweetalert2";
-import LiveChat from "../../Component/Shared/liveChat section/LiveChat";
 import useAxiosSecure from "../../Hock/useAxiosSecure";
 import Loading from "../../Component/Loading/Loading";
 import { Helmet } from "react-helmet";
 import useAllSoldDomain from "../../Hock/useAllSoldDomain";
+import ContactSection from "../../Component/Shared/ContactSection/ContactSection";
 
 const SearchingDomain = () => {
   const [alldomain] = useAllSoldDomain();
@@ -308,7 +308,7 @@ const SearchingDomain = () => {
             </select>
           </div>
 
-          <LiveChat></LiveChat>
+          <ContactSection></ContactSection>
         </div>
       )}
     </>

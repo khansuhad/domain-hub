@@ -18,7 +18,7 @@ const Support = () => {
                     <h1 className="text-white text-center text-2xl md:text-4xl lg:text-5xl font-bold">Watch the video below to use the website</h1>
                 </div>
             </div>
-            <div className="video-container m-2">
+            <div className="video-container flex justify-center md:my-10 m-2">
                 <iframe
                     ref={videoRef}
                     width="560"
@@ -29,6 +29,8 @@ const Support = () => {
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowFullScreen
                 ></iframe>
+            </div>
+            <div className="flex justify-center">
                 <button onClick={toggleFullScreen}>Toggle Fullscreen</button>
             </div>
         </div>
